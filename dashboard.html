@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyNest | Science Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Kantumruy+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary: #2a5cff;
+        --bg: #f8fafc;
+        --white: #ffffff;
+        --text: #0f172a;
+        --math: #6366f1;
+        --physics: #f59e0b;
+        --chemistry: #10b981;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", "Kantumruy Pro", sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* --- Sidebar --- */
+      .sidebar {
+        width: 260px;
+        background: var(--white);
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #e2e8f0;
+      }
+
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-link {
+        padding: 14px 18px;
+        border-radius: 12px;
+        color: #64748b;
+        text-decoration: none;
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: 0.3s;
+      }
+
+      .nav-link.active {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* --- Main Content --- */
+      .main-container {
+        flex: 1;
+        padding: 60px;
+      }
+
+      header {
+        margin-bottom: 40px;
+      }
+      h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        margin: 0;
+      }
+
+      /* --- Subject Grid --- */
+      .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1100px;
+      }
+
+      .subject-card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 32px;
+        text-decoration: none;
+        color: inherit;
+        transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        border: 1px solid transparent;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .subject-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      }
+
+      .icon-box {
+        width: 80px;
+        height: 80px;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+      }
+
+      .subj-name {
+        font-family: "Kantumruy Pro", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .subj-meta {
+        color: #64748b;
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+      }
+
+      .btn-study {
+        padding: 12px 30px;
+        border-radius: 12px;
+        background: #f1f5f9;
+        color: var(--text);
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+
+      .subject-card:hover .btn-study {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Subject Specific Colors */
+      .math-bg {
+        background: #eef2ff;
+        color: var(--math);
+      }
+      .physics-bg {
+        background: #fff7ed;
+        color: var(--physics);
+      }
+      .chem-bg {
+        background: #ecfdf5;
+        color: var(--chemistry);
+      }
+
+      .grade-section {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo"><i class="fas fa-book-reader"></i> StudyNest</div>
+      <a href="#" class="nav-link active"
+        ><i class="fas fa-home"></i> Dashboard</a
+      >
+      <a href="#" class="nav-link"><i class="fas fa-tasks"></i> Assignments</a>
+      <a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
+      <div style="margin-top: auto">
+        <a
+          href="login.html"
+          class="nav-link"
+          style="color: #ef4444"
+          onclick="localStorage.clear()"
+          ><i class="fas fa-sign-out-alt"></i> Logout</a
+        >
+      </div>
+    </div>
+
+    <div class="main-container">
+      <header>
+        <h1 id="greeting">Welcome back! 👋</h1>
+        <p style="color: #64748b; font-size: 1.1rem; margin-top: 10px">
+          Select a subject to continue your studies.
+        </p>
+      </header>
+
+      <div id="grade-12" class="grade-section">
+        <div class="subject-grid">
+          <a href="math.html" class="subject-card">
+            <div class="icon-box math-bg">
+              <i class="fas fa-square-root-variable"></i>
+            </div>
+            <div class="subj-name">គណិតវិទ្យា</div>
+            <div class="subj-meta">48 Lessons • 1,200 Exercises</div>
+            <div class="btn-study">Start Learning</div>
+          </a>
+
+          <a href="physics.html" class="subject-card">
+            <div class="icon-box physics-bg"><i class="fas fa-bolt"></i></div>
+            <div class="subj-name">រូបវិទ្យា</div>
+            <div class="subj-meta">35 Lessons • 850 Exercises</div>
+            <div class="btn-study">Start Learning</div>
+          </a>
+
+          <a href="chemistry.html" class="subject-card">
+            <div class="icon-box chem-bg">
+              <i class="fas fa-flask-vial"></i>
+            </div>
+            <div class="subj-name">គីមីវិទ្យា</div>
+            <div class="subj-meta">42 Lessons • 900 Exercises</div>
+            <div class="btn-study">Start Learning</div>
+          </a>
+        </div>
+      </div>
+
+      <div id="grade-7" class="grade-section">
+        <div class="subject-grid"></div>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        const name = localStorage.getItem("userName") || "Student";
+        const grade = localStorage.getItem("userGrade") || "12";
+
+        document.getElementById("greeting").innerText =
+          "Welcome back, " + name + "! 👋";
+
+        const section = document.getElementById("grade-" + grade);
+        if (section) section.style.display = "block";
+      };
+    </script>
+  </body>
+</html>

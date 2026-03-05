@@ -1,0 +1,19 @@
+{
+  "name": "studynest",
+  "version": "1.0.0",
+  "description": "StudyNest Education Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sroykimou/StudyNest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
