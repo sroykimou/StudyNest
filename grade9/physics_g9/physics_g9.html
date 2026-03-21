@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physics Grade 9 | StudyNest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --phys-primary: #7c3aed; /* Deep Violet */
+        --phys-bg: #f5f3ff;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--phys-bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #5b21b6 0%,
+          var(--phys-primary) 100%
+        );
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: var(--white);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 8px solid var(--phys-primary);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .lesson-card:hover {
+        transform: translateX(10px);
+      }
+
+      .phys-icon {
+        font-size: 2.2rem;
+        color: var(--phys-primary);
+        margin-right: 25px;
+        width: 50px;
+        text-align: center;
+      }
+      .lesson-info h3 {
+        color: #4c1d95;
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+      }
+      .lesson-info p {
+        color: #64748b;
+        font-size: 0.95rem;
+      }
+
+      .start-btn {
+        background: var(--phys-primary);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade9_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនរូបវិទ្យា ថ្នាក់ទី៩</h1>
+      <p>ត្រៀមប្រឡងឌីប្លូម - Electricity and Magnetism Hub</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="phys-icon"><i class="fas fa-bolt"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ១៖ ចរន្តអគ្គិសនី (Electric Current)</h3>
+            <p>
+              សិក្សាអំពីអាំងតង់ស៊ីតេចរន្ត តង់ស្យុង និងច្បាប់អូម (Ohm's Law)។
+            </p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="phys-icon"><i class="fas fa-magnet"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ២៖ ម៉ាញេទិច (Magnetism)</h3>
+            <p>ស្វែងយល់ពីដែនម៉ាញេទិច និងបាតុភូតអេឡិចត្រូម៉ាញេទិច។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="phys-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ៣៖ ពន្លឺ (Light)</h3>
+            <p>ការជះត្រឡប់ និងការងាកនៃពន្លឺតាមរយៈកញ្ចក់ និងឡង់ទី។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grade 12 | Bac II Hub</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      body {
+        background: #f1f5f9;
+        padding: 40px;
+        font-family: "Khmer OS Siemreap", sans-serif;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        text-decoration: none;
+        color: #1e293b;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        border-top: 5px solid #0f172a;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      .card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      /* Subject Colors */
+      .math {
+        color: #2563eb;
+      }
+      .phys {
+        color: #7c3aed;
+      }
+      .chem {
+        color: #059669;
+      }
+      .bio {
+        color: #dc2626;
+      }
+      .hist {
+        color: #b45309;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1 style="color: #0f172a">កម្រងមេរៀន ថ្នាក់ទី១២</h1>
+      <p>ត្រៀមប្រឡងបាក់ឌុប (Bac II Preparation)</p>
+    </div>
+
+    <div class="grid">
+      <a href="math_g12/math_g12.html" class="card">
+        <i class="fas fa-calculator math"></i>
+        <h3>គណិតវិទ្យា</h3>
+      </a>
+      <a href="physics_g12/physics_g12.html" class="card">
+        <i class="fas fa-atom phys"></i>
+        <h3>រូបវិទ្យា</h3>
+      </a>
+      <a href="chemistry_g12/chemistry_g12.html" class="card">
+        <i class="fas fa-flask chem"></i>
+        <h3>គីមីវិទ្យា</h3>
+      </a>
+      <a href="biology_g12/biology_g12.html" class="card">
+        <i class="fas fa-dna bio"></i>
+        <h3>ជីវវិទ្យា</h3>
+      </a>
+      <a href="history_g12/history_g12.html" class="card">
+        <i class="fas fa-book-atlas hist"></i>
+        <h3>ប្រវត្តិវិទ្យា</h3>
+      </a>
+    </div>
+  </body>
+</html>

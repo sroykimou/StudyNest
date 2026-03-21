@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physics Grade 12 | Bac II Prep</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --phys-dark: #312e81; /* Indigo-900 */
+        --phys-main: #4f46e5; /* Indigo-600 */
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--phys-dark) 0%,
+          var(--phys-main) 100%
+        );
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 18px;
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .container {
+        max-width: 950px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 10px solid var(--phys-main);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .lesson-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(79, 70, 229, 0.15);
+      }
+
+      .icon-box {
+        width: 70px;
+        height: 70px;
+        background: #e0e7ff;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: var(--phys-dark);
+        margin-right: 25px;
+      }
+
+      .start-btn {
+        background: var(--phys-dark);
+        color: white;
+        padding: 12px 25px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade12_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនរូបវិទ្យា ថ្នាក់ទី១២</h1>
+      <p>សិក្សាស្រាវជ្រាវត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-wave-square"></i></div>
+          <div>
+            <h3>មេរៀនទី ១៖ លំយោលសេរី (Oscillations)</h3>
+            <p>លំយោលនៃប្រព័ន្ធរ៉ឺស័រ និងប៉ោលដែលគ្មានកម្លាំងកកិត។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-water"></i></div>
+          <div>
+            <h3>មេរៀនទី ២៖ រលក (Waves)</h3>
+            <p>រលកមេកានិច ការជាន់គ្នានៃរលក និងរលកឈរ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-atom"></i></div>
+          <div>
+            <h3>មេរៀនទី ៣៖ អេឡិចត្រូម៉ាញេទិច</h3>
+            <p>
+              ដែនម៉ាញេទិចនៃចរន្តអគ្គិសនី និងច្បាប់ហ្វារ៉ាដេយ (Faraday's Law)។
+            </p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

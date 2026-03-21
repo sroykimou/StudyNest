@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Grade 10 | Senior High</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --math-dark: #1e3a8a;
+        --math-main: #2563eb; /* Royal Blue */
+        --bg: #f0f9ff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--math-dark) 0%,
+          var(--math-main) 100%
+        );
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 8px solid var(--math-main);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .lesson-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
+      }
+
+      .icon-box {
+        width: 60px;
+        height: 60px;
+        background: var(--bg);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: var(--math-dark);
+        margin-right: 20px;
+      }
+
+      .start-btn {
+        background: var(--math-main);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade10_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនគណិតវិទ្យា ថ្នាក់ទី១០</h1>
+      <p>សិក្សាអំពីអនុគមន៍ សមីការ និងធរណីមាត្រវិភាគ</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+          <div>
+            <h3>មេរៀនទី ១៖ អនុគមន៍ដឺក្រេទី២</h3>
+            <p>ការសង់ប៉ារ៉ាបូល រកកូអរដោនេកំពូល និងអ័ក្សឆ្លុះ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-square-root-alt"></i></div>
+          <div>
+            <h3>មេរៀនទី ២៖ សមីការដឺក្រេទី២</h3>
+            <p>ការប្រើប្រាស់ឌីស្គ្រីមីណង់ ($\Delta$) ដើម្បីរកឫសនៃសមីការ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-draw-polygon"></i></div>
+          <div>
+            <h3>មេរៀនទី ៣៖ វ៉ិចទ័រក្នុងប្លង់</h3>
+            <p>ផលបូកវ៉ិចទ័រ ផលគុណស្កាលែ និងការអនុវត្តក្នុងធរណីមាត្រ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

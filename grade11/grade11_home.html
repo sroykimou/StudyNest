@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade 11 | Advanced Study Hub</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #991b1b; /* Deep Crimson */
+        --secondary: #dc2626;
+        --bg: #fef2f2;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        box-shadow: 0 10px 30px rgba(153, 27, 27, 0.2);
+        position: relative;
+      }
+
+      .logout-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.8rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 10px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: -50px auto 50px;
+        padding: 0 20px;
+      }
+
+      .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .subject-card {
+        background: var(--white);
+        border-radius: 25px;
+        padding: 50px 30px;
+        text-align: center;
+        text-decoration: none;
+        color: #1e293b;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .subject-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 50px rgba(153, 27, 27, 0.15);
+      }
+
+      .icon-box {
+        width: 90px;
+        height: 90px;
+        background: #fff1f2;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 25px;
+      }
+
+      .subject-card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+      }
+      .subject-card p {
+        color: #64748b;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logout-btn"
+        ><i class="fas fa-power-off"></i> ចាកចេញ</a
+      >
+      <h1 style="font-size: 2.5rem">កម្រងមេរៀន ថ្នាក់ទី១១</h1>
+      <p>Grade 11 - Preparation for National Exams</p>
+    </header>
+
+    <div class="container">
+      <div class="subject-grid">
+        <a href="math_g11/math_g11.html" class="subject-card">
+          <div class="icon-box"><i class="fas fa-wave-square"></i></div>
+          <h2>គណិតវិទ្យា</h2>
+          <p>ស្វីតចំនួនពិត អនុគមន៍អិចស្ប៉ូណង់ស្យែល និងលីមីត។</p>
+        </a>
+
+        <a href="physics_g11/physics_g11.html" class="subject-card">
+          <div class="icon-box"><i class="fas fa-rocket"></i></div>
+          <h2>រូបវិទ្យា</h2>
+          <p>មេកានិចនៃចំណុចរូបធាតុ អគ្គិសនី និងម៉ាញេទិច។</p>
+        </a>
+
+        <a href="chemistry_g11/chemistry_g11.html" class="subject-card">
+          <div class="icon-box"><i class="fas fa-burn"></i></div>
+          <h2>គីមីវិទ្យា</h2>
+          <p>គីមីសរីរាង្គ អ៊ីដ្រូកាបូន និងតុល្យភាពគីមី។</p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

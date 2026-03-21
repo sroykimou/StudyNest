@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chemistry Grade 9 | StudyNest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --chem-primary: #059669; /* Emerald Green */
+        --chem-bg: #ecfdf5;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--chem-bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #064e3b 0%,
+          var(--chem-primary) 100%
+        );
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 8px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: var(--white);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 8px solid var(--chem-primary);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .lesson-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(5, 150, 105, 0.1);
+      }
+
+      .chem-icon {
+        font-size: 2rem;
+        color: var(--chem-primary);
+        margin-right: 20px;
+        width: 50px;
+        text-align: center;
+      }
+      .lesson-info h3 {
+        color: #064e3b;
+        margin-bottom: 5px;
+      }
+      .lesson-info p {
+        color: #64748b;
+        font-size: 0.9rem;
+      }
+
+      .start-btn {
+        background: var(--chem-primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade9_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនគីមីវិទ្យា ថ្នាក់ទី៩</h1>
+      <p>សិក្សាអំពីសមាសធាតុអសរីរាង្គ និងប្រតិកម្មគីមី</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="chem-icon"><i class="fas fa-cloud"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ១៖ អុកស៊ីត (Oxides)</h3>
+            <p>ស្វែងយល់ពីអុកស៊ីតអាស៊ីត និងអុកស៊ីតបាស និងការហៅឈ្មោះ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="chem-icon"><i class="fas fa-vial"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ២៖ អាស៊ីត និងបាស (Acids & Bases)</h3>
+            <p>លក្ខណៈរូប លក្ខណៈគីមី និងសន្ទស្សន៍ pH។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="chem-icon"><i class="fas fa-mortar-pestle"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ៣៖ អំបិល (Salts)</h3>
+            <p>និយមន័យនៃអំបិល ប្រតិកម្មបន្សាប និងការប្រើប្រាស់ក្នុងជីវភាព។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

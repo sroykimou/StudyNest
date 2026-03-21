@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade 7 Hub | StudyNest</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --g7-color: #0ea5e9; /* Sky Blue */
+        --g7-dark: #0369a1;
+      }
+
+      body {
+        font-family: "Kantumruy Pro", sans-serif;
+        background-color: #f0f9ff;
+        margin: 0;
+      }
+
+      .navbar {
+        background: white;
+        padding: 15px 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .welcome-section {
+        padding: 40px 5%;
+        background: linear-gradient(135deg, var(--g7-dark), var(--g7-color));
+        color: white;
+        text-align: center;
+      }
+
+      .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        padding: 40px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .subject-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        transition: 0.3s;
+        text-decoration: none;
+        color: #1e293b;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border-bottom: 5px solid transparent;
+      }
+
+      .subject-card:hover {
+        transform: translateY(-10px);
+        border-bottom-color: var(--g7-color);
+      }
+
+      .subject-card i {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        color: var(--g7-color);
+      }
+
+      .logout-btn {
+        color: #ef4444;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><strong>StudyNest</strong> G7</div>
+      <a href="#" onclick="logout()" class="logout-btn"
+        ><i class="fas fa-sign-out-alt"></i> ចាកចេញ</a
+      >
+    </nav>
+
+    <section class="welcome-section">
+      <h1>សួស្តី! ត្រៀមខ្លួនរៀនហើយឬនៅ?</h1>
+      <p>ថ្នាក់ទី ៧ - មូលដ្ឋានគ្រឹះនៃចំណេះដឹង</p>
+    </section>
+
+    <div class="subject-grid">
+      <a href="math_g7.html" class="subject-card">
+        <i class="fas fa-calculator"></i>
+        <h3>គណិតវិទ្យា</h3>
+        <p>លេខ អព្វន្តរ និងធរណីមាត្រ</p>
+      </a>
+
+      <a href="physics_g7.html" class="subject-card">
+        <i class="fas fa-bolt"></i>
+        <h3>រូបវិទ្យា</h3>
+        <p>កម្លាំង និងថាមពល</p>
+      </a>
+
+      <a href="chemistry_g7.html" class="subject-card">
+        <i class="fas fa-flask"></i>
+        <h3>គីមីវិទ្យា</h3>
+        <p>សារធាតុ និងល្បាយ</p>
+      </a>
+    </div>
+
+    <script>
+      function logout() {
+        localStorage.removeItem("currentUserName");
+        localStorage.removeItem("userGrade");
+        window.location.href = "../login.html";
+      }
+    </script>
+  </body>
+</html>

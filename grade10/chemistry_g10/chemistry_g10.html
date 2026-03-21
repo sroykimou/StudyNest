@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chemistry Grade 10 | Senior High</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --chem-dark: #064e3b;
+        --chem-main: #10b981; /* Emerald */
+        --bg: #f0fdf4;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--chem-dark) 0%,
+          var(--chem-main) 100%
+        );
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-right: 8px solid var(--chem-main);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .lesson-card:hover {
+        transform: translateX(-10px);
+      }
+
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        background: var(--bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--chem-dark);
+        margin-right: 20px;
+      }
+
+      .start-btn {
+        background: var(--chem-dark);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade10_home.html" class="back-btn"
+        ><i class="fas fa-chevron-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនគីមីវិទ្យា ថ្នាក់ទី១០</h1>
+      <p>មូលដ្ឋានគ្រឹះនៃអាតូម និងសម្ព័ន្ធគីមី</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-circle"><i class="fas fa-atom"></i></div>
+          <div>
+            <h3>មេរៀនទី ១៖ អាតូម និងរចនាសម្ព័ន្ធអាតូម</h3>
+            <p>ស្វែងយល់អំពីសំបកអេឡិចត្រុង និងការរៀបអេឡិចត្រុងតាមថ្នាក់ថាមពល។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">សិក្សា</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-circle"><i class="fas fa-table"></i></div>
+          <div>
+            <h3>មេរៀនទី ២៖ តារាងខួបនៃធាតុគីមី</h3>
+            <p>របៀបអានតារាងខួប ក្រុម និងខួប និងលក្ខណៈនៃធាតុគីមី។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">សិក្សា</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-circle"><i class="fas fa-link"></i></div>
+          <div>
+            <h3>មេរៀនទី ៣៖ សម្ព័ន្ធគីមី (Chemical Bonding)</h3>
+            <p>ស្វែងយល់ពីសម្ព័ន្ធអ៊ីយ៉ុង និងសម្ព័ន្ធកូវ៉ាឡង់។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">សិក្សា</a>
+      </div>
+    </div>
+  </body>
+</html>
