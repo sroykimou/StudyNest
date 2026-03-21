@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physics Grade 8 | StudyNest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --phys-primary: #7c3aed; /* Purple */
+        --phys-bg: #f5f3ff;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--phys-bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #5b21b6 0%,
+          var(--phys-primary) 100%
+        );
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 8px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: var(--white);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 8px solid var(--phys-primary);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .phys-icon {
+        font-size: 2rem;
+        color: var(--phys-primary);
+        margin-right: 20px;
+      }
+      .lesson-info h3 {
+        color: #5b21b6;
+        margin-bottom: 5px;
+      }
+      .lesson-info p {
+        color: #64748b;
+        font-size: 0.9rem;
+      }
+
+      .start-btn {
+        background: var(--phys-primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade8_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនរូបវិទ្យា ថ្នាក់ទី៨</h1>
+      <p>សិក្សាអំពីកម្លាំង សម្ពាធ និងថាមពល</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="phys-icon"><i class="fas fa-weight-hanging"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ១៖ កម្លាំង (Force)</h3>
+            <p>ស្វែងយល់ពីប្រភេទនៃកម្លាំង និងផលនៃកម្លាំងមកលើអង្គធាតុ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="phys-icon">
+            <i class="fas fa-compress-arrows-alt"></i>
+          </div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ២៖ សម្ពាធ (Pressure)</h3>
+            <p>ការគណនាសម្ពាធលើផ្ទៃរឹង និងក្នុងអង្គធាតុរាវ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="phys-icon"><i class="fas fa-ship"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ៣៖ កម្លាំងអណ្តែតនៃទឹក (Archimedes' Principle)</h3>
+            <p>មូលហេតុដែលធ្វើឱ្យវត្ថុខ្លះអណ្តែត និងខ្លះទៀតលិចក្នុងទឹក។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

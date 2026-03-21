@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History Grade 12 | StudyNest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --hist-dark: #2c2c2c;
+        --hist-gold: #b2945e;
+        --bg: #f4f1ea;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+      body {
+        background-color: var(--bg);
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--hist-dark) 0%, #454545 100%);
+        color: var(--hist-gold);
+        padding: 60px 20px;
+        text-align: center;
+        border-bottom: 5px solid var(--hist-gold);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        color: var(--hist-gold);
+        text-decoration: none;
+        border: 1px solid var(--hist-gold);
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: var(--hist-gold);
+        color: white;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: white;
+        border-radius: 0;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 5px solid var(--hist-gold);
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .icon-box {
+        font-size: 2.5rem;
+        color: var(--hist-gold);
+        margin-right: 25px;
+      }
+
+      .lesson-info h3 {
+        color: var(--hist-dark);
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+      }
+      .lesson-info p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .start-btn {
+        background: var(--hist-dark);
+        color: var(--hist-gold);
+        padding: 10px 20px;
+        border-radius: 0;
+        text-decoration: none;
+        font-weight: 600;
+        border: 1px solid var(--hist-gold);
+        transition: 0.3s;
+      }
+      .start-btn:hover {
+        background: var(--hist-gold);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade12_home.html" class="back-btn"
+        ><i class="fas fa-university"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>ប្រវត្តិវិទ្យា ថ្នាក់ទី១២</h1>
+      <p>សិក្សាអំពីប្រវត្តិសាស្ត្រពិភពលោក និងមាតុភូមិនិវត្តន៍</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ១៖ សង្គ្រាមលោកលើកទី២ (1939-1945)</h3>
+            <p>មូលហេតុ ព្រឹត្តិការណ៍សំខាន់ៗ និងផលវិបាកនៃសង្គ្រាមលោកលើកទី២។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">មើលមេរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-snowflake"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ២៖ សង្គ្រាមត្រជាក់ (The Cold War)</h3>
+            <p>ការប្រជែងមហាអំណាចរវាងសហរដ្ឋអាមេរិក និងសហភាពសូវៀត។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">មើលមេរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-landmark"></i></div>
+          <div class="lesson-info">
+            <h3>មេរៀនទី ៣៖ កម្ពុជាក្រោយឯករាជ្យ</h3>
+            <p>សម័យសង្គមរាស្ត្រនិយម រហូតដល់ការបញ្ចប់សង្គ្រាមស៊ីវិលនៅកម្ពុជា។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">មើលមេរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

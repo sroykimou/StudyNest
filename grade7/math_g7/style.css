@@ -1,0 +1,117 @@
+:root {
+  --primary-blue: #1e40af;
+  --light-blue: #eff6ff;
+  --accent-blue: #3b82f6;
+  --dark-text: #1e293b;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kantumruy Pro", "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--light-blue);
+  color: var(--dark-text);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Chapter Card */
+.chapter-card {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-left: 8px solid var(--primary-blue);
+}
+
+.chapter-title {
+  color: var(--primary-blue);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--light-blue);
+  padding-bottom: 10px;
+}
+
+/* Lesson Buttons */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.btn-lesson {
+  display: block;
+  background: var(--light-blue);
+  color: var(--primary-blue);
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.btn-lesson:hover {
+  background: var(--primary-blue);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Lesson Content Styling */
+.lesson-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.exercise-section {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: 1px solid #e2e8f0;
+}
+
+.answer-box {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  background: #dcfce7;
+  border-radius: 8px;
+  color: #166534;
+  font-weight: bold;
+}
+
+.btn-answer {
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}

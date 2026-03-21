@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Grade 11 | StudyNest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --math-dark: #1e3a8a;
+        --math-main: #3b82f6; /* Bright Blue */
+        --bg: #f0f9ff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--math-dark) 0%,
+          var(--math-main) 100%
+        );
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .lesson-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 8px solid var(--math-main);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .lesson-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.15);
+      }
+
+      .icon-box {
+        width: 60px;
+        height: 60px;
+        background: var(--bg);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: var(--math-dark);
+        margin-right: 20px;
+      }
+
+      .start-btn {
+        background: var(--math-dark);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="grade11_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <h1>មេរៀនគណិតវិទ្យា ថ្នាក់ទី១១</h1>
+      <p>សិក្សាអំពីស្វីត លីមីត និងដេរីវេ</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-sort-numeric-up"></i></div>
+          <div>
+            <h3>មេរៀនទី ១៖ ស្វីតនព្វន្ត និងស្វីតធរណីមាត្រ</h3>
+            <p>ការគណនាតួទី n និងផលបូក n តួដំបូងនៃស្វីត។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-infinity"></i></div>
+          <div>
+            <h3>មេរៀនទី ២៖ លីមីតនៃអនុគមន៍</h3>
+            <p>គណនាលីមីតត្រង់ចំណុចអនន្ត និងរាងមិនកំណត់ផ្សេងៗ។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div style="display: flex; align-items: center">
+          <div class="icon-box"><i class="fas fa-wave-square"></i></div>
+          <div>
+            <h3>មេរៀនទី ៣៖ ដេរីវេនៃអនុគមន៍</h3>
+            <p>និយមន័យដេរីវេ រូបមន្តគ្រឹះ និងការអនុវត្តរកបរមាធៀប។</p>
+          </div>
+        </div>
+        <a href="#" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

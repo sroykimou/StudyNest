@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade 7 | Home Portal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #1e40af; /* Dark Blue */
+        --secondary: #3b82f6; /* Bright Blue */
+        --bg: #eff6ff; /* Light Blue tint */
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: #1e293b;
+        overflow-x: hidden;
+      }
+
+      /* Top Header */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        position: relative;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      header p {
+        opacity: 0.9;
+        font-weight: 300;
+      }
+
+      .logout-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+      .logout-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Content Container */
+      .container {
+        max-width: 1100px;
+        margin: -50px auto 50px;
+        padding: 0 20px;
+      }
+
+      /* Subject Grid */
+      .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .subject-card {
+        background: var(--white);
+        border-radius: 25px;
+        padding: 50px 30px;
+        text-align: center;
+        text-decoration: none;
+        color: #1e293b;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .subject-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 50px rgba(30, 64, 175, 0.15);
+        border-color: var(--secondary);
+      }
+
+      .icon-box {
+        width: 90px;
+        height: 90px;
+        background: var(--bg);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 25px;
+        transition: 0.3s;
+      }
+
+      .subject-card:hover .icon-box {
+        background: var(--primary);
+        color: white;
+        transform: rotate(-10deg);
+      }
+
+      .subject-card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+      }
+      .subject-card p {
+        color: #64748b;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Welcome Badge */
+      .badge {
+        background: #dcfce7;
+        color: #166534;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="badge">Grade 7 Active</div>
+      <h1>មជ្ឈមណ្ឌលសិក្សាថ្នាក់ទី៧</h1>
+      <p>សូមជ្រើសរើសមុខវិជ្ជាដែលអ្នកចង់សិក្សា</p>
+    </header>
+
+    <div class="container">
+      <div class="subject-grid">
+        <a href="math_g7/math_g7.html" class="subject-card">
+          <div class="icon-box"><i class="fas fa-calculator"></i></div>
+          <h2>គណិតវិទ្យា</h2>
+          <p>រៀនអំពីផលធៀប សមាមាត្រ និងមេរៀនជាច្រើនទៀតតាមកម្មវិធីសិក្សាថ្មី។</p>
+        </a>
+
+        <a href="physics_g7/physics_g7.html" class="subject-card">
+          <div class="icon-box"><i class="fas fa-atom"></i></div>
+          <h2>រូបវិទ្យា</h2>
+          <p>
+            ស្វែងយល់អំពីច្បាប់រូបវិទ្យា ការវាស់វែង និងបាតុភូតធម្មជាតិផ្សេងៗ។
+          </p>
+        </a>
+
+        <a href="chemistry_g7/chemistry_g7_home.html" class="subject-card">
+          <div class="icon-box"><i class="fas fa-flask"></i></div>
+          <h2>គីមីវិទ្យា</h2>
+          <p>
+            សិក្សាអំពីសារធាតុគីមី សមាសធាតុ និងការពិសោធន៍វិទ្យាសាស្ត្រដ៏ជក់ចិត្ត។
+          </p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
