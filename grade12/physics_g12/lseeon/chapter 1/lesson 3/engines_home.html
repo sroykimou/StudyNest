@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physics Grade 12 | Bac II Prep</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+        line-height: 1.6;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--phys-dark) 0%,
+          var(--phys-main) 100%
+        );
+        color: white;
+        padding: 80px 20px 60px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      /* FIX 4: Added missing hover state for back button */
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        color: white;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .chapter-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--phys-dark);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid var(--phys-light);
+        padding-bottom: 10px;
+      }
+
+      .lesson-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 8px solid var(--phys-main);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .lesson-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(79, 70, 229, 0.15);
+      }
+
+      .lesson-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .icon-box {
+        min-width: 60px;
+        height: 60px;
+        background: var(--phys-light);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        color: var(--phys-dark);
+      }
+
+      .lesson-text h3 {
+        color: var(--phys-dark);
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+
+      .lesson-text p {
+        font-size: 0.9rem;
+        color: #64748b;
+        max-width: 500px;
+      }
+
+      .start-btn {
+        background: var(--phys-dark);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: background 0.3s;
+      }
+
+      .start-btn:hover {
+        background: var(--phys-main);
+      }
+
+      @media (max-width: 768px) {
+        .lesson-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+        }
+        .start-btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../physics_g12/physics_g12.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+      </a>
+      <h1>ជំពូកទី ១៖ ទែម៉ូឌីណាមិច</h1>
+      <p>មេរៀនទី ៣៖ ម៉ាសុីនកម្ដៅ</p>
+    </header>
+
+    <div class="container">
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-wind"></i></div>
+          <div class="lesson-text">
+            <!-- FIX 1: Corrected double រ typo: មេររៀន → មេរៀន -->
+            <h3>មេរៀន និងរូបមន្ត</h3>
+          </div>
+        </div>
+        <!-- FIX 3: Encoded spaces in path with %20 -->
+        <a href="engines.html" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-thermometer-half"></i></div>
+          <div class="lesson-text">
+            <!-- FIX 2: Corrected typo: ល៉ហត់ → លំហាត់ -->
+            <h3>លំហាត់(១-២០)</h3>
+          </div>
+        </div>
+        <!-- FIX 3: Encoded spaces in path with %20 -->
+        <a href="exercise.html" class="start-btn">ចូលរៀន</a>
+      </div>
+    </div>
+  </body>
+</html>

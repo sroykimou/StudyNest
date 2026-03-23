@@ -36,6 +36,26 @@
         border-bottom: 5px solid var(--dna-teal);
       }
 
+      /* FIX 2: Added back-btn styles */
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 14px;
+        margin-bottom: 16px;
+        padding: 6px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 30px;
+        transition: 0.2s;
+      }
+
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+      }
+
       .subject-tag {
         background: rgba(13, 148, 136, 0.2);
         padding: 6px 16px;
@@ -109,6 +129,7 @@
         align-items: center;
         justify-content: center;
         margin-right: 18px;
+        flex-shrink: 0;
       }
 
       .lesson-name {
@@ -130,6 +151,9 @@
 
   <body>
     <header>
+      <a href="../grade12_home.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+      </a>
       <span class="subject-tag">
         ជីវវិទ្យាថ្នាក់ទី ១២ • ត្រៀមប្រឡងបាក់ឌុប
       </span>
@@ -142,11 +166,13 @@
 
       <div class="chapter-box">
         <div class="chapter-title">
-          <i class="fas fa-dna"></i>
+          <i class="fas fa-seedling"></i>
           ជំពូកទី ១៖ សុីមណូស្ពែម និងអង់ស្យូស្ពែម
         </div>
 
-        <a href="lessons/chapter 1/gymnosperm.html" class="lesson-link"">
+        <!-- FIX 1: Removed extra quote from class attribute -->
+        <!-- FIX 3: Replaced spaces in paths with %20 -->
+        <a href="lessons/chapter%201/gymnosperm.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-microscope"></i>
           </div>
@@ -159,7 +185,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 1/angiosperm.html" class="lesson-link">
+        <a href="lessons/chapter%201/angiosperm.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-seedling"></i>
           </div>
@@ -181,7 +207,10 @@
           ជំពូកទី ៣៖ តម្រូវផ្សេងៗរបស់សារពាង្គកាយ
         </div>
 
-        <a href="lessons/chapter 3/nervous_regulation.html" class="lesson-link">
+        <a
+          href="lessons/chapter%203/nervous_regulation.html"
+          class="lesson-link"
+        >
           <div class="icon-circle">
             <i class="fas fa-brain"></i>
           </div>
@@ -196,7 +225,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 3/sense_organs.html" class="lesson-link">
+        <a href="lessons/chapter%203/sense_organs.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-eye"></i>
           </div>
@@ -209,7 +238,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 3/endocrine_system.html" class="lesson-link">
+        <a href="lessons/chapter%203/endocrine_system.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-heartbeat"></i>
           </div>
@@ -223,15 +252,16 @@
         </a>
       </div>
 
-      <!-- Chapter 4-->
+      <!-- Chapter 4 -->
 
       <div class="chapter-box">
         <div class="chapter-title">
-          <i class="fas fa-brain"></i>
+          <!-- FIX 5: More fitting icon for protein chapter -->
+          <i class="fas fa-project-diagram"></i>
           ជំពូកទី ៤៖ នាទីរបស់ប្រូតេអុីនក្នុងសារពាង្គកាយ
         </div>
 
-        <a href="lessons/chapter 4/amino_acid.html" class="lesson-link">
+        <a href="lessons/chapter%204/amino_acid.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-microscope"></i>
           </div>
@@ -246,7 +276,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 4/protein.html" class="lesson-link">
+        <a href="lessons/chapter%204/protein.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-project-diagram"></i>
           </div>
@@ -261,7 +291,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 4/enzymes.html" class="lesson-link">
+        <a href="lessons/chapter%204/enzymes.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-flask"></i>
           </div>
@@ -279,11 +309,12 @@
 
       <div class="chapter-box">
         <div class="chapter-title">
+          <!-- FIX 5: More fitting icon for DNA/genetics chapter -->
           <i class="fas fa-dna"></i>
           ជំពូកទី ៥៖ ព័ត៌មានសេនេទិច និងការសម្ដែងចេញនៃសែន
         </div>
 
-        <a href="lessons/chapter 5/dna_structure.html" class="lesson-link">
+        <a href="lessons/chapter%205/dna_structure.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-microscope"></i>
           </div>
@@ -298,7 +329,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 5/dna_replication.html" class="lesson-link">
+        <a href="lessons/chapter%205/dna_replication.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-project-diagram"></i>
           </div>
@@ -311,7 +342,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 5/biotechnology.html" class="lesson-link">
+        <a href="lessons/chapter%205/biotechnology.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-flask"></i>
           </div>
@@ -331,11 +362,12 @@
 
       <div class="chapter-box">
         <div class="chapter-title">
-          <i class="fas fa-brain"></i>
+          <!-- FIX 5: More fitting icon for evolution chapter -->
+          <i class="fas fa-fish"></i>
           ជំពូកទី ៦៖ ការវិវត្តនៃភាវរស់
         </div>
 
-        <a href="lessons/chapter 6/evolution.html" class="lesson-link">
+        <a href="lessons/chapter%206/evolution.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-microscope"></i>
           </div>
@@ -348,7 +380,10 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 6/evolutionary_evidence.html" class="lesson-link">
+        <a
+          href="lessons/chapter%206/evolutionary_evidence.html"
+          class="lesson-link"
+        >
           <div class="icon-circle">
             <i class="fas fa-project-diagram"></i>
           </div>
@@ -361,7 +396,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 6/fossil_record.html" class="lesson-link">
+        <a href="lessons/chapter%206/fossil_record.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-flask"></i>
           </div>
@@ -379,11 +414,12 @@
 
       <div class="chapter-box">
         <div class="chapter-title">
-          <i class="fas fa-brain"></i>
+          <!-- FIX 5: More fitting icon for population/ecosystem chapter -->
+          <i class="fas fa-leaf"></i>
           ជំពូកទី ៧៖ ពពួក និងសហគមន៍
         </div>
 
-        <a href="lessons/chapter 7/population.html" class="lesson-link">
+        <a href="lessons/chapter%207/population.html" class="lesson-link">
           <div class="icon-circle">
             <i class="fas fa-microscope"></i>
           </div>
@@ -396,7 +432,10 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lessons/chapter 7/ecosystem_interactions.html" class="lesson-link">
+        <a
+          href="lessons/chapter%207/ecosystem_interactions.html"
+          class="lesson-link"
+        >
           <div class="icon-circle">
             <i class="fas fa-project-diagram"></i>
           </div>
@@ -412,7 +451,7 @@
         </a>
       </div>
 
-      <!-- exercises -->
+      <!-- Exercises -->
 
       <div class="chapter-box">
         <div class="chapter-title">

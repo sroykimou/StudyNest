@@ -14,20 +14,24 @@
     />
     <style>
       :root {
-        --phys-dark: #312e81; /* Indigo-900 */
-        --phys-main: #4f46e5; /* Indigo-600 */
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
         --bg: #f8fafc;
+        --text: #1e293b;
       }
 
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Kantumruy Pro", "Poppins", sans-serif;
       }
+
       body {
         background-color: var(--bg);
-        color: #1e293b;
+        color: var(--text);
+        font-family: "Kantumruy Pro", "Poppins", sans-serif;
+        line-height: 1.6;
       }
 
       header {
@@ -37,7 +41,7 @@
           var(--phys-main) 100%
         );
         color: white;
-        padding: 60px 20px;
+        padding: 80px 20px 60px;
         text-align: center;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         position: relative;
@@ -45,36 +49,53 @@
 
       .back-btn {
         position: absolute;
-        top: 25px;
+        top: 20px;
         left: 20px;
         color: white;
         text-decoration: none;
-        background: rgba(255, 255, 255, 0.2);
-        padding: 10px 18px;
-        border-radius: 12px;
-        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
       }
+
+      /* FIX 2: Added missing hover state for back button */
       .back-btn:hover {
         background: rgba(255, 255, 255, 0.3);
+        color: white;
       }
 
       .container {
-        max-width: 950px;
+        max-width: 900px;
         margin: 40px auto;
         padding: 0 20px;
+      }
+
+      .chapter-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--phys-dark);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid var(--phys-light);
+        padding-bottom: 10px;
       }
 
       .lesson-card {
         background: white;
         border-radius: 20px;
-        padding: 30px;
-        margin-bottom: 25px;
+        padding: 25px;
+        margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-left: 10px solid var(--phys-main);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: 0.3s;
+        border-left: 8px solid var(--phys-main);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
       }
 
       .lesson-card:hover {
@@ -82,72 +103,211 @@
         box-shadow: 0 12px 25px rgba(79, 70, 229, 0.15);
       }
 
+      .lesson-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
       .icon-box {
-        width: 70px;
-        height: 70px;
-        background: #e0e7ff;
-        border-radius: 18px;
+        min-width: 60px;
+        height: 60px;
+        background: var(--phys-light);
+        border-radius: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 1.6rem;
         color: var(--phys-dark);
-        margin-right: 25px;
+      }
+
+      .lesson-text h3 {
+        color: var(--phys-dark);
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+      }
+
+      .lesson-text p {
+        font-size: 0.9rem;
+        color: #64748b;
+        max-width: 500px;
       }
 
       .start-btn {
         background: var(--phys-dark);
         color: white;
-        padding: 12px 25px;
-        border-radius: 12px;
+        padding: 10px 20px;
+        border-radius: 10px;
         text-decoration: none;
         font-weight: 700;
+        white-space: nowrap;
+        transition: background 0.3s;
+      }
+
+      .start-btn:hover {
+        background: var(--phys-main);
+      }
+
+      @media (max-width: 768px) {
+        .lesson-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+        }
+        .start-btn {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <a href="grade12_home.html" class="back-btn"
-        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
-      >
+      <a href="../grade12_home.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+      </a>
       <h1>មេរៀនរូបវិទ្យា ថ្នាក់ទី១២</h1>
       <p>សិក្សាស្រាវជ្រាវត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
     </header>
 
     <div class="container">
-      <div class="lesson-card">
-        <div style="display: flex; align-items: center">
-          <div class="icon-box"><i class="fas fa-wave-square"></i></div>
-          <div>
-            <h3>មេរៀនទី ១៖ លំយោលសេរី (Oscillations)</h3>
-            <p>លំយោលនៃប្រព័ន្ធរ៉ឺស័រ និងប៉ោលដែលគ្មានកម្លាំងកកិត។</p>
-          </div>
-        </div>
-        <a href="#" class="start-btn">ចូលរៀន</a>
+      <div class="chapter-title">
+        <i class="fas fa-fire-alt"></i> ជំពូកទី ១៖ ទែម៉ូឌីណាមិច
       </div>
 
       <div class="lesson-card">
-        <div style="display: flex; align-items: center">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-wind"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ១៖ ទ្រីស្ដីបទសុីនេទិចនៃឧស្ម័ន</h3>
+            <p>ការគណនាថាមពលសុីនេទិច និងកម្រិតកម្ដៅនៃម៉ូលេគុលឧស្ម័ន។</p>
+          </div>
+        </div>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a
+          href="lseeon/chapter 1/lesson 1/flashcards_home.html"
+          class="start-btn"
+          >ចូលរៀន</a
+        >
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-thermometer-half"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ២៖ ច្បាប់ទី១ទែម៉ូឌីណាមិច</h3>
+            <p>សិក្សាអំពីការគណនាថាមពលក្នុងប្រព័ន្ធ និងការប្រែប្រួលថាមពល។</p>
+          </div>
+        </div>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a
+          href="lseeon/chapter 1/lesson 2/thermodynamics_law1_home.html"
+          class="start-btn"
+          >ចូលរៀន</a
+        >
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-cog"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ៣៖ ម៉ាសុីនកម្ដៅ</h3>
+            <p>សិក្សាអំពីគោលការណ៍ដំណើរការនៃម៉ាសុីន និងទិន្នផលកម្ដៅ។</p>
+          </div>
+        </div>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a href="lseeon/chapter 1/lesson 3/engines_home.html" class="start-btn"
+          >ចូលរៀន</a
+        >
+      </div>
+
+      <div class="chapter-title" style="margin-top: 40px">
+        <i class="fas fa-wave-square"></i> ជំពូកទី ២៖ រលក
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
           <div class="icon-box"><i class="fas fa-water"></i></div>
-          <div>
-            <h3>មេរៀនទី ២៖ រលក (Waves)</h3>
-            <p>រលកមេកានិច ការជាន់គ្នានៃរលក និងរលកឈរ។</p>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ១៖ គោលការណ៍រលកតម្រួត និងរលកជញ្ចុំ</h3>
+            <p>សិក្សាអំពីការជាន់គ្នានៃរលក និងលក្ខណៈរលកឈរ។</p>
           </div>
         </div>
-        <a href="#" class="start-btn">ចូលរៀន</a>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a href="lesson/chapter%202/waves.html" class="start-btn">ចូលរៀន</a>
+      </div>
+
+      <div class="chapter-title" style="margin-top: 40px">
+        <i class="fas fa-bolt"></i> ជំពូកទី ៣៖ អគ្គិសនី និងម៉ាញេទិច
       </div>
 
       <div class="lesson-card">
-        <div style="display: flex; align-items: center">
-          <div class="icon-box"><i class="fas fa-atom"></i></div>
-          <div>
-            <h3>មេរៀនទី ៣៖ អេឡិចត្រូម៉ាញេទិច</h3>
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-magnet"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ១៖ ដែននិងកម្លាំងម៉ាញេទិច</h3>
             <p>
-              ដែនម៉ាញេទិចនៃចរន្តអគ្គិសនី និងច្បាប់ហ្វារ៉ាដេយ (Faraday's Law)។
+              សិក្សាអំពីដែនម៉ាញេទិចដែលកើតចេញពីចរន្ត និងកម្លាំងឡូរិន (Lorentz
+              Force)។
             </p>
           </div>
         </div>
-        <a href="#" class="start-btn">ចូលរៀន</a>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a href="lesson/chapter%203/electromagnetism.html" class="start-btn"
+          >ចូលរៀន</a
+        >
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-atom"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ២៖ អាំងឌុចស្យុងអេឡិចត្រូម៉ាញេទិច</h3>
+            <p>
+              សិក្សាអំពីច្បាប់ហ្វារ៉ាដេយ
+              និងការបង្កើតចរន្តអគ្គិសនីតាមរយៈដែនម៉ាញេទិច។
+            </p>
+          </div>
+        </div>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a href="lesson/chapter%203/electromagnetic.html" class="start-btn"
+          >ចូលរៀន</a
+        >
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-retweet"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ៣៖ អូតូអាំងឌុចស្យុង</h3>
+            <p>
+              សិក្សាអំពីការកើតឡើងនៃកម្លាំងអគ្គិសនីចលករក្នុងសៀគ្វីដោយសារបម្រែបម្រួលចរន្តខ្លួនឯង។
+            </p>
+          </div>
+        </div>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a
+          href="lesson/chapter%203/electromagnetic_induction.html"
+          class="start-btn"
+          >ចូលរៀន</a
+        >
+      </div>
+
+      <div class="lesson-card">
+        <div class="lesson-info">
+          <div class="icon-box"><i class="fas fa-plug"></i></div>
+          <div class="lesson-text">
+            <h3>មេរៀនទី ៤៖ សៀគ្វីចរន្តឆ្លាស់</h3>
+            <p>
+              សិក្សាអំពីទម្រង់ចរន្តឆ្លាស់ សុីនុយសូអុីត និងការគណនាក្នុងសៀគ្វី
+              RLC។
+            </p>
+          </div>
+        </div>
+        <!-- FIX 1: Encoded spaces with %20 -->
+        <a href="lesson/chapter%203/ac_circuits.html" class="start-btn"
+          >ចូលរៀន</a
+        >
       </div>
     </div>
   </body>
