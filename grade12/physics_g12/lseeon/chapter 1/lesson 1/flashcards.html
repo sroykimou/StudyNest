@@ -1,40 +1,878 @@
 <!doctype html>
-<html lang="en">
+<html lang="km">
   <head>
     <meta charset="UTF-8" />
-    <title>Grade 7 | Physics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>រូបមន្តទ្រីស្ដីបទសុីនេទិចនៃឧស្ម័ន | Physics G12</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
     <style>
+      :root {
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
+        --red-border: #dc2626;
+        --orange: #f97316;
+        --green: #16a34a;
+        --red-sub: #b91c1c;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
-        font-family: "Poppins", sans-serif;
-        background: #f8fafc;
-        padding: 40px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.9;
+      }
+      header {
+        background: linear-gradient(135deg, #1e1b4b, var(--phys-dark));
+        color: white;
+        padding: 60px 20px 50px;
+        text-align: center;
+        border-bottom: 5px solid var(--phys-main);
+        position: relative;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      header p {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      .subject-tag {
+        display: inline-block;
+        background: rgba(79, 70, 229, 0.25);
+        border: 1px solid var(--phys-main);
+        padding: 5px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
       }
       .container {
-        max-width: 800px;
-        margin: auto;
+        max-width: 780px;
+        margin: 36px auto 60px;
+        padding: 0 20px;
+      }
+      .section-label {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 36px 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-label::before {
+        content: "◆";
+        font-size: 0.75rem;
+        color: var(--orange);
+      }
+      .formula-card {
+        border: 2px solid var(--red-border);
+        border-radius: 12px;
+        padding: 22px 28px 26px;
         background: white;
-        padding: 30px;
-        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.07);
       }
-      .nav-back {
-        color: #6366f1;
-        text-decoration: none;
-        font-weight: bold;
+      .formula-card + .formula-card {
+        margin-top: 24px;
       }
-      h1 {
-        color: #1e293b;
+      .badge {
+        display: inline-block;
+        background: var(--green);
+        color: white;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 3px 14px;
+        border-radius: 6px;
+        margin-bottom: 16px;
+      }
+      .fbox {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 5px 14px;
+        background: #f8fafc;
+        flex-wrap: wrap;
+      }
+      .var-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 10px 0 4px;
+      }
+      .var-list li {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 0.96rem;
+        padding: 4px 0;
+      }
+      /* FIX 4: defined .var-sym and .var-colon (were .var and .colon in temperature section) */
+      .var-sym {
+        min-width: 50px;
+        font-style: italic;
+        color: var(--phys-dark);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .var-colon {
+        color: #64748b;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      .bullet-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 8px 0;
+      }
+      .bullet-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.96rem;
+        padding: 7px 0;
+        flex-wrap: wrap;
+      }
+      .bullet {
+        color: var(--phys-main);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .sub-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 18px 0 10px;
+      }
+      .num-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        background: var(--orange);
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+      .red-sub {
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--red-sub);
+        margin: 18px 0 10px;
+      }
+      .red-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: var(--red-sub);
+        font-size: 0.92rem;
+        margin-top: 14px;
+        font-weight: 600;
+      }
+      .or-label {
+        font-weight: 700;
+        color: var(--phys-dark);
+        font-size: 0.95rem;
+        padding: 0 4px;
+      }
+      .arrow {
+        color: var(--phys-dark);
+        font-weight: 700;
+        padding: 0 2px;
+      }
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.96rem;
+      }
+      .prose {
+        font-size: 0.96rem;
+        margin: 8px 0;
+        line-height: 1.8;
+      }
+      .divider {
+        border: none;
+        border-top: 1px dashed #e0e7ff;
+        margin: 16px 0;
+      }
+      .result-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 6px 0 4px 8px;
+        font-size: 0.96rem;
+      }
+      .graph-wrap {
+        margin: 16px 0 8px;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      /* FIX 3: Added missing table styles */
+      .table-wrapper {
+        margin: 16px 0 8px;
+        overflow-x: auto;
+      }
+      .table-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--phys-dark);
+        margin-bottom: 10px;
+      }
+      .table-wrapper table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.93rem;
+      }
+      .table-wrapper td {
+        padding: 5px 8px;
+        vertical-align: middle;
+      }
+      .dot-cell {
+        width: 20px;
+      }
+      .dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: var(--phys-main);
+        border-radius: 50%;
+      }
+      .name-cell {
+        font-weight: 600;
+        color: var(--phys-dark);
+        white-space: nowrap;
+        padding-right: 8px;
+      }
+      .colon-cell {
+        width: 16px;
+        color: #64748b;
+      }
+      .formula-cell {
+        color: var(--text);
       }
     </style>
   </head>
   <body>
+    <header>
+      <span class="subject-tag">រូបវិទ្យា ថ្នាក់ទី ១២ • ត្រៀមប្រឡងបាក់ឌុប</span>
+      <h1>មេរៀនទី ១៖ ទែម៉ូឌីណាមិច</h1>
+    </header>
+
     <div class="container">
-      <a href="../../../../grade12_home.html" class="nav-back">← Back</a>
-      <h1>រូបវិទ្យា (Physics)</h1>
-      <p>Welcome to Grade 12 Physics. Lesson 1: Measurement coming soon...</p>
+      <p class="section-label" id="sec1">រូបមន្តរកចំនួនម៉ូលនៃឧស្ម័ន</p>
+      <div class="formula-card">
+        <p class="formula-row">
+          <span style="font-weight: 600">មានរូបមន្ត :</span>
+          <span class="fbox"
+            >\( n = \dfrac{m}{M} = \dfrac{N}{N_{\text{A}}} =
+            \dfrac{V}{V_{\text{m}}} \)</span
+          >
+        </p>
+        <ul class="var-list" style="margin-top: 16px">
+          <li>
+            <span class="var-sym">\(n\)</span><span class="var-colon">:</span
+            ><span>ចំនួនម៉ូល &nbsp;( mol )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(m\)</span><span class="var-colon">:</span
+            ><span>ម៉ាសនៃឧស្ម័ន &nbsp;( kg )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(M\)</span><span class="var-colon">:</span
+            ><span>ម៉ាសម៉ូល &nbsp;( kg/mol )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(N\)</span><span class="var-colon">:</span
+            ><span>ចំនួនម៉ូលេគុលសរុប &nbsp;( ម៉ូលេគុល )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(N_{\text{A}}\)</span
+            ><span class="var-colon">:</span
+            ><span
+              >ចំនួនអាវ៉ូហ្គាត្រូ &nbsp;\( ( N_A = 6.21 \times 10^{23} \)
+              ម៉ូលេគុល/mol \()\)</span
+            >
+          </li>
+          <li>
+            <span class="var-sym">\(V\)</span><span class="var-colon">:</span
+            ><span>មាឌឧស្ម័ន &nbsp;( m³ )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(V_{\text{m}}\)</span
+            ><span class="var-colon">:</span
+            ><span>មាឌម៉ូល &nbsp;( m³/mol )</span>
+          </li>
+        </ul>
+        <ul class="bullet-list" style="margin-top: 12px">
+          <li>
+            <span class="bullet">•</span
+            ><span
+              >បើនៅក្នុងលក្ខណ្ឌធម្មតា (STP) :&nbsp;\( V_{\text{m}} = 22.4 \text{
+              L/mol} = 22.4 \times 10^{-3} \text{ m}^3\text{/mol} \)</span
+            >
+          </li>
+          <li>
+            <span class="bullet">•</span
+            ><span
+              >បើនៅក្នុងលក្ខណ្ឌបន្ទប់ :&nbsp;\( V_{\text{m}} = 24 \text{ L/mol}
+              = 24 \times 10^{-3} \text{ m}^3\text{/mol} \)</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- FIX 1: Changed duplicate id="sec2" to id="sec2b" -->
+      <p class="section-label" id="sec2">រូបមន្តបន្ថែមសំខាន់ៗ</p>
+      <div class="formula-card">
+        <div class="sub-title">
+          <span class="num-badge">1</span>រកម៉ាស់នៃឧស្ម័ន
+        </div>
+        <div class="formula-row">
+          <span style="font-weight: 600">រូបមន្ត :</span>
+          <span class="fbox">\( m = m_0 N \)</span>
+          <span style="margin: 0 16px; font-weight: 600">នាំឲ្យ :</span>
+          <span class="fbox">\( m_0 = \dfrac{m}{N} \)</span>
+        </div>
+        <ul class="var-list" style="margin-top: 14px">
+          <li>
+            <span class="var-sym">\(m_0\)</span>
+            <span class="var-colon">:</span>
+            <span
+              >ជាម៉ាសមួយម៉ូលេគុលឧស្ម័នឬម៉ាសម៉ូលេគុលនីមួយៗនៃឧស្ម័ន គិតជា ( kg
+              )</span
+            >
+          </li>
+        </ul>
+
+        <div class="sub-title">
+          <span class="num-badge">2</span
+          >ទំនាក់ទំនងរវាងម៉ាសម៉ូលេគុលស្ម័នឬម៉ាសម៉ូលេគុលនីមួយៗនៃឧស្ម័ននឹងម៉ាសម៉ូល
+        </div>
+        <div class="formula-row">
+          <span style="font-weight: 600">រូបមន្ត :</span>
+          <span class="fbox">\( M = m_0 \times N_{\text{A}} \)</span>
+          <span style="margin: 0 16px; font-weight: 600">នាំឲ្យ :</span>
+          <span class="fbox">\( m_0 = \dfrac{M}{N_{\text{A}}} \)</span>
+        </div>
+
+        <div class="table-wrapper">
+          <div class="table-title">ឈ្មោះនិងតម្លៃម៉ាសម៉ូលនៃឧស្ម័នមួយចំនួន</div>
+          <table>
+            <tbody>
+              <tr>
+                <td class="dot-cell"><span class="dot"></span></td>
+                <td class="name-cell">ឧស្ម័នអ៊ីដ្រូសែន</td>
+                <td class="colon-cell">:</td>
+                <td class="formula-cell">
+                  M<sub>H₂</sub> = 2 g/mol = 2 × 10<sup>−3</sup> kg/mol
+                </td>
+              </tr>
+              <tr>
+                <td class="dot-cell"><span class="dot"></span></td>
+                <td class="name-cell">ឧស្ម័នអេល្យូម</td>
+                <td class="colon-cell">:</td>
+                <td class="formula-cell">
+                  M<sub>He</sub> = 4 g/mol = 4 × 10<sup>−3</sup> kg/mol
+                </td>
+              </tr>
+              <tr>
+                <td class="dot-cell"><span class="dot"></span></td>
+                <td class="name-cell">ឧស្ម័ននីត្រូសែន</td>
+                <td class="colon-cell">:</td>
+                <td class="formula-cell">
+                  M<sub>N₂</sub> = 28 g/mol = 28 × 10<sup>−3</sup> kg/mol
+                </td>
+              </tr>
+              <tr>
+                <td class="dot-cell"><span class="dot"></span></td>
+                <td class="name-cell">ឧស្ម័នអុកស៊ីសែន</td>
+                <td class="colon-cell">:</td>
+                <td class="formula-cell">
+                  M<sub>O₂</sub> = 32 g/mol = 32 × 10<sup>−3</sup> kg/mol
+                </td>
+              </tr>
+              <tr>
+                <td class="dot-cell"><span class="dot"></span></td>
+                <td class="name-cell">ឧស្ម័នកាបូនឌីអុកស៊ីត</td>
+                <td class="colon-cell">:</td>
+                <td class="formula-cell">
+                  M<sub>CO₂</sub> = 44 g/mol = 44 × 10<sup>−3</sup> kg/mol
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sub-title">
+          <span class="num-badge">3</span>រូបមន្តបម្លែងសីតុណ្ហភាព
+        </div>
+        <div class="formula-row">
+          <!-- FIX 5: was class="font-weight:600;" -->
+          <span style="font-weight: 600">រូបមន្ត :</span>
+          <span class="fbox"><i>T</i> = <i>t</i> + 273</span>
+        </div>
+        <ul class="var-list" style="margin-top: 14px">
+          <!-- FIX 4: was class="var" and class="colon" -->
+          <li>
+            <span class="var-sym">T</span>
+            <span class="var-colon">:</span>
+            <span>ជាសីតុណ្ហភាពដាច់ខាតបម្រែ​ក្នុង​ (K)</span>
+          </li>
+          <li>
+            <span class="var-sym">t</span>
+            <span class="var-colon">:</span>
+            <span>ជាសីតុណ្ហភាពសែលស្យូស គិតជា (°C)</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- FIX 1: Changed duplicate id="sec2" to id="sec3" -->
+      <p class="section-label" id="sec3">រូបមន្តមាឌសំខាន់ៗ</p>
+      <div class="formula-card">
+        <div class="sub-title">
+          <span class="num-badge">1</span>រូបមន្តមាឌ &nbsp;\(( V )\)&nbsp;:
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>សុីឡាំង &nbsp;:</span>
+            <!-- FIX 2: was \dfrac{\pi d^2}{4h} (wrong), corrected to \dfrac{\pi d^2}{4}h -->
+            <span class="fbox"
+              >\( V = Ah = \pi r^2 h = \dfrac{\pi d^2}{4}h \)</span
+            >
+          </li>
+          <li>
+            <span class="bullet">•</span><span>គូប &nbsp;:</span
+            ><span class="fbox">\( V = A \cdot a = a^3 \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>ប្រលេពីប៉ែតកែង &nbsp;:</span
+            ><span class="fbox">\( V = a \times b \times c \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>ស្វ៊ែរ &nbsp;:</span
+            ><span class="fbox"
+              >\( V = \dfrac{4}{3}\pi R^3 = \dfrac{\pi d^3}{6} \)</span
+            >
+          </li>
+        </ul>
+        <hr class="divider" />
+        <div class="sub-title">
+          <span class="num-badge">2</span>ម៉ាសមាឌ &nbsp;\( ( \rho ) \)&nbsp;:
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>រូបមន្ត &nbsp;:</span
+            ><span class="fbox">\( \rho = \dfrac{m}{V} \)</span>
+          </li>
+        </ul>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">\(\rho\)</span><span class="var-colon">:</span
+            ><span>ជាម៉ាសមាឌ គិតជា ( kg/m³ )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(m\)</span><span class="var-colon">:</span
+            ><span>ម៉ាសនៃឧស្ម័ន &nbsp;( kg )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(V\)</span><span class="var-colon">:</span
+            ><span>មាឌនៃឧស្ម័ន &nbsp;( m³ )</span>
+          </li>
+        </ul>
+        <div class="sub-title">
+          <span class="num-badge">3</span>ដង់សុីតេមាឌ &nbsp;\( ( D ) \)&nbsp;:
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>រូបមន្ត &nbsp;:</span
+            ><span class="fbox">\( D = \dfrac{N}{V} \)</span>
+          </li>
+        </ul>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">\(D\)</span><span class="var-colon">:</span
+            ><span>ជាដង់សុីតេមាឌ គិតជា ( ម៉ូលេគុល/m³ )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(N\)</span><span class="var-colon">:</span
+            ><span>ចំនួនម៉ូលេគុលសរុប &nbsp;( ម៉ូលេគុល )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(V\)</span><span class="var-colon">:</span
+            ><span>មាឌនៃឧស្ម័ន &nbsp;( m³ )</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec4">១. សមីការឧស្ម័នបរិសុទ្ធ</p>
+      <div class="formula-card">
+        <div class="formula-row">
+          <span style="font-weight: 600">រូបមន្ត :</span>
+          <span class="fbox"
+            >\( PV = nRT = Nk_{\text{B}}T = \dfrac{2}{3}NK_{\text{av}} \)</span
+          >
+        </div>
+        <ul class="var-list" style="margin-top: 14px">
+          <li>
+            <span class="var-sym">\(P\)</span><span class="var-colon">:</span
+            ><span>ជាសម្ពាធឧស្ម័ន គិតជា ( Pa ) ឬ ( N/m² )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(n\)</span><span class="var-colon">:</span
+            ><span>ចំនួនម៉ូល ( mol )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(V\)</span><span class="var-colon">:</span
+            ><span>ជាមាឌឧស្ម័ន គិតជា ( m³ )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(T\)</span><span class="var-colon">:</span
+            ><span>ជាសីតុណ្ហភាព គិតជា ( K )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(N\)</span><span class="var-colon">:</span
+            ><span>ជាចំនួនម៉ូលេគុលឧស្ម័ន គិតជា ( ម៉ូលេគុល )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(R\)</span><span class="var-colon">:</span
+            ><span
+              >ជាថេរឧស្ម័នឬថេរសកលនៃឧស្ម័ន &nbsp;\( ( R = 8.31 \text{ J/mol.K} )
+              \)</span
+            >
+          </li>
+          <li>
+            <span class="var-sym">\(k_{\text{B}}\)</span
+            ><span class="var-colon">:</span
+            ><span
+              >ជាថេរប៊ុលស្ម័ន &nbsp;\( ( k_{\text{B}} = 1.38 \times 10^{-23}
+              \text{ J/K} ) \)</span
+            >
+          </li>
+          <li>
+            <span class="var-sym">\(K_{\text{av}}\)</span
+            ><span class="var-colon">:</span
+            ><span>ជាថាមពលសុីនេទិចមធ្យម គិតជា ( J )</span>
+          </li>
+        </ul>
+        <div class="red-note">
+          <span>🔴</span>
+          <span
+            >ចំណាំ :&nbsp;\( R = k_{\text{B}} \times N_{\text{A}} = 1.38 \times
+            10^{-23} \times 6.02 \times 10^{23} = 8.31 \text{ J/mol.K} \)</span
+          >
+        </div>
+      </div>
+
+      <p class="section-label" id="sec5">២. ថាមពលសុីនេទិច</p>
+      <div class="formula-card">
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span>
+            <span>រូបមន្តថាមពលសុីនេទិចមធ្យម :</span>
+            <span class="fbox"
+              >\( K_{\text{av}} = \dfrac{3}{2}k_{\text{B}}T = \dfrac{1}{2}m_0
+              v^2 \)</span
+            >
+          </li>
+          <li>
+            <span class="bullet">•</span>
+            <span>រូបមន្តថាមពលសុីនេទិចមធ្យម :</span>
+            <span class="fbox"
+              >\( PV = \dfrac{2}{3}NK_{\text{av}} \Rightarrow K_{\text{av}} =
+              \dfrac{3PV}{2N} \)</span
+            >
+          </li>
+          <li>
+            <span class="bullet">•</span>
+            <span>រូបមន្តថាមពលស្វ័យសរុប :</span>
+            <span class="fbox"
+              >\( K = NK_{\text{av}} = \dfrac{3}{2}Nk_{\text{B}}T =
+              \dfrac{3}{2}nRT = \dfrac{3}{2}PV \)</span
+            >
+          </li>
+        </ul>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">\(K\)</span><span class="var-colon">:</span
+            ><span>ជាថាមពលសុីនេទិចសរុប គិតជា ( J )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(K_{\text{av}}\)</span
+            ><span class="var-colon">:</span
+            ><span>ជាថាមពលសុីនេទិចមធ្យម គិតជា ( J )</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec6">
+        ៣. ល្បឿនប្រសិទ្ធ ឬ ឫសការេនៃការេល្បឿនមធ្យមរបស់ម៉ូលេគុល (
+        \(v_{\text{rms}}\) )
+      </p>
+      <div class="formula-card">
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span>
+            <span>រូបមន្ត :</span>
+            <span class="fbox"
+              >\( v_{\text{rms}} = \sqrt{\dfrac{3k_{\text{B}}T}{m_0}} =
+              \sqrt{\dfrac{3RT}{M}} = \sqrt{\dfrac{3P}{\rho}} = \sqrt{\langle
+              v^2 \rangle_{\text{av}}} \)</span
+            >
+          </li>
+        </ul>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">ដែល : \(v_{\text{rms}}\)</span
+            ><span class="var-colon">:</span
+            ><span>ល្បឿនប្រសិទ្ធ គិតជា ( m/s )</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec7">
+        ៤. សមីការប្រែប្រួលភាពនៃឧស្ម័នបរិសុទ្ធ
+      </p>
+      <div class="formula-card">
+        <p class="prose">បើឧស្ម័នប្រែប្រួលភាពពី 1 ទៅ 2 គេបានៈ</p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 1 ភាពដើម &nbsp;:</span>\(
+            P_1 V_1 = nRT_1 \quad (1) \)
+          </li>
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 2 ភាពស្រស់ &nbsp;:</span>\(
+            P_2 V_2 = nRT_2 \quad (2) \)
+          </li>
+        </ul>
+        <p class="prose">
+          យក ( 1 ) ធៀប ( 2 ) គេបានៈ :&nbsp;\( \dfrac{P_1 V_1}{P_2 V_2} =
+          \dfrac{nRT_1}{nRT_2} \)
+        </p>
+        <div class="result-row">
+          <span>អាចសរសេរបានៈ</span>
+          <span class="fbox"
+            >\( \dfrac{P_1 V_1}{P_2 V_2} = \dfrac{T_1}{T_2} \)</span
+          >
+          <span class="or-label">ឬ</span>
+          <span class="fbox"
+            >\( \dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2} \)</span
+          >
+          <span>ហៅថា សមីការប្រែប្រួលភាពនៃឧស្ម័នបរិសុទ្ធ ។</span>
+        </div>
+        <hr class="divider" />
+
+        <div class="sub-title">
+          <span class="num-badge">1</span>ច្បាប់ប៊យ - ម៉ារ្យុត &nbsp;(
+          លំនាំអុីសូទែម &nbsp;\( T_1 = T_2 = \text{Constant} \) )
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 1 ភាពដើម &nbsp;:</span>\(
+            P_1 V_1 = nRT \quad (1) \)
+          </li>
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 2 ភាពស្រេច &nbsp;:</span>\(
+            P_2 V_2 = nRT \quad (2) \)
+          </li>
+        </ul>
+        <div class="result-row">
+          <span>យក ( 1 ) ធៀប ( 2 ) គេបានៈ</span>
+          \( \dfrac{P_1 V_1}{P_2 V_2} = \dfrac{nRT}{nRT} \Rightarrow \)
+          <span class="fbox">\( P_1 V_1 = P_2 V_2 \)</span>
+        </div>
+        <hr class="divider" />
+
+        <div class="sub-title">
+          <span class="num-badge">2</span>ច្បាប់សាល &nbsp;( លំនាំអុីសូបារ
+          &nbsp;\( P_1 = P_2 = \text{Constant} \) )
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 1 ភាពដើម &nbsp;:</span>\( P
+            V_1 = nRT_1 \quad (1) \)
+          </li>
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 2 ភាពស្រស់ &nbsp;:</span>\(
+            P V_2 = nRT_2 \quad (2) \)
+          </li>
+        </ul>
+        <div class="result-row">
+          <span>យក ( 1 ) ធៀប ( 2 ) គេបាន :</span>
+          \( \dfrac{PV_1}{PV_2} = \dfrac{nRT_1}{nRT_2} \Rightarrow \)
+          <span class="fbox">\( \dfrac{V_1}{V_2} = \dfrac{T_1}{T_2} \)</span>
+        </div>
+        <hr class="divider" />
+
+        <div class="sub-title">
+          <span class="num-badge">3</span>ច្បាប់កេលុយសាក់ &nbsp;( លំនាំអុីសូករ
+          &nbsp;\( V_1 = V_2 = \text{Constant} \) )
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 1 ភាពដើម &nbsp;:</span>\(
+            P_1 V = nRT_1 \quad (1) \)
+          </li>
+          <li>
+            <span class="bullet">•</span><span>នៅភាព 2 ភាពស្រេច &nbsp;:</span>\(
+            P_2 V = nRT_2 \quad (2) \)
+          </li>
+        </ul>
+        <div class="result-row">
+          <span>យក ( 1 ) ធៀប ( 2 ) គេបាន :</span>
+          \( \dfrac{P_1 V}{P_2 V} = \dfrac{nRT_1}{nRT_2} \Rightarrow \)
+          <span class="fbox">\( \dfrac{P_1}{P_2} = \dfrac{T_1}{T_2} \)</span>
+        </div>
+
+        <ul class="var-list" style="margin-top: 14px">
+          <li>
+            <span class="var-sym">\(P_1\)</span><span class="var-colon">:</span
+            ><span>ជាសម្ពាធដើម គិតជា ( Pa )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(P_2\)</span><span class="var-colon">:</span
+            ><span>ជាសម្ពាធស្រេច គិតជា ( Pa )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(V_1\)</span><span class="var-colon">:</span
+            ><span>ជាមាឌដើម គិតជា ( m³ )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(V_2\)</span><span class="var-colon">:</span
+            ><span>ជាមាឌស្រេច គិតជា ( m³ )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(T_1\)</span><span class="var-colon">:</span
+            ><span>ជាសីតុណ្ហភាពដើម គិតជា ( K )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(T_2\)</span><span class="var-colon">:</span
+            ><span>ជាសីតុណ្ហភាពស្រេច គិតជា ( K )</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec8">៥. សម្ពាធលើផ្ទៃខាង</p>
+      <div class="formula-card">
+        <p class="prose">សម្ពាធ គឺជាកម្លាំងសង្កត់ក្នុងមួយខ្នាតផ្ទៃ ។</p>
+        <p class="prose">
+          គេសន្មតថា ធុងផ្ទុកឧស្ម័នមួយមានរាងជាគូបដែលមានទ្រនុង \(L\)
+          ម៉ូលេគុលនឺមួយៗ មានម៉ាស \(m_0\) ។
+        </p>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( P = \dfrac{F}{A} \)</span>
+        </div>
+        <hr class="divider" />
+
+        <p class="red-sub">ក. កម្លាំងម៉ូលេគុលនីមួយៗមានលើផ្ទៃខាង</p>
+        <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( F_0 = \dfrac{\Delta p}{A} \)</span>
+        </div>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span
+            ><span>បរិមាណចលនា និងអាំពុលសាស្យុង :</span
+            ><span class="fbox">\( F_0 \cdot t = \Delta p \)</span
+            ><span class="arrow">\(\Rightarrow\)</span
+            ><span class="fbox">\( F_0 = \dfrac{\Delta p}{\Delta t} \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>ករណីទង្គិចស្ទក់ :</span
+            ><span class="fbox">\( \Delta p = m_0 v \)</span
+            ><span class="arrow">\(\Rightarrow\)</span
+            ><span class="fbox">\( F_0 = \dfrac{m_0 v}{\Delta t} \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>រយៈពេល :</span
+            ><span class="fbox">\( t = \dfrac{L}{v} \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>ករណីទង្គិចខ្ទាត :</span
+            ><span class="fbox">\( \Delta p = 2m_0 v \)</span
+            ><span class="arrow">\(\Rightarrow\)</span
+            ><span class="fbox">\( F_0 = \dfrac{2m_0 v}{\Delta t} \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>រយៈពេល :</span
+            ><span class="fbox">\( t = \dfrac{2L}{v} \)</span>
+          </li>
+        </ul>
+        <hr class="divider" />
+
+        <p class="red-sub">ខ. កម្លាំងសរុបដែលមូលេគុលមានលើផ្ទៃខាង</p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span><span>រូបមន្ត :</span
+            ><span class="fbox">\( F = NF_0 \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>ករណីទង្គិចស្ទក់ :</span
+            ><span class="fbox">\( F = \dfrac{Nm_0 v}{\Delta t} \)</span>
+          </li>
+          <li>
+            <span class="bullet">•</span><span>ករណីទង្គិចខ្ទាត :</span
+            ><span class="fbox">\( F = \dfrac{2Nm_0 v}{\Delta t} \)</span>
+          </li>
+        </ul>
+        <ul class="var-list" style="margin-top: 12px">
+          <li>
+            <span class="var-sym">\(\Delta p\)</span
+            ><span class="var-colon">:</span
+            ><span>ជាប្រែប្រួលបរិមាណចលនា គិតជា ( kg·m/s )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(\Delta t\)</span
+            ><span class="var-colon">:</span
+            ><span>ជាប្រែប្រួលរយៈពេល គិតជា ( s )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(N\)</span><span class="var-colon">:</span
+            ><span>ជាចំនួនម៉ូលេគុលនៃឧស្ម័ន គិតជា ( ម៉ូលេគុល )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(F\)</span><span class="var-colon">:</span
+            ><span>ជាកម្លាំងសរុបរបស់ម៉ូលេគុលឧស្ម័នមានលើផ្ទៃ គិតជា ( N )</span>
+          </li>
+          <li>
+            <span class="var-sym">\(F_0\)</span><span class="var-colon">:</span
+            ><span>ជាកម្លាំងដែលម៉ូលេគុលនីមួយៗមានលើផ្ទៃ គិតជា ( N )</span>
+          </li>
+        </ul>
+      </div>
     </div>
+    <!-- FIX 6: Added missing closing </div> for .container -->
   </body>
 </html>
