@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ២៤–៥៩ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ទ្រឹស្តីបទសុីនេទិចនៃឧស្ម័ន</div>
+        <h1>លំហាត់<em>អនុវត្ត</em> ២៤–៥៩</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Exercises 24–40 are already in previous messages. Below are the completed 41–59 -->
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">24</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ធុងមួយមានផ្ទុកអេល្យូម <span class="given">(He)</span> ចំនួន
+            <span class="given">2 mol</span> នៅសីតុណ្ហភាព
+            <span class="given">27°C</span>។ គេសន្មត់ថាអេល្យូមជាឧស្ម័នបរិសុទ្ធ។
+          </p>
+          <p>
+            គេផ្តល់ឲ្យ \( R = 8.31 \) J/mol·K និង \( k_B = 1.38 \times 10^{-23}
+            \) J/K។
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+          <div class="ex-find">
+            ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុល។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">25</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងធុងមួយមានមាឌ
+            <span class="given">200 ml</span> មានចំនួនម៉ូលេគុលសរុប
+            <span class="given">\(5 \times 10^{21}\)</span> ហើយស្ថិតក្រោមសម្ពាធ
+            <span class="given">250 kPa</span>។
+          </p>
+          <p>
+            គេផ្តល់ឲ្យ \( k_B = 1.38 \times 10^{-23} \) J/K និង \( N_A = 6.02
+            \times 10^{23} \) ម៉ូលេគុល/mol។
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ភាគល្អិតនីមួយៗ។
+          </div>
+          <div class="ex-find">ខ. គណនាចំនួនម៉ូលនៃឧស្ម័ននៅក្នុងធុង។</div>
+          <div class="ex-find">គ. គណនាសីតុណ្ហភាពនៃឧស្ម័ន។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">26</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            <span class="given">2 mol</span> នៃឧស្ម័នអុកស៊ីសែន មានមាឌ
+            <span class="given">5 L</span> ក្រោមសម្ពាធ
+            <span class="given">8 atm</span>។
+          </p>
+          <div class="ex-find">
+            គណនាថាមពលសុីនេទិចមធ្យមនៃម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">27</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានម៉ូលេគុលអុកសុីសែនមួយនៅក្នុងខ្យល់ស្ថិតក្នុងបន្ទប់ដែលមានសីតុណ្ហភាព
+            <span class="given">27°C</span>គិតជាអេឡិចត្រុងវ៉ុល ។
+          </p>
+          <p>
+            គេឲ្យ 1eV= \( 1.6 \times 10^{-19} \) J​ និងថេរប៊ុលស្មាន់ \( k_B =
+            1.38 \times 10^{-23} \) J/K ។
+          </p>
+          <div class="ex-find">
+            គណនាតម្លៃមធ្យមនៃថាមពលសុីនេទិចរបស់ឧស្ម័ននីមួយៗ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">28</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយមានមាឌ
+            <span class="given">V = 4000 cm³</span>
+            ដែលក្នុងនោះផ្ទុកឧស្ម័នអេល្យូមក្រោមសម្ពាធ
+            <span class="given">1.2 atm</span>។ ប់ើវាមានថាមពលសុីនេទិចមធ្យម<span class="given">\(
+            K_{\text{av}} = 3.6 \times 10^{-22} \) J​ </span> ។
+          </p>
+
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ននអេល្យូមក្នុងបាឡុង ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">29</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ធុងមួយមានផ្ទុកអេល្យូម <span class="given">He</span> ចំនួន
+            <span class="given">\( 0.5 \) mol</span> នៅសីតុណ្ហភាព
+            <span class="given">27°C</span>។ គេសន្មត់ថាអេល្យូមជាឧស្ម័នបរិសុទ្ធ។
+
+            <span class="given">\( T = 27 \) °C</span>។
+          </p>
+          <p>
+            គេឲ្យ \( R = 8.31 \) J/mol·K ; \( k_B = 1.38 \times 10^{-23} \) J/K
+            ។​
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។
+          </div>
+
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            គ. គណនាសម្ពាធឧស្ម័នអេល្យូមក្នុងធុង ប្រសិនបើធុងមានមាឌ \( 4.53 \times
+            10^{-3} \) m³ ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">30</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយមានមាឌ
+            <span class="given">\( V = 0.30 \) m³</span>និងចំនួនម៉ូល
+            <span class="given">\( n = 2 \) mol</span> នៅសីតុណ្ហភាព
+            <span class="given">\( T = 20 \) °C</span>។
+            សន្មត់ថាឧស្ម័នជាឧស្ម័នបរិសុទ្ធ។
+          </p>
+
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។
+          </div>
+          <div class="ex-find">
+            ខ. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">31</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            អាតូមអេល្យូមមួយមានម៉ាសម៉ូលេគុល
+            <span class="given">\( M = 4 \times 10^{-3} \) kg/mol</span>
+            នៅសីតុណ្ហភាព <span class="given">20°C</span>។
+          </p>
+          <p>គេឲ្យ \( R = 8.31 \) J/mol·K ។</p>
+          <div class="ex-find">
+            គណនាឫសការេនៃការេល្បឿនមធ្យមរបស់អាតូមអេល្យូម ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">32</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានម៉ូលេគុលឧស្ម័នអាសូតមួយ នៅសីតុណ្ហភាព
+            <span class="given">27°C</span>។
+          </p>
+          <p>គេឲ្យ \( M_{N_2} = 28 \) g/mol ; \(\sqrt{26.71} = 5.17\) ។</p>
+          <div class="ex-find">គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអាសូត។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">33</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែនស្មើរ
+            <span class="given"> 331 m/s</span>។
+          </p>
+          <p>គេឲ្យ \( M_{H_2} = 2 \) g/mol ។</p>
+
+          <div class="ex-find">
+            គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">34</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ូលេគុលឧស្ម័នអុីដ្រូសែនមួយ នៅសីតុណ្ហភាព
+            <span class="given">373.15 K</span> ។
+          </p>
+          <p>គេឲ្យ \( M_{H_2} = 2.016\times 10^{-3} \) Kg/mol ។</p>
+          <div class="ex-find">
+            គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។
+          </div>
+        </div>
+      </div>
+
+      <!-- 35 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">35</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. គណនាសីតុណ្ហភាពនៃម៉ូលេគុលអុីដ្រូសែនគិតជា (°C)។
+            បើគេដឹងថាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលអុីដ្រូសែនស្មើ
+            <span class="given">\( v = 1933.78 \) m/s</span
+            >និងម៉ាសម៉ូលអុីដ្រូសែន
+            <span class="given">\( M = 2 \times 10^{-3} \) kg/mol</span>។
+          </p>
+          <p>ខ. គណនាតម្លៃថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ ។</p>
+        </div>
+      </div>
+
+      <!-- 36 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">36</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានម៉ាសម៉ូលេគុលនីមួយៗ <span class="given"> \(m_0 = 8 \times 10^{-26} \)kg</span> 
+             នៅសីតុណ្ហភាព <span class="given">57°C</span>។
+          </p>
+          <p>គេឲ្យ​ \( k_B = 1.38 \times 10^{-23} \) J/K ។</p>
+          <div class="ex-find">
+            គណនាឫសការេនៃការេល្បឿនមធ្យម \( v_{\text{rms}} \)។
+          </div>
+          <div class="ex-find">
+            គណនាតម្លៃថាមពលសុីនេទិចមធ្យម \( K_{\text{av}} \)។
+          </div>
+        </div>
+      </div>
+
+      <!-- 37 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">37</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលអុកស៊ីសែននៅសីតុណ្ហភាព <span class="given">127°C</span> ។
+            ម៉ាសម៉ូលអុកស៊ីសែន \( M_{O_2} = 32 \) g/mol និង \( R = 8.31 \)
+            J/mol·K។
+          </p>
+          <p>
+            ខ. គណនាតម្លៃថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលអុកស៊ីសែននីមួយៗ
+            នៅសីតុណ្ហភាព <span class="given">127°C</span> ។ គេឲ្យ \( k_B = 1.38 \times 10^{-23} \) J/K ។
+          </p>
+        </div>
+      </div>
+
+      <!-- 38 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">38</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. រកចំនួនអាតូមឧស្ម័នអេល្យូមក្នុងបាឡុងមួយដែលមានកាំ <span class="given">30 cm</span>
+            នៅសីតុណ្ហភាព <span class="given">20°C</span> និងសម្ពាធ <span class="given">1 atm</span> ។
+          </p>
+
+          <p>ខ.​ គណនាតម្លៃថាមពលសសុីនេទិចរបស់អាតូមឧស្ម័ននីមួយៗ ។</p>
+          <p>គ.​ គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអេល្យូម ។</p>
+        </div>
+      </div>
+
+      <!-- 39 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">39</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            នៅក្នុងធុងមួយមានឧស្ម័នអុកស៊ីសែនចំនួន<span class="given">​ 2 ml</span> មានឧស្ម័នដែលមានម៉ាស <span class="given">50​ mg</span> និងសម្ពាធ​ <span class="given">100 Pa</span> ម៉ាសរបស់ម៉ូលេគុលនៃឧស្ម័ននីមួយៗគឺ <span class="given">\( m_0 = 8 \times 10^{-26} \) kg</span> ។
+          </p>
+          <p>គេឲ្យ \( k_B = 1.38 \times 10^{-23} \) J/K ។</p>
+          <div class="ex-find">ក. រកចំនួនម៉ូលេគុលនៃឧស្ម័ននេះ។</div>
+          <div class="ex-find">
+            ខ. រកតម្លៃថាមពលសុីនេទិចរបស់ម៉ូលេគុលនៃឧស្ម័ននីមួយៗ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 40 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">40</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេយកបំពង់ឧស្ម័នកាបូនិចមានចំណុះ <span class="given">20 L</span> ក្រោមសម្ពាធ <span class="given">20 atm</span> នៅសីតុណ្ហភាព
+            <span class="given">20°C</span> ទៅដាក់ក្នុងថង់ប្លាស្ទិចមួយដែលអាចប្រែប្រួលមាឌបាន។ គណនាមាឌរបស់ថង់
+            បើឧស្ម័នក្នុងថង់មានសម្ពាធ <span class="given">5 atm</span> និងសីតុណ្ហភាព <span class="given">6°C</span> ។
+          </p>
+        </div>
+      </div>
+
+      <!-- 41 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">41</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤១</span>
+        </div>
+        <div class="ex-body">
+          <p>បាឡុងមួយមានឧស្ម័នអេល្យូម <span class="given">500 m³</span> នៅសីតុណ្ហភាព <span class="given">27°C</span> និងសម្ពាធ <span class="given">1 atm</span> ។</p>
+          <p>គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាព <span class="given">-3°C</span> និងសម្ពាធ <span class="given">0.5 atm</span> ។</p>  
+          </p>
+          
+        </div>
+      </div>
+
+      <!-- 42 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">42</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            មធ្យោបាយមួយដើម្បីឲ្យឧស្ម័នចុះត្រជាក់គឺធ្វើឲ្យឧស្ម័នរីកមាឌ ។ ធម្មតាឧស្ម័ននៅសីតុណ្ហភាព <span class="given">27°C</span> និងសម្ពាធ <span class="given">400 atm</span> ត្រូវបានពង្រឹកដល់សម្ពាធបរិយាកាសនិងមាឌធំជាងមុន ១៣ដង។
+          </p>
+          
+          <div class="ex-find">គណនាសីតុណ្ហភាពថ្មីរបស់ឧស្ម័ននោះ។</div>
+          
+        </div>
+      </div>
+
+      <!-- 43 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">43</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយមានឧស្ម័នអុីដ្រូសែន <span class="given"> 20 L</span> និងសម្ពាធ
+            <span class="given">​1 atm</span>។ 
+          </p>
+          <div class="ex-find">គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាព  <span class="given">0 °C</span> និងសម្ពាធ <span class="given">0.2 atm</span> ។</div>
+        </div>
+      </div>
+
+      <!-- 44 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">44</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ផើងមួយបិទជិតមានមាឌ​ <span class="given">10 L</span> ដាក់ឧស្ម័នក្រោមសម្ពាធ
+            <span class="given">2.4 atm</span>។ នៅក្រោយពេលដែលគេបន្ធូរមាឌដល់សម្ពាធមានតម្លៃ​​ <span class="given">1.2 atm</span> ដោយរក្សាសីតុណ្ហភាពថេរ​ ។
+          </p>
+          
+          <div class="ex-find">គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាពថ្មី។</div>
+          
+        </div>
+      </div>
+
+      <!-- 45 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">45</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+             ក្រោមសម្ពាធ <span class="given">1 atm</span> ឧស្ម័នមួយមានមាឌ <span class="given">10 L</span>។ ក្រោយមកឧស្ម័ននោះក៏ស្ថិតក្រោមសម្ពាធ <span class="given">5 atm</span> ស្ថិតក្រោមសីតុណ្ហភាពថេរ។
+          </p>
+          <div class="ex-find">គណនាមាឌរបស់ឧស្ម័នថ្មី។</div>
+        </div>
+      </div>
+
+      <!-- 46 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">46</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយបិទមានមាឌដើម \(V_0\) មានដាក់ឧស្ម័នពេញស្ថិតក្រោមសម្ពាធ<span class="given">\(  3 \times 10^{5} \) Pa</span> ។ ក្រោយមកបាឡុងនោះត្រូវបានបណ្ណែនមាឌរបស់វាថយចុះតូចជាងមុន២ដង​ តាមលំនាំអុីសូទែម។
+          </p>
+          
+          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័នក្រោយគេបានបណ្ណែន។</div>
+        </div>
+      </div>
+
+      <!-- 47 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">47</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            នៅក្នុងធុងមួយមានមាឌ​ <span class="given">62 dm³</span> មានផ្ទុកឧស្ម័នអុីដ្រូសែនក្រោមសីតុណ្ហភាព  <span class="given">37°C</span>​ ។ បើសម្ពាធរបស់វាថេរ ។ 
+          
+          <div class="ex-find">គណនាមាឌរបស់ឧស្ម័នអុីដ្រូសែន នៅសីតុណ្ហភាព <span class="given">67°C</span>។</div>
+        </div>
+      </div>
+
+      <!-- 48 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">48</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បំពង់មួយផ្ទុកឧស្ម័នអុកសុីសែនក្រោមសីតុណ្ហភាព <span class="given">27°C</span> និង ។​ គេធ្វើឲ្យឧស្ម័នរីកមាឌកើនឡើងពីរដងតាមលំនាំអុីសូបារ។
+          </p>
+          
+          <div class="ex-find">គណនាសីតុណ្ហភាពនៃឧស្ម័ននៅខណ:នោះ។</div>
+          
+        </div>
+      </div>
+
+      <!-- 49 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">49</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            តើគេត្រូវកម្ដៅឧស្ម័នមួយដល់សីតុណ្ហភាពប៉ុន្មាន ដើម្បីឲ្យវាមាឌរបស់វាធំជាងពីរដង​ តែសម្ពាធនៅដដែល ? គេឲ្យសីតុណ្ហភាពដើមនៃឧស្ម័ន  <span class="given">0°C</span>។
+          </p>
+         
+          
+        </div>
+      </div>
+
+      <!-- 50 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">50</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ដបមួយផ្ទុកឧស្ម័នមានមាឌថេរស្ថិតក្រោមសម្ពាធ <span class="given">\(  1.25 \times 10^{5} \) N/m²</span>នៅសីតុណ្ហភាព <span class="given">17°C</span>។ 
+            គេដុតកម្ដៅឧស្ម័នដល់សីតុណ្ហភាព <span class="given">57°C</span> តាមលំនាំអុីសូករ។
+          </p>
+          
+          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័នក្នុងដប ។</div>
+         
+        </div>
+      </div>
+
+      <!-- 51 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">51</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ដបមួយផ្ទុកឧស្ម័នពេញ ស្ថិតក្រោមសម្ពាធ <span class="given"> 2.5 atm</span> នៅសីតុណ្ហភាព
+            <span class="given"> 27°C</span>សម្ពាធកើនឡើងដល់ <span class="given">3 atm</span>។
+          </p>
+          <div class="ex-find">តើគេត្រូវកម្ដៅឧស្ម័នដល់សីតុណ្ហភាពប៉ុន្មាន °C ?</div>
+        </div>
+      </div>
+      <!-- 52 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">52</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយបិទជិតមានផ្ទុកឧស្ម័នដែលគេសន្មត់ថាជាឧស្ម័នបរិសុទ្ធស្ថិតក្រោមសម្ពាធ <span class="given">1 atm</span> 
+            បើគេទុកបាឡុងនោះនៅក្នុងម្លប់មានសីតុណ្ហភាព <span class="given">\(T_1\)</span>។ បន្ទាប់មកគេយកបាឡុងនោះទៅដាក់ហាលថ្ងៃនាំឧ្យសីតុណ្ណភាពវាកើនឡើងពីរដង ។
+          </p>
+          <div class="ex-find">គណនាសម្ពាធឧស្ម័នក្នុងបាឡុងនោះ បើគេសន្មត់ថាមាឌបាឡុងថេរ​ ។</div>
+        </div>
+      </div>
+
+      <!-- 53 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">53</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៣</span>
+        </div>
+        <div class="ex-body">
+          
+          <p>
+            បាឡុងមួយបិទជិតមានផ្ទុកឧស្ម័នដែលគេសន្មត់ថាជាឧស្ម័នបរិសុទ្ធស្ថិតក្រោមសម្ពាធ <span class="given">2 atm</span> 
+            បើគេទុកបាឡុងនោះនៅក្នុងម្លប់មានសីតុណ្ហភាព <span class="given">27°C</span>។
+             បន្ទាប់មកគេយកបាឡុងនោះទៅដាក់ហាលថ្ងៃនាំឧ្យសីតុណ្ណភាពវាកើនឡើងរហូតដល់ <span class="given">47°C</span> ។
+          </p>
+          <div class="ex-find">គណនាសម្ពាធឧស្ម័នក្នុងបាឡុងនោះ បើគេសន្មត់ថាមាឌបាឡុងថេរ​ ។</div>
+        </div>
+      </div>
+
+      <!-- 54 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">54</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ផង់នីមួយៗមានម៉ាស \(m_0\) និងផ្លាស់ដោយល្បឿន \(v_0\)តាមបណ្ដោយអ័ក្ស \(ox\)។ គេដឹងថាក្នុងផ្ទៃ <span class="given">4 mm²</span>
+            និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 1 \times 10^5 \)</span> ទៅទង្គិចផ្ទៃនោះ ។​ គេសន្មត់ទង្គិចរវាងផង់និងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
+          </p>
+          <p>
+            គេឲ្យ \( m_0 = 9.11 \times 10^{-31} \) kg និង \( v_0 = 8 \times 10^7 \) m/s ។ 
+          </p>
+          <div class="ex-find">
+           ចូររកសម្ពាធរបស់ផង់លើផ្ទៃប៉ះនោះ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 55 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">55</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ប្រូតុងមានមួយមានម៉ាស <span class="given">\( m_p = 1.67 \times 10^{-27} \) kg</span> និងផ្លាស់ទីដោយល្បឿនដើម \(v_o\)
+            តាមបណ្តោយអ័ក្ស \(ox\)ក្នុងធុងមួយមានរាងជាគូប ។ គេដឹងថាក្នុងផ្ទៃ <span class="given">4 mm²</span> និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 5 \times 10^{13} \)</span> ទៅទង្គិចផ្ទៃនោះ
+            ហើយសម្ពាធរបស់ប្រូតុងលើផ្ទៃប៉ះគឺ<span class="given">\(  8.35 \times 10^{-2} \) Pa</span>។ គេសន្មត់ទង្គិចរវាងប្រូតុងនិងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
+          </p>
+          
+          <div class="ex-find">ក. គណនាកម្លាំងដែលប្រូតុងនីមួយៗមានលើផ្ទៃប៉ះ ។</div>
+          <div class="ex-find">ខ. គណនាល្បឿនប្រូតុងនៅខណ:វាទៅប៉ះនឹងផ្ទៃម្ខាងទៀតនៃគូប ។</div>
+        </div>
+      </div>
+
+      <!-- 56 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">56</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+         ប្រូតុងមួយមានម៉ាស <span class="given">\(  6.68 \times 10^{-27} \) kg</span> និងផ្លាស់ទីដោយល្បឿន  \(v\)
+            តាមបណ្តោយអ័ក្ស \(ox\)ក្នុងគូបមួយដែលមានទ្រនុង <span class="given">L = 3 mm</span>។ប្រូតុងផ្លាស់ពីផ្ទៃម្ខាងទៅផ្ទៃម្ខាងទៀតនិងក្នុងក្នុងរយ:ពេល <span class="given">2 ns</span>។ 
+             គេសន្មត់ទង្គិចរវាងប្រូតុងនិងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។ គេដឹងថាក្នុងរយ:ពេល <span class="given">2 ns</span> មានផង់ចំនួន <span class="given">\( 2 \times 10^{6} \)</span> ទៅទង្គិចនឹងផ្ទៃខាងគូបនោះ ។
+          </p>
+          <div class="ex-find">ក. គណនាល្បឿនដើមប្រូតុងនៅខណ:វាចាប់ផ្តើមចេញពីផ្ធៃខាងគូប ។</div>
+          <div class="ex-find">ខ. គណនាសម្ពាធប្រូតុងលើផ្ទៃខាងគូប ។</div>
+          <div class="ex-find">គ. គណនាសម្ពាធសរុបរបស់ប្រូតុងលើផ្ទៃខាងនៃគូប ។</div>
+        </div>
+      </div>
+
+      <!-- 57 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">57</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ភាគល្អិតមួយមានម៉ាស <span class="given">\(  6.68 \times 10^{-27} \) kg</span> និងផ្លាស់ទីដោយល្បឿន <span class="given">1500 Km/s</span>
+            តាមបណ្តោយអ័ក្ស \(ox\)ក្នុងមាឌមួយដែលមានរាងជាគូបទ្រនុងនីមួយៗមានរង្វាស់ប្រវែង L។ គេដឹងថាក្នុងផ្ទៃ <span class="given">4 mm²</span> និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 5 \times 10^{13} \)</span> ទៅទង្គិចផ្ទៃនោះ
+            ហើយសម្ពាធរបស់ប្រូតុងលើផ្ទៃប៉ះគឺ<span class="given">\(  8.35 \times 10^{-2} \) Pa</span>។ គេសន្មត់ទង្គិចរវាងប្រូតុងនិងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
+          </p>
+          <p>
+            ពេលប៉ះ <span class="given">25 ns</span> ; ចំនួន
+            <span class="given">25 \times 10^6</span>។
+          </p>
+          <div class="ex-find">ក. គណនាប្រវែងទ្រនុង L ​នៃគូប និងកម្លាំងដែលមានអំពើលើផង់មួយ ។</div>
+          <div class="ex-find">ខ. គណនាអាំពុលស្យុង និងសម្ពាធលើផ្ទៃខាងគូប ។</div>
+          <div class="ex-find">គ. គណនាសម្ពាធសរុបរបស់ប្រូតុងលើផ្ទៃខាងនៃគូប ។</div>
+        </div>
+      </div>
+
+      <!-- 58 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">58</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ផង់នីមួយៗមានម៉ាស \(m_0\) និងផ្លាស់ដោយល្បឿន \(v_0\)តាមបណ្ដោយអ័ក្ស \(ox\)។ គេដឹងថាក្នុងផ្ទៃ <span class="given">2 mm²</span>
+            និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 1 \times 10^5 \)</span> ទៅទង្គិចផ្ទៃនោះ ។​ គេសន្មត់ទង្គិចរវាងផង់និងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
+          </p>
+          <p>
+            គេឲ្យ \( m_0 = 9.11 \times 10^{-31} \) kg និង \( v_0 = 8 \times 10^7 \) m/s ។
+          </p>
+
+          <div class="ex-find">ក. គណនាកម្លាំងសរុបដែលផង់មួយមានលើផ្ទៃប៉ះ ។</div>
+          <div class="ex-find">ខ. គណនាសម្ពាធលើផ្ទៃប៉ះ ។</div>
+        </div>
+      </div>
+
+      <!-- 59 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">59</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៥៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            អេឡិចត្រុងមួយមានម៉ាស <span class="given">\( m_e = 9.11 \times 10^{-31} \) kg</span> និងផ្លាស់ទីដោយល្បឿន <span class="given">\(v\)</span>តាមបណ្តោយអ័ក្ស <span class="given">\(ox\)</span>ក្នុងគូបមួយដែលមានទ្រនុង <span class="given">L = 2 mm</span>។ 
+            អេឡិចត្រុងផ្លាស់ពីផ្ទៃម្ខាងទៅផ្ទៃម្ខាងទៀតនិងក្នុងរយ:ពេល <span class="given">25 ns</span>។ គេសន្មត់ទង្គិចរវាងអេឡិចត្រុងនិងផ្ទៃប៉ះ ជាទង្គិចខ្ទាត ។ គេដឹងថាក្នុងរយ:ពេល <span class="given">25 ns</span> មានផង់ចំនួន <span class="given">\( 25 \times 10^{6} \)</span> ទៅទង្គិចនឹងផ្ទៃខាងគូបនោះ ។
+          </p>
+          <div class="ex-find">ក. គណនាល្បឿនអេឡិចត្រុងនៅខណ:វាចាប់ផ្តើមចេញពីផ្ធៃខាងគូប ។</div>
+          <div class="ex-find">
+            ខ. គណនាសម្ពាធរបស់អេឡិចត្រុងលើផ្ទៃខាងគូប ។
+          </div>
+          <div class="ex-find">
+            គ. គណនាសម្ពាធសរុបរបស់អេឡិចត្រុងលើផ្ទៃគូប ។
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

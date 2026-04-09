@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --blue-mid: #3b82f6;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f1f5f9;
+        --text: #1e293b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.85;
+        min-height: 100vh;
+      }
+
+      /* ── NAV ── */
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.15rem;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(37, 99, 235, 0.25);
+        border: 1px solid var(--blue-mid);
+        color: #93c5fd;
+        font-size: 0.75rem;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+      }
+
+      /* ── HERO ── */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 60%,
+          #1d4ed8 100%
+        );
+        padding: 64px 40px 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 80% at 80% 50%,
+          rgba(59, 130, 246, 0.18) 0%,
+          transparent 70%
+        );
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 48px;
+        background: var(--bg);
+        clip-path: ellipse(55% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(245, 158, 11, 0.15);
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 4px 14px;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.4rem;
+        color: white;
+        font-weight: 400;
+        line-height: 1.25;
+        margin-bottom: 14px;
+      }
+
+      header h1 em {
+        font-style: normal;
+        color: #93c5fd;
+      }
+
+      header p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.97rem;
+        max-width: 520px;
+      }
+
+      .header-stats {
+        display: flex;
+        gap: 32px;
+        margin-top: 32px;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+      }
+      .stat-num {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: white;
+        font-family: "DM Serif Display", serif;
+      }
+      .stat-label {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ── MAIN ── */
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .section-head h2 {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── CARD ── */
+      .ex-card {
+        background: var(--surface);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--blue);
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        animation: fadeUp 0.4s ease both;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(37, 99, 235, 0.12);
+      }
+
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .ex-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .ex-card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .ex-card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .ex-card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .ex-card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      .ex-card:nth-child(7) {
+        animation-delay: 0.35s;
+      }
+      .ex-card:nth-child(8) {
+        animation-delay: 0.4s;
+      }
+
+      .ex-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 22px 12px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .ex-num {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .ex-badge {
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: white;
+        flex-shrink: 0;
+        background: var(--blue);
+      }
+
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-chip {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: #eff6ff;
+        color: var(--blue);
+        border: 1px solid #bfdbfe;
+      }
+
+      .ex-card:nth-child(3n + 2) .ex-chip {
+        background: #ecfdf5;
+        color: var(--accent2);
+        border-color: #a7f3d0;
+      }
+      .ex-card:nth-child(3n) .ex-chip {
+        background: #fffbeb;
+        color: #b45309;
+        border-color: #fde68a;
+      }
+
+      .ex-body {
+        padding: 18px 22px 20px;
+        font-size: 0.96rem;
+        line-height: 2;
+      }
+
+      .ex-body p + p {
+        margin-top: 4px;
+      }
+
+      .given {
+        background: #eff6ff;
+        color: #1d4ed8;
+        font-weight: 600;
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 0.92rem;
+      }
+
+      .ex-card:nth-child(3n + 2) .given {
+        background: #ecfdf5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fffbeb;
+        color: #92400e;
+      }
+
+      .ex-find {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.88rem;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .ex-find::before {
+        content: "▶";
+        font-size: 0.65rem;
+        color: var(--blue);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 48px 20px 72px;
+        }
+        header h1 {
+          font-size: 1.7rem;
+        }
+        .header-stats {
+          gap: 20px;
+        }
+        nav {
+          padding: 0 20px;
+        }
+        .container {
+          padding: 36px 16px 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ទ្រីស្ដីបទសុីនេទិចនៃឧស្ម័ន</div>
+        <h1>លំហាត់<em>អនុវត្ត</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+        <div class="header-stats">
+          <div class="stat">
+            <span class="stat-num">23</span
+            ><span class="stat-label">លំហាត់</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">G12</span
+            ><span class="stat-label">ថ្នាក់ទី</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">Bac II</span
+            ><span class="stat-label">ប្រឡង</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">01</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានម៉ាស <span class="given">0.220 g</span> នៃ \(CO_2\) ។ គេឲ្យ
+            \(M(C) = 12\) g/mol, \(M(O) = 16\) g/mol
+          </p>
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ន \(CO_2\) ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">02</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នអាសូត \((N_2)\) មួយ មានចំនួនម៉ូល
+            <span class="given">0.14 mol</span> ។ គេឲ្យ \(M = 14\) g/mol
+          </p>
+          <div class="ex-find">គណនាម៉ាសនៃឧស្ម័នអាសូត ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">03</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នអាសូតដែលគេបញ្ចូលទៅក្នុងកែវបាឡុងមួយ មានចំនួន
+            <span class="given">\(30.1 \times 10^{21}\)</span> ម៉ូលេគុល ។
+          </p>
+          <p>គេឲ្យ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។</p>
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័នអាសូត ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">04</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៤</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេបញ្ចូលឧស្ម័នអ៊ីដ្រូសែនក្នុងថ្នាំងមួយ ដែលមានចំនួនម៉ូល
+            <span class="given">0.5 mol</span> ។
+          </p>
+          <p>គេឲ្យ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។</p>
+          <div class="ex-find">គណនាចំនួនម៉ូលេគុលរបស់ឧស្ម័នអ៊ីដ្រូសែន ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">05</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៥</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នអ៊ីដ្រូសែន \((H_2)\) មួយមានមាឌ
+            <span class="given">\(1.2 \times 10^{3} \text{ m}^3\)</span>
+            នៅក្នុងលក្ខណ្ឌធម្មតា (STP) ។
+          </p>
+          <p>គេឲ្យ \(V_m = 22.4 \times 10^{-3}\) m³/mol ។</p>
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">06</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៦</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នអ៊ីដ្រូសែន \((H_2)\) មួយមានមាឌ
+            <span class="given">2.4 L</span> នៅក្នុងលក្ខណ្ឌបន្ទប់ ។
+          </p>
+          <p>គេឲ្យ \(V_m = 22.4 \times 10^{-3}\) m³/mol ។</p>
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">07</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៧</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័ននីត្រូសែន \((N_2)\) មានម៉ាសម៉ូលេគុលនីមួយៗ
+            <span class="given">\(4.65 \times 10^{-26}\) kg</span>
+          </p>
+          <p>
+            ចំនួនម៉ូលេគុល
+            <span class="given">\(N = 5 \times 10^{23}\)</span> ម៉ូលេគុល​​​ ។
+          </p>
+          <div class="ex-find">គណនាម៉ាសសរុបនៃឧស្ម័ននីត្រូសែន ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">08</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៨</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងធុងមួយមានផ្ទុកឧស្ម័នដែលមានម៉ាសម៉ូលេគុល
+            <span class="given">\(5 \times 10^{-26}\) kg</span> និងម៉ាសសរុប
+            <span class="given">5 g</span> ។
+          </p>
+          <div class="ex-find">គណនាចំនួនម៉ូលេគុលនៃឧស្ម័ននៅក្នុងធុង ។</div>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">09</div>
+            <span class="ex-title">លំហាត់អនុវត្ត០៩</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>មួយម៉ូលេគុលនៃឧស្ម័ននីត្រូសែនផ្សំពីរអាតូមនីត្រូសែនពីរ ។</p>
+          <p>
+            ម៉ាសម៉ូលរបស់នីត្រូសែន
+            <span class="given">\(M_{N_2} = 28\) kg/kmol</span>; &nbsp; \(N_A =
+            6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។
+          </p>
+          <div class="ex-find">គណនាម៉ាសម៉ូលេគុលនីត្រូសែនពីរ ។</div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">10</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១០</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>មួយម៉ូលេគុលនៃឧស្ម័នអុកស៊ីសែនផ្សំពីរអាតូមអុកស៊ីសែនពីរ ។</p>
+          <p>
+            ម៉ាសម៉ូលរបស់អុកស៊ីសែនគឺ
+            <span class="given">\(M_{O_2} = 32\) g/mol</span>; &nbsp; \(N_A =
+            6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។
+          </p>
+          <div class="ex-find">គណនាម៉ាសម៉ូលេគុលអុកស៊ីសែននីមួយៗ ។</div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">11</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ចូរគណនាសីតុណ្ហភាពខាងក្រោម គិតជាកែវិនបើសីតុណ្ហភាពសែលស្យ៊ុសស្មើរនឹង៖
+          </p>
+          <p>
+            <span class="given">ក. 0°C</span> &emsp;
+            <span class="given">ខ. 25°C</span> &emsp;
+            <span class="given">គ. 27°C</span> &emsp;
+            <span class="given">ឃ. −10°C</span> &emsp;
+            <span class="given">ង. −100°C</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">12</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ចូរគណនាសីតុណ្ហភាពខាងក្រោមួយ
+            គិតជាកែវិនបើសីតុណ្ហភាពសែលស្យ៊ុសស្មើរនឹង៖:
+          </p>
+          <p>
+            <span class="given">ក. 10°C</span> &emsp;
+            <span class="given">ខ. 100°C</span> &emsp;
+            <span class="given">គ. 47°C</span> &emsp;
+            <span class="given">ឃ. −200°C</span> &emsp;
+            <span class="given">ង. −373°C</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">13</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ចូរគណនាសីតុណ្ហភាពខាងក្រោមគិតជាអង្សាសេប្រសិនបើសីតុណ្ហភាពដាច់ខាតស្មើរនឹង
+            ៖
+          </p>
+          <p>
+            <span class="given">ក. 0 K</span> &emsp;
+            <span class="given">ខ. 273 K</span> &emsp;
+            <span class="given">គ. 280 K</span> &emsp;
+            <span class="given">ឃ. 333 K</span> &emsp;
+            <span class="given">ង. −273 K</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">14</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៤</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ចូរគណនាសីតុណ្ហភាពខាងក្រោម គិតជាកែវិនបើសីតុណ្ហភាពសែលស្យ៊ុសស្មើរនឹង៖
+          </p>
+          <p>
+            <span class="given">ក. 290 K</span> &emsp;
+            <span class="given">ខ. 300 K</span> &emsp;
+            <span class="given">គ. 555 K</span> &emsp;
+            <span class="given">ឃ. −673 K</span> &emsp;
+            <span class="given">ង. −430 K</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">15</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៥</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានមាឌ
+            <span class="given">\(V = 100 \text{ cm}^3\)</span> ស្ថិតក្រោមសម្ពាធ
+            <span class="given">\(2 \times 10^5\) Pa</span>
+          </p>
+          <p>នៅសីតុណ្ហភាព <span class="given">20°C</span> ។</p>
+          <div class="ex-find">តើឧស្ម័ននោះមានចំនួនម៉ូល ?</div>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">16</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៦</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានចំនួនម៉ូល
+            <span class="given">\(n = 0.08 \times 10^{-1}\) mol</span> មានសម្ពាធ
+            <span class="given">\(5 \times 10^5\) Pa</span>
+          </p>
+          <p>នៅសីតុណ្ហភាព <span class="given">60°C</span> ។</p>
+          <div class="ex-find">តើឧស្ម័ននោះមានមាឌប៉ុន្មាន ?</div>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">17</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៧</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានចំនួនម៉ូល
+            <span class="given">\(n = 0.25\) mol</span> មានសម្ពាធ
+            <span class="given">\(P = 250\) kPa</span>
+          </p>
+          <p>នៅសីតុណ្ហភាព <span class="given">57°C</span> ។</p>
+          <div class="ex-find">តើឧស្ម័ននោះមានមាឌប៉ុន្មាន ?</div>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">18</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៨</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានមាឌ
+            <span class="given">\(V = 500 \text{ cm}^3\)</span> ស្ថិតក្រោមសម្ពាធ
+            <span class="given">\(P = 600\) kPa</span>
+          </p>
+          <p>
+            នៅសីតុណ្ហភាព <span class="given">27°C</span> ។ គេឲ្យ \(R = 8.31\)
+            J/mol·K ។
+          </p>
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ននោះ ។</div>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">19</div>
+            <span class="ex-title">លំហាត់អនុវត្ត១៩</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានចំនួនម៉ូលេគុលសរុប
+            <span class="given">\(N = 4 \times 10^{20}\)</span> ម៉ូលេគុល មានមាឌ
+            <span class="given">4 cm³</span>
+          </p>
+          <p>
+            នៅសីតុណ្ហភាព <span class="given">27°C</span> ។ គេឲ្យ \(k_B = 1.38
+            \times 10^{-23}\) J/K ។
+          </p>
+          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័ននោះ ។</div>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">20</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២០</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នណេអុង (Neon) ដែលមានមាឌ
+            <span class="given">12.3 L</span> ចំនួនម៉ូល
+            <span class="given">0.65 mol</span>
+          </p>
+          <p>និងស្ថិតក្រោមសម្ពាធបរិយាកាស ។</p>
+          <div class="ex-find">គណនាសីតុណ្ហភាពដែលឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <!-- 21 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">21</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងធុងបិទជិតមួយដឧស្ម័ន
+            <span class="given">0.25 mol</span> មានម៉ាសសរុប
+            <span class="given">7 g</span> ។
+          </p>
+          <p>
+            គេដឹងថា ចំនួនអាវ៉ូកាដ្រូ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol
+            ។
+          </p>
+          <div class="ex-find">ក. គណនាចំនួនម៉ូលេគុលសរុបក្នុងធុងនេះ ។</div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. តើឧស្ម័នក្នុងធុងជាឧស្ម័នអ្វី ?
+          </div>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">22</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានមាឌ
+            <span class="given">600 cm³</span> ស្ថិតក្រោមសម្ពាធ
+            <span class="given">16.62 atm</span> នៅសីតុណ្ហភាព
+            <span class="given">27°C</span> ។
+          </p>
+          <div class="ex-find">ក. គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន ។បើឧស្ម័នមានម៉ាសម៉ូល \(M = 4\) g/mol ។
+          </div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            គ. បើឧស្ម័នមាន \(2 \times 10^{20}\) ម៉ូលេគុល
+            ។គណនាម៉ាសម៉ូលេគុលនីមួយៗនៃឧស្ម័ន ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">23</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានសម្ពាធ
+            <span class="given">1.52 MPa</span> នៅសីតុណ្ហភាព
+            <span class="given">25°C</span> និងមានមាឌ
+            <span class="given">10 L</span> ។
+          </p>
+          <div class="ex-find">ក. តើឧស្ម័ននោះចំនួនម៉ូលប៉ុន្មាន ?</div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន :
+          </div>
+          <div
+            class="ex-find"
+            style="
+              margin-top: 2px;
+              border-top: none;
+              padding-top: 0;
+              padding-left: 20px;
+            "
+          >
+            ① បើជាម៉ូលេគុលអ៊ីដ្រូសែន \((H_2)\) ។
+          </div>
+          <div
+            class="ex-find"
+            style="
+              margin-top: 2px;
+              border-top: none;
+              padding-top: 0;
+              padding-left: 20px;
+            "
+          >
+            ② បើជាម៉ូលេគុលអុកស៊ីសែន \((O_2)\) ។
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
