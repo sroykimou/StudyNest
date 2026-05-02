@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ១១–២០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      .system-diagram {
+        max-width: 100%;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 2_home.html"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ច្បាប់ទី១ទែម៉ូឌីណាមិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ១១–២០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 11 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">11</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១១</span>
+        </div>
+        <div class="ex-body">
+          <p>ចូរគណនាកម្មន្តសរុបដែលធ្វើដោយឧស្ម័ន តាមដ្យាក្រាមនីមួយៗខាងក្រោម៖</p>
+          <img
+            src="images/image-1.png"
+            alt="Exercise 11 Diagram"
+            class="system-diagram"
+          />
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">12</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយចាប់ផ្តើមរីកពីមាឌ
+            <span class="given">\(0.40 \text{ m}^3\)</span> ទៅមាឌស្រេច
+            <span class="given">\(0.62 \text{ m}^3\)</span> ខណៈដែលសម្ពាធកើនឡើងពី
+            <span class="given">\(110 \text{ kPa}\)</span> ទៅ
+            <span class="given">\(230 \text{ kPa}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្មន្តសរុបបំពេញដោយឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">13</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយចាប់ផ្តើមរីកពីមាឌដើម
+            <span class="given">\(6 \text{ dm}^3\)</span> ទៅមាឌស្រេច
+            <span class="given">\(12 \text{ dm}^3\)</span> ខណៈដែលសម្ពាធកើនឡើងពី
+            <span class="given">\(2 \text{ atm}\)</span> ទៅ
+            <span class="given">\(8 \text{ atm}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្មន្តបំពេញដោយឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">14</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៤</span>
+        </div>
+        <div class="ex-body">
+          <p>គណនាកម្មន្តសរុបដែលបំពេញដោយឧស្ម័ន ។</p>
+          <img
+            src="images/image-2.png"
+            alt="Exercise 14 Diagram"
+            class="system-diagram"
+          />
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">15</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយត្រូវបានដាក់ក្នុងស៊ីឡាំងបិទជិតមានពីស្តុងដែលអាចចល័តបានដាក់គ្របផ្នែកខាងលើ
+            ។ ពីស្តុងអាចចល័តឡើងចុះដោយសេរីដោយរក្សាសម្ពាធឧស្ម័នថេរជានិច្ច ។
+            បើគេតម្លើងសីតុណ្ហភាពឧស្ម័នដែលមានចំណុះ
+            <span class="given">\(0.2 \text{ mol}\)</span> ពី
+            <span class="given"
+              >\(20^\circ\text{C} \rightarrow 30^\circ\text{C}\)</span
+            >
+            ។
+          </p>
+          <div class="ex-find">
+            គណនាកម្មន្តដែលត្រូវធ្វើដើម្បីតម្លើងសីតុណ្ហភាពឧស្ម័ននោះ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">16</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធ
+            <span class="given">\(1 \text{ mol}\)</span> មានសីតុណ្ហភាពថេរ
+            <span class="given">\(0^\circ\text{C}\)</span>
+            ក្នុងរយៈពេលបម្រែបម្រួលមាឌ
+            <span class="given">\(3 \text{ L}\)</span> ទៅ
+            <span class="given">\(10 \text{ L}\)</span> ។
+          </p>
+          <p>
+            គេឱ្យ <span class="given">\(\ln(10/3) = 1.2\)</span>,
+            <span class="given">\(\ln(3/10) = -1.2\)</span> ។
+          </p>
+          <div class="ex-find">
+            គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ក្នុងរយៈពេលបម្រែបម្រួលមាឌនោះ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">17</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានសីណ្ហភាពថេរ
+            <span class="given">\(T = 300 \text{ K}\)</span>
+            ក្នុងរយៈពេលបម្រែបម្រួលមាឌពី
+            <span class="given">\(0.31 \text{ m}^3\)</span> ទៅ
+            <span class="given">\(0.45 \text{ m}^3\)</span> ។ គេដឹងថាឧស្ម័នមាន
+            <span class="given">\(n = 0.5 \text{ mol}\)</span> ។
+          </p>
+          <div class="ex-find">
+            គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌនោះ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">18</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធ
+            <span class="given">\(5 \text{ mol}\)</span> មានសម្ពាធ
+            <span class="given">\(2 \text{ atm}\)</span> និងសីតុណ្ហភាព
+            <span class="given">\(0^\circ\text{C}\)</span> ។
+            គេធ្វើឱ្យសម្ពាធនៃឧស្ម័នកើនឡើងដល់
+            <span class="given">\(4 \text{ atm}\)</span> តាមលំនាំអ៊ីសូទែម ។
+          </p>
+          <div class="ex-find">តើឧស្ម័នធ្វើកម្មន្ត ឬរងកម្មន្ត ?</div>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">19</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៩</span>
+        </div>
+        <div class="ex-body">
+          <p>មួយម៉ូលនៃឧស្ម័នអុកស៊ីសែន (សន្មតជាឧស្ម័នបរិសុទ្ធ) ។</p>
+          <div style="margin-left: 20px">
+            <p>
+              ក. នៅសីតុណ្ហភាពថេរ
+              <span class="given">\(310 \text{ K}\)</span> ឧស្ម័នរីកមាឌពី
+              <span class="given">\(12 \text{ L}\)</span> ទៅ
+              <span class="given">\(19 \text{ L}\)</span> ។
+              គណនាកម្មន្តដែលបំពេញក្នុងលំនាំរីកមាឌនេះ ។ គេឱ្យ
+              <span class="given">\(\ln(19/12) = 0.46\)</span> ។
+            </p>
+            <p>
+              ខ. នៅសីតុណ្ហភាពថេរ
+              <span class="given">\(310 \text{ K}\)</span> ឧស្ម័នរួមមាឌពី
+              <span class="given">\(19 \text{ L}\)</span> ទៅ
+              <span class="given">\(12 \text{ L}\)</span> ។
+              គណនាកម្មន្តដែលបំពេញក្នុងលំនាំរួមមាឌនេះ ។ គេឱ្យ
+              <span class="given">\(\ln(12/19) = -0.46\)</span> ។
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">20</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយធុងស្ថិតនៅសីតុណ្ហភាព
+            <span class="given">\(t = 27^\circ\text{C}\)</span> ។
+            គេធ្វើឱ្យឧស្ម័ននោះរីកមាឌពី
+            <span class="given">\(30 \text{ dm}^3\)</span> ទៅ
+            <span class="given">\(60 \text{ dm}^3\)</span>
+            ដោយរក្សាសីតុណ្ហភាពឱ្យនៅដដែល ។
+          </p>
+          <p>គេឱ្យ <span class="given">\(\ln 2 = 0.69\)</span> ។</p>
+          <div class="ex-find">
+            ក. គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌ ។
+          </div>
+          <div class="ex-find">ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន ។</div>
+          <div class="ex-find">
+            គ. ចូរធ្វើគំនូសតាងដ្យាក្រាម (P-V)
+            ដោយឆ្នូតលើក្រឡាផ្ទៃតាងឱ្យកម្មន្តដែលកើតមានឡើងក្នុងពេលមានបម្រែបម្រួលមាឌ
+            ។
+          </div>
+        </div>
+      </div>
+      </div>
+      </body>
+      </html>

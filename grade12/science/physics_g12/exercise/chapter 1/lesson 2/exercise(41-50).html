@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៤១–៥០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 2_home.html"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ច្បាប់ទី១ទែម៉ូឌីណាមិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៤១–៥០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 41 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">41</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នអេល្យូមមួយ (ចាត់ទុកអេល្យូមជាឧស្ម័នបរិសុទ្ធ) មានសីតុណ្ហភាពដើម
+            <span class="given">\(0^\circ\text{C}\)</span>
+            ធ្វើបម្លែងទែម៉ូឌីណាមិចតាមលំនាំអ៊ីសូបារដែលមានសម្ពាធថេរ
+            <span class="given">\(25 \text{ kPa}\)</span> ។ បើមាឌរបស់វាកើនឡើងពី
+            <span class="given">\(10 \text{ mL}\)</span> ទៅ
+            <span class="given">\(20 \text{ mL}\)</span> និងបំភាយថាមពលកម្ដៅ
+            <span class="given">\(30 \text{ cal}\)</span> ។
+          </p>
+          <p>
+            យក <span class="given">\(1 \text{ cal} = 4.2 \text{ J}\)</span> ។
+          </p>
+          <div style="margin-top: 15px">
+            <div class="ex-find">ក. គណនាកម្មន្តដែលបានបំពេញដោយឧស្ម័ន ។</div>
+            <div class="ex-find">
+              ខ. គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធឧស្ម័ន ។
+            </div>
+            <div class="ex-find">គ. គណនាសីតុណ្ហភាពចុងក្រោយនៃឧស្ម័ន ។</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 42 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">42</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤២</span>
+        </div>
+        <div class="ex-body">
+          <p>គណនាកម្មន្តសរុបក្នុងបម្លែងបិទ (ដូចរូបខាងក្រោម) ។</p>
+          <img
+            src="images/image-3.png"
+            alt="Exercise 42 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+        </div>
+      </div>
+
+      <!-- 43 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">43</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ដ្យាក្រាម (P-V) តាងស៊ិចមួយនៃម៉ូលេគុលឧស្ម័នមួយដូចបានបង្ហាញនៅក្នុងរូប
+            ។
+          </p>
+          <div style="margin-left: 20px">
+            <p>
+              - ក្នុងបម្លែងពី <span class="given">A</span> ទៅ
+              <span class="given">B</span> សម្ពាធថេរ ។
+            </p>
+            <p>
+              - ក្នុងបម្លែងពី <span class="given">B</span> ទៅ
+              <span class="given">C</span> មាឌថេរ ។
+            </p>
+            <p>
+              - ក្នុងបម្លែងពី <span class="given">C</span> ទៅ
+              <span class="given">A</span> សម្ពាធប្រែប្រួល ។
+            </p>
+          </div>
+          <img
+            src="images/image-4.png"
+            alt="Exercise 43 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div class="ex-find">ក. គណនាកម្មន្តក្នុងបម្លែងពី A ទៅ B ។</div>
+          <div class="ex-find">ខ. គណនាកម្មន្តក្នុងបម្លែងពី B ទៅ C ។</div>
+          <div class="ex-find">គ. គណនាកម្មន្តក្នុងបម្លែងពី C ទៅ A ។</div>
+          <div class="ex-find">ឃ. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទនេះ ។</div>
+          <div class="ex-find">ង. គណនាថាមពលកម្ដៅសរុបក្នុងបម្លែងបិទនេះ ។</div>
+        </div>
+      </div>
+
+      <!-- 44 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">44</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយធ្វើបម្លែងជាបម្លែងបិទ
+            <span class="given">ABCD</span> វិញ ដូចបានបង្ហាញក្នុងរូប ។
+          </p>
+          <img
+            src="images/image-5.png"
+            alt="Exercise 44 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div class="ex-find">ក. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទ ។</div>
+          <div class="ex-find">ខ. គណនាកម្ដៅដែលទទួលបាន (ក្នុងបម្លែងបិទ) ។</div>
+        </div>
+      </div>
+
+      <!-- 45 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">45</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយបានរងការផ្លាស់ប្ដូរភាពតាមលំនាំបម្លែងបិទដូចរូបខាងក្រោម
+            ។ អ័ក្សឈរត្រូវបានតាងឱ្យតម្លៃសម្ពាធ ដែល
+            <span class="given">\(P_b = 7.5 \text{ kPa}\)</span> និង
+            <span class="given">\(P_a = P_c = 2.5 \text{ kPa}\)</span> ។ នៅចំណុច
+            a មានសីតុណ្ហភាព <span class="given">\(T_a = 200 \text{ K}\)</span> ។
+          </p>
+          <img
+            src="images/image-6.png"
+            alt="Exercise 45 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div class="ex-find">ក. ចំនួនម៉ូលនៃឧស្ម័ន ។</div>
+          <div class="ex-find">ខ. សីតុណ្ហភាពនៃឧស្ម័ននៅត្រង់ចំណុច b ។</div>
+          <div class="ex-find">គ. សីតុណ្ហភាពនៃឧស្ម័ននៅត្រង់ចំណុច c ។</div>
+        </div>
+      </div>
+
+      <!-- 46 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">46</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ដ្យាក្រាម (P-V) តាងស៊ិចមួយនៃម៉ូលេគុលឧស្ម័នបរិសុទ្ធមួយម៉ូល
+            ដូចនៅក្នុងរូប ។
+          </p>
+          <div style="margin-left: 20px">
+            <p>
+              - ក្នុងបម្លែងពី <span class="given">A</span> ទៅ
+              <span class="given">B</span> សម្ពាធប្រែប្រួល ។
+            </p>
+            <p>
+              - ក្នុងបម្លែងពី <span class="given">B</span> ទៅ
+              <span class="given">C</span> មាឌថេរ ។
+            </p>
+            <p>
+              - ក្នុងបម្លែងពី <span class="given">C</span> ទៅ
+              <span class="given">A</span> សម្ពាធថេរ ។
+            </p>
+          </div>
+          <img
+            src="images/image-7.png"
+            alt="Exercise 46 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div class="ex-find">ក. គណនាកម្មន្តក្នុងបម្លែងពី A ទៅ B ។</div>
+          <div class="ex-find">ខ. គណនាកម្មន្តក្នុងបម្លែងពី B ទៅ C ។</div>
+          <div class="ex-find">គ. គណនាកម្មន្តក្នុងបម្លែងពី C ទៅ A ។</div>
+          <div class="ex-find">ឃ. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទនេះ ។</div>
+          <div class="ex-find">ង. គណនាថាមពលកម្ដៅសរុបក្នុងបម្លែងបិទនេះ ។</div>
+        </div>
+      </div>
+
+      <!-- 47 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">47</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៧</span>
+        </div>
+        <div class="ex-body">
+          <p>ចូរគណនាកម្មន្តសរុបដូចបង្ហាញក្នុងរូបខាងក្រោម៖</p>
+          <img
+            src="images/image-8.png"
+            alt="Exercise 47 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+        </div>
+      </div>
+
+      <!-- 48 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">48</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយនៅខណៈដំបូងនៅ
+            <span class="given">\(P_i, V_i\)</span> និង
+            <span class="given">\(T_i\)</span> ត្រូវបានដំណើរការ ១ ស៊ិច (ដូចរូប)។
+          </p>
+          <img
+            src="images/image-9.png"
+            alt="Exercise 48 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div class="ex-find">
+            ក. គណនាកម្មន្តធ្វើទៅលើឧស្ម័នក្នុងមួយវដ្តសម្រាប់ឧស្ម័ន
+            <span class="given">\(n = 1 \text{ mol}\)</span> និងសីតុណ្ហភាពដំបូង
+            <span class="given">\(t = 0^\circ\text{C}\)</span> ។
+          </div>
+          <div class="ex-find">
+            ខ. គណនាថាមពលកម្ដៅនៃប្រព័ន្ធឧស្ម័ននៅក្នុង ១ ស៊ិច ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 49 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">49</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៤៩</span>
+        </div>
+        <div class="ex-body">
+          <p>គំរូនៃឧស្ម័នបរិសុទ្ធមួយបានដំណើរការបង្ហាញក្នុងរូបភាព ។</p>
+          <div style="margin-left: 20px">
+            <p>
+              - ពី <span class="given">A</span> ដល់
+              <span class="given">B</span> គឺដំណើរការដោយលំនាំអាដ្យាបាទិច ។
+            </p>
+            <p>
+              - ពី <span class="given">B</span> ទៅ
+              <span class="given">C</span> គឺជាលំនាំអ៊ីសូបាជាមួយនឹងការស្រូបកម្ដៅ
+              <span class="given">345 \text{ kJ}\)</span> ។
+            </p>
+            <p>
+              - ពី <span class="given">C</span> ទៅ
+              <span class="given">D</span> គឺជាលំនាំអ៊ីសូទែម ។
+            </p>
+            <p>
+              - ពី <span class="given">D</span> ដល់
+              <span class="given">A</span>
+              វាជាអ៊ីសូបារជាមួយនឹងការបញ្ចេញថាមពលកម្ដៅ
+              <span class="given">371 \text{ kJ}\)</span> ចាកចេញពីប្រព័ន្ធ ។
+            </p>
+          </div>
+          <img
+            src="images/image-10.png"
+            alt="Exercise 49 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div class="ex-find">
+            កំណត់ផលសងថាមពលក្នុង <span class="given">\(U_A - U_B\)</span> ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 50 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">50</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៥០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ូលេគុលឧស្ម័នមួយត្រូវបានស្ថិតនៅក្នុងប្រព័ន្ធទែម៉ូឌីណាមិច
+            ហើយត្រូវរងនូវបំលែងភាពពី <span class="given">I</span> ទៅ
+            <span class="given">F</span> (ដូចបានបង្ហាញនៅក្នុងរូបខាងក្រោម)។
+            ថាមពលកម្ដៅ
+            <span class="given">\(418 \text{ J}\)</span>
+            ត្រូវបានស្រូបដោយប្រព័ន្ធនៅពេលដែលផ្លាស់ប្តូរពីចំណុច
+            <span class="given">I</span> ទៅ
+            <span class="given">F</span> (តាមគន្លងត្រង់) ។
+          </p>
+          <img
+            src="images/image-11.png"
+            alt="Exercise 50 Diagram"
+            style="
+              max-width: 100%;
+              margin: 20px 0;
+              border-radius: 12px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            "
+          />
+          <div style="margin-top: 15px">
+            <div class="ex-find">
+              ក. គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធតាមគន្លង IF ។
+            </div>
+            <div class="ex-find">
+              ខ.
+              តើថាមពលកម្ដៅប៉ុន្មានដែលផ្តល់ឱ្យប្រព័ន្ធនៅពេលដែលដំណើរការនៃប្រព័ន្ធតាមគន្លង
+              IAF ?
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

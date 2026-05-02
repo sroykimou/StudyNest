@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ១–១០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 2_home.html"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ច្បាប់ទី១ទែម៉ូឌីណាមិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ១–១០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយនៅក្នុងស៊ីឡាំងដែលបិទជិតដោយពីស្តុងអាចរីកមាឌក្រោមសម្ពាធថេរ
+            <span class="given">\(5 \text{ atm}\)</span> រីកមាឌពី
+            <span class="given">\(10 \text{ L}\)</span> ទៅ
+            <span class="given">\(25 \text{ L}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្មន្តក្នុងលំនាំនេះ ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            នៅសម្ពាធថេរ
+            <span class="given">\(15 \times 10^4 \text{ Pa}\)</span>
+            ឧស្ម័នមួយរីកមានមាឌពី
+            <span class="given">\(V_1 = 7500 \text{ cm}^3\)</span> ទៅ
+            <span class="given">\(V_2 = 9000 \text{ cm}^3\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយប្រែប្រួលមាឌពី
+            <span class="given">\(0.75 \text{ m}^3\)</span> ទៅ
+            <span class="given">\(1.9 \text{ m}^3\)</span> ជាមួយនឹងសម្ពាធថេរ
+            <span class="given">\(P = 200 \text{ kPa}\)</span> ។
+          </p>
+          <div class="ex-find">
+            គណនាកម្មន្តដែលបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នក្នុងធុងមួយមានមាឌ
+            <span class="given">\(V_1\)</span> ស្ថិតក្រោមសម្ពាធ
+            <span class="given">\(240 \text{ Pa}\)</span> ។
+            គេធ្វើឱ្យឧស្ម័នរីកមាឌកើនឡើង ២ ដងនៃមាឌដើមតាមលំនាំអ៊ីសូបារ
+            ហើយកម្មន្តបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌនោះមានតម្លៃ
+            <span class="given">\(2.88 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាមាឌដើម និងមាឌស្រេចនៃឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេសន្មតថាឧស្ម័នមួយនៅក្នុងស៊ីឡាំងបិទដោយពីស្តុង
+            ដែលអាចរីកមាឌក្រោមសម្ពាធថេរ
+            <span class="given">\(100 \text{ kPa}\)</span> ពី
+            <span class="given">\(2 \text{ dm}^3\)</span> ទៅ
+            <span class="given">\(5 \text{ dm}^3\)</span> ។
+          </p>
+          <div class="ex-find">
+            តើកម្មន្តធ្វើដោយឧស្ម័ននោះមានតម្លៃស្មើប៉ុន្មាន ?
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយមានសម្ពាធ
+            <span class="given">\(50 \text{ kPa}\)</span> រងនូវលំនាំអ៊ីសូបារ
+            ហើយមានមាឌ
+            <span class="given">\(V_1 = 75 \times 10^4 \text{ cm}^3\)</span> ។
+            បើគេដឹងថាកម្មន្តបំពេញដោយឧស្ម័នក្នុងរយៈពេលនោះមានតម្លៃ
+            <span class="given">\(22.5 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find">តើមាឌកើនដល់កម្រិតណា ?</div>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ធុងមួយមានមាឌ
+            <span class="given">\(50 \text{ dm}^3\)</span> មានផ្ទុកឧស្ម័នពេញ ។
+            ហើយឧស្ម័ននោះត្រូវបានគេបង្រួមមាឌឱ្យតូចជាងមុនពីរដង តាមលំនាំអ៊ីសូបារ ។
+            បើគេដឹងថាកម្មន្តដែលឧស្ម័ននោះរងក្នុងពេលមានបម្រែបម្រួលមាឌស្មើ
+            <span class="given">\(3.125 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័ន ។</div>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ពីស្តុងក្នុងស៊ីឡាំងមួយមានមុខកាត់
+            <span class="given">\(0.01 \text{ m}^2\)</span> ក្រោមសម្ពាធថេរ
+            <span class="given">\(7.5 \times 10^5 \text{ Pa}\)</span> ។
+            ពីស្តុងផ្លាស់ទីបានប្រវែង
+            <span class="given">\(0.04 \text{ m}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្មន្តដែលបំពេញដោយពីស្តុង ។</div>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត០៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ចំហាយបានផ្លាស់ទីចូលក្នុងស៊ីឡាំងមួយដោយរក្សាសម្ពាធថេរ
+            និងបានធ្វើកម្មន្តឱ្យពីស្តុង
+            <span class="given">\(0.84 \text{ J}\)</span> ។
+            ពីស្តុងមានអង្កត់ផ្ចិត
+            <span class="given">\(1.6 \text{ cm}\)</span> និងផ្លាស់ទីបាន
+            <span class="given">\(2.1 \text{ cm}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាសម្ពាធថេរនោះ ។</div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <span class="ex-title">លំហាត់អនុវត្ត១០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងម៉ាស៊ីនមួយចំហាយឧស្ម័នបានផ្លាស់ទីចូលក្នុងស៊ីឡាំងមួយដោយរក្សាសម្ពាធថេរ
+            ។ ឧស្ម័ននេះបានរុញច្រានពីស្តុងបង្កើតបានជាកម្មន្ត
+            <span class="given">\(2.826 \text{ J}\)</span> ។
+            ពីស្តុងមានអង្កត់ផ្ចិត
+            <span class="given">\(2 \text{ cm}\)</span> ផ្លាស់ទីបាន
+            <span class="given">\(4 \text{ cm}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័នក្នុងម៉ាស៊ីននោះ ។</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

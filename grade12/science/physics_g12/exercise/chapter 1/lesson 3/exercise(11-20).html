@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ១១–២០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      .system-diagram {
+        max-width: 100%;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 3_home.html"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ម៉ាសុីន</div>
+        <h1>លំហាត់<em>អនុវត្ត ១១–២០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">11</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនកាកណូមួយស្រូបកម្ដៅ
+            <span class="given">\(7.2 \text{ kJ}\)</span>
+            ក្នុងរយៈពេលមួយស៊ិចនិងដំណើរការនៅចន្លោះ សីតុណ្ហភាពពី
+            <span class="given">\(450 \text{ K}\)</span> ទៅ
+            <span class="given">\(600 \text{ K}\)</span> ។ គណនា ៖
+          </p>
+          <div class="ex-find">ក. ថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញចោល ។</div>
+          <div class="ex-find">ខ. កម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច ។</div>
+          <div class="ex-find">គ. ទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">12</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនកម្ដៅមួយស្រូបកម្ដៅ
+            <span class="given">\(2 \times 10^3 \text{ J}\)</span>
+            ពីធុងក្ដៅក្នុងរយៈពេលមួយវដ្ដហើយបញ្ចេញកម្ដៅ
+            <span class="given">\(1.5 \times 10^3 \text{ J}\)</span>
+            ទៅឲ្យធុងត្រជាក់ ។
+          </p>
+          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</div>
+          <div class="ex-find">ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈមួយវដ្ដ ។</div>
+          <div class="ex-find">
+            គ. គណនាអានុភាពមធ្យមដែលបញ្ចេញដោយម៉ាស៊ីន
+            <span class="given">\(4\)</span> វដ្ដក្នុង
+            <span class="given">\(2.5 \text{ s}\)</span> ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">13</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនកាកណូមួយដំណើរការនៅចន្លោះធុងកម្ដៅពីរដែលមានសីតុណ្ហភាព
+            <span class="given">\(500 \text{ K}\)</span> និង
+            <span class="given">\(400 \text{ K}\)</span> វាស្រូបកម្ដៅ
+            <span class="given">\(10 \text{ kJ}\)</span>
+            ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
+          </p>
+          <div class="ex-find">ក. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find">
+            ខ. តើកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅមានតម្លៃប៉ុន្មាន ?
+          </div>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">14</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនអ៊ីដេអាល់មួយដំណើរការនៅចន្លោះប្រភពកម្ដៅពីរដែលមានសីតុណ្ហភាព
+            <span class="given">\(500 \text{ K}\)</span> និង
+            <span class="given">\(600 \text{ K}\)</span> វាស្រូបកម្ដៅ
+            <span class="given">\(1000 \text{ J}\)</span>
+            ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
+          </p>
+          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find">
+            ខ. គណនាកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">15</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៥</span>
+        </div>
+        <div class="ex-body">
+          <p>គំនូសបំព្រួញខាងក្រោមតាងឲ្យម៉ាស៊ីនកម្ដៅ ។</p>
+          <img
+            src="images/image-1.png"
+            alt="ម៉ាស៊ីនកម្ដៅ"
+            class="system-diagram"
+          />
+
+          <div class="ex-find">ចូរគណនា \(Q_h\) និង \(Q_c\) ។</div>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">16</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនមួយដំណើរការដោយប្រើម៉ាសប្រេងឥន្ធនៈ
+            <span class="given">\(0.2 \text{ kg}\)</span> ។ បើកម្ដៅចំហេះនៃប្រេង
+            <span class="given">\(q = 10^4 \text{ J/g}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្ដៅដែលទទួលបាន ។</div>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">17</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនមួយមានទិន្នផល
+            <span class="given">\(30 \%\)</span> មានកម្មន្តមេកានិច
+            <span class="given">\(120 \text{ kJ}\)</span>
+            និងដំណើរការដោយប្រើឥន្ធនៈមានម៉ាស
+            <span class="given">\(0.8 \text{ kg}\)</span> ។
+          </p>
+          <div class="ex-find">គណនាកម្ដៅចំហេះរបស់ឥន្ធនៈ ។</div>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">18</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            រាល់វិនាទីម៉ូទ័ររថយន្តមួយបានផ្ដល់កម្ដៅ
+            <span class="given">\(172 \text{ kJ}\)</span>
+            ពីចំហេះល្បាយឧស្ម័ននិងបញ្ចេញ
+            <span class="given">\(135 \text{ kJ}\)</span> ទៅបរិយាកាស ។
+          </p>
+          <div class="ex-find">ក. រៀបរាប់វគ្គទាំងបួននៃស៊ិច ។</div>
+          <div class="ex-find">
+            ខ. គណនាកម្មន្តមេកានិចក្នុងរយៈពេល
+            <span class="given">\(10 \text{ mn}\)</span> ។
+          </div>
+          <div class="ex-find">
+            គ. បើទិន្នផលនៃគ្រឿងបញ្ជូន គឺ
+            <span class="given">\(0.92\)</span>
+            គណនាកម្មន្តបានការរបស់ម៉ូទ័រក្នុងរយៈពេល
+            <span class="given">\(10 \text{ mn}\)</span> ។
+          </div>
+          <div class="ex-find">ឃ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</div>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">19</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            រាល់វិនាទីម៉ូទ័ររថយន្តមួយទទួលកម្ដៅ
+            <span class="given">\(172 \text{ kJ}\)</span>
+            ពីប្រតិកម្មនៃចំហេះល្បាយឧស្ម័ន និងបំពេញ កម្មន្តមេកានិច
+            <span class="given">\(37 \text{ kJ}\)</span>
+            រាល់វិនាទីពីស្តុងបានបញ្ជូនកម្មន្តបានការ
+            <span class="given">\(34.04 \text{ kJ}\)</span> ឲ្យភ្លៅម៉ូទ័រ ។
+          </p>
+          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ូទ័រ ។</div>
+          <div class="ex-find">
+            ខ. គណនាកម្ដៅដែលម៉ាស៊ីនបញ្ចេញមកក្រៅក្នុងរយៈពេល
+            <span class="given">\(5 \text{ mn}\)</span> ។
+          </div>
+          <div class="ex-find">គ. គណនាទិន្នផលនៃគ្រឿងបញ្ជូន ។</div>
+          <div class="ex-find">ឃ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</div>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">20</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ូទ័របន្ទុះ <span class="given">\(4\)</span> វគ្គមួយមានទិន្នផលកម្ដៅ
+            <span class="given">\(25 \%\)</span> និងទិន្នផលគ្រឿងបញ្ជូន គឺ
+            <span class="given">\(90 \%\)</span> ពេលដំណើរ
+            ការវាទទួលថាមពលកម្ដៅចំហេះប្រេងឥន្ទនៈ
+            <span class="given">\(2500 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលមេកានិច \(W_M\) ដែលពីស្តុងទទួល ។
+          </div>
+          <div class="ex-find">
+            ខ. គណនាថាមពលកម្ដៅ \(Q_c\) ដែលបញ្ចេញទៅបរិយាកាស ។
+          </div>
+          <div class="ex-find">
+            គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល \(W_u\) ។
+          </div>
+          <div class="ex-find">
+            ឃ. គណនាទិន្នផលបានការ (ទិន្នផលសរុប) របស់ម៉ាស៊ីន ។
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

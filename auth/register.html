@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | StudyNest</title>
+    <meta name="description" content="បង្កើតគណនីសិស្សា StudyNest — កៀច្ចូលសិក្សាថ្នាក់ទី១២">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪺</text></svg>">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* ── CSS Styles ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --primary: #4f46e5;
+        --primary-glow: rgba(79, 70, 229, 0.45);
+        --accent: #74ebd5;
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.22);
+        --input-bg: rgba(255, 255, 255, 0.08);
+        --text-primary: #f0f4ff;
+        --text-muted: rgba(210, 220, 255, 0.65);
+      }
+
+      body {
+        font-family: "Kantumruy Pro", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          #1e1b4b 0%,
+          #0f172a 50%,
+          #134e4a 100%
+        );
+        color: var(--text-primary);
+        overflow: hidden;
+      }
+
+      .card {
+        width: 400px;
+        padding: 40px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(24px);
+        border: 1px solid var(--glass-border);
+        border-radius: 28px;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55);
+        text-align: center;
+      }
+
+      .logo-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        margin: 0 auto 16px;
+        box-shadow: 0 0 28px var(--primary-glow);
+      }
+
+      .brand {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .tagline {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        margin-bottom: 28px;
+      }
+
+      .input-group {
+        text-align: left;
+        margin-bottom: 16px;
+      }
+      .input-group label {
+        display: block;
+        margin-bottom: 7px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+      .input-wrap {
+        position: relative;
+      }
+      .input-wrap input {
+        width: 100%;
+        padding: 12px 16px 12px 42px;
+        background: var(--input-bg);
+        border: 1.5px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        color: #fff;
+        outline: none;
+        transition: 0.3s;
+      }
+      .input-wrap input:focus {
+        border-color: var(--accent);
+      }
+      .input-wrap .icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+      }
+
+      .reg-btn {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+      }
+      .reg-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px var(--primary-glow);
+      }
+      .reg-btn.loading {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      .login-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 13px;
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+      .login-link b {
+        color: var(--accent);
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 24px;
+        border-radius: 40px;
+        font-size: 13px;
+        display: none;
+        z-index: 999;
+      }
+      .toast.show {
+        display: block;
+        animation: fadeInUp 0.3s;
+      }
+      .toast.error {
+        background: #ef4444;
+        color: #fff;
+      }
+      .toast.success {
+        background: #10b981;
+        color: #fff;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 20px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+      <h1 class="brand">StudyNest</h1>
+      <p class="tagline">បង្កើតគណនីសម្រាប់សិស្សថ្នាក់ទី ១២</p>
+
+      <form id="registerForm">
+        <div class="input-group">
+          <label>ឈ្មោះអ្នកប្រើប្រាស់</label>
+          <div class="input-wrap">
+            <input
+              type="text"
+              id="username"
+              placeholder="ឈ្មោះរបស់អ្នក..."
+              required
+            />
+            <i class="fas fa-user icon"></i>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>ថ្នាក់ទី ១២</label>
+          <div class="input-wrap">
+            <select id="branchSelect" required style="width: 100%; padding: 12px 16px 12px 42px; background: var(--input-bg); border: 1.5px solid rgba(255, 255, 255, 0.1); border-radius: 12px; color: #fff; outline: none; appearance: none; cursor: pointer;">
+              <option value="" disabled selected>សូមជ្រើសរើស...</option>
+              <option value="science">វិទ្យាសាស្ត្រ</option>
+              <option value="social">វិទ្យាសាស្ត្រសង្គម</option>
+            </select>
+            <input type="hidden" id="gradeSelect" value="12" />
+            <i class="fas fa-microscope icon"></i>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>លេខសម្ងាត់</label>
+          <div class="input-wrap">
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              required
+            />
+            <i class="fas fa-lock icon"></i>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>បញ្ជាក់លេខសម្ងាត់</label>
+          <div class="input-wrap">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="••••••••"
+              required
+            />
+            <i class="fas fa-check-circle icon"></i>
+          </div>
+        </div>
+
+        <button type="submit" class="reg-btn" id="regBtn">
+          ចុះឈ្មោះឥឡូវនេះ
+        </button>
+      </form>
+
+      <a href="login.html" class="login-link"
+        >មានគណនីរួចហើយ? <b>ចូលប្រើប្រាស់</b></a
+      >
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      const form = document.getElementById("registerForm");
+      const toast = document.getElementById("toast");
+
+      function showToast(msg, type) {
+        toast.textContent = msg;
+        toast.className = `toast show ${type}`;
+        setTimeout(() => (toast.className = "toast"), 3000);
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const user = document.getElementById("username").value.trim();
+        const pass = document.getElementById("password").value;
+        const conf = document.getElementById("confirmPassword").value;
+        const grade = document.getElementById("gradeSelect").value;
+        const btn = document.getElementById("regBtn");
+
+        // 1. ឆែកមើលថាមានឈ្មោះនេះរួចហើយឬនៅ
+        if (localStorage.getItem("user_" + user)) {
+          showToast("ឈ្មោះនេះមានគេប្រើរួចហើយ!", "error");
+          return;
+        }
+
+        // 2. ផ្ទៀងផ្ទាត់លេខសម្ងាត់
+        if (pass.length < 6) {
+          showToast("លេខសម្ងាត់យ៉ាងហោច ៦ ខ្ទង់", "error");
+          return;
+        }
+        if (pass !== conf) {
+          showToast("លេខសម្ងាត់មិនត្រូវគ្នា", "error");
+          return;
+        }
+
+        // 3. ដំណើរការចុះឈ្មោះ
+        btn.classList.add("loading");
+        btn.textContent = "កំពុងរក្សាទុក...";
+
+        setTimeout(() => {
+          const branch = document.getElementById("branchSelect").value;
+          // រក្សាទុកទិន្នន័យ User
+          const userData = { username: user, password: pass, grade: grade, branch: branch };
+          localStorage.setItem("user_" + user, JSON.stringify(userData));
+
+          // កំណត់ Session និង Level ដើម (Level 0 = Free)
+          localStorage.setItem("currentUserName", user);
+          localStorage.setItem("userGrade", grade);
+          localStorage.setItem("userLevel_" + user, "0");
+
+          showToast("ចុះឈ្មោះជោគជ័យ! 🎉", "success");
+
+          setTimeout(() => {
+            // បញ្ជូនទៅកាន់ Dashboard តាម Branch
+            window.location.href = `../grade${grade}/${branch}/${branch}_home.html`;
+          }, 1200);
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

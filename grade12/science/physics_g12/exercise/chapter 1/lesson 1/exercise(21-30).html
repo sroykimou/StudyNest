@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ២៤–៥៩ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="lesson 1_home.html" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a>
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ទ្រឹស្តីបទសុីនេទិចនៃឧស្ម័ន</div>
+        <h1>លំហាត់<em>អនុវត្ត</em> ២១–៣០</h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Exercises 24–40 are already in previous messages. Below are the completed 41–59 -->
+
+      <!-- 21 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">21</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងធុងបិទជិតមួយដឧស្ម័ន
+            <span class="given">0.25 mol</span> មានម៉ាសសរុប
+            <span class="given">7 g</span> ។
+          </p>
+          <p>
+            គេដឹងថា ចំនួនអាវ៉ូកាដ្រូ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol
+            ។
+          </p>
+          <div class="ex-find">ក. គណនាចំនួនម៉ូលេគុលសរុបក្នុងធុងនេះ ។</div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. តើឧស្ម័នក្នុងធុងជាឧស្ម័នអ្វី ?
+          </div>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">22</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានមាឌ
+            <span class="given">600 cm³</span> ស្ថិតក្រោមសម្ពាធ
+            <span class="given">16.62 atm</span> នៅសីតុណ្ហភាព
+            <span class="given">27°C</span> ។
+          </p>
+          <div class="ex-find">ក. គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន ។បើឧស្ម័នមានម៉ាសម៉ូល \(M = 4\) g/mol ។
+          </div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            គ. បើឧស្ម័នមាន \(2 \times 10^{20}\) ម៉ូលេគុល
+            ។គណនាម៉ាសម៉ូលេគុលនីមួយៗនៃឧស្ម័ន ។
+          </div>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">23</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានសម្ពាធ
+            <span class="given">1.52 MPa</span> នៅសីតុណ្ហភាព
+            <span class="given">25°C</span> និងមានមាឌ
+            <span class="given">10 L</span> ។
+          </p>
+          <div class="ex-find">ក. តើឧស្ម័ននោះចំនួនម៉ូលប៉ុន្មាន ?</div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន :
+          </div>
+          <div
+            class="ex-find"
+            style="
+              margin-top: 2px;
+              border-top: none;
+              padding-top: 0;
+              padding-left: 20px;
+            "
+          >
+            ① បើជាម៉ូលេគុលអ៊ីដ្រូសែន \((H_2)\) ។
+          </div>
+          <div
+            class="ex-find"
+            style="
+              margin-top: 2px;
+              border-top: none;
+              padding-top: 0;
+              padding-left: 20px;
+            "
+          >
+            ② បើជាម៉ូលេគុលអុកស៊ីសែន \((O_2)\) ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">24</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ធុងមួយមានផ្ទុកអេល្យូម <span class="given">(He)</span> ចំនួន
+            <span class="given">2 mol</span> នៅសីតុណ្ហភាព
+            <span class="given">27°C</span>។ គេសន្មត់ថាអេល្យូមជាឧស្ម័នបរិសុទ្ធ។
+          </p>
+          <p>
+            គេផ្តល់ឲ្យ \( R = 8.31 \) J/mol·K និង \( k_B = 1.38 \times 10^{-23}
+            \) J/K។
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+          <div class="ex-find">
+            ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុល។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">25</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងធុងមួយមានមាឌ
+            <span class="given">200 ml</span> មានចំនួនម៉ូលេគុលសរុប
+            <span class="given">\(5 \times 10^{21}\)</span> ហើយស្ថិតក្រោមសម្ពាធ
+            <span class="given">250 kPa</span>។
+          </p>
+          <p>
+            គេផ្តល់ឲ្យ \( k_B = 1.38 \times 10^{-23} \) J/K និង \( N_A = 6.02
+            \times 10^{23} \) ម៉ូលេគុល/mol។
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ភាគល្អិតនីមួយៗ។
+          </div>
+          <div class="ex-find">ខ. គណនាចំនួនម៉ូលនៃឧស្ម័ននៅក្នុងធុង។</div>
+          <div class="ex-find">គ. គណនាសីតុណ្ហភាពនៃឧស្ម័ន។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">26</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            <span class="given">2 mol</span> នៃឧស្ម័នអុកស៊ីសែន មានមាឌ
+            <span class="given">5 L</span> ក្រោមសម្ពាធ
+            <span class="given">8 atm</span>។
+          </p>
+          <div class="ex-find">
+            គណនាថាមពលសុីនេទិចមធ្យមនៃម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">27</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានម៉ូលេគុលអុកសុីសែនមួយនៅក្នុងខ្យល់ស្ថិតក្នុងបន្ទប់ដែលមានសីតុណ្ហភាព
+            <span class="given">27°C</span>គិតជាអេឡិចត្រុងវ៉ុល ។
+          </p>
+          <p>
+            គេឲ្យ 1eV= \( 1.6 \times 10^{-19} \) J​ និងថេរប៊ុលស្មាន់ \( k_B =
+            1.38 \times 10^{-23} \) J/K ។
+          </p>
+          <div class="ex-find">
+            គណនាតម្លៃមធ្យមនៃថាមពលសុីនេទិចរបស់ឧស្ម័ននីមួយៗ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">28</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយមានមាឌ
+            <span class="given">V = 4000 cm³</span>
+            ដែលក្នុងនោះផ្ទុកឧស្ម័នអេល្យូមក្រោមសម្ពាធ
+            <span class="given">1.2 atm</span>។ ប់ើវាមានថាមពលសុីនេទិចមធ្យម<span
+              class="given"
+              >\( K_{\text{av}} = 3.6 \times 10^{-22} \) J​
+            </span>
+            ។
+          </p>
+
+          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ននអេល្យូមក្នុងបាឡុង ។</div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">29</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ២៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ធុងមួយមានផ្ទុកអេល្យូម <span class="given">He</span> ចំនួន
+            <span class="given">\( 0.5 \) mol</span> នៅសីតុណ្ហភាព
+            <span class="given">27°C</span>។ គេសន្មត់ថាអេល្យូមជាឧស្ម័នបរិសុទ្ធ។
+
+            <span class="given">\( T = 27 \) °C</span>។
+          </p>
+          <p>
+            គេឲ្យ \( R = 8.31 \) J/mol·K ; \( k_B = 1.38 \times 10^{-23} \) J/K
+            ។​
+          </p>
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។
+          </div>
+
+          <div
+            class="ex-find"
+            style="margin-top: 4px; border-top: none; padding-top: 0"
+          >
+            គ. គណនាសម្ពាធឧស្ម័នអេល្យូមក្នុងធុង ប្រសិនបើធុងមានមាឌ \( 4.53 \times
+            10^{-3} \) m³ ។
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">30</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            បាឡុងមួយមានមាឌ
+            <span class="given">\( V = 0.30 \) m³</span>និងចំនួនម៉ូល
+            <span class="given">\( n = 2 \) mol</span> នៅសីតុណ្ហភាព
+            <span class="given">\( T = 20 \) °C</span>។
+            សន្មត់ថាឧស្ម័នជាឧស្ម័នបរិសុទ្ធ។
+          </p>
+
+          <div class="ex-find">
+            ក. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។
+          </div>
+          <div class="ex-find">
+            ខ. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

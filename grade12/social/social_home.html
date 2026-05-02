@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Dashboard | StudyNest</title>
+    <!-- Khmer Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+      :root {
+        --navy: #0f172a;
+        --charcoal: #1e293b;
+        --sidebar-bg: #0b1120;
+        --accent: #f59e0b;
+        --accent-glow: rgba(245, 158, 11, 0.2);
+        --border: rgba(255, 255, 255, 0.08);
+        --glass: rgba(30, 41, 59, 0.65);
+        --text: #f1f5f9;
+        --text-muted: #94a3b8;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background-color: var(--navy);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        display: flex;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Sidebar Style */
+      .sidebar {
+        width: 280px;
+        height: 100vh;
+        background: var(--sidebar-bg);
+        border-right: 1px solid var(--border);
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        padding: 40px 20px;
+      }
+
+      .profile-section {
+        text-align: center;
+        margin-bottom: 40px;
+        cursor: pointer;
+      }
+
+      #sidebarAvatarContainer {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--charcoal);
+        margin: 0 auto 15px;
+        border: 2px solid var(--accent);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 700;
+        box-shadow: 0 0 15px var(--accent-glow);
+      }
+
+      #sidebarAvatar { width: 100%; height: 100%; object-fit: cover; }
+
+      .nav-menu { flex: 1; }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px 20px;
+        color: var(--text-muted);
+        text-decoration: none;
+        border-radius: 12px;
+        margin-bottom: 8px;
+        transition: 0.3s;
+        font-weight: 500;
+      }
+
+      .nav-item i { font-size: 18px; width: 24px; text-align: center; }
+
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+      }
+
+      .nav-item.active {
+        background: var(--accent-glow);
+        color: var(--accent);
+      }
+
+      .progress-container {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 15px;
+        margin-top: 20px;
+      }
+
+      .progress-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-bottom: 10px;
+        color: var(--text-muted);
+      }
+
+      .progress-bar-bg {
+        width: 100%;
+        height: 6px;
+        background: var(--navy);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .progress-bar-fill {
+        width: 0%;
+        height: 100%;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent-glow);
+        transition: 1s ease-out;
+      }
+
+      .logout-btn {
+        margin-top: auto;
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        justify-content: center;
+      }
+      .logout-btn:hover {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: #ef4444;
+      }
+
+      /* Main Content Style */
+      .main-content {
+        margin-left: 280px;
+        padding: 60px;
+        width: calc(100% - 280px);
+        min-height: 100vh;
+      }
+
+      .welcome-header { margin-bottom: 50px; }
+      .welcome-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+      .welcome-header p { color: var(--text-muted); font-size: 16px; }
+
+      .subject-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .subject-card {
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 30px;
+        cursor: pointer;
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .subject-card:hover {
+        transform: translateY(-10px);
+        background: var(--charcoal);
+        border-color: var(--accent);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .subject-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--navy);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--accent);
+        transition: 0.3s;
+      }
+
+      .subject-card:hover .subject-icon {
+        background: var(--accent);
+        color: white;
+      }
+
+      .subject-card h3 { font-size: 20px; font-weight: 600; }
+      .subject-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+      /* Modals */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.85);
+        backdrop-filter: blur(12px);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: var(--charcoal);
+        width: 90%;
+        max-width: 420px;
+        padding: 40px;
+        border-radius: 32px;
+        text-align: center;
+        border: 1px solid var(--border);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .option-btn {
+        width: 100%;
+        padding: 16px;
+        margin: 12px 0;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        color: white;
+        font-family: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s;
+      }
+
+      .option-btn:hover {
+        border-color: var(--accent);
+        background: var(--accent-glow);
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Fixed Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-section" onclick="window.location.href='../profile.html'">
+        <div id="sidebarAvatarContainer">
+          <img id="sidebarAvatar" src="" style="display: none;" />
+          <span id="sidebarInitial"></span>
+        </div>
+        <div style="font-weight: 700; font-size: 18px;" id="sidebarName">Student</div>
+        <div style="font-size: 12px; color: var(--text-muted)">វិទ្យាសាស្ត្រសង្គម</div>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active"><i class="fas fa-home"></i> ទំព័រដើម</a>
+        <a href="#" onclick="openPayModal()" class="nav-item"><i class="fas fa-credit-card"></i> បង់ប្រាក់</a>
+        
+        <div class="progress-container">
+          <div class="progress-header">
+            <span>ការសិក្សាសរុប</span>
+            <span id="sideProgressPercent">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="sideProgressBar"></div>
+          </div>
+        </div>
+      </nav>
+
+      <a href="#" onclick="logout()" class="nav-item logout-btn">
+        <i class="fas fa-sign-out-alt"></i> ចាកចេញ
+      </a>
+    </aside>
+
+    <!-- Scrollable Main Area -->
+    <main class="main-content">
+      <header class="welcome-header">
+        <h1 id="welcomeText">សួស្ដី! 👋</h1>
+        <p>កម្រងមេរៀនវិទ្យាសាស្ត្រសង្គម ថ្នាក់ទី១២</p>
+      </header>
+
+      <div class="subject-grid">
+        <div class="subject-card" onclick="openOptions('ប្រវត្តិវិទ្យា', 'history_g12/history_g12.html')">
+          <div class="subject-icon"><i class="fas fa-history"></i></div>
+          <div>
+            <h3>ប្រវត្តិវិទ្យា</h3>
+            <p>ប្រវត្តិសាស្ត្រពិភពលោក និងមាតុភូមិ...</p>
+          </div>
+        </div>
+
+        <div class="subject-card" onclick="openOptions('ភូមិវិទ្យា', 'geography_g12/geography_g12.html')">
+          <div class="subject-icon"><i class="fas fa-globe-asia"></i></div>
+          <div>
+            <h3>ភូមិវិទ្យា</h3>
+            <p>ភូមិសាស្ត្ររូបវន្ត និងប្រជាសាស្ត្រ...</p>
+          </div>
+        </div>
+
+        <div class="subject-card" onclick="openOptions('សីលធម៌-ពលរដ្ឋ', 'civics_and_ethics_g12/civics_and_ethics_g12.html')">
+          <div class="subject-icon"><i class="fas fa-balance-scale"></i></div>
+          <div>
+            <h3>សីលធម៌-ពលរដ្ឋ</h3>
+            <p>ច្បាប់ សីលធម៌ និងការរស់នៅ...</p>
+          </div>
+        </div>
+
+        <div class="subject-card" onclick="openOptions('គណិតវិទ្យា (សង្គម)', 'math_g12_social/math_g12_social.html')">
+          <div class="subject-icon"><i class="fas fa-calculator"></i></div>
+          <div>
+            <h3>គណិតវិទ្យា (សង្គម)</h3>
+            <p>មូលដ្ឋានគ្រឹះគណិតវិទ្យាសម្រាប់សង្គម...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="optionModal">
+      <div class="modal-content">
+        <h2 id="selectedSubject" style="margin-bottom: 5px">មុខវិជ្ជា</h2>
+        <p id="modalUserStatus" style="font-size: 13px; color: var(--accent); margin-bottom: 25px;">កម្រិតសិក្សា: Free</p>
+        
+        <div id="unlockedSection">
+            <button class="option-btn" onclick="goToContent('lesson')">
+              <span><i class="fas fa-book-open"></i> មេរៀន</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="option-btn" id="btn-exercise-unlocked" onclick="goToContent('exercise')" style="display: none;">
+              <span><i class="fas fa-edit"></i> លំហាត់</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div id="lockedSection" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);">
+            <button class="option-btn" id="btn-exercise-locked" onclick="goToPay(3)" style="opacity: 0.6;">
+              <span><i class="fas fa-lock"></i> លំហាត់</span>
+              <span style="font-size: 12px;">$3/m</span>
+            </button>
+        </div>
+        
+        <p onclick="closeModal()" style="margin-top: 25px; font-size: 14px; color: var(--text-muted); cursor: pointer;">បោះបង់</p>
+      </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="payModal">
+      <div class="modal-content">
+        <h2 style="margin-bottom: 25px">ជ្រើសរើសគម្រោងសិក្សា</h2>
+        <button class="option-btn" onclick="goToPay(3)" style="border-color: var(--accent);">
+          <div style="text-align: left;">
+            <div style="font-weight: 700;">Standard</div>
+            <div style="font-size: 11px; color: var(--text-muted);">មេរៀន + លំហាត់ទាំងអស់</div>
+          </div>
+          <span style="color: var(--accent); font-weight: 700;">$3</span>
+        </button>
+        <button class="option-btn" onclick="goToPay(6)" style="border-color: #a855f7;">
+          <div style="text-align: left;">
+            <div style="font-weight: 700;">Premium AI</div>
+            <div style="font-size: 11px; color: var(--text-muted);">លំហាត់ + AI Assistant</div>
+          </div>
+          <span style="color: #a855f7; font-weight: 700;">$6</span>
+        </button>
+        <p onclick="closePayModal()" style="margin-top: 25px; font-size: 14px; color: var(--text-muted); cursor: pointer;">បោះបង់</p>
+      </div>
+    </div>
+
+    <script>
+      const currentUser = localStorage.getItem("currentUserName") || "kimou";
+      let userLevel = parseInt(localStorage.getItem("userLevel_" + currentUser)) || 0;
+      let currentSubjectPath = "";
+
+      document.getElementById("sidebarName").textContent = currentUser;
+      document.getElementById("welcomeText").textContent = `សួស្ដី, ${currentUser}! 👋`;
+
+      function updateSidebarAvatar() {
+        const savedImg = localStorage.getItem("profile_" + currentUser);
+        const sidebarImg = document.getElementById("sidebarAvatar");
+        const sidebarInitial = document.getElementById("sidebarInitial");
+        if (savedImg && savedImg.startsWith("data:image")) {
+          sidebarImg.src = savedImg; sidebarImg.style.display = "block"; sidebarInitial.style.display = "none";
+        } else {
+          sidebarInitial.textContent = currentUser.substring(0, 2).toUpperCase(); sidebarImg.style.display = "none"; sidebarInitial.style.display = "block";
+        }
+      }
+      updateSidebarAvatar();
+
+      function updateProgress() {
+        const completed = JSON.parse(localStorage.getItem("completed_lessons_" + currentUser)) || [];
+        const percent = Math.min(Math.round((completed.length / 50) * 100), 100);
+        document.getElementById("sideProgressBar").style.width = percent + "%";
+        document.getElementById("sideProgressPercent").textContent = percent + "%";
+      }
+      updateProgress();
+
+      function openPayModal() { document.getElementById("payModal").style.display = "flex"; }
+      function closePayModal() { document.getElementById("payModal").style.display = "none"; }
+
+      function openOptions(subject, path) {
+        document.getElementById("selectedSubject").textContent = subject;
+        currentSubjectPath = path;
+        const statusElem = document.getElementById("modalUserStatus");
+        if (userLevel >= 6) statusElem.textContent = "កម្រិតសិក្សា: Premium";
+        else if (userLevel >= 3) statusElem.textContent = "កម្រិតសិក្សា: Standard";
+        else statusElem.textContent = "កម្រិតសិក្សា: Free";
+        
+        document.getElementById("btn-exercise-unlocked").style.display = (userLevel >= 3) ? "flex" : "none";
+        document.getElementById("btn-exercise-locked").style.display = (userLevel < 3) ? "flex" : "none";
+        document.getElementById("optionModal").style.display = "flex";
+      }
+
+      function closeModal() { document.getElementById("optionModal").style.display = "none"; }
+      function goToContent(type) {
+        if (type === "lesson") window.location.href = currentSubjectPath;
+        else alert("មុខងារ " + type + " នឹងមកដល់ឆាប់ៗនេះ!");
+      }
+      function goToPay(level) { window.location.href = `../pay.html?p=${level}`; }
+      function logout() { localStorage.removeItem("currentUserName"); window.location.href = "../../index.html"; }
+    </script>
+  </body>
+</html>

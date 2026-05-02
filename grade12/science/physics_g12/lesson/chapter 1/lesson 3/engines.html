@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>មេរៀនទី ៣ ៖ ម៉ាស៊ីន | Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <style>
+      :root {
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
+        --red-border: #dc2626;
+        --orange: #f97316;
+        --green: #16a34a;
+        --red-sub: #b91c1c;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.9;
+      }
+      header {
+        background: linear-gradient(135deg, #1e1b4b, var(--phys-dark));
+        color: white;
+        padding: 60px 20px 50px;
+        text-align: center;
+        border-bottom: 5px solid var(--phys-main);
+        position: relative;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        transition: all 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .subject-tag {
+        display: inline-block;
+        background: rgba(79, 70, 229, 0.25);
+        border: 1px solid var(--phys-main);
+        padding: 5px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .container {
+        max-width: 780px;
+        margin: 36px auto 60px;
+        padding: 0 20px;
+      }
+      .section-label {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 36px 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-label::before {
+        content: "◆";
+        font-size: 0.75rem;
+        color: var(--orange);
+      }
+      .formula-card {
+        border: 2px solid var(--red-border);
+        border-radius: 12px;
+        padding: 22px 28px 26px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.07);
+        margin-bottom: 24px;
+      }
+      .badge {
+        display: inline-block;
+        background: var(--green);
+        color: white;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 3px 14px;
+        border-radius: 6px;
+        margin-bottom: 16px;
+      }
+      .fbox {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 5px 14px;
+        background: #f8fafc;
+        flex-wrap: wrap;
+        font-weight: 600;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+      .var-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 10px 0 4px;
+      }
+      .var-list li {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 0.96rem;
+        padding: 4px 0;
+      }
+      .var-sym {
+        min-width: 50px;
+        font-style: italic;
+        color: var(--phys-dark);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .var-colon {
+        color: #64748b;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      .bullet-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 8px 0;
+      }
+      .bullet-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.96rem;
+        padding: 5px 0;
+      }
+      .bullet {
+        color: var(--phys-main);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .red-sub {
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--red-sub);
+        margin: 18px 0 10px;
+      }
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.96rem;
+        overflow-x: auto;
+      }
+      .prose {
+        font-size: 0.96rem;
+        margin: 8px 0;
+        line-height: 1.8;
+      }
+      .system-diagram {
+        max-width: 100%;
+        height: auto;
+        margin: 15px 0;
+        border-radius: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .table-wrapper {
+        margin: 16px 0 8px;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.93rem;
+        background: white;
+      }
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #e2e8f0;
+        text-align: left;
+      }
+      th {
+        background: #f1f5f9;
+        font-weight: 700;
+        color: var(--phys-dark);
+      }
+      .nav-links {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 40px;
+      }
+      .nav-btn {
+        text-decoration: none;
+        color: var(--phys-main);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+      }
+      .nav-btn.prev:hover {
+        background: var(--phys-light);
+        transform: translateX(-5px);
+      }
+      .nav-btn.next:hover {
+        background: var(--phys-light);
+        transform: translateX(5px);
+      }
+      .nav-btn.home:hover {
+        background: var(--phys-light);
+        transform: translateY(-3px);
+      }
+      /* New helper classes */
+      .where-label {
+        font-weight: 700;
+        margin: 15px 0 5px;
+        color: var(--phys-dark);
+      }
+      .var-block {
+        margin: 10px 0 20px 20px;
+      }
+      .var-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 5px;
+        align-items: baseline;
+      }
+      .title-line {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .note {
+        font-style: italic;
+        color: #64748b;
+        margin: 15px 0;
+        font-size: 0.9rem;
+      }
+      .bullet-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 10px 0;
+        font-size: 0.96rem;
+      }
+      .math-note {
+        color: #64748b;
+        font-size: 0.85rem;
+        margin-left: 10px;
+      }
+      .section-letter {
+        background: var(--orange);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-right: 8px;
+      }
+      .section-title {
+        font-weight: 700;
+      }
+      .section-sub {
+        color: #64748b;
+        font-size: 0.9rem;
+        margin-left: 8px;
+      }
+      .body-line {
+        margin: 10px 0;
+      }
+      .formula-box {
+        display: inline-block;
+        border: 2px solid var(--phys-main);
+        padding: 5px 15px;
+        border-radius: 8px;
+        background: var(--phys-light);
+        font-weight: 700;
+        margin-left: 10px;
+      }
+      .derive-line {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+        font-weight: 600;
+        color: var(--phys-dark);
+      }
+      .arrow-sym {
+        color: var(--orange);
+      }
+      .bullet-red {
+        color: var(--red-border);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .sign-pos {
+        color: var(--green);
+        font-weight: 700;
+      }
+      .sign-neg {
+        color: var(--red-border);
+        font-weight: 700;
+      }
+      .sign-section-label {
+        font-weight: 700;
+        margin: 20px 0 10px;
+        color: var(--red-border);
+        text-decoration: underline;
+      }
+      .fbox-highlight {
+        display: inline-block;
+        border: 2px solid var(--red-border);
+        padding: 8px 20px;
+        border-radius: 8px;
+        background: #fff1f2;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../../../physics_g12.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+      </a>
+      <span class="subject-tag">រូបវិទ្យា ថ្នាក់ទី ១២ • ជំពូកទី ១</span>
+      <h1>មេរៀនទី ៣ ៖ ម៉ាស៊ីន</h1>
+    </header>
+
+    <div class="container">
+      <p class="section-label">១. លំនាំអាដ្យាបាទិច</p>
+      <div class="formula-card">
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">●</span>
+            <p>
+              ជាលំនាំមួយដែលឧស្ម័ន ឬ ប្រព័ន្ធមិនផ្លាស់ប្ដូរថាមពលកម្ដៅជាមួយមជ្ឈដ្ឋានខាងក្រៅ ។
+            </p>
+          </li>
+          <li>
+            <div class="formula-row" style="margin-top: 12px">
+              <span>គេសរសេរ :</span>
+              <span class="fbox"> Q = ០</span> ឬ​ <span class="fbox">\( W = - \Delta U \)</span>
+            </div>
+          </li>
+        </ul>
+        <img
+          src="images/image-1.png"
+          alt="លំនាំអាដ្យាបាទិច"
+          class="system-diagram"  
+        />
+      </div>
+
+      <p class="section-label">២. ស៊ិចកាកណូ (ម៉ាស៊ីនកាកណូ)</p>
+      <div class="formula-card">
+        <p class="title-line">
+          <strong>ស៊ិចកាកណូ ឬម៉ាស៊ីនអុីដេអាល់</strong> កើតឡើងដោយការបម្លែងអ៊ីសូទែមពីរនិងអាដ្យាបាទិចពីរ (ដូចរូប) ។
+        </p>
+        <img
+          src="images/image-2.png"
+          alt="ស៊ិចកាកណូ"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-3.png"
+          alt="ស៊ិចកាកណូ"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-4.png"
+          alt="ស៊ិចកាកណូ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ក.</span>
+          <span class="section-title">ដំណើររបស់ស៊ិចកាកណូ</span>
+        </div>
+        <img
+          src="images/image-5.png"
+          alt="ដំណើររបស់ស៊ិចកាកណូ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ខ.</span>
+          <span class="section-title">ទ្រឹស្ដីបទកាកណូ</span>
+        </div>
+        <img
+          src="images/image-6.png"
+          alt="ទ្រឹស្ដីបទកាកណូ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">គ.</span>
+          <span class="section-title">រូបមន្តម៉ាស៊ីនកាកណូ ម៉ាស៊ីនអ៊ីដេអាល់ ម៉ាស៊ីនទ្រឹស្ដី</span>
+        </div>
+        <img
+          src="images/image-7.png"
+          alt="រូបមន្តម៉ាស៊ីនកាកណូ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ឃ.</span>
+          <span class="section-title">កម្ដៅរលាយ ឬកម្ដៅឡាតង់</span>
+        </div>
+        <img
+          src="images/image-8.png"
+          alt="កម្ដៅរលាយ"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label">៣. ម៉ាស៊ីនពិត (ម៉ាស៊ីនសាំង និងម៉ាស៊ូត)</p>
+      <div class="formula-card">
+        <p class="title-line">
+          ម៉ូទ័រទាំងឡាយណាដែលកម្ដៅផ្ដល់ជាកម្មន្តហៅថា<strong> ម៉ូទ័រកម្ដៅ </strong>។ កម្តៅកើតឡើងដោយចំហេះនៃល្បាយឥន្ធនៈ (សាំង ម៉ាស៊ូត...) និងខ្យល់ ។
+        </p>
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ក.</span>
+          <span class="section-title">ម៉ាស៊ីនបន្ទុះពីរវគ្គ (ម៉ាស៊ីនប្រើសាំងលាយ)</span>
+        </div>
+        <img
+          src="images/image-10.png"
+          alt="ម៉ាស៊ីនបន្ទុះពីរវគ្គ"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-9.png"
+          alt="ម៉ាស៊ីនបន្ទុះពីរវគ្គ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ខ.</span>
+          <span class="section-title">ម៉ាស៊ីនបន្ទុះបួនវគ្គ (ម៉ាស៊ីនប្រើសាំង)</span>
+        </div>
+        <img
+          src="images/image-11.png"
+          alt="ម៉ាស៊ីនបន្ទុះបួនវគ្គ"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-12.png"
+          alt="ម៉ាស៊ីនបន្ទុះបួនវគ្គ"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-13.png"
+          alt="ម៉ាស៊ីនបន្ទុះបួនវគ្គ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">គ.</span>
+          <span class="section-title">ម៉ាស៊ីនម៉ាស៊ូត (ម៉ាស៊ីនបន្ទុះបួនវគ្គ)</span>
+        </div>
+        <img
+          src="images/image-14.png"
+          alt="ម៉ាស៊ីនម៉ាស៊ូត"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ឃ.</span>
+          <span class="section-title">រូបមន្តម៉ាស៊ីនពិត</span>
+        </div>
+        <img
+          src="images/image-15.png"
+          alt="រូបមន្តម៉ាស៊ីនពិត"
+          class="system-diagram"
+        />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | StudyNest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Kantumruy Pro', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .admin-card {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        h1 { font-family: 'Rajdhani'; text-align: center; color: #3b82f6; margin-bottom: 30px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .btn-gen {
+            width: 100%;
+            padding: 15px;
+            background: #3b82f6;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px dashed #3b82f6;
+            display: none;
+        }
+        #generatedCode {
+            font-family: 'Rajdhani';
+            font-size: 24px;
+            color: #10b981;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .copy-hint { font-size: 12px; color: #64748b; }
+        #loginBox { text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-card" id="loginBox">
+        <h1>ADMIN LOGIN</h1>
+        <div class="input-group">
+            <input type="password" id="adminPass" placeholder="Enter Admin Password">
+        </div>
+        <button onclick="checkPass()" class="btn-gen">LOGIN</button>
+    </div>
+
+    <div class="admin-card" id="mainPanel" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h1 style="margin: 0;">HANDMADE CODES</h1>
+            <button onclick="adminLogout()" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #ef4444; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-family: 'Kantumruy Pro';">ចាកចេញ</button>
+        </div>
+        
+        <div class="input-group">
+            <label>Student Username</label>
+            <input type="text" id="studentName" placeholder="e.g. Dara" oninput="updateHandmadePreview()">
+        </div>
+
+        <div class="input-group">
+            <label>Plan Level</label>
+            <select id="planLevel" onchange="updateHandmadePreview()">
+                <option value="3">Standard ($3)</option>
+                <option value="6">Premium ($6)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Your Secret Number (2-3 digits)</label>
+            <input type="text" id="handmadeSecret" value="77" oninput="updateHandmadePreview()">
+        </div>
+
+        <button onclick="activateAndCopy()" class="btn-gen" id="startBtn">
+            <i class="fas fa-play"></i> START / ACTIVATE CODE
+        </button>
+
+        <div class="result-box" id="resultBox" style="display: block; border-style: solid; border-color: #334155;">
+            <label id="statusLabel" style="color: #64748b;">Status: Waiting...</label>
+            <strong id="generatedCode" style="color: #fbbf24; display: block; margin: 10px 0;">...</strong>
+            <span id="copyMsg" class="copy-hint">Click Start to activate</span>
+        </div>
+    </div>
+
+    <script>
+        // --- SECURITY CONFIG ---
+        const ADMIN_PASSWORD = "kimou_admin_123"; 
+        // -----------------------
+
+        function updateHandmadePreview() {
+            const name = document.getElementById("studentName").value.trim().toUpperCase().replace(/\s/g, "");
+            const level = document.getElementById("planLevel").value;
+            const secret = document.getElementById("handmadeSecret").value.trim();
+            
+            const codeElem = document.getElementById("generatedCode");
+            const statusLabel = document.getElementById("statusLabel");
+
+            if (!name) {
+                codeElem.textContent = "...";
+                statusLabel.textContent = "Status: Waiting for Name...";
+                statusLabel.style.color = "#64748b";
+                return;
+            }
+
+            // NEW SHORT FORMULA: First 3 Letters + Level + Secret
+            const namePart = name.substring(0, 3);
+            const finalCode = namePart + level + secret;
+            
+            codeElem.textContent = finalCode;
+            statusLabel.textContent = "Status: Ready to Start";
+            statusLabel.style.color = "#3b82f6";
+        }
+
+        function activateAndCopy() {
+            const name = document.getElementById("studentName").value.trim();
+            const code = document.getElementById("generatedCode").textContent;
+            const statusLabel = document.getElementById("statusLabel");
+            const copyMsg = document.getElementById("copyMsg");
+
+            if (!name || code === "...") {
+                alert("Please enter a student name first!");
+                return;
+            }
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(code).then(() => {
+                statusLabel.textContent = "Status: ACTIVATED & COPIED!";
+                statusLabel.style.color = "#10b981";
+                copyMsg.textContent = "Code copied to clipboard! Paste it to Telegram.";
+                copyMsg.style.color = "#10b981";
+                
+                // Visual effect
+                document.getElementById("resultBox").style.borderColor = "#10b981";
+            });
+        }
+
+        // Auto-login check
+        window.onload = function() {
+            if (localStorage.getItem("isAdmin") === "true") {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("mainPanel").style.display = "block";
+                updateHandmadePreview();
+            }
+        }
+
+        function adminLogout() {
+            localStorage.removeItem("isAdmin");
+            localStorage.removeItem("currentUserName");
+            window.location.href = "../auth/login.html";
+        }
+
+        function checkPass() {
+            const pass = document.getElementById("adminPass").value;
+            if (pass === ADMIN_PASSWORD) {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("mainPanel").style.display = "block";
+                updateHandmadePreview();
+            } else {
+                alert("Wrong password!");
+            }
+        }
+
+        // Removed the old auto-generator function
+    </script>
+</body>
+</html>
