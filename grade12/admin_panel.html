@@ -4,121 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel | StudyNest</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../assets/style.css">
     <style>
-        body {
-            background: #0f172a;
-            color: white;
-            font-family: 'Kantumruy Pro', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
         .admin-card {
-            background: rgba(30, 41, 59, 0.8);
+            width: 100%;
+            max-width: 440px;
             padding: 40px;
-            border-radius: 24px;
-            width: 100%;
-            max-width: 400px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        h1 { font-family: 'Rajdhani'; text-align: center; color: #3b82f6; margin-bottom: 30px; }
-        .input-group { margin-bottom: 20px; }
-        label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            color: white;
-            outline: none;
-            box-sizing: border-box;
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
         }
-        .btn-gen {
-            width: 100%;
-            padding: 15px;
-            background: #3b82f6;
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-weight: 700;
+
+        .admin-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--accent);
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .logout-pill {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            padding: 6px 16px;
+            border-radius: 20px;
             cursor: pointer;
-            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            transition: 0.3s;
         }
+
+        .logout-pill:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+
         .result-box {
-            margin-top: 30px;
-            padding: 20px;
-            background: #0f172a;
-            border-radius: 12px;
+            margin-top: 32px;
+            padding: 24px;
+            background: rgba(116, 235, 213, 0.03);
+            border-radius: 20px;
             text-align: center;
-            border: 1px dashed #3b82f6;
-            display: none;
+            border: 1.5px dashed var(--input-border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         #generatedCode {
             font-family: 'Rajdhani';
-            font-size: 24px;
-            color: #10b981;
-            letter-spacing: 2px;
+            font-size: 32px;
+            color: var(--accent);
+            letter-spacing: 4px;
             display: block;
-            margin-bottom: 10px;
+            margin: 12px 0;
+            text-shadow: 0 0 15px var(--accent-glow);
         }
-        .copy-hint { font-size: 12px; color: #64748b; }
-        #loginBox { text-align: center; }
+
+        .copy-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        #loginBox {
+            text-align: center;
+        }
+
+        #loginBox .logo-icon {
+            margin-bottom: 24px;
+        }
+
+        #loginBox h1 {
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="admin-card" id="loginBox">
-        <h1>ADMIN LOGIN</h1>
-        <div class="input-group">
-            <input type="password" id="adminPass" placeholder="Enter Admin Password">
-        </div>
-        <button onclick="checkPass()" class="btn-gen">LOGIN</button>
-    </div>
+    <!-- Animated Background -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
 
-    <div class="admin-card" id="mainPanel" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h1 style="margin: 0;">HANDMADE CODES</h1>
-            <button onclick="adminLogout()" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #ef4444; padding: 8px 15px; border-radius: 10px; cursor: pointer; font-family: 'Kantumruy Pro';">ចាកចេញ</button>
+    <main class="card admin-card anim" id="loginBox">
+        <div class="logo-wrap anim-1">
+            <div class="logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+        </div>
+        <h1 class="brand anim-2">ADMIN LOGIN</h1>
+        
+        <div class="input-group anim-3">
+            <label for="adminPass">Password</label>
+            <div class="input-wrap">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="adminPass" placeholder="Enter Admin Password">
+            </div>
         </div>
         
-        <div class="input-group">
+        <button onclick="checkPass()" class="sn-btn anim-4">
+            <span class="btn-text">LOGIN</span>
+        </button>
+    </main>
+
+    <main class="card admin-card anim" id="mainPanel" style="display: none;">
+        <div class="admin-header anim-1">
+            <h1>HANDMADE CODES</h1>
+            <div onclick="adminLogout()" class="logout-pill">ចាកចេញ</div>
+        </div>
+        
+        <div class="input-group anim-2">
             <label>Student Username</label>
-            <input type="text" id="studentName" placeholder="e.g. Dara" oninput="updateHandmadePreview()">
+            <div class="input-wrap">
+                <i class="fas fa-user icon"></i>
+                <input type="text" id="studentName" placeholder="e.g. Dara" oninput="updateHandmadePreview()">
+            </div>
         </div>
 
-        <div class="input-group">
+        <div class="input-group anim-3">
             <label>Plan Level</label>
-            <select id="planLevel" onchange="updateHandmadePreview()">
-                <option value="3">Standard ($3)</option>
-                <option value="6">Premium ($6)</option>
-            </select>
+            <div class="input-wrap">
+                <i class="fas fa-layer-group icon"></i>
+                <select id="planLevel" onchange="updateHandmadePreview()">
+                    <option value="3">Standard ($3)</option>
+                    <option value="6">Premium ($6)</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+            </div>
         </div>
 
-        <div class="input-group">
-            <label>Your Secret Number (2-3 digits)</label>
-            <input type="text" id="handmadeSecret" value="77" oninput="updateHandmadePreview()">
+        <div class="input-group anim-4">
+            <label>Secret Number</label>
+            <div class="input-wrap">
+                <i class="fas fa-key icon"></i>
+                <input type="text" id="handmadeSecret" value="77" oninput="updateHandmadePreview()">
+            </div>
         </div>
 
-        <button onclick="activateAndCopy()" class="btn-gen" id="startBtn">
-            <i class="fas fa-play"></i> START / ACTIVATE CODE
+        <button onclick="activateAndCopy()" class="sn-btn anim-5" id="startBtn">
+            <span class="btn-text"><i class="fas fa-bolt"></i> ACTIVATE & COPY</span>
         </button>
 
-        <div class="result-box" id="resultBox" style="display: block; border-style: solid; border-color: #334155;">
-            <label id="statusLabel" style="color: #64748b;">Status: Waiting...</label>
-            <strong id="generatedCode" style="color: #fbbf24; display: block; margin: 10px 0;">...</strong>
-            <span id="copyMsg" class="copy-hint">Click Start to activate</span>
+        <div class="result-box anim-6" id="resultBox">
+            <label id="statusLabel" style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Status: Waiting...</label>
+            <strong id="generatedCode">...</strong>
+            <span id="copyMsg" class="copy-hint">Click Activate to copy</span>
         </div>
-    </div>
+    </main>
 
+    <script src="../assets/main.js"></script>
     <script>
+        // Initialize background
+        StudyNest.initBackground();
+
         // --- SECURITY CONFIG ---
-        const ADMIN_PASSWORD = "kimou_admin_123"; 
+        const ADMIN_PASSWORD = "kimou15062008"; 
         // -----------------------
 
         function updateHandmadePreview() {
@@ -132,17 +181,16 @@
             if (!name) {
                 codeElem.textContent = "...";
                 statusLabel.textContent = "Status: Waiting for Name...";
-                statusLabel.style.color = "#64748b";
+                statusLabel.style.color = "var(--text-muted)";
                 return;
             }
 
-            // NEW SHORT FORMULA: First 3 Letters + Level + Secret
             const namePart = name.substring(0, 3);
             const finalCode = namePart + level + secret;
             
             codeElem.textContent = finalCode;
-            statusLabel.textContent = "Status: Ready to Start";
-            statusLabel.style.color = "#3b82f6";
+            statusLabel.textContent = "Status: Ready to Activate";
+            statusLabel.style.color = "var(--primary-light)";
         }
 
         function activateAndCopy() {
@@ -150,25 +198,32 @@
             const code = document.getElementById("generatedCode").textContent;
             const statusLabel = document.getElementById("statusLabel");
             const copyMsg = document.getElementById("copyMsg");
+            const resultBox = document.getElementById("resultBox");
 
             if (!name || code === "...") {
                 alert("Please enter a student name first!");
                 return;
             }
 
-            // Copy to clipboard
             navigator.clipboard.writeText(code).then(() => {
                 statusLabel.textContent = "Status: ACTIVATED & COPIED!";
-                statusLabel.style.color = "#10b981";
-                copyMsg.textContent = "Code copied to clipboard! Paste it to Telegram.";
-                copyMsg.style.color = "#10b981";
+                statusLabel.style.color = "var(--success)";
+                copyMsg.textContent = "Code copied to clipboard!";
+                copyMsg.style.color = "var(--success)";
                 
-                // Visual effect
-                document.getElementById("resultBox").style.borderColor = "#10b981";
+                resultBox.style.borderColor = "var(--success)";
+                resultBox.style.background = "rgba(116, 235, 213, 0.08)";
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    copyMsg.textContent = "Click Activate to copy";
+                    copyMsg.style.color = "var(--text-muted)";
+                    resultBox.style.borderColor = "var(--input-border)";
+                    resultBox.style.background = "rgba(116, 235, 213, 0.03)";
+                }, 3000);
             });
         }
 
-        // Auto-login check
         window.onload = function() {
             if (localStorage.getItem("isAdmin") === "true") {
                 document.getElementById("loginBox").style.display = "none";
@@ -186,6 +241,7 @@
         function checkPass() {
             const pass = document.getElementById("adminPass").value;
             if (pass === ADMIN_PASSWORD) {
+                localStorage.setItem("isAdmin", "true");
                 document.getElementById("loginBox").style.display = "none";
                 document.getElementById("mainPanel").style.display = "block";
                 updateHandmadePreview();
@@ -193,8 +249,6 @@
                 alert("Wrong password!");
             }
         }
-
-        // Removed the old auto-generator function
     </script>
 </body>
 </html>

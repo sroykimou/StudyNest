@@ -84,6 +84,41 @@ const StudyNest = {
     }
     return true;
   },
+
+  // 6. មុខងារបង្កើត Background Animations
+  initBackground: function () {
+    const dropsContainer = document.getElementById("drops");
+    const particlesContainer = document.getElementById("particles");
+
+    if (dropsContainer) {
+      for (let i = 0; i < 20; i++) {
+        const drop = document.createElement("div");
+        drop.className = "drop";
+        drop.style.left = Math.random() * 100 + "vw";
+        drop.style.width = Math.random() * 3 + 1 + "px";
+        drop.style.height = Math.random() * 20 + 10 + "px";
+        drop.style.animationDuration = Math.random() * 2 + 2 + "s";
+        drop.style.animationDelay = Math.random() * 5 + "s";
+        dropsContainer.appendChild(drop);
+      }
+    }
+
+    if (particlesContainer) {
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.style.left = Math.random() * 100 + "vw";
+        const size = Math.random() * 4 + 2;
+        particle.style.width = size + "px";
+        particle.style.height = size + "px";
+        particle.style.background =
+          i % 2 === 0 ? "var(--primary-light)" : "var(--accent)";
+        particle.style.animationDuration = Math.random() * 5 + 5 + "s";
+        particle.style.animationDelay = Math.random() * 10 + "s";
+        particlesContainer.appendChild(particle);
+      }
+    }
+  },
 };
 
 // បើអ្នកចង់ឱ្យវាឆែក Auth ដោយស្វ័យប្រវត្តិរាល់ពេលភ្ជាប់ File នេះ

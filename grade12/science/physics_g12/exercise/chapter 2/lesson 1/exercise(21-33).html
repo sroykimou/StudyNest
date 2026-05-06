@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ២១–៣៣ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home.html"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ គោលការណ៏តម្រួតនៃរលក និងរលកជញ្រ្ចុាំ</div>
+        <h1>លំហាត់<em>អនុវត្ត ២១–៣៣</em></h1>
+        <p>លំហាត់កម្រិតខ្ពស់៖ រលកជញ្រ្ចុាំ ហាម៉ូនិក និងបំពង់សូរ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 21 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">21</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+           គេមានសមីការរលកពីរ \(y_1 = 4 \sin(2\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 5 \sin(2\pi t + \pi/2) \text{ cm}\) ។   
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">22</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 5 \sin(4\pi t + \pi/3) \text{ cm}\) ; \(y_2 = 6 \sin(4\pi t + \pi/3) \text{ cm}\) ។   
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">23</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 6 \sin(4\pi t + \pi/3) \text{ cm}\) ; \(y_2 = 3 \sin(4\pi t + 4\pi/3) \text{ cm}\) ។   
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 24 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">24</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៤</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 4 \sin(5\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 3 \sin(5\pi t + 3\pi/2) \text{ cm}\) ។
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 25 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">25</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៥</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 4 \sin(10\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 9 \sin(10\pi t + 3\pi/2) \text{ cm}\) ។
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 26 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">26</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៦</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 3 \sin(4\pi t + \pi/3) \text{ cm}\) ; \(y_2 = 6 \sin(4\pi t + 4\pi/3) \text{ cm}\) ។   
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 27 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">27</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៧</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 9 \sin(4\pi t + \pi/6) \text{ cm}\) ; \(y_2 = 4 \sin(4\pi t + 2\pi/3) \text{ cm}\) ។   
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 28 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">28</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៨</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 12 \sin(4\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 9 \sin(4\pi t + \pi) \text{ cm}\) ។ 
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 29 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">29</div>
+            <span class="ex-title">លំហាត់អនុវត្ត២៩</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \(y_1 = 12 \sin(4\pi t + \pi/4) \text{ cm}\) ; \(y_2 = 9 \sin(4\pi t + 3\pi/2) \text{ cm}\) ។ 
+          </p>
+          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
+          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
+          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
+          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+        </div>
+      </div>
+
+      <!-- 30 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">30</div>
+            <span class="ex-title">លំហាត់អនុវត្ត៣០</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            រលកពីរដាលតាមទិសដៅផ្ទុយគ្នាបង្កើតបានជារលកជញ្រ្ជុំដែលមានសមីការនីមួយៗគឺ  
+            \(y_1 = a \sin(kx - \omega t)\) និង \(y_2 = a \sin(kx + \omega t)\) ។ គេឲ្យ \(a = 4 \text{ cm}\) , \(f = 50 \text{ Hz}\) , 
+            \(\lambda = 2\pi \text{ cm}\) , \(x = 10 \text{ cm}\) ។
+          </p>
+          <div class="ex-find">ក. កំណត់សមីការ តម្រួតនៃរលកជញ្រ្ជុំនេះ ។ </div>
+          <div class="ex-find">ខ. កំណត់ទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។ </div>
+          <div class="ex-find">គ. គណនាអេឡុងកាស្យុងរបស់សមីការ ។ </div>
+        </div>
+      </div>
+
+      <!-- 31 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">31</div>
+            <span class="ex-title">លំហាត់អនុវត្ត៣១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរគឺ \(y_1 = 5 \sin(kx - \omega t)\) និង \(y_2 = 5 \sin(kx + \omega t)\) ដែលមានទិសដៅផ្ទុយគ្នាបង្កើតបានជារលកជញ្រ្ជុំមួយ ។ ដែល \(y_1 ; y_2\) គិតជា (cm) និង \(t\) គិតជា (s) ។
+          </p>
+          <div class="ex-find">ក. សរសេរសមីការតម្រួតនៃរលកទាំងពីរ ។</div>
+          <div class="ex-find">ខ. កំណត់អំព្លីទុតនៃរលកជញ្រ្ជុំ ។ បើ \(k = \pi/2 \text{ rad/cm}\) ; \(x = 1 \text{ cm}\) ។  </div>
+        </div>
+      </div>
+
+      <!-- 32 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">32</div>
+            <span class="ex-title">លំហាត់អនុវត្ត៣២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+           គេធ្វើឲ្យរលកពីរមានទិសដៅផ្ទុយគ្នាដាលកាត់គ្នាក្នុងមជ្ឈដ្ឋានតែមួយបង្កើតបានជារលកជញ្រ្ជុំមួយ និងមានសមីការចលនាគឺ \(y_1 = A \sin(kx - \omega t)\) និង \(y_2 = A \sin(kx + \omega t)\) ។ 
+           ដែល \(A = 4 \text{ cm}\) , \(k = 3 \text{ rad/m}\) , \(\omega = 2 \text{ rad/s}\) ។
+          </p>
+          <div class="ex-find">ក. គណនាអេឡុងកាស្យុងរបស់សមីការចលនារលកត្រង់ \(x = 2.3 \text{ cm}\) ។ </div>
+          <div class="ex-find">ខ. គណនាទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។  </div>
+        </div>
+      </div>
+
+      <!-- 33 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">33</div>
+            <span class="ex-title">លំហាត់អនុវត្ត៣៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+           គេមានសមីការរលកជញ្ជ្រុំមួយ \(y = 0.2 \cos 4x \sin 400t \text{ (cm)}\) ។
+          </p>
+          <div class="ex-find">ក. គណនាអំព្លីទុតអតិបរមានៃលំយោលត្រង់ទីតាំងពោះ ។</div>
+          <div class="ex-find">ខ. កំណត់ទីតាំងថ្នាំងនៃរលកជញ្ជ្រុំ ។  </div>
+          <div class="ex-find">គ. គណនាជំហានរលក ប្រេកង់ និងល្បឿននៃរលក ។  </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

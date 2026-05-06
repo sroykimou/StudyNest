@@ -1,152 +1,224 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="km">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Math Grade 12 | Bac II Prep</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Grade 12 | StudyNest</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../../../assets/style.css">
     <style>
-      :root {
-        --math-dark: #1e3a8a;
-        --math-main: #2563eb;
-        --bg: #f8fafc;
-      }
+        :root {
+            /* Override accent for Math */
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.35);
+        }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Kantumruy Pro", "Poppins", sans-serif;
-      }
-      body {
-        background-color: var(--bg);
-        color: #1e293b;
-      }
+        body {
+            display: block;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
 
-      header {
-        background: linear-gradient(
-          135deg,
-          var(--math-dark) 0%,
-          var(--math-main) 100%
-        );
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        position: relative;
-      }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-      .back-btn {
-        position: absolute;
-        top: 25px;
-        left: 20px;
-        color: white;
-        text-decoration: none;
-        background: rgba(255, 255, 255, 0.2);
-        padding: 10px 18px;
-        border-radius: 12px;
-        transition: 0.3s;
-      }
-      .back-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-      }
+        header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
 
-      .container {
-        max-width: 950px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
+        header h1 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 8px;
+        }
 
-      .lesson-card {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        margin-bottom: 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-left: 10px solid var(--math-main);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: 0.3s;
-      }
+        header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
 
-      .lesson-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(37, 99, 235, 0.1);
-      }
+        .back-btn-fixed {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 100;
+        }
 
-      .icon-box {
-        width: 70px;
-        height: 70px;
-        background: #dbeafe;
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: var(--math-dark);
-        margin-right: 25px;
-      }
+        .back-btn-fixed a {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-      .start-btn {
-        background: var(--math-dark);
-        color: white;
-        padding: 12px 25px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 700;
-      }
+        .back-btn-fixed a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-4px);
+        }
+
+        .lesson-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .lesson-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--accent);
+            transition: 0.3s;
+        }
+
+        .lesson-card:hover .icon-box {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .lesson-text h3 {
+            color: white;
+            margin-bottom: 6px;
+            font-size: 17px;
+        }
+
+        .lesson-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .start-btn {
+            background: var(--accent);
+            color: #0f172a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+            background: white;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .lesson-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .start-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <header>
-      <a href="../science_home.html" class="back-btn"
-        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
-      >
-      <h1>មេរៀនគណិតវិទ្យា ថ្នាក់ទី១២</h1>
-      <p>គោលដៅនិទ្ទេស A - Advanced Calculus & Algebra</p>
-    </header>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="back-btn-fixed anim">
+        <a href="../science_home.html">
+            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+        </a>
+    </div>
 
     <div class="container">
-      <div class="lesson-card">
-        <div style="display: flex; align-items: center">
-          <div class="icon-box"><i class="fas fa-infinity"></i></div>
-          <div>
-            <h3>មេរៀនទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)</h3>
-            <p>ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ និងស្វ័យគុណទី n។</p>
-          </div>
-        </div>
-        <a href="#" class="start-btn">ចូលរៀន</a>
-      </div>
+        <header class="anim">
+            <h1 class="anim-1">គណិតវិទ្យា ថ្នាក់ទី១២</h1>
+            <p class="anim-2">គោលដៅនិទ្ទេស A - Advanced Calculus & Algebra</p>
+        </header>
 
-      <div class="lesson-card">
-        <div style="display: flex; align-items: center">
-          <div class="icon-box"><i class="fas fa-sum"></i></div>
-          <div>
-            <h3>មេរៀនទី ២៖ អាំងតេក្រាល (Integrals)</h3>
-            <p>ព្រីមីទីវ អាំងតេក្រាលមិនកំណត់ និងអាំងតេក្រាលកំណត់។</p>
-          </div>
+        <div class="lesson-card anim-3">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-infinity"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)</h3>
+                    <p>ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ និងស្វ័យគុណទី n។</p>
+                </div>
+            </div>
+            <a href="#" class="start-btn">ចូលរៀន</a>
         </div>
-        <a href="#" class="start-btn">ចូលរៀន</a>
-      </div>
 
-      <div class="lesson-card">
-        <div style="display: flex; align-items: center">
-          <div class="icon-box"><i class="fas fa-superscript"></i></div>
-          <div>
-            <h3>មេរៀនទី ៣៖ សមីការឌីផេរ៉ង់ស្យែល</h3>
-            <p>ដោះស្រាយសមីការលីនេអ៊ែរលំដាប់ទី១ និងលំដាប់ទី២។</p>
-          </div>
+        <div class="lesson-card anim-4">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-plus-minus"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ២៖ អាំងតេក្រាល (Integrals)</h3>
+                    <p>ព្រីមីទីវ អាំងតេក្រាលមិនកំណត់ និងអាំងតេក្រាលកំណត់។</p>
+                </div>
+            </div>
+            <a href="#" class="start-btn">ចូលរៀន</a>
         </div>
-        <a href="#" class="start-btn">ចូលរៀន</a>
-      </div>
+
+        <div class="lesson-card anim-5">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-superscript"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ៣៖ សមីការឌីផេរ៉ង់ស្យែល</h3>
+                    <p>ដោះស្រាយសមីការលីនេអ៊ែរលំដាប់ទី១ និងលំដាប់ទី២។</p>
+                </div>
+            </div>
+            <a href="#" class="start-btn">ចូលរៀន</a>
+        </div>
     </div>
-  </body>
+
+    <script src="../../../assets/main.js"></script>
+    <script>
+        // Initialize background
+        StudyNest.initBackground();
+    </script>
+</body>
 </html>
