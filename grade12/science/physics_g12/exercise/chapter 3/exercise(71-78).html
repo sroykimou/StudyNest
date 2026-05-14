@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៧១–៧៨ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+    </head>
+    <body>
+    <nav>
+      <a
+        href="lesson 1_home.html"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៧១–៧៨</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 71 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">71</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧១</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយមានល្បឿន \(\vec{v}\) បានផ្លាស់ទីចូលក្នុងដែនម៉ាញេទិច
+          \(\vec{B}\) ដែលកែងនឹងល្បឿន។
+          <div class="ex-find">
+            <span
+              >ក. ចូរធ្វើគំនូសបំព្រួញលើរូប \(\vec{v}, \vec{B}\) និងកម្លាំង
+              \(\vec{F}_m\)។</span
+            >
+          </div>
+
+          <div class="ex-find">
+            <span
+              >ខ. គណនាកម្លាំង \(F_m\) ចំពោះ
+              <span class="given">\(v = 3 \times 10^6\text{ m/s}\)</span>,
+              <span class="given">\(B = 0.2\text{ T}\)</span>។ (បន្ទុកប្រូតុង
+              <span class="given">\(q = 1.6 \times 10^{-19}\text{ C}\)</span
+              >)</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 72 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">72</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧២</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយផ្លាស់ទី ជាគន្លងរង្វង់មានកាំ
+          <span class="given">\( 14\text{ cm}\)</span>
+          ស្ថិតនៅក្នុងដែនម៉ាញេទិចឯកសណ្ឋានមួយដែលមានម៉ូឌុល
+          <span class="given">\( 0.35\text{ T}\)</span>
+          កែងទៅនឹងវ៉ិចទ័រល្បឿនរបស់ប្រូតុង។ គេឱ្យ
+          <span class="given">\(m_p = 1.67 \times 10^{-27}\text{ kg}\)</span>,
+          <span class="given">\(q_p = e = 1.6 \times 10^{-19}\text{ C}\)</span>។
+          <div class="ex-find"><span>គណនាល្បឿនរបស់ប្រូតុង។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 73 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">73</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧៣</div>
+        </div>
+        <div class="ex-body">
+          អ៊ីយ៉ុងនៃភាគល្អិតអាល់ហ្វា (\(He^{2+}\)) មួយផ្លាស់ទី
+          ឆ្លងកាត់ដែនម៉ាញេទិចឯកសណ្ឋានដោយល្បឿន \(\vec{v}\) ដែល \([\vec{v} \perp
+          \vec{B}]\) ដែនម៉ាញេទិចមានតម្លៃ
+          <span class="given">\( 4.22 \times 10^{-3}\text{ T}\)</span>។ ប្រសិនបើ
+          កាំគន្លងរបស់ភាគល្អិតគឺ
+          <span class="given">\( 1.5 \times 10^{-3}\text{ m}\)</span>។ គេឱ្យ
+          <span class="given">\(m = 6.65 \times 10^{-27}\text{ kg}\)</span> និង
+          <span class="given">\(q = 2e = 3.2 \times 10^{-19}\text{ C}\)</span>។
+          <div class="ex-find">
+            <span>គណនាល្បឿនរបស់អ៊ីយ៉ុងនៃភាគល្អិតអាល់ហ្វា។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 74 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">74</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧៤</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយមានម៉ាស
+          <span class="given">\(m_p = 1.67 \times 10^{-27}\text{ kg}\)</span>
+          និងបន្ទុក
+          <span class="given">\(q_p = e = 1.6 \times 10^{-19}\text{ C}\)</span>
+          ធ្វើចលនាចូលក្នុងដែនម៉ាញេទិច គូសបានជារង្វង់ដែលមានកាំ
+          <span class="given">\( 42\text{ cm}\)</span> និងល្បឿន
+          <span class="given">\( 10^7\text{ m/s}\)</span>​ ។
+
+          <div class="ex-find">
+            <span>ក. គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិច។</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាកម្លាំងម៉ាញេទិចដែលមានអំពើលើប្រូតុង។</span>
+          </div>
+          <div class="ex-find">
+            <span>គ. គណនាសំទុះរបស់ប្រូតុងក្នុងដែនម៉ាញេទិច។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 75 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">75</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧៥</div>
+        </div>
+        <div class="ex-body">
+          អេឡិចត្រុងមួយមានបន្ទុកអគ្គិសនី អវិជ្ជមានធ្វើចលនាដោយល្បឿន
+          <span class="given">\( 10^7\text{ m/s}\)</span> ចូលទៅកែងនឹងវ៉ិចទ័រ
+          \(\vec{B}\) ក្នុងតំបន់ដែនម៉ាញេទិចឯកសណ្ឋាន
+          <span class="given">\( 18.2 \times 10^{-4}\text{ T}\)</span>។
+
+          <div class="ex-find">
+            <span>ក. បង្ហាញថាចលនារបស់អេឡិចត្រុង ជាចលនារង្វង់ស្មើ។</span>
+          </div>
+          <div class="ex-find"><span>ខ. គណនាកាំគន្លងរង្វង់របស់អេឡិចត្រុង។</span></div>
+          <div class="ex-find"><span>គ. គណនាខួបនៃរង្វិលរបស់អេឡិចត្រុង។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 76 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">76</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧៦</div>
+        </div>
+        <div class="ex-body">
+          អេឡិចត្រុងមួយមានថាមពលស៊ីនេទិច
+          <span class="given">\( 40\text{ eV}\)</span>
+          គូសបានជាគន្លងរង្វង់នៅក្នុងប្លង់ដែល \(\vec{v} \perp \vec{B}\)។
+          ដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\)មានតម្លៃ
+          <span class="given">\( 8 \times 10^{-4}\text{ T}\)</span>។
+          ដោយដឹងថាក្នុងដែនម៉ាញេទិចឯកសណ្ឋាននេះ អេឡិចត្រុងមានចលនារង្វង់ស្មើ។
+          គេឱ្យ អេឡិចត្រុងមានម៉ាស
+          <span class="given">\(m_e = 9.11 \times 10^{-31}\text{ kg}\)</span>
+          និងបន្ទុក
+          <span class="given">\(q_e = -e = -1.6 \times 10^{-19}\text{ C}\)</span
+          >។
+          <div class="ex-find">
+            <span>ក. គណនាកាំគន្លង \(R\) របស់ចលនាអេឡិចត្រុងនេះ</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាល្បឿនចលនារបស់អេឡិចត្រុង វិលបានមួយជុំ។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 77 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">77</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧៧</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយម៉ាស
+          <span class="given">\(m_p = 1.67 \times 10^{-27}\text{ kg}\)</span>
+          និងបន្ទុក
+          <span class="given">\(q_p = e = 1.6 \times 10^{-19}\text{ C}\)</span>
+          ផ្លាស់ទីក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ដោយល្បឿន \(\vec{v}\) កែង
+          \(\vec{B}\) លើគន្លងរង្វង់មួយដែលមានកាំ \(R\) និងប្រេកង់
+          <span class="given">\( 5\text{ MHz}\)</span>
+
+          <div class="ex-find">
+            <span>ក. គណនាតម្លៃនៃអាំងតង់ស៊ីតេឌុចស្យុង \(B\)។</span>
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. គណនាកាំគន្លង \(R\) បើគេឱ្យ
+              <span class="given">\(v = 10^5\text{ m/s}\)</span>។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>គ. គណនារយៈពេលដែលប្រូតុងផ្លាស់ទីបានមួយជុំ។</span>
+          </div>
+          <div class="ex-find"><span>ឃ. គណនាកម្មន្តដែលមានអំពើលើប្រូតុង។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 78 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">78</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧៨</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយម៉ាស
+          <span class="given">\(m_p = 1.67 \times 10^{-27}\text{ kg}\)</span>
+          និងបន្ទុក
+          <span class="given">\(q_p = e = 1.6 \times 10^{-19}\text{ C}\)</span>
+          ផ្លាស់ទីក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ដោយល្បឿន \(\vec{v} \perp
+          \vec{B}\)។ ដែល
+          <span class="given">\(B = 6.68 \times 10^{-2}\text{ T}\)</span> និង
+          <span class="given">\(v = 4 \times 10^7\text{ m/s}\)</span>
+
+          <div class="ex-find">
+            <span
+              >ក. ចូរធ្វើគំនូសបំព្រួញលើរូប \(\vec{v}, \vec{B}\) និងកម្លាំង
+              \(\vec{F}_m\) នៅខណៈណាមួយដែលប្រូតុងមានចលនាក្នុងដែនម៉ាញេទិច។</span
+            >
+          </div>
+          <div class="ex-find"><span>ខ. គណនាកម្លាំង \(F_m\)។</span></div>
+          <div class="ex-find"><span>គ. គណនាកាំគន្លង និងសំទុះនៃចលនារង្វិល។</span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

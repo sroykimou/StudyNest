@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៦១–៧០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home.html"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៦១–៧០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 61 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">61</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦១</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នា
+          <span class="given">\(l_1 = l_2 = 15\text{ m}\)</span> ស្របគ្នា
+          \(O_1\) និង \(O_2\) ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\( 40\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 15\text{ A}\)</span>។ គេឱ្យ \(\mu_0 = 4\pi
+          \times 10^{-7}\text{ SI}\)។<br />
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង។
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\)
+              ដែលត្រង់ចំណុចខ្សែចម្លងត្រង់ទី ៣ (\(l_3\))
+              មានចរន្តឆ្លងកាត់រងកម្លាំងម៉ាញេទិចផ្គួបស្មើ សូន្យ ឬមានលំនឹង។</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 62 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">62</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦២</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នាស្របគ្នា \(O_1\) និង \(O_2\)
+          ចម្ងាយពីគ្នា <span class="given">\(d = 20\text{ cm}\)</span>។
+          ខ្សែចម្លងទាំង ២ ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅផ្ទុយគ្នា
+          និងមានតម្លៃរៀងគ្នា <span class="given">\( 30\text{ A}\)</span> និង
+          <span class="given">\( 10\text{ A}\)</span>។ ដែល \(M\) ស្ថិតនៅលើ
+          \((O_1O_2)\) ចម្ងាយ <span class="given">\( 20\text{ cm}\)</span> ពី
+          \(O_1\) និង <span class="given">\( 10\text{ cm}\)</span> ពី \(O_2\)។
+          គេឱ្យ \(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span>គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\)​ ។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 63 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">63</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៣</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នាស្របគ្នា \(O_1\) និង \(O_2\)
+          ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\(d = 20\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\(I_1 = 10\text{ A}\)</span> និង
+          <span class="given">\(I_2 = 15\text{ A}\)</span>។ ដែល \(M\) ស្ថិតនៅលើ
+          \((O_1O_2)\) ចម្ងាយ
+          <span class="given">\(d_1 = 20\text{ cm}\)</span> ពី \(O_1\) និង
+          <span class="given">\(d_2 = 10\text{ cm}\)</span> ពី \(O_2\)។ គេឱ្យ
+          \(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span>គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 64 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">64</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៤</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នា
+          <span class="given">\(l_1 = l_2 = 20\text{ cm}\)</span> ស្របគ្នា
+          \(O_1\) និង \(O_2\) ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\(40\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 15\text{ A}\)</span>។ គេឱ្យ \(\mu_0 = 4\pi
+          \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង។
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលត្រង់ចំណុច \(M\)
+              រងដែនម៉ាញេទិចផ្គួបស្មើសូន្យ។</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 65 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">65</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៥</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នាស្របគ្នា \(O_1\) និង \(O_2\)
+          ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\( 20\text{ cm}\)</span> ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅផ្ទុយគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 15\text{ A}\)</span>។ គេឱ្យ \(\mu_0 = 4\pi
+          \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span
+              >កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលត្រង់ចំណុច \(M\)
+              រងដែនម៉ាញេទិចផ្គួបស្មើសូន្យ។</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 66 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">66</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៦</div>
+        </div>
+        <div class="ex-body">
+          ភាគល្អិតផ្ទុកបន្ទុកអគ្គិសនី
+          <span class="given">\(q = 1.6 \times 10^{-19}\text{ C}\)</span>
+          មួយផ្លាស់ទីដោយល្បឿន
+          <span class="given">\(v = 10^5\text{ m/s}\)</span>
+          ក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) (<span class="given"
+            >\(B = 0.01\text{ T}\)</span
+          >)។ ចូរគណនាកម្លាំងម៉ាញេទិច ៖
+
+          <div class="ex-find"><span>ក. ករណី \(\alpha = 0^\circ\)</span></div>
+          <div class="ex-find"><span>ខ. ករណី \(\alpha = 45^\circ\)</span></div>
+          <div class="ex-find"><span>គ. ករណី \(\alpha = 60^\circ\)</span></div>
+          <div class="ex-find"><span>ឃ. ករណី \(\alpha = 90^\circ\)</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 67 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">67</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៧</div>
+        </div>
+        <div class="ex-body">
+          យន្តហោះមួយដែលផ្ទុកបន្ទុកអគ្គិសនី
+          <span class="given">\( 150\text{ C}\)</span> ហើយហោះដោយល្បឿន
+          <span class="given">\( 250\text{ m/s}\)</span>
+          កែងនឹងដែនម៉ាញេទិចនៃផែនដីដែលមានតម្លៃ
+          <span class="given">\( 5 \times 10^{-5}\text{ T}\)</span>។
+          <div class="ex-find"><span>គណនាកម្លាំងដែលមានអំពើលើយន្តហោះ</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 68 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">68</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៨</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងផ្លាស់ទីដោយល្បឿន \(\vec{v}\) តម្លៃ
+          <span class="given">\( 4 \times 10^6\text{ m/s}\)</span>
+          ចូលក្នុងដែនដែលមានទិសដៅកែងនឹងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\)
+          <span class="given">\( 2\text{ mT}\)</span>។ (បន្ទុកប្រូតុង
+          <span class="given">\(q = 1.6 \times 10^{-19}\text{ C}\)</span>)
+          <div class="ex-find"><span>គណនាកម្លាំងដែលមានអំពើលើប្រូតុង</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 69 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">69</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៩</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយផ្លាស់ទីដោយល្បឿន \(\vec{v}\) មានតម្លៃ
+          <span class="given">\( 4 \times 10^6\text{ m/s}\)</span>
+          ក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ដែលមានតម្លៃ
+          <span class="given">\( 1.70\text{ T}\)</span>
+          ពេលនេះវារងនូវកម្លាំងម៉ាញេទិច \(\vec{F}_m\) មានតម្លៃ
+          <span class="given">\( 7.61 \times 10^{-13}\text{ N}\)</span>​។ គេឱ្យ
+          \(\sin 45^\circ = 0.707\)។
+          <div class="ex-find">
+            <span
+              >គណនាមុំផ្គុំរវាងល្បឿនរបស់ប្រូតុង និងដែនម៉ាញេទិចឯកសណ្ឋាន។</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 70 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">70</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧០</div>
+        </div>
+        <div class="ex-body">
+          អេឡិចត្រុងមួយមានល្បឿន \(\vec{v}\) បានផ្លាស់ទីចូលក្នុងដែនម៉ាញេទិច
+          \(\vec{B}\) ដែលកែងនឹងល្បឿនរបស់វា។
+          <div class="ex-find">
+            <span
+              >ក. ចូរធ្វើគំនូសបំព្រួញលើរូប \(\vec{v}, \vec{B}\) និងកម្លាំង
+              \(\vec{F}_m\)។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. គណនាកម្លាំង \(F_m\) ចំពោះ
+              <span class="given">\(v = 2 \times 10^5\text{ m/s}\)</span> ,
+              <span class="given">\(B = 0.2\text{ T}\)</span>។ (បន្ទុកអេឡិចត្រុង
+              <span class="given">\(q = -1.6 \times 10^{-19}\text{ C}\)</span
+              >)</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
