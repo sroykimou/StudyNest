@@ -239,15 +239,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -300,12 +302,12 @@
             គេដឹងថា ចំនួនអាវ៉ូកាដ្រូ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol
             ។
           </p>
-          <div class="ex-find">ក. គណនាចំនួនម៉ូលេគុលសរុបក្នុងធុងនេះ ។</div>
+          <div class="ex-find"><span>ក. គណនាចំនួនម៉ូលេគុលសរុបក្នុងធុងនេះ ។</span></div>
           <div
             class="ex-find"
             style="margin-top: 4px; border-top: none; padding-top: 0"
           >
-            ខ. តើឧស្ម័នក្នុងធុងជាឧស្ម័នអ្វី ?
+            <span>ខ. តើឧស្ម័នក្នុងធុងជាឧស្ម័នអ្វី ?</span>
           </div>
         </div>
       </div>
@@ -325,19 +327,19 @@
             <span class="given">16.62 atm</span> នៅសីតុណ្ហភាព
             <span class="given">27°C</span> ។
           </p>
-          <div class="ex-find">ក. គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</div>
+          <div class="ex-find"><span>ក. គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</span></div>
           <div
             class="ex-find"
             style="margin-top: 4px; border-top: none; padding-top: 0"
           >
-            ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន ។បើឧស្ម័នមានម៉ាសម៉ូល \(M = 4\) g/mol ។
+            <span>ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន ។បើឧស្ម័នមានម៉ាសម៉ូល \(M = 4\) g/mol ។</span>
           </div>
           <div
             class="ex-find"
             style="margin-top: 4px; border-top: none; padding-top: 0"
           >
-            គ. បើឧស្ម័នមាន \(2 \times 10^{20}\) ម៉ូលេគុល
-            ។គណនាម៉ាសម៉ូលេគុលនីមួយៗនៃឧស្ម័ន ។
+            <span>គ. បើឧស្ម័នមាន \(2 \times 10^{20}\) ម៉ូលេគុល
+            ។គណនាម៉ាសម៉ូលេគុលនីមួយៗនៃឧស្ម័ន ។</span>
           </div>
         </div>
       </div>
@@ -357,12 +359,12 @@
             <span class="given">25°C</span> និងមានមាឌ
             <span class="given">10 L</span> ។
           </p>
-          <div class="ex-find">ក. តើឧស្ម័ននោះចំនួនម៉ូលប៉ុន្មាន ?</div>
+          <div class="ex-find"><span>ក. តើឧស្ម័ននោះចំនួនម៉ូលប៉ុន្មាន ?</span></div>
           <div
             class="ex-find"
             style="margin-top: 4px; border-top: none; padding-top: 0"
           >
-            ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន :
+            <span>ខ. គណនាម៉ាសសរុបនៃឧស្ម័ន :</span>
           </div>
           <div
             class="ex-find"
@@ -373,7 +375,7 @@
               padding-left: 20px;
             "
           >
-            ① បើជាម៉ូលេគុលអ៊ីដ្រូសែន \((H_2)\) ។
+            <span>① បើជាម៉ូលេគុលអ៊ីដ្រូសែន \((H_2)\) ។</span>
           </div>
           <div
             class="ex-find"
@@ -384,7 +386,7 @@
               padding-left: 20px;
             "
           >
-            ② បើជាម៉ូលេគុលអុកស៊ីសែន \((O_2)\) ។
+            <span>② បើជាម៉ូលេគុលអុកស៊ីសែន \((O_2)\) ។</span>
           </div>
         </div>
       </div>
@@ -405,10 +407,10 @@
             \) J/K។
           </p>
           <div class="ex-find">
-            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+            <span>ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុល។
+            <span>ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុល។</span>
           </div>
         </div>
       </div>
@@ -430,10 +432,10 @@
             \times 10^{23} \) ម៉ូលេគុល/mol។
           </p>
           <div class="ex-find">
-            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ភាគល្អិតនីមួយៗ។
+            <span>ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ភាគល្អិតនីមួយៗ។</span>
           </div>
-          <div class="ex-find">ខ. គណនាចំនួនម៉ូលនៃឧស្ម័ននៅក្នុងធុង។</div>
-          <div class="ex-find">គ. គណនាសីតុណ្ហភាពនៃឧស្ម័ន។</div>
+          <div class="ex-find"><span>ខ. គណនាចំនួនម៉ូលនៃឧស្ម័ននៅក្នុងធុង។</span></div>
+          <div class="ex-find"><span>គ. គណនាសីតុណ្ហភាពនៃឧស្ម័ន។</span></div>
         </div>
       </div>
 
@@ -449,7 +451,7 @@
             <span class="given">8 atm</span>។
           </p>
           <div class="ex-find">
-            គណនាថាមពលសុីនេទិចមធ្យមនៃម៉ូលេគុលឧស្ម័ននីមួយៗ។
+            <span>គណនាថាមពលសុីនេទិចមធ្យមនៃម៉ូលេគុលឧស្ម័ននីមួយៗ។</span>
           </div>
         </div>
       </div>
@@ -469,7 +471,7 @@
             1.38 \times 10^{-23} \) J/K ។
           </p>
           <div class="ex-find">
-            គណនាតម្លៃមធ្យមនៃថាមពលសុីនេទិចរបស់ឧស្ម័ននីមួយៗ។
+            <span>គណនាតម្លៃមធ្យមនៃថាមពលសុីនេទិចរបស់ឧស្ម័ននីមួយៗ។</span>
           </div>
         </div>
       </div>
@@ -491,7 +493,7 @@
             ។
           </p>
 
-          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ននអេល្យូមក្នុងបាឡុង ។</div>
+          <div class="ex-find"><span>គណនាចំនួនម៉ូលនៃឧស្ម័ននអេល្យូមក្នុងបាឡុង ។</span></div>
         </div>
       </div>
 
@@ -513,21 +515,21 @@
             ។​
           </p>
           <div class="ex-find">
-            ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+            <span>ក. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។</span>
           </div>
           <div
             class="ex-find"
             style="margin-top: 4px; border-top: none; padding-top: 0"
           >
-            ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។
+            <span>ខ. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។</span>
           </div>
 
           <div
             class="ex-find"
             style="margin-top: 4px; border-top: none; padding-top: 0"
           >
-            គ. គណនាសម្ពាធឧស្ម័នអេល្យូមក្នុងធុង ប្រសិនបើធុងមានមាឌ \( 4.53 \times
-            10^{-3} \) m³ ។
+            <span>គ. គណនាសម្ពាធឧស្ម័នអេល្យូមក្នុងធុង ប្រសិនបើធុងមានមាឌ \( 4.53 \times
+            10^{-3} \) m³ ។</span>
           </div>
         </div>
       </div>
@@ -547,10 +549,10 @@
           </p>
 
           <div class="ex-find">
-            ក. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។
+            <span>ក. គណនាថាមពលសុីនេទិចសរុបទាំងអស់របស់ម៉ូលេគុលឧស្ម័ន។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។
+            <span>ខ. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ។</span>
           </div>
         </div>
       </div>

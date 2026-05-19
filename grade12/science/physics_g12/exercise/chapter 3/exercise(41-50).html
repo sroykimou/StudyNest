@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៤១–៥០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr; /* Explicit columns to fix text wrapping under icon */
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home.html"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៤១–៥០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 41 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">41</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤១</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 62.8\text{ cm}\)</span>
+          រុំដោយខ្សែចម្លងដែលមានអង្កត់ផ្ចិត
+          <span class="given">\( 1.256\text{ mm}\)</span> ហើយឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 800\text{ mA}\)</span>។
+
+          <div class="ex-find">
+            <span>ក. គណនាដែនម៉ាញេទិចកើតក្នុងសូឡេណូអុីត។ រួចរកចំនួនស្ពៀនៃសូឡេណូអុីត</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. គេយកម្ជុលមេដែកទៅដាក់ត្រង់ផ្ចិត \(O\) នៃសូឡេណូអុីត។
+            តើម្ជុលមេដែកនេះមានទិសដូចម្ដេច? ចូរគូសរូបបញ្ជាក់។
+            (មិនគិតដែនម៉ាញេទិចផែនដី)</span>
+          </div>
+          <div class="ex-find">
+            <span>គ. គេយកមេដែករាង U ទៅដាក់ត្រង់ផ្ចិត \(O\)
+            ឱ្យកែងនឹងអ័ក្សយ៉ាងណាឱ្យអ័ក្សនេះស្ថិតនៅចន្លោះប៉ូលមេដែករាង U។
+            ពេលនេះម្ជុលមេដែកងកបានមុំ
+            <span class="given">\(\alpha = 60^\circ\)</span>។ គណនាដែនម៉ាញេទិចរាង
+            U នេះ។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 42 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">42</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤២</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយមានប្រវែង
+          <span class="given">\( 200\text{ cm}\)</span> ឆ្លងកាត់ដោយចរន្តអគ្គិសនី
+          <span class="given">\( 2\text{ A}\)</span>
+          ស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ដែលមានតម្លៃ
+          <span class="given">\(B = 5 \times 10^{-5}\text{ T}\)</span>។
+          <div class="ex-find">
+            <span>គណនាកម្លាំងអេឡិចត្រូម៉ាញេទិចដែលមានអំពើលើខ្សែចម្លងនេះ បើ
+            <span class="given">\(\vec{B} \perp \vec{I}\)</span>។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 43 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">43</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៣</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានប្រវែង
+          <span class="given">\( 15\text{ cm}\)</span> ហើយឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 20\text{ A}\)</span> ស្ថិតក្នុងដែនម៉ាញេទិច
+          <span class="given">\(100\text{ mT}\)</span> ខ្សែដែន
+          និងខ្សែចម្លងបង្កើតបានមុំ
+          <span class="given">\(\theta = 45^\circ\)</span>។
+          <div class="ex-find">
+            <span>គណនាកម្លាំងអេឡិចត្រូម៉ាញេទិចដែលមានអំពើលើខ្សែចម្លង។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 44 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">44</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៤</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានប្រវែង
+          <span class="given">\( 50\text{ cm}\)</span>
+          ស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋានមានតម្លៃ
+          <span class="given">\( 0.8\sqrt{3}\text{ mT}\)</span>
+          ហើយឆ្លងកាត់ដោយចរន្ត <span class="given">\( 6\text{ A}\)</span>។
+          ខ្សែចម្លងនេះកាត់ខ្សែដែនមានមុំ
+          <span class="given">\(\theta = 60^\circ\)</span>។
+          <div class="ex-find">
+            <span>គណនាកម្លាំងអេឡិចត្រូម៉ាញេទិចដែលខ្សែចម្លងនេះរង។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 45 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">45</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៥</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយមានប្រវែង
+          <span class="given">\(l = 0.1\text{ m}\)</span>
+          ត្រូវបានឆ្លងកាត់ដោយចរន្តអគ្គិសនី
+          <span class="given">\( 5\text{ A}\)</span>
+          ស្ថិតនៅក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន ដែលមានទិសដៅកែងនឹងខ្សែចម្លងនេះ។
+          បើកម្លាំងអេឡិចត្រូម៉ាញេទិចដែលមានអំពើលើខ្សែចម្លងនេះគឺ
+          <span class="given">\(F = 0.2\text{ N}\)</span>។
+          <div class="ex-find"><span>គណនាតម្លៃដែនម៉ាញេទិចឯកសណ្ឋាន។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 46 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">46</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៦</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានប្រវែង
+          <span class="given">\( 80\text{ cm}\)</span>
+          ស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋានមានតម្លៃ
+          <span class="given">\( 2\text{ mT}\)</span> ហើយឆ្លងកាត់ដោយចរន្ត \(I\)
+          ហើយខ្សែចម្លងនេះកាត់ខ្សែដែនបានមុំ
+          <span class="given">\(\theta = 30^\circ\)</span>។
+          បើខ្សែចម្លងរងកម្លាំងអេឡិចត្រូម៉ាញេទិច
+          <span class="given">\(F = 4 \times 10^{-3}\text{ N}\)</span>។
+          <div class="ex-find"><span>គណនាតម្លៃចរន្ត \(I\) ដែលឆ្លងកាត់ខ្សែចម្លង។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 47 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">47</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៧</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានប្រវែង
+          <span class="given">\( 30\text{ cm}\)</span>
+          ស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ហើយឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 12\text{ A}\)</span>។
+          ខ្សែចម្លងកាត់ខ្សែដែនបានមុំ
+          <span class="given">\(\theta = 90^\circ\)</span>
+          ហើយខ្សែចម្លងនេះរងកម្លាំងអេឡិចត្រូម៉ាញេទិច
+          <span class="given">\(F = 7.2 \times 10^{-4}\text{ N}\)</span>។
+          <div class="ex-find"><span>គណនាដែនម៉ាញេទិចឯកសណ្ឋាននេះ។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 48 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">48</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៨</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានប្រវែង
+          <span class="given">\( 60\text{ cm}\)</span>
+          ស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ហើយឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 24\text{ A}\)</span>។
+          ខ្សែចម្លងកាត់ខ្សែដែនបានមុំ
+          <span class="given">\(\theta = 90^\circ\)</span>
+          ហើយខ្សែចម្លងនេះរងកម្លាំងអេឡិចត្រូម៉ាញេទិច
+          <span class="given">\(F = 14.4 \times 10^{-4}\text{ N}\)</span>។
+          <div class="ex-find"><span>គណនាដែនម៉ាញេទិចឯកសណ្ឋាននេះ។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 49 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">49</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៤៩</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយមានប្រវែង
+          <span class="given">\( 30\text{ cm}\)</span> ត្រូវបានឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 5\text{ A}\)</span>
+          ត្រូវបានគេយកដាក់ក្នុងដែនម៉ាញេទិចឯកសណ្ឋានមួយដែលមានអាំងតង់ស៊ីតេ
+          <span class="given">\(B = 3\text{ T}\)</span>។
+          <div class="ex-find"><span>គណនាដែនម៉ាញេទិចឯកសណ្ឋាននេះ។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 50 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">50</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥០</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយមានប្រវែង
+          <span class="given">\( 30\text{ cm}\)</span> ត្រូវបានឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 5\text{ A}\)</span>
+          ត្រូវបានគេយកដាក់ក្នុងដែនម៉ាញេទិចឯកសណ្ឋានមួយដែលមានអាំងតង់ស៊ីតេ
+          <span class="given">\(B = 3\text{ T}\)</span>។
+          <div class="ex-find">
+            <span>គណនាកម្លាំងអេឡិចត្រូម៉ាញេទិចដែលមានអំពើលើរបារក្នុងករណីដែលខ្សែចម្លងបង្កើតបានមុំ
+            <span class="given"
+              >\(\theta_1 = 0^\circ, \theta_2 = 30^\circ, \theta_3 = 60^\circ,
+              \theta_4 = 90^\circ, \theta_5 = 180^\circ\)</span
+            >
+            ជាមួយអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិច។</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

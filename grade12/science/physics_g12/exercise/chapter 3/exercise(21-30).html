@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ២១–៣០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+              display: block;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home.html"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ២១–៣០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 21 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">21</div>
+          <div class="ex-title">លំហាត់អនុវត្ត២១</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 50\text{ cm}\)</span> ហើយមាន
+          <span class="given">\(N = 1000\text{ ស្ពៀ}\)</span>។
+          កាលណាឆ្លងកាត់ដោយចរន្ត <span class="given">\(I = 2\text{ A}\)</span>។
+          <div class="ex-find">
+            <span>គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត ។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 22 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">22</div>
+          <div class="ex-title">លំហាត់អនុវត្ត២២</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 40\text{ cm}\)</span> ហើយមានចំនួនស្ពៀទាំងអស់
+          <span class="given">\(N = 2000\)</span> និងមានរេស៊ីស្តង់ស្មើនឹង
+          <span class="given">\(R = 16\text{ \(\Omega\)}\)</span>
+          គេភ្ជាប់ទៅនឹងតង់ស្យុង <span class="given">\( 20\text{ V}\)</span>។
+
+          <div class="ex-find">
+            <span>ក. គណនាអាំងតង់ស៊ីតេចរន្ត \(I\) ដែលឆ្លងកាត់សូឡេណូអុីត។</span>
+          </div>
+
+          <div class="ex-find">
+            <span>ខ.
+            គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ចំណុចកណ្ដាលនៃអ័ក្សសូឡេណូអុីត។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 23 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">23</div>
+          <div class="ex-title">លំហាត់អនុវត្ត២៣</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 28\text{ cm}\)</span>។ កាលណាឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\(I = 8.8\text{ A}\)</span> ដែនម៉ាញេទិចមានតម្លៃ
+          <span class="given">\(B = 0.2\text{ T}\)</span>។ គេឱ្យ
+          <span class="given"
+            >\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</span
+          >។
+          <div class="ex-find"><span>គណនាចំនួនស្ពៀសរុប។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 24 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">24</div>
+          <div class="ex-title">លំហាត់អនុវត្ត២៤</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយដាក់ក្នុងខ្យល់មានប្រវែង
+          <span class="given">\(L = 62.8\text{ cm}\)</span> រុំជាស្ពៀជាប់ៗគ្នា
+          ដែលមានចំនួនសរុប
+          <span class="given">\(N = 2000\text{ }\)ស្ពៀ</span>
+          ដោយខ្សែចម្លងដែលមានកម្រាស់អ៊ីសូឡង់មិនគិត។
+          គេឱ្យចរន្តឆ្លងកាត់សូឡេណូអុីតនេះគឺ
+          <span class="given">\(I = 2\text{ A}\)</span> និង
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+
+          <div class="ex-find"><span>ក. គណនាដែនម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត។</span></div>
+          <div class="ex-find"><span>ខ. គណនាអង្កត់ផ្ចិតនៃខ្សែចម្លង។</span></div>
+        </div>
+      </div>
+
+      <!-- Exercise 25 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">25</div>
+          <div class="ex-title">លំហាត់អនុវត្ត២៥</div>
+        </div>
+        <div class="ex-body">
+          ប៊ូប៊ីនវែងមួយរុំដោយខ្សែចម្លងដែលមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 1.256\text{ mm}\)</span> ជាស្ពៀជាប់ៗគ្នា
+          និងរុំចំនួនពីរជាន់។
+          ប៊ូប៊ីននេះស្ថិតក្នុងមជ្ឈដ្ឋានដែលមានជ្រាបម៉ាញេទិចធៀប
+          <span class="given">\(\mu_r = 200\)</span> ហើយគេឱ្យចរន្តថេរ
+          <span class="given">\(I = 20\text{ A}\)</span> ឆ្លងកាត់ប៊ូប៊ីន។<br />
+
+          <div class="ex-find"><span>ក. គណនាតម្លៃដែនម៉ាញេទិចកើតមានក្នុងប៊ូប៊ីន។</span></div>
+          <div class="ex-find">
+            <span>ខ. សូឡេណូអុីតមានស្ពៀសរុប \(200\)។ គណនាប្រវែងសូឡេណូអុីត។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 26 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">26</div>
+          <div class="ex-title">គណនាឌុចស្យុងម៉ាញេទិច</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 50\text{ cm}\)</span> មានស្ពៀទាំងអស់ចំនួន
+          <span class="given">\(N = 2000\)</span> និងមានរេស៊ីស្តង់ស្មើនឹង
+          <span class="given">\(R = 200\text{ \(\Omega\)}\)</span>។
+          គេភ្ជាប់ទៅនឹងតង់ស្យុងផ្តល់
+          <span class="given">\(U = 60\text{ V}\)</span>។ គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+          <div class="ex-find">
+            <span>គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ចំណុចកណ្ដាលនៃអ័ក្សសូឡេណូអុីត។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 27 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">27</div>
+          <div class="ex-title">រកចំនួនស្ពៀ និងចំនួនជាន់</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 62.8\text{ cm}\)</span> ឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\(I = 4\text{ A}\)</span>។<br />
+
+          <div class="ex-find">
+            <span>ក. រកចំនួនស្ពៀដែលត្រូវរុំបើដែនម៉ាញេទិចនៅត្រង់ផ្ចិត \(O\)
+            នៃសូឡេណូអុីតស្មើនឹង
+            <span class="given">\(B = 16\text{ mT}\)</span>។<br /></span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. សូឡេណូអុីតនេះរុំនឹងខ្សែចម្លងដែលមានអង្កត់ផ្ចិត
+            <span class="given">\(d = 1.256\text{ mm}\)</span> ជាស្ពៀជាប់ៗគ្នា។
+            រកចំនួនជាន់ដែលត្រូវរុំជាសូឡេណូអុីត។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 28 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">28</div>
+          <div class="ex-title">ដែនម៉ាញេទិចករណីរុំច្រើនជាន់</div>
+        </div>
+        <div class="ex-body">
+          ប៊ូប៊ីនវែងមួយកើតដោយខ្សែចម្លងមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 1.256\text{ mm}\)</span>
+          ដែលរុំជាស្ពៀជាប់ៗគ្នា ហើយឆ្លងកាត់ដោយចរន្តអគ្គិសនីមានតម្លៃ
+          <span class="given">\(I = 5\text{ A}\)</span>។
+          <div class="ex-find">
+            <span>គណនាដែនម៉ាញេទិចក្នុងប៊ូប៊ីនករណីចំនួនរុំពីរជាន់
+            និងករណីចំនួនរុំបីជាន់។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 29 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">29</div>
+          <div class="ex-title">គណនាអង្កត់ផ្ចិត និងចំនួនស្ពៀ</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\(L = 125.6\text{ cm}\)</span> រុំជាស្ពៀជាប់ៗគ្នា
+          ដោយខ្សែចម្លងដែលមានកម្រាស់អ៊ីសូឡង់មិនគិត។
+          គេឱ្យចរន្តថេរឆ្លងកាត់សូឡេណូអុីតនេះ
+          <span class="given">\(I = 3\text{ A}\)</span>
+          ពេលនេះអាំងតង់ស៊ីតេឌុចស្យុងនៃសូឡេណូអុីតមានតម្លៃ
+          <span class="given">\(B = 6\text{ mT}\)</span>។ \(\mu_0 = 4\pi \times
+          10^{-7}\text{ SI}\)។<br />
+
+          <div class="ex-find"><span>ក. គណនាអង្កត់ផ្ចិតនៃខ្សែចម្លង។</span></div>
+          <div class="ex-find"><span>ខ. គណនាចំនួនស្ពៀនៃសូឡេណូអុីត។</span></div>
+          <div class="ex-find">
+            <span>គ. ចូរធ្វើគំនូសបំព្រួញប៊ូប៊ីនដាក់ទិសដៅចរន្តក្នុងសៀគ្វី
+            វ៉ិចទ័រដែនម៉ាញេទិចត្រង់ផ្ចិតប៊ូប៊ីន ដាក់ឈ្មោះមុខកាត់របស់ប៊ូប៊ីន។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 30 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">30</div>
+          <div class="ex-title">ចរន្តក្នុងស្ពៀស្រោបអ៊ីសូឡង់</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 0.8\text{ mm}\)</span>
+          ស្រោបដោយអ៊ីសូឡង់មានកម្រាស់
+          <span class="given">\(e = 0.1\text{ mm}\)</span>។
+          គេយកទៅរុំជាស្ពៀជាប់ៗគ្នា ចំនួន ៤ ស្រទាប់ បង្កើតបានជាសូឡេណូអុីតមួយ។
+          កាលណាគេឱ្យចរន្តអគ្គិសនីរត់ក្នុងស្ពៀ គេឃើញថាវាបង្កើតបានដែនម៉ាញេទិច
+          <span class="given">\(B = 6.28\text{ mT}\)</span> ក្នុងសូឡេណូអុីត។
+          គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+          <div class="ex-find">
+            <span>គណនាអាំងតង់ស៊ីតេចរន្តអគ្គិសនីដែលរត់ក្នុងស្ពៀ។</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

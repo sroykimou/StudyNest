@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -332,13 +334,13 @@
             ។
           </p>
           <div class="ex-find">
-            ក. គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌ ។
+            <span>ក. គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌ ។</span>
           </div>
-          <div class="ex-find">ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន ។</div>
+          <div class="ex-find"><span>ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន ។</span></div>
           <div class="ex-find">
-            គ. ចូរធ្វើគំនូសតាងដ្យាក្រាម (P-V)
+            <span>គ. ចូរធ្វើគំនូសតាងដ្យាក្រាម (P-V)
             ដោយឆ្នូតលើក្រឡាផ្ទៃតាងឱ្យកម្មន្តដែលកើតមានឡើងក្នុងពេលមានបម្រែបម្រួលមាឌ
-            ។
+            ។</span>
           </div>
         </div>
       </div>
@@ -354,7 +356,7 @@
             <span class="given">\(500 \text{ J}\)</span> និងទទួលកម្មន្ត
             <span class="given">\(200 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">រកបម្រែបម្រួលថាមពលក្នុង ។</div>
+          <div class="ex-find"><span>រកបម្រែបម្រួលថាមពលក្នុង ។</span></div>
         </div>
       </div>
 
@@ -370,7 +372,7 @@
             ហើយប្រព័ន្ធបានបំពេញកម្មន្ត
             <span class="given">\(200 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</div>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</span></div>
         </div>
       </div>
 
@@ -387,7 +389,7 @@
             <span class="given">\(2500 \text{ J}\)</span>
             នៃកម្មន្តត្រូវបានធ្វើដោយប្រព័ន្ធ ។
           </p>
-          <div class="ex-find">គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</div>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</span></div>
         </div>
       </div>
 
@@ -407,7 +409,7 @@
           <p>
             គេយក <span class="given">\(1 \text{ cal} = 4.19 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</div>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</span></div>
         </div>
       </div>
 
@@ -423,7 +425,7 @@
             នៅពេលដែលគេត្រូវការកម្មន្ត
             <span class="given">\(220 \text{ J}\)</span> ដើម្បីបណ្ណែនវា ។
           </p>
-          <div class="ex-find">តើកម្ដៅដែលត្រូវចាកចេញស្មើនឹងប៉ុន្មាន ?</div>
+          <div class="ex-find"><span>តើកម្ដៅដែលត្រូវចាកចេញស្មើនឹងប៉ុន្មាន ?</span></div>
         </div>
       </div>
 
@@ -439,7 +441,7 @@
             ទៅឧស្ម័នបរិសុទ្ធមួយតាមលំនាំអ៊ីសូទែមដើម្បីឱ្យវារីក ។
           </p>
           <div class="ex-find">
-            តើកម្មន្តដែលធ្វើឡើងដោយប្រព័ន្ធក្នុងលំនាំនេះស្មើនឹងប៉ុន្មាន ?
+            <span>តើកម្មន្តដែលធ្វើឡើងដោយប្រព័ន្ធក្នុងលំនាំនេះស្មើនឹងប៉ុន្មាន ?</span>
           </div>
         </div>
       </div>
@@ -456,7 +458,7 @@
             បានធ្វើលើឧស្ម័នបរិសុទ្ធមួយ ។
           </p>
           <div class="ex-find">
-            តើថាមពលកម្ដៅដែលបានដកចេញពីលំនាំនេះស្មើនឹងប៉ុន្មាន ?
+            <span>តើថាមពលកម្ដៅដែលបានដកចេញពីលំនាំនេះស្មើនឹងប៉ុន្មាន ?</span>
           </div>
         </div>
       </div>
@@ -474,7 +476,7 @@
             ក្នុងលំនាំនេះវាបានបញ្ចេញកម្តៅទៅវិញ
             <span class="given">\(2400 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">គណនាបម្រែបម្រួលថាមពលក្នុងរបស់ឧស្ម័ន ។</div>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងរបស់ឧស្ម័ន ។</span></div>
         </div>
       </div>
 

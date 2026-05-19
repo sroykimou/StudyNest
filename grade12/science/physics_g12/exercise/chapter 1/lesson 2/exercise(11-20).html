@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       .system-diagram {
@@ -346,7 +348,7 @@
             <span class="given">\(110 \text{ kPa}\)</span> ទៅ
             <span class="given">\(230 \text{ kPa}\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្មន្តសរុបបំពេញដោយឧស្ម័ន ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្តសរុបបំពេញដោយឧស្ម័ន ។</span></div>
         </div>
       </div>
 
@@ -364,7 +366,7 @@
             <span class="given">\(2 \text{ atm}\)</span> ទៅ
             <span class="given">\(8 \text{ atm}\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្មន្តបំពេញដោយឧស្ម័ន ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្តបំពេញដោយឧស្ម័ន ។</span></div>
         </div>
       </div>
 
@@ -402,7 +404,7 @@
             ។
           </p>
           <div class="ex-find">
-            គណនាកម្មន្តដែលត្រូវធ្វើដើម្បីតម្លើងសីតុណ្ហភាពឧស្ម័ននោះ ។
+            <span>គណនាកម្មន្តដែលត្រូវធ្វើដើម្បីតម្លើងសីតុណ្ហភាពឧស្ម័ននោះ ។</span>
           </div>
         </div>
       </div>
@@ -427,7 +429,7 @@
             <span class="given">\(\ln(3/10) = -1.2\)</span> ។
           </p>
           <div class="ex-find">
-            គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ក្នុងរយៈពេលបម្រែបម្រួលមាឌនោះ ។
+            <span>គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ក្នុងរយៈពេលបម្រែបម្រួលមាឌនោះ ។</span>
           </div>
         </div>
       </div>
@@ -448,7 +450,7 @@
             <span class="given">\(n = 0.5 \text{ mol}\)</span> ។
           </p>
           <div class="ex-find">
-            គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌនោះ ។
+            <span>គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌនោះ ។</span>
           </div>
         </div>
       </div>
@@ -468,7 +470,7 @@
             គេធ្វើឱ្យសម្ពាធនៃឧស្ម័នកើនឡើងដល់
             <span class="given">\(4 \text{ atm}\)</span> តាមលំនាំអ៊ីសូទែម ។
           </p>
-          <div class="ex-find">តើឧស្ម័នធ្វើកម្មន្ត ឬរងកម្មន្ត ?</div>
+          <div class="ex-find"><span>តើឧស្ម័នធ្វើកម្មន្ត ឬរងកម្មន្ត ?</span></div>
         </div>
       </div>
 
@@ -518,13 +520,13 @@
           </p>
           <p>គេឱ្យ <span class="given">\(\ln 2 = 0.69\)</span> ។</p>
           <div class="ex-find">
-            ក. គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌ ។
+            <span>ក. គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌ ។</span>
           </div>
-          <div class="ex-find">ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន ។</div>
+          <div class="ex-find"><span>ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន ។</span></div>
           <div class="ex-find">
-            គ. ចូរធ្វើគំនូសតាងដ្យាក្រាម (P-V)
+            <span>គ. ចូរធ្វើគំនូសតាងដ្យាក្រាម (P-V)
             ដោយឆ្នូតលើក្រឡាផ្ទៃតាងឱ្យកម្មន្តដែលកើតមានឡើងក្នុងពេលមានបម្រែបម្រួលមាឌ
-            ។
+            ។</span>
           </div>
         </div>
       </div>

@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -311,6 +313,7 @@
 
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">01</div>
           <span class="ex-title">លំហាត់អនុវត្ត០១</span>
         </div>
         <div class="ex-body">
@@ -320,12 +323,13 @@
             <span class="given">\(10 \text{ L}\)</span> ទៅ
             <span class="given">\(25 \text{ L}\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្មន្តក្នុងលំនាំនេះ ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្តក្នុងលំនាំនេះ ។</span></div>
         </div>
       </div>
 
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">02</div>
           <span class="ex-title">លំហាត់អនុវត្ត០២</span>
         </div>
         <div class="ex-body">
@@ -336,12 +340,13 @@
             <span class="given">\(V_1 = 7500 \text{ cm}^3\)</span> ទៅ
             <span class="given">\(V_2 = 9000 \text{ cm}^3\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ។</span></div>
         </div>
       </div>
 
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">03</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៣</span>
         </div>
         <div class="ex-body">
@@ -352,7 +357,7 @@
             <span class="given">\(P = 200 \text{ kPa}\)</span> ។
           </p>
           <div class="ex-find">
-            គណនាកម្មន្តដែលបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌ ។
+            <span>គណនាកម្មន្តដែលបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌ ។</span>
           </div>
         </div>
       </div>
@@ -360,6 +365,7 @@
       <!-- 04 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">04</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៤</span>
         </div>
         <div class="ex-body">
@@ -371,13 +377,14 @@
             ហើយកម្មន្តបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌនោះមានតម្លៃ
             <span class="given">\(2.88 \text{ kJ}\)</span> ។
           </p>
-          <div class="ex-find">គណនាមាឌដើម និងមាឌស្រេចនៃឧស្ម័ន ។</div>
+          <div class="ex-find"><span>គណនាមាឌដើម និងមាឌស្រេចនៃឧស្ម័ន ។</span></div>
         </div>
       </div>
 
       <!-- 05 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">05</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៥</span>
         </div>
         <div class="ex-body">
@@ -389,7 +396,7 @@
             <span class="given">\(5 \text{ dm}^3\)</span> ។
           </p>
           <div class="ex-find">
-            តើកម្មន្តធ្វើដោយឧស្ម័ននោះមានតម្លៃស្មើប៉ុន្មាន ?
+            <span>តើកម្មន្តធ្វើដោយឧស្ម័ននោះមានតម្លៃស្មើប៉ុន្មាន ?</span>
           </div>
         </div>
       </div>
@@ -397,6 +404,7 @@
       <!-- 06 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">06</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៦</span>
         </div>
         <div class="ex-body">
@@ -408,13 +416,14 @@
             បើគេដឹងថាកម្មន្តបំពេញដោយឧស្ម័នក្នុងរយៈពេលនោះមានតម្លៃ
             <span class="given">\(22.5 \text{ kJ}\)</span> ។
           </p>
-          <div class="ex-find">តើមាឌកើនដល់កម្រិតណា ?</div>
+          <div class="ex-find"><span>តើមាឌកើនដល់កម្រិតណា ?</span></div>
         </div>
       </div>
 
       <!-- 07 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">07</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៧</span>
         </div>
         <div class="ex-body">
@@ -425,13 +434,14 @@
             បើគេដឹងថាកម្មន្តដែលឧស្ម័ននោះរងក្នុងពេលមានបម្រែបម្រួលមាឌស្មើ
             <span class="given">\(3.125 \text{ kJ}\)</span> ។
           </p>
-          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័ន ។</div>
+          <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័ន ។</span></div>
         </div>
       </div>
 
       <!-- 08 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">08</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៨</span>
         </div>
         <div class="ex-body">
@@ -442,13 +452,14 @@
             ពីស្តុងផ្លាស់ទីបានប្រវែង
             <span class="given">\(0.04 \text{ m}\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្មន្តដែលបំពេញដោយពីស្តុង ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្តដែលបំពេញដោយពីស្តុង ។</span></div>
         </div>
       </div>
 
       <!-- 09 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">09</div>
           <span class="ex-title">លំហាត់អនុវត្ត០៩</span>
         </div>
         <div class="ex-body">
@@ -460,13 +471,14 @@
             <span class="given">\(1.6 \text{ cm}\)</span> និងផ្លាស់ទីបាន
             <span class="given">\(2.1 \text{ cm}\)</span> ។
           </p>
-          <div class="ex-find">គណនាសម្ពាធថេរនោះ ។</div>
+          <div class="ex-find"><span>គណនាសម្ពាធថេរនោះ ។</span></div>
         </div>
       </div>
 
       <!-- 10 -->
       <div class="ex-card">
         <div class="ex-head">
+          <div class="ex-badge">10</div>
           <span class="ex-title">លំហាត់អនុវត្ត១០</span>
         </div>
         <div class="ex-body">
@@ -478,7 +490,7 @@
             <span class="given">\(2 \text{ cm}\)</span> ផ្លាស់ទីបាន
             <span class="given">\(4 \text{ cm}\)</span> ។
           </p>
-          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័នក្នុងម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័នក្នុងម៉ាស៊ីននោះ ។</span></div>
         </div>
       </div>
     </div>

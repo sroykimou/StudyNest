@@ -239,15 +239,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -295,7 +297,7 @@
           </p>
           <p>គេឲ្យ \( R = 8.31 \) J/mol·K ។</p>
           <div class="ex-find">
-            គណនាឫសការេនៃការេល្បឿនមធ្យមរបស់អាតូមអេល្យូម ។
+            <span>គណនាឫសការេនៃការេល្បឿនមធ្យមរបស់អាតូមអេល្យូម ។</span>
           </div>
         </div>
       </div>
@@ -311,7 +313,7 @@
             <span class="given">27°C</span>។
           </p>
           <p>គេឲ្យ \( M_{N_2} = 28 \) g/mol ; \(\sqrt{26.71} = 5.17\) ។</p>
-          <div class="ex-find">គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអាសូត។</div>
+          <div class="ex-find"><span>គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអាសូត។</span></div>
         </div>
       </div>
 
@@ -328,7 +330,7 @@
           <p>គេឲ្យ \( M_{H_2} = 2 \) g/mol ។</p>
 
           <div class="ex-find">
-            គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។
+            <span>គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។</span>
           </div>
         </div>
       </div>
@@ -345,7 +347,7 @@
           </p>
           <p>គេឲ្យ \( M_{H_2} = 2.016\times 10^{-3} \) Kg/mol ។</p>
           <div class="ex-find">
-            គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។
+            <span>គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។</span>
           </div>
         </div>
       </div>
@@ -382,10 +384,10 @@
           </p>
           <p>គេឲ្យ​ \( k_B = 1.38 \times 10^{-23} \) J/K ។</p>
           <div class="ex-find">
-            គណនាឫសការេនៃការេល្បឿនមធ្យម \( v_{\text{rms}} \)។
+            <span>គណនាឫសការេនៃការេល្បឿនមធ្យម \( v_{\text{rms}} \)។</span>
           </div>
           <div class="ex-find">
-            គណនាតម្លៃថាមពលសុីនេទិចមធ្យម \( K_{\text{av}} \)។
+            <span>គណនាតម្លៃថាមពលសុីនេទិចមធ្យម \( K_{\text{av}} \)។</span>
           </div>
         </div>
       </div>
@@ -445,9 +447,9 @@
             <span class="given">\( m_0 = 8 \times 10^{-26} \) kg</span> ។
           </p>
           <p>គេឲ្យ \( k_B = 1.38 \times 10^{-23} \) J/K ។</p>
-          <div class="ex-find">ក. រកចំនួនម៉ូលេគុលនៃឧស្ម័ននេះ។</div>
+          <div class="ex-find"><span>ក. រកចំនួនម៉ូលេគុលនៃឧស្ម័ននេះ។</span></div>
           <div class="ex-find">
-            ខ. រកតម្លៃថាមពលសុីនេទិចរបស់ម៉ូលេគុលនៃឧស្ម័ននីមួយៗ ។
+            <span>ខ. រកតម្លៃថាមពលសុីនេទិចរបស់ម៉ូលេគុលនៃឧស្ម័ននីមួយៗ ។</span>
           </div>
         </div>
       </div>

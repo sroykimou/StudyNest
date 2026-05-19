@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       .system-diagram {
@@ -329,9 +331,9 @@
             <span class="given">\(450 \text{ K}\)</span> ទៅ
             <span class="given">\(600 \text{ K}\)</span> ។ គណនា ៖
           </p>
-          <div class="ex-find">ក. ថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញចោល ។</div>
-          <div class="ex-find">ខ. កម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច ។</div>
-          <div class="ex-find">គ. ទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>ក. ថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញចោល ។</span></div>
+          <div class="ex-find"><span>ខ. កម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច ។</span></div>
+          <div class="ex-find"><span>គ. ទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -348,12 +350,12 @@
             <span class="given">\(1.5 \times 10^3 \text{ J}\)</span>
             ទៅឲ្យធុងត្រជាក់ ។
           </p>
-          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</div>
-          <div class="ex-find">ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈមួយវដ្ដ ។</div>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈមួយវដ្ដ ។</span></div>
           <div class="ex-find">
-            គ. គណនាអានុភាពមធ្យមដែលបញ្ចេញដោយម៉ាស៊ីន
+            <span>គ. គណនាអានុភាពមធ្យមដែលបញ្ចេញដោយម៉ាស៊ីន
             <span class="given">\(4\)</span> វដ្ដក្នុង
-            <span class="given">\(2.5 \text{ s}\)</span> ។
+            <span class="given">\(2.5 \text{ s}\)</span> ។</span>
           </div>
         </div>
       </div>
@@ -371,9 +373,9 @@
             <span class="given">\(10 \text{ kJ}\)</span>
             ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
           </p>
-          <div class="ex-find">ក. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</span></div>
           <div class="ex-find">
-            ខ. តើកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅមានតម្លៃប៉ុន្មាន ?
+            <span>ខ. តើកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅមានតម្លៃប៉ុន្មាន ?</span>
           </div>
         </div>
       </div>
@@ -392,9 +394,9 @@
             <span class="given">\(1000 \text{ J}\)</span>
             ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
           </p>
-          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីននោះ ។</span></div>
           <div class="ex-find">
-            ខ. គណនាកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ ។
+            <span>ខ. គណនាកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ ។</span>
           </div>
         </div>
       </div>
@@ -413,7 +415,7 @@
             class="system-diagram"
           />
 
-          <div class="ex-find">ចូរគណនា \(Q_h\) និង \(Q_c\) ។</div>
+          <div class="ex-find"><span>ចូរគណនា \(Q_h\) និង \(Q_c\) ។</span></div>
         </div>
       </div>
 
@@ -429,7 +431,7 @@
             <span class="given">\(0.2 \text{ kg}\)</span> ។ បើកម្ដៅចំហេះនៃប្រេង
             <span class="given">\(q = 10^4 \text{ J/g}\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្ដៅដែលទទួលបាន ។</div>
+          <div class="ex-find"><span>គណនាកម្ដៅដែលទទួលបាន ។</span></div>
         </div>
       </div>
 
@@ -447,7 +449,7 @@
             និងដំណើរការដោយប្រើឥន្ធនៈមានម៉ាស
             <span class="given">\(0.8 \text{ kg}\)</span> ។
           </p>
-          <div class="ex-find">គណនាកម្ដៅចំហេះរបស់ឥន្ធនៈ ។</div>
+          <div class="ex-find"><span>គណនាកម្ដៅចំហេះរបស់ឥន្ធនៈ ។</span></div>
         </div>
       </div>
 
@@ -464,18 +466,18 @@
             ពីចំហេះល្បាយឧស្ម័ននិងបញ្ចេញ
             <span class="given">\(135 \text{ kJ}\)</span> ទៅបរិយាកាស ។
           </p>
-          <div class="ex-find">ក. រៀបរាប់វគ្គទាំងបួននៃស៊ិច ។</div>
+          <div class="ex-find"><span>ក. រៀបរាប់វគ្គទាំងបួននៃស៊ិច ។</span></div>
           <div class="ex-find">
-            ខ. គណនាកម្មន្តមេកានិចក្នុងរយៈពេល
-            <span class="given">\(10 \text{ mn}\)</span> ។
+            <span>ខ. គណនាកម្មន្តមេកានិចក្នុងរយៈពេល
+            <span class="given">\(10 \text{ mn}\)</span> ។</span>
           </div>
           <div class="ex-find">
-            គ. បើទិន្នផលនៃគ្រឿងបញ្ជូន គឺ
+            <span>គ. បើទិន្នផលនៃគ្រឿងបញ្ជូន គឺ
             <span class="given">\(0.92\)</span>
             គណនាកម្មន្តបានការរបស់ម៉ូទ័រក្នុងរយៈពេល
-            <span class="given">\(10 \text{ mn}\)</span> ។
+            <span class="given">\(10 \text{ mn}\)</span> ។</span>
           </div>
-          <div class="ex-find">ឃ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>ឃ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -494,13 +496,13 @@
             រាល់វិនាទីពីស្តុងបានបញ្ជូនកម្មន្តបានការ
             <span class="given">\(34.04 \text{ kJ}\)</span> ឲ្យភ្លៅម៉ូទ័រ ។
           </p>
-          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ូទ័រ ។</div>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលកម្ដៅនៃម៉ូទ័រ ។</span></div>
           <div class="ex-find">
-            ខ. គណនាកម្ដៅដែលម៉ាស៊ីនបញ្ចេញមកក្រៅក្នុងរយៈពេល
-            <span class="given">\(5 \text{ mn}\)</span> ។
+            <span>ខ. គណនាកម្ដៅដែលម៉ាស៊ីនបញ្ចេញមកក្រៅក្នុងរយៈពេល
+            <span class="given">\(5 \text{ mn}\)</span> ។</span>
           </div>
-          <div class="ex-find">គ. គណនាទិន្នផលនៃគ្រឿងបញ្ជូន ។</div>
-          <div class="ex-find">ឃ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>គ. គណនាទិន្នផលនៃគ្រឿងបញ្ជូន ។</span></div>
+          <div class="ex-find"><span>ឃ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -519,16 +521,16 @@
             <span class="given">\(2500 \text{ kJ}\)</span> ។
           </p>
           <div class="ex-find">
-            ក. គណនាថាមពលមេកានិច \(W_M\) ដែលពីស្តុងទទួល ។
+            <span>ក. គណនាថាមពលមេកានិច \(W_M\) ដែលពីស្តុងទទួល ។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាថាមពលកម្ដៅ \(Q_c\) ដែលបញ្ចេញទៅបរិយាកាស ។
+            <span>ខ. គណនាថាមពលកម្ដៅ \(Q_c\) ដែលបញ្ចេញទៅបរិយាកាស ។</span>
           </div>
           <div class="ex-find">
-            គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល \(W_u\) ។
+            <span>គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល \(W_u\) ។</span>
           </div>
           <div class="ex-find">
-            ឃ. គណនាទិន្នផលបានការ (ទិន្នផលសរុប) របស់ម៉ាស៊ីន ។
+            <span>ឃ. គណនាទិន្នផលបានការ (ទិន្នផលសរុប) របស់ម៉ាស៊ីន ។</span>
           </div>
         </div>
       </div>

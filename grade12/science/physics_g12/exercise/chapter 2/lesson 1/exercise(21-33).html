@@ -238,15 +238,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -306,10 +308,10 @@
           <p>
            គេមានសមីការរលកពីរ \(y_1 = 4 \sin(2\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 5 \sin(2\pi t + \pi/2) \text{ cm}\) ។   
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -325,10 +327,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 5 \sin(4\pi t + \pi/3) \text{ cm}\) ; \(y_2 = 6 \sin(4\pi t + \pi/3) \text{ cm}\) ។   
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -344,10 +346,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 6 \sin(4\pi t + \pi/3) \text{ cm}\) ; \(y_2 = 3 \sin(4\pi t + 4\pi/3) \text{ cm}\) ។   
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -363,10 +365,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 4 \sin(5\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 3 \sin(5\pi t + 3\pi/2) \text{ cm}\) ។
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -382,10 +384,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 4 \sin(10\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 9 \sin(10\pi t + 3\pi/2) \text{ cm}\) ។
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -401,10 +403,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 3 \sin(4\pi t + \pi/3) \text{ cm}\) ; \(y_2 = 6 \sin(4\pi t + 4\pi/3) \text{ cm}\) ។   
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -420,10 +422,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 9 \sin(4\pi t + \pi/6) \text{ cm}\) ; \(y_2 = 4 \sin(4\pi t + 2\pi/3) \text{ cm}\) ។   
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -439,10 +441,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 12 \sin(4\pi t + \pi/2) \text{ cm}\) ; \(y_2 = 9 \sin(4\pi t + \pi) \text{ cm}\) ។ 
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -458,10 +460,10 @@
           <p>
             គេមានសមីការរលកពីរ \(y_1 = 12 \sin(4\pi t + \pi/4) \text{ cm}\) ; \(y_2 = 9 \sin(4\pi t + 3\pi/2) \text{ cm}\) ។ 
           </p>
-          <div class="ex-find">ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</div>
-          <div class="ex-find">ខ. គណនាផលសងផាសនៃរលក ។</div>
-          <div class="ex-find">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</div>
-          <div class="ex-find">ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</div>
+          <div class="ex-find"><span>ក. កំណត់អព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
         </div>
       </div>
 
@@ -479,9 +481,9 @@
             \(y_1 = a \sin(kx - \omega t)\) និង \(y_2 = a \sin(kx + \omega t)\) ។ គេឲ្យ \(a = 4 \text{ cm}\) , \(f = 50 \text{ Hz}\) , 
             \(\lambda = 2\pi \text{ cm}\) , \(x = 10 \text{ cm}\) ។
           </p>
-          <div class="ex-find">ក. កំណត់សមីការ តម្រួតនៃរលកជញ្រ្ជុំនេះ ។ </div>
-          <div class="ex-find">ខ. កំណត់ទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។ </div>
-          <div class="ex-find">គ. គណនាអេឡុងកាស្យុងរបស់សមីការ ។ </div>
+          <div class="ex-find"><span>ក. កំណត់សមីការ តម្រួតនៃរលកជញ្រ្ជុំនេះ ។</span> </div>
+          <div class="ex-find"><span>ខ. កំណត់ទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។</span> </div>
+          <div class="ex-find"><span>គ. គណនាអេឡុងកាស្យុងរបស់សមីការ ។</span> </div>
         </div>
       </div>
 
@@ -497,8 +499,8 @@
           <p>
             គេមានសមីការរលកពីរគឺ \(y_1 = 5 \sin(kx - \omega t)\) និង \(y_2 = 5 \sin(kx + \omega t)\) ដែលមានទិសដៅផ្ទុយគ្នាបង្កើតបានជារលកជញ្រ្ជុំមួយ ។ ដែល \(y_1 ; y_2\) គិតជា (cm) និង \(t\) គិតជា (s) ។
           </p>
-          <div class="ex-find">ក. សរសេរសមីការតម្រួតនៃរលកទាំងពីរ ។</div>
-          <div class="ex-find">ខ. កំណត់អំព្លីទុតនៃរលកជញ្រ្ជុំ ។ បើ \(k = \pi/2 \text{ rad/cm}\) ; \(x = 1 \text{ cm}\) ។  </div>
+          <div class="ex-find"><span>ក. សរសេរសមីការតម្រួតនៃរលកទាំងពីរ ។</span></div>
+          <div class="ex-find"><span>ខ. កំណត់អំព្លីទុតនៃរលកជញ្រ្ជុំ ។ បើ \(k = \pi/2 \text{ rad/cm}\) ; \(x = 1 \text{ cm}\) ។</span>  </div>
         </div>
       </div>
 
@@ -515,8 +517,8 @@
            គេធ្វើឲ្យរលកពីរមានទិសដៅផ្ទុយគ្នាដាលកាត់គ្នាក្នុងមជ្ឈដ្ឋានតែមួយបង្កើតបានជារលកជញ្រ្ជុំមួយ និងមានសមីការចលនាគឺ \(y_1 = A \sin(kx - \omega t)\) និង \(y_2 = A \sin(kx + \omega t)\) ។ 
            ដែល \(A = 4 \text{ cm}\) , \(k = 3 \text{ rad/m}\) , \(\omega = 2 \text{ rad/s}\) ។
           </p>
-          <div class="ex-find">ក. គណនាអេឡុងកាស្យុងរបស់សមីការចលនារលកត្រង់ \(x = 2.3 \text{ cm}\) ។ </div>
-          <div class="ex-find">ខ. គណនាទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។  </div>
+          <div class="ex-find"><span>ក. គណនាអេឡុងកាស្យុងរបស់សមីការចលនារលកត្រង់ \(x = 2.3 \text{ cm}\) ។</span> </div>
+          <div class="ex-find"><span>ខ. គណនាទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។</span>  </div>
         </div>
       </div>
 
@@ -532,9 +534,9 @@
           <p>
            គេមានសមីការរលកជញ្ជ្រុំមួយ \(y = 0.2 \cos 4x \sin 400t \text{ (cm)}\) ។
           </p>
-          <div class="ex-find">ក. គណនាអំព្លីទុតអតិបរមានៃលំយោលត្រង់ទីតាំងពោះ ។</div>
-          <div class="ex-find">ខ. កំណត់ទីតាំងថ្នាំងនៃរលកជញ្ជ្រុំ ។  </div>
-          <div class="ex-find">គ. គណនាជំហានរលក ប្រេកង់ និងល្បឿននៃរលក ។  </div>
+          <div class="ex-find"><span>ក. គណនាអំព្លីទុតអតិបរមានៃលំយោលត្រង់ទីតាំងពោះ ។</span></div>
+          <div class="ex-find"><span>ខ. កំណត់ទីតាំងថ្នាំងនៃរលកជញ្ជ្រុំ ។</span>  </div>
+          <div class="ex-find"><span>គ. គណនាជំហានរលក ប្រេកង់ និងល្បឿននៃរលក ។</span>  </div>
         </div>
       </div>
     </div>

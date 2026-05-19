@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -316,7 +318,7 @@
         </div>
         <div class="ex-body">
           <p>ក្នុងលំនាំអាដ្យាបាទិចមួយបើបម្រែបម្រួលថាមពលក្នុងថយចុះ <span class="given">\(600 \text{ J}\)</span> ។</p>
-          <div class="ex-find">គណនាកម្មន្ត ដែលបំពេញដោយប្រព័ន្ធ ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្ត ដែលបំពេញដោយប្រព័ន្ធ ។</span></div>
         </div>
       </div>
 
@@ -330,7 +332,7 @@
             កាលណាឧស្ម័នមួយត្រូវបានបណ្ណែនតាមលំនាំអាដ្យាបាទិច
             កម្មន្តបានធ្វើលើឧស្ម័ននោះ គឺ <span class="given">\(750 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">គណនាបម្រែបម្រួលថាមពលក្នុងនៃឧស្ម័ន ។</div>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃឧស្ម័ន ។</span></div>
         </div>
       </div>
 
@@ -344,8 +346,8 @@
             គេបណ្ណែនឧស្ម័នបរិសុទ្ធក្នុងស៊ីឡាំងមួយតាមលំនាំអាដ្យាបាទិច ។
             កម្មន្តដែលបំពេញក្នុង រយៈពេលបណ្ណែននោះ គឺ <span class="given">\(4.5 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">ក. គណនាបម្រែបម្រួលថាមពលក្នុងនៃឧស្ម័ន ។</div>
-          <div class="ex-find">ខ. គណនាកម្ដៅដែលស្រូបដោយឧស្ម័ន ។</div>
+          <div class="ex-find"><span>ក. គណនាបម្រែបម្រួលថាមពលក្នុងនៃឧស្ម័ន ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាកម្ដៅដែលស្រូបដោយឧស្ម័ន ។</span></div>
         </div>
       </div>
 
@@ -357,7 +359,7 @@
         </div>
         <div class="ex-body">
           <p>កម្មន្តដែលធ្វើលើឧស្ម័នក្នុងរយៈពេលនៃលំនាំអាដ្យាបាទិចគឺ <span class="given">\(140 \text{ J}\)</span> ។</p>
-          <div class="ex-find">គណនាកំណើនថាមពលក្នុងនៃប្រព័ន្ធជាកាឡូរី ។</div>
+          <div class="ex-find"><span>គណនាកំណើនថាមពលក្នុងនៃប្រព័ន្ធជាកាឡូរី ។</span></div>
         </div>
       </div>
 
@@ -371,8 +373,8 @@
           <p>
             ម៉ាស៊ីនកាកណូមួយដំណើរការនៅចន្លោះធុងពីរដែលមានសីតុណ្ហភាពពី <span class="given">\(27 \text{ ℃}\)</span> ទៅ <span class="given">\(127 \text{ ℃}\)</span> ហើយស្រូបកម្ដៅ <span class="given">\(1000 \text{ J}\)</span> ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ ។
           </p>
-          <div class="ex-find">ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</div>
-          <div class="ex-find">ខ. គណនាបរិមាណកម្ដៅដែលភាយទៅបរិយាកាស ។</div>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាបរិមាណកម្ដៅដែលភាយទៅបរិយាកាស ។</span></div>
         </div>
       </div>
 
@@ -387,7 +389,7 @@
             ម៉ាស៊ីនអ៊ីដេអាល់មួយបានបំពេញកម្មន្ត <span class="given">\(300 \text{ J}\)</span> ។
             គេដឹងថាម៉ាស៊ីនបានបញ្ចេញកម្តៅទៅមជ្ឈដ្ឋានក្រៅ <span class="given">\(600 \text{ J}\)</span> ។
           </p>
-          <div class="ex-find">តើម៉ាស៊ីននោះមានទិន្នផលប៉ុន្មាន ?</div>
+          <div class="ex-find"><span>តើម៉ាស៊ីននោះមានទិន្នផលប៉ុន្មាន ?</span></div>
         </div>
       </div>
 
@@ -402,7 +404,7 @@
             ម៉ាស៊ីនកម្ដៅមួយស្រូបកម្ដៅ <span class="given">\(200 \text{ J}\)</span> ពីធុងក្ដៅ
             ដើម្បីធ្វើកម្មន្តនិងបំភាយកម្ដៅ <span class="given">\(160 \text{ J}\)</span> ទៅធុង ត្រជាក់ ។
           </p>
-          <div class="ex-find">គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>គណនាទិន្នផលកម្ដៅនៃម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -417,7 +419,7 @@
             ម៉ាស៊ីនកម្ដៅមួយមានទិន្នផលកម្ដៅ <span class="given">\(30 \%\)</span> ។
             ម៉ាស៊ីននេះដំណើរការនៅចន្លោះធុងពីរដែល ធុងត្រជាក់មានសីតុណ្ហភាព <span class="given">\(300 \text{ K}\)</span> ។
           </p>
-          <div class="ex-find">គណនាសីតុណ្ហភាពនៅធុងក្ដៅ ។</div>
+          <div class="ex-find"><span>គណនាសីតុណ្ហភាពនៅធុងក្ដៅ ។</span></div>
         </div>
       </div>
 
@@ -430,9 +432,9 @@
         <div class="ex-body">
           <p>ម៉ាស៊ីនមួយមានទិន្នផលកម្ដៅ <span class="given">\(35 \%\)</span> ។</p>
           <div class="ex-find">
-            ក. គណនាកម្មន្តដែលបានធ្វើ ប្រសិនបើវាស្រូបកម្ដៅ <span class="given">\(150 \text{ J}\)</span> ពីធុងក្ដៅ ។
+            <span>ក. គណនាកម្មន្តដែលបានធ្វើ ប្រសិនបើវាស្រូបកម្ដៅ <span class="given">\(150 \text{ J}\)</span> ពីធុងក្ដៅ ។</span>
           </div>
-          <div class="ex-find">ខ. គណនាកម្ដៅដែលភាយចេញទៅធុងត្រជាក់ ។</div>
+          <div class="ex-find"><span>ខ. គណនាកម្ដៅដែលភាយចេញទៅធុងត្រជាក់ ។</span></div>
         </div>
       </div>
 
@@ -448,10 +450,10 @@
             គេសន្មតថា ម៉ាស៊ីននោះជាម៉ាស៊ីនអ៊ីដេអាល់ ។
           </p>
           <div class="ex-find">
-            ក. គណនាបរិមាណកម្តៅដែលម៉ាស៊ីនស្រូបពីធុងក្តៅ ។
+            <span>ក. គណនាបរិមាណកម្តៅដែលម៉ាស៊ីនស្រូបពីធុងក្តៅ ។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាបរិមាណកម្តៅដែលម៉ាស៊ីនផ្តល់ឲ្យធុងត្រជាក់ ។
+            <span>ខ. គណនាបរិមាណកម្តៅដែលម៉ាស៊ីនផ្តល់ឲ្យធុងត្រជាក់ ។</span>
           </div>
         </div>
       </div>

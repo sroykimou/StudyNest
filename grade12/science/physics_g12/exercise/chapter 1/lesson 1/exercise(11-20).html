@@ -250,15 +250,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -391,7 +393,7 @@
             <span class="given">\(2 \times 10^5\) Pa</span>
           </p>
           <p>នៅសីតុណ្ហភាព <span class="given">20°C</span> ។</p>
-          <div class="ex-find">តើឧស្ម័ននោះមានចំនួនម៉ូល ?</div>
+          <div class="ex-find"><span>តើឧស្ម័ននោះមានចំនួនម៉ូល ?</span></div>
         </div>
       </div>
 
@@ -408,7 +410,7 @@
             <span class="given">\(5 \times 10^5\) Pa</span>
           </p>
           <p>នៅសីតុណ្ហភាព <span class="given">60°C</span> ។</p>
-          <div class="ex-find">តើឧស្ម័ននោះមានមាឌប៉ុន្មាន ?</div>
+          <div class="ex-find"><span>តើឧស្ម័ននោះមានមាឌប៉ុន្មាន ?</span></div>
         </div>
       </div>
 
@@ -425,7 +427,7 @@
             <span class="given">\(P = 250\) kPa</span>
           </p>
           <p>នៅសីតុណ្ហភាព <span class="given">57°C</span> ។</p>
-          <div class="ex-find">តើឧស្ម័ននោះមានមាឌប៉ុន្មាន ?</div>
+          <div class="ex-find"><span>តើឧស្ម័ននោះមានមាឌប៉ុន្មាន ?</span></div>
         </div>
       </div>
 
@@ -445,7 +447,7 @@
             នៅសីតុណ្ហភាព <span class="given">27°C</span> ។ គេឲ្យ \(R = 8.31\)
             J/mol·K ។
           </p>
-          <div class="ex-find">គណនាចំនួនម៉ូលនៃឧស្ម័ននោះ ។</div>
+          <div class="ex-find"><span>គណនាចំនួនម៉ូលនៃឧស្ម័ននោះ ។</span></div>
         </div>
       </div>
 
@@ -465,7 +467,7 @@
             នៅសីតុណ្ហភាព <span class="given">27°C</span> ។ គេឲ្យ \(k_B = 1.38
             \times 10^{-23}\) J/K ។
           </p>
-          <div class="ex-find">គណនាសម្ពាធនៃឧស្ម័ននោះ ។</div>
+          <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័ននោះ ។</span></div>
         </div>
       </div>
 
@@ -482,7 +484,7 @@
             <span class="given">0.65 mol</span>
           </p>
           <p>និងស្ថិតក្រោមសម្ពាធបរិយាកាស ។</p>
-          <div class="ex-find">គណនាសីតុណ្ហភាពនៃឧស្ម័ននោះ ។</div>
+          <div class="ex-find"><span>គណនាសីតុណ្ហភាពនៃឧស្ម័ននោះ ។</span></div>
         </div>
       </div>
     </div>

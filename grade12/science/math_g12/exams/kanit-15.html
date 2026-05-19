@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>វិញ្ញាសា គណិតវិទ្យា ១៥ | StudyNest</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js" async></script>
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --accent: #74ebd5;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --orange: #f97316;
+            --blue: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Kantumruy Pro", sans-serif;
+            background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+            color: var(--text-dark);
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .exam-meta {
+            display: flex;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid #e2e8f0;
+        }
+
+        .question-section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.5s ease-out both;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 30px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            display: inline-block;
+            background: var(--bg-dark);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .question-content {
+            padding-left: 10px;
+        }
+
+        .sub-question {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .formula-box {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary);
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+
+        .toggle-btn {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-left: 10px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .toggle-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .solution-content {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 4px solid #10b981;
+        }
+        
+        .solution-title {
+            color: #059669;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .solution-body {
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+
+        .solution-body p {
+            margin-bottom: 8px;
+        }
+
+        .nav-footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 10mm;
+                border: none;
+            }
+            .container::before {
+                display: none;
+            }
+            .nav-footer, .print-btn, .toggle-btn {
+                display: none !important;
+            }
+            .solution-content {
+                display: block !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #f8fafc !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .question-section {
+                border-bottom: 1px solid #ccc !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 25px;
+            }
+            .exam-meta {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>វិញ្ញាសា គណិតវិទ្យា (វិទ្យាសាស្ត្រពិត) ១៥</h1>
+            <p>សម្រាប់ការត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+        </header>
+
+        <div class="exam-meta">
+            <span><i class="far fa-clock"></i> រយៈពេល៖ ១៥០ នាទី</span>
+            <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ១២៥ ពិន្ទុ</span>
+        </div>
+
+        <!-- Section I -->
+        <section class="question-section" style="animation-delay: 0.1s;">
+            <h2>លំហាត់ I (១០ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គណនាលីមីត៖</p>
+                <p>១. $\lim_{x \to 1} \frac{1-x^2}{x^3-x^2+x-1}$</p>
+                <p>២. $\lim_{x \to 0} \frac{\sin 3x}{-x}$</p>
+                <p>៣. $\lim_{x \to 0} \frac{\sqrt{2+x}-\sqrt{2-x}}{\sin x}$</p>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>១. $\lim_{x \to 1} \frac{1-x^2}{x^3-x^2+x-1} = \lim_{x \to 1} \frac{-(x-1)(x+1)}{(x-1)(x^2+1)} = \lim_{x \to 1} \frac{-(x+1)}{x^2+1} = \frac{-(1+1)}{1^2+1} = -1$</p>
+                    <p>២. $\lim_{x \to 0} \frac{\sin 3x}{-x} = \lim_{x \to 0} \left(\frac{\sin 3x}{3x} \cdot (-3)\right) = 1 \cdot (-3) = -3$</p>
+                    <p>៣. $\lim_{x \to 0} \frac{\sqrt{2+x}-\sqrt{2-x}}{\sin x} = \lim_{x \to 0} \frac{(\sqrt{2+x}-\sqrt{2-x})(\sqrt{2+x}+\sqrt{2-x})}{\sin x (\sqrt{2+x}+\sqrt{2-x})} = \lim_{x \to 0} \frac{2x}{\sin x (\sqrt{2+x}+\sqrt{2-x})} = 2 \cdot 1 \cdot \frac{1}{2\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II -->
+        <section class="question-section" style="animation-delay: 0.2s;">
+            <h2>លំហាត់ II (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>ក្នុងថ្នាក់រៀនមួយមានសិស្សពូកែចំនួន $10$ នាក់ ដែលក្នុងនោះមាន $4$ នាក់ជាសិស្សស្រី និង $6$ នាក់ជាសិស្សប្រុស។ គេរៀបចំសិស្សជាក្រុម ក្នុងមួយក្រុមមាន $4$ នាក់ដោយចៃដន្យយកទៅប្រកួតជាមួយក្រុមសិស្សនៃថ្នាក់ដទៃ។ រកប្រូបាបនៃព្រឹត្តិការណ៍៖</p>
+                <div class="sub-question">
+                    <p>ក. ក្រុមសិស្សដែលជ្រើសរើសបានសុទ្ធតែស្រី។</p>
+                    <p>ខ. ក្រុមសិស្សដែលជ្រើសរើសបានសុទ្ធតែប្រុស។</p>
+                    <p>គ. ក្រុមសិស្សដែលជ្រើសរើសបាន $50\%$ ជាសិស្សប្រុស។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>ចំនួនករណីអាច $n(S) = C(10, 4) = \frac{10!}{4!6!} = 210$</p>
+                    <p>ក. $n(A) = C(4, 4) = 1 \Rightarrow P(A) = \frac{1}{210}$</p>
+                    <p>ខ. $n(B) = C(6, 4) = 15 \Rightarrow P(B) = \frac{15}{210} = \frac{1}{14}$</p>
+                    <p>គ. $50\%$ នៃ $4$ នាក់ គឺ $2$ នាក់។ ដូចនេះមានន័យថាជ្រើសបានប្រុស $2$ ស្រី $2$។</p>
+                    <p>$n(C) = C(6, 2) \cdot C(4, 2) = 15 \cdot 6 = 90 \Rightarrow P(C) = \frac{90}{210} = \frac{3}{7}$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III -->
+        <section class="question-section" style="animation-delay: 0.3s;">
+            <h2>លំហាត់ III (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គេឱ្យចំនួនកុំផ្លិច $z_1 = 1 + i\sqrt{3}$ និង $z_2 = 6(\cos \frac{\pi}{4} - i\sin \frac{\pi}{4})$។</p>
+                <div class="sub-question">
+                    <p>ក. សរសេរ $z_1$ ជាទម្រង់ត្រីកោណមាត្រ។</p>
+                    <p>ខ. រកម៉ូឌុល និងអាគុយម៉ង់នៃ $z_1^3$។</p>
+                    <p>គ. សរសេរផលគុណ $z_1 \times z_2$ ជាទម្រង់ពីជគណិត។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>ក. $z_1 = 1 + i\sqrt{3} = 2(\frac{1}{2} + i\frac{\sqrt{3}}{2}) = 2(\cos \frac{\pi}{3} + i\sin \frac{\pi}{3})$</p>
+                    <p>ខ. $z_1^3 = [2(\cos \frac{\pi}{3} + i\sin \frac{\pi}{3})]^3 = 8(\cos \pi + i\sin \pi)$</p>
+                    <p>ម៉ូឌុល $|z_1^3| = 8$, អាគុយម៉ង់ $\text{arg}(z_1^3) = \pi + 2k\pi$</p>
+                    <p>គ. $z_2 = 6(\cos \frac{\pi}{4} - i\sin \frac{\pi}{4}) = 6(\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}) = 3\sqrt{2} - 3i\sqrt{2}$</p>
+                    <p>$z_1 \times z_2 = (1 + i\sqrt{3})(3\sqrt{2} - 3i\sqrt{2}) = 3\sqrt{2} - 3i\sqrt{2} + 3i\sqrt{6} + 3\sqrt{6} = 3(\sqrt{2}+\sqrt{6}) + 3i(\sqrt{6}-\sqrt{2})$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV -->
+        <section class="question-section" style="animation-delay: 0.4s;">
+            <h2>លំហាត់ IV (២០ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>១. ក្នុងលំហផ្ដល់ដោយតម្រុយ $(O, \vec{i}, \vec{j}, \vec{k})$ គេមានចំណុច $A(-2, 1, 0), B(0, 1, 1), C(1, 2, 2)$ និង $D(0, 3, -4)$។</p>
+                <div class="sub-question">
+                    <p>ក. រកវ៉ិចទ័រ $\vec{AB}, \vec{AC}, \vec{AD}, \vec{BC}, \vec{BD}, \vec{CD}$។</p>
+                    <p>ខ. គណនាប្រវែងជ្រុង រួចបញ្ជាក់ថា $ABD$ និង $ACD$ ជាត្រីកោណកែងត្រង់ $A$។</p>
+                </div>
+                <p>២. គេមានសមីការ $9y^2 - 16x^2 = 144$។ បង្ហាញថានេះជាសមីការអ៊ីពែបូល រកផ្ចិត កំពូល កំណុំ អាស៊ីមតូត និងសង់វា។</p>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>១. ក. $\vec{AB}=(2, 0, 1), \vec{AC}=(3, 1, 2), \vec{AD}=(2, 2, -4), \vec{BC}=(1, 1, 1), \vec{BD}=(0, 2, -5), \vec{CD}=(-1, 1, -6)$</p>
+                    <p>ខ. $\vec{AB} \cdot \vec{AD} = 2(2) + 0(2) + 1(-4) = 0 \Rightarrow \vec{AB} \perp \vec{AD} \Rightarrow ABD$ កែងត្រង់ $A$</p>
+                    <p>$\vec{AC} \cdot \vec{AD} = 3(2) + 1(2) + 2(-4) = 0 \Rightarrow \vec{AC} \perp \vec{AD} \Rightarrow ACD$ កែងត្រង់ $A$</p>
+                    <p>២. $9y^2 - 16x^2 = 144 \Rightarrow \frac{y^2}{16} - \frac{x^2}{9} = 1 \Rightarrow \frac{y^2}{4^2} - \frac{x^2}{3^2} = 1$</p>
+                    <p>ផ្ចិត $O(0, 0)$, កំពូល $V_1(0, -4), V_2(0, 4)$, កំណុំ $F_1(0, -5), F_2(0, 5)$, អាស៊ីមតូត $y = \pm \frac{4}{3}x$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section V -->
+        <section class="question-section" style="animation-delay: 0.5s;">
+            <h2>លំហាត់ V (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គណនាអាំងតេក្រាល៖</p>
+                <p>$I = \int_1^3 (x-2+3x^2)dx$, $J = \int_0^{\pi/4} (\sin 2x - \cos x)dx$, $K = \int_0^1 \frac{x^3+(x+1)^2}{x^2+1}dx$</p>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>$I = [\frac{x^2}{2}-2x+x^3]_1^3 = (\frac{9}{2}-6+27)-(\frac{1}{2}-2+1) = \frac{8}{2}+21+1 = 4+22 = 26$</p>
+                    <p>$J = [-\frac{1}{2}\cos 2x - \sin x]_0^{\pi/4} = (-\frac{1}{2}(0)-\frac{\sqrt{2}}{2})-(-\frac{1}{2}-0) = \frac{1-\sqrt{2}}{2}$</p>
+                    <p>ចំពោះ $K$: $\frac{x^3+x^2+2x+1}{x^2+1} = \frac{x(x^2+1)+(x^2+1)+x}{x^2+1} = x+1+\frac{x}{x^2+1}$</p>
+                    <p>$K = \int_0^1 (x+1+\frac{x}{x^2+1})dx = [\frac{x^2}{2}+x+\frac{1}{2}\ln(x^2+1)]_0^1 = \frac{1}{2}+1+\frac{1}{2}\ln 2 = \frac{3+\ln 2}{2}$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section VI -->
+        <section class="question-section" style="animation-delay: 0.6s;">
+            <h2>លំហាត់ VI (១០ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>១. ដោះស្រាយសមីការឌីផេរ៉ង់ស្យែល $(E): y'' - 3y' + 2y = 0$។</p>
+                <p>២. រកចម្លើយពិសេសនៃ $(E)$ ដែល $y(0)=1$ និង $y'(1)=2e^2$។</p>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>១. $r^2-3r+2=0 \Rightarrow r_1=1, r_2=2 \Rightarrow y = Ae^x + Be^{2x}$</p>
+                    <p>២. $y(0)=1 \Rightarrow A+B=1$. $y' = Ae^x+2Be^{2x} \Rightarrow y'(1) = Ae+2Be^2 = 2e^2$</p>
+                    <p>$A+B=1 \Rightarrow A=1-B \Rightarrow (1-B)e+2Be^2=2e^2 \Rightarrow B(2e^2-e) = 2e^2-e \Rightarrow B=1, A=0$</p>
+                    <p>ចម្លើយពិសេស៖ $y = e^{2x}$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section VII -->
+        <section class="question-section" style="animation-delay: 0.7s; border-bottom: none;">
+            <h2>លំហាត់ VII (៤០ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គេមានអនុគមន៍ $f(x) = x + \frac{1-3e^x}{1+e^x}$ និងមានក្រាប $(C)$។</p>
+                <div class="sub-question">
+                    <p>១. បង្ហាញថា $f(x) = x+1-\frac{4e^x}{1+e^x}$ រកលីមីតត្រង់ $-\infty$ បញ្ជាក់អាស៊ីមតូតទ្រេត $d_1: y=x+1$ និងទីតាំងធៀប។</p>
+                    <p>២. រកលីមីតត្រង់ $+\infty$ បញ្ជាក់អាស៊ីមតូតទ្រេត $d_2: y=x-3$ និងទីតាំងធៀប។</p>
+                    <p>៣. គណនាដេរីវេ បង្ហាញថា $f'(x) = (\frac{e^x-1}{e^x+1})^2$, សិក្សាអថេរភាព និងសង់ក្រាប។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>១. $x+\frac{1-3e^x}{1+e^x} = x+\frac{1+e^x-4e^x}{1+e^x} = x+1-\frac{4e^x}{1+e^x}$</p>
+                    <p>$\lim_{x \to -\infty} f(x) = -\infty$. $\lim_{x \to -\infty} [f(x)-(x+1)] = 0 \Rightarrow d_1: y=x+1$ ជាអាស៊ីមតូតទ្រេត។</p>
+                    <p>$f(x)-y_{d1} = -\frac{4e^x}{1+e^x} < 0 \Rightarrow (C)$ នៅក្រោម $d_1$។</p>
+                    <p>២. $\lim_{x \to +\infty} f(x) = +\infty$. $f(x) = x+\frac{1-3e^x}{1+e^x} = x+\frac{e^x(e^{-x}-3)}{e^x(e^{-x}+1)} \Rightarrow \lim_{x \to +\infty} [f(x)-(x-3)] = 0$</p>
+                    <p>$d_2: y=x-3$ ជាអាស៊ីមតូតទ្រេត។ $(C)$ នៅលើ $d_2$។</p>
+                    <p>៣. $f'(x) = 1 - \frac{4e^x(1+e^x)-e^x(4e^x)}{(1+e^x)^2} = 1 - \frac{4e^x}{(1+e^x)^2} = \frac{1+2e^x+e^{2x}-4e^x}{(1+e^x)^2} = \frac{(e^x-1)^2}{(1+e^x)^2} = (\frac{e^x-1}{e^x+1})^2$</p>
+                    <p>$f'(x) \ge 0 \Rightarrow f$ កើនជានិច្ច។ $f'(x)=0 \Leftrightarrow x=0 \Rightarrow f(0)=-1$ (ចំណុចរបត់)។</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="nav-footer">
+            <a href="../../../../index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅទំព័រដើម
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        function toggleSolution(btn) {
+            const content = btn.nextElementSibling;
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ដំណោះស្រាយ';
+            } else {
+                content.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ';
+            }
+        }
+    </script>
+</body>
+</html>

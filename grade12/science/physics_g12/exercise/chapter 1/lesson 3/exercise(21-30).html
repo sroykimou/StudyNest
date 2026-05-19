@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       .system-diagram {
@@ -326,7 +328,7 @@
             ម៉ាស៊ីនសាំងមួយមានទិន្នផល <span class="given">\(21\%\)</span> និងបាត់ថាមពល <span class="given">\(780 \text{ J}\)</span>
             ទៅឲ្យប្រភពត្រជាក់ក្នុងវដ្ដ ។
           </p>
-          <div class="ex-find">គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -341,13 +343,13 @@
             <span class="given">\(30 \%\)</span> ។
           </p>
           <div class="ex-find">
-            ក. គណនាកម្មន្តមេកានិចដែលផ្ដល់ដោយពីស្តុងក្នុងរយៈពេល <span class="given">\(1 \text{ mn}\)</span> ។
+            <span>ក. គណនាកម្មន្តមេកានិចដែលផ្ដល់ដោយពីស្តុងក្នុងរយៈពេល <span class="given">\(1 \text{ mn}\)</span> ។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាកម្មន្តបានការដែលទទួលដោយភ្លៅម៉ូទ័រក្នុងរយៈពេល <span class="given">\(1 \text{ mn}\)</span> ។
-            គេដឹងថាទិន្នផលនៃគ្រឿងបញ្ជូនគឺ <span class="given">\(90\%\)</span> ។
+            <span>ខ. គណនាកម្មន្តបានការដែលទទួលដោយភ្លៅម៉ូទ័រក្នុងរយៈពេល <span class="given">\(1 \text{ mn}\)</span> ។
+            គេដឹងថាទិន្នផលនៃគ្រឿងបញ្ជូនគឺ <span class="given">\(90\%\)</span> ។</span>
           </div>
-          <div class="ex-find">គ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>គ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -364,9 +366,9 @@
             <span class="given">\(10 \text{ kJ}\)</span>
             ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
           </p>
-          <div class="ex-find">ក. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</span></div>
           <div class="ex-find">
-            ខ. តើកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅមានតម្លៃប៉ុន្មាន ?
+            <span>ខ. តើកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅមានតម្លៃប៉ុន្មាន ?</span>
           </div>
         </div>
       </div>
@@ -381,10 +383,10 @@
           <p>
             ម៉ូទ័រម៉ាស៊ូតមួយទទួលថាមពលកម្តៅ <span class="given">\(12 \times 10^3 \text{ kJ}\)</span> ហើយមានទិន្នផលកម្តៅ <span class="given">\(30 \%\)</span> ។
           </p>
-          <div class="ex-find">ក. គណនាកម្មន្តមេកានិចដែលធ្វើ ។</div>
-          <div class="ex-find">ខ. គណនាថាមពលកម្ដៅដែលភាយទៅបរិយាកាស ។</div>
+          <div class="ex-find"><span>ក. គណនាកម្មន្តមេកានិចដែលធ្វើ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាថាមពលកម្ដៅដែលភាយទៅបរិយាកាស ។</span></div>
           <div class="ex-find">
-            គ. គណនាកម្មន្តដែលភ្លៅម៉ូទ័រទទួល ។ បើទិន្នផលនៃគ្រឿងបញ្ជូនគឺ <span class="given">\(90 \%\)</span> ។
+            <span>គ. គណនាកម្មន្តដែលភ្លៅម៉ូទ័រទទួល ។ បើទិន្នផលនៃគ្រឿងបញ្ជូនគឺ <span class="given">\(90 \%\)</span> ។</span>
           </div>
         </div>
       </div>
@@ -401,10 +403,10 @@
             និងទិន្នផលនៃគ្រឿនបញ្ជូន <span class="given">\(82 \%\)</span> វាទទួលថាមពលពីចំហេះប្រេងឥន្ធនៈ <span class="given">\(1000 \text{ kJ}\)</span> ។
           </p>
 
-          <div class="ex-find">ក. គណនាថាមពលមេកានិចដែលពីស្តុងទទួល ។</div>
-          <div class="ex-find">ខ. គណនាថាមពលកម្តៅដែលបញ្ចេញទៅបរិយាកាស ។</div>
-          <div class="ex-find">គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល ។</div>
-          <div class="ex-find">ឃ. គណនាទិន្នផលបានការរបស់ម៉ាស៊ីន ។</div>
+          <div class="ex-find"><span>ក. គណនាថាមពលមេកានិចដែលពីស្តុងទទួល ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាថាមពលកម្តៅដែលបញ្ចេញទៅបរិយាកាស ។</span></div>
+          <div class="ex-find"><span>គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល ។</span></div>
+          <div class="ex-find"><span>ឃ. គណនាទិន្នផលបានការរបស់ម៉ាស៊ីន ។</span></div>
         </div>
       </div>
 
@@ -419,7 +421,7 @@
             ម៉ាស៊ីនកាកណូមួយមានប្រភពត្រជាក់ <span class="given">\(7 \text{ ℃}\)</span> និងមានទិន្នផលកម្តៅ <span class="given">\(50 \%\)</span> ។
             បើម៉ាស៊ីននេះមានទិន្នផលកម្តៅកើនដល់ <span class="given">\(70 \%\)</span> ។
           </p>
-          <div class="ex-find">តើសីតុណ្ហភាពប្រភពក្តៅកើនឡើងបានប៉ុន្មាន ?</div>
+          <div class="ex-find"><span>តើសីតុណ្ហភាពប្រភពក្តៅកើនឡើងបានប៉ុន្មាន ?</span></div>
         </div>
       </div>
 
@@ -432,10 +434,10 @@
         <div class="ex-body">
           <p>ម៉ាស៊ីនប្រើសាំងមួយស៊ីអានុភាព <span class="given">\(20 \text{ kW}\)</span> ។ គេឲ្យ <span class="given">\(1 \text{ kWh} = 36 \times 10^5 \text{ J}\)</span> ។</p>
           <div class="ex-find">
-            ក. គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីននោះក្នុងរយៈពេលមួយម៉ោង (គិតជា <span class="given">\(kWh\)</span>) ។
+            <span>ក. គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីននោះក្នុងរយៈពេលមួយម៉ោង (គិតជា <span class="given">\(kWh\)</span>) ។</span>
           </div>
           <div class="ex-find">
-            ខ. បើគេដឹងថាម៉ាស៊ីននោះមានទិន្នផល <span class="given">\(30 \%\)</span> ។ គណនាកម្តៅគិតជាស៊ូលដែលបានមកពីចំហេះក្នុងម៉ាស៊ីនក្នុងមួយម៉ោង ។
+            <span>ខ. បើគេដឹងថាម៉ាស៊ីននោះមានទិន្នផល <span class="given">\(30 \%\)</span> ។ គណនាកម្តៅគិតជាស៊ូលដែលបានមកពីចំហេះក្នុងម៉ាស៊ីនក្នុងមួយម៉ោង ។</span>
           </div>
         </div>
       </div>
@@ -453,12 +455,12 @@
             ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
           </p>
           <div class="ex-find">
-            ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ ។
+            <span>ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ ។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច ។
+            <span>ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច ។</span>
           </div>
-          <div class="ex-find">គ. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</div>
+          <div class="ex-find"><span>គ. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</span></div>
         </div>
       </div>
 
@@ -475,9 +477,9 @@
             គេឲ្យ <span class="given">\(1 \text{ cal} = 4.2 \text{ J}\)</span> ។
           </p>
           <div class="ex-find">
-            ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនស្រូបពីធុងមានសីតុណ្ហភាព <span class="given">\(500 \text{ K}\)</span> ។
+            <span>ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនស្រូបពីធុងមានសីតុណ្ហភាព <span class="given">\(500 \text{ K}\)</span> ។</span>
           </div>
-          <div class="ex-find">ខ. គណនាកម្មន្តដែលម៉ាស៊ីនបានបំពេញ ។</div>
+          <div class="ex-find"><span>ខ. គណនាកម្មន្តដែលម៉ាស៊ីនបានបំពេញ ។</span></div>
         </div>
       </div>
 
@@ -492,7 +494,7 @@
             ម៉ាស៊ីន X ទទួលកម្ដៅធំជាងម៉ាស៊ីន Y បួនដងបានបំពេញកម្មន្ដពីរដង
             និងបញ្ចេញកម្ដៅប្រាំដងទៅធុងត្រជាក់ច្រើនជាងម៉ាស៊ីន Y ។
           </p>
-          <div class="ex-find">គណនាទិន្នផល X និងទិន្នផល Y នៃម៉ាស៊ីនកម្ដៅ ។</div>
+          <div class="ex-find"><span>គណនាទិន្នផល X និងទិន្នផល Y នៃម៉ាស៊ីនកម្ដៅ ។</span></div>
         </div>
       </div>
     </div>

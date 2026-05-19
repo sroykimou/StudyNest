@@ -253,15 +253,17 @@
         border-top: 1px dashed var(--border);
         font-weight: 600;
         color: var(--muted);
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
       }
 
       .ex-find::before {
         content: "➤";
         color: var(--blue);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+              display: block;
       }
 
       @media (max-width: 700px) {
@@ -329,11 +331,11 @@
             យក <span class="given">\(1 \text{ cal} = 4.2 \text{ J}\)</span> ។
           </p>
           <div style="margin-top: 15px">
-            <div class="ex-find">ក. គណនាកម្មន្តដែលបានបំពេញដោយឧស្ម័ន ។</div>
+            <div class="ex-find"><span>ក. គណនាកម្មន្តដែលបានបំពេញដោយឧស្ម័ន ។</span></div>
             <div class="ex-find">
-              ខ. គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធឧស្ម័ន ។
+              <span>ខ. គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធឧស្ម័ន ។</span>
             </div>
-            <div class="ex-find">គ. គណនាសីតុណ្ហភាពចុងក្រោយនៃឧស្ម័ន ។</div>
+            <div class="ex-find"><span>គ. គណនាសីតុណ្ហភាពចុងក្រោយនៃឧស្ម័ន ។</span></div>
           </div>
         </div>
       </div>
@@ -394,11 +396,11 @@
               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             "
           />
-          <div class="ex-find">ក. គណនាកម្មន្តក្នុងបម្លែងពី A ទៅ B ។</div>
-          <div class="ex-find">ខ. គណនាកម្មន្តក្នុងបម្លែងពី B ទៅ C ។</div>
-          <div class="ex-find">គ. គណនាកម្មន្តក្នុងបម្លែងពី C ទៅ A ។</div>
-          <div class="ex-find">ឃ. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទនេះ ។</div>
-          <div class="ex-find">ង. គណនាថាមពលកម្ដៅសរុបក្នុងបម្លែងបិទនេះ ។</div>
+          <div class="ex-find"><span>ក. គណនាកម្មន្តក្នុងបម្លែងពី A ទៅ B ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាកម្មន្តក្នុងបម្លែងពី B ទៅ C ។</span></div>
+          <div class="ex-find"><span>គ. គណនាកម្មន្តក្នុងបម្លែងពី C ទៅ A ។</span></div>
+          <div class="ex-find"><span>ឃ. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទនេះ ។</span></div>
+          <div class="ex-find"><span>ង. គណនាថាមពលកម្ដៅសរុបក្នុងបម្លែងបិទនេះ ។</span></div>
         </div>
       </div>
 
@@ -423,8 +425,8 @@
               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             "
           />
-          <div class="ex-find">ក. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទ ។</div>
-          <div class="ex-find">ខ. គណនាកម្ដៅដែលទទួលបាន (ក្នុងបម្លែងបិទ) ។</div>
+          <div class="ex-find"><span>ក. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាកម្ដៅដែលទទួលបាន (ក្នុងបម្លែងបិទ) ។</span></div>
         </div>
       </div>
 
@@ -452,9 +454,9 @@
               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             "
           />
-          <div class="ex-find">ក. ចំនួនម៉ូលនៃឧស្ម័ន ។</div>
-          <div class="ex-find">ខ. សីតុណ្ហភាពនៃឧស្ម័ននៅត្រង់ចំណុច b ។</div>
-          <div class="ex-find">គ. សីតុណ្ហភាពនៃឧស្ម័ននៅត្រង់ចំណុច c ។</div>
+          <div class="ex-find"><span>ក. ចំនួនម៉ូលនៃឧស្ម័ន ។</span></div>
+          <div class="ex-find"><span>ខ. សីតុណ្ហភាពនៃឧស្ម័ននៅត្រង់ចំណុច b ។</span></div>
+          <div class="ex-find"><span>គ. សីតុណ្ហភាពនៃឧស្ម័ននៅត្រង់ចំណុច c ។</span></div>
         </div>
       </div>
 
@@ -493,11 +495,11 @@
               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             "
           />
-          <div class="ex-find">ក. គណនាកម្មន្តក្នុងបម្លែងពី A ទៅ B ។</div>
-          <div class="ex-find">ខ. គណនាកម្មន្តក្នុងបម្លែងពី B ទៅ C ។</div>
-          <div class="ex-find">គ. គណនាកម្មន្តក្នុងបម្លែងពី C ទៅ A ។</div>
-          <div class="ex-find">ឃ. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទនេះ ។</div>
-          <div class="ex-find">ង. គណនាថាមពលកម្ដៅសរុបក្នុងបម្លែងបិទនេះ ។</div>
+          <div class="ex-find"><span>ក. គណនាកម្មន្តក្នុងបម្លែងពី A ទៅ B ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាកម្មន្តក្នុងបម្លែងពី B ទៅ C ។</span></div>
+          <div class="ex-find"><span>គ. គណនាកម្មន្តក្នុងបម្លែងពី C ទៅ A ។</span></div>
+          <div class="ex-find"><span>ឃ. គណនាកម្មន្តសរុបក្នុងបម្លែងបិទនេះ ។</span></div>
+          <div class="ex-find"><span>ង. គណនាថាមពលកម្ដៅសរុបក្នុងបម្លែងបិទនេះ ។</span></div>
         </div>
       </div>
 
@@ -545,12 +547,12 @@
             "
           />
           <div class="ex-find">
-            ក. គណនាកម្មន្តធ្វើទៅលើឧស្ម័នក្នុងមួយវដ្តសម្រាប់ឧស្ម័ន
+            <span>ក. គណនាកម្មន្តធ្វើទៅលើឧស្ម័នក្នុងមួយវដ្តសម្រាប់ឧស្ម័ន
             <span class="given">\(n = 1 \text{ mol}\)</span> និងសីតុណ្ហភាពដំបូង
-            <span class="given">\(t = 0^\circ\text{C}\)</span> ។
+            <span class="given">\(t = 0^\circ\text{C}\)</span> ។</span>
           </div>
           <div class="ex-find">
-            ខ. គណនាថាមពលកម្ដៅនៃប្រព័ន្ធឧស្ម័ននៅក្នុង ១ ស៊ិច ។
+            <span>ខ. គណនាថាមពលកម្ដៅនៃប្រព័ន្ធឧស្ម័ននៅក្នុង ១ ស៊ិច ។</span>
           </div>
         </div>
       </div>
@@ -595,7 +597,7 @@
             "
           />
           <div class="ex-find">
-            កំណត់ផលសងថាមពលក្នុង <span class="given">\(U_A - U_B\)</span> ។
+            <span>កំណត់ផលសងថាមពលក្នុង <span class="given">\(U_A - U_B\)</span> ។</span>
           </div>
         </div>
       </div>
@@ -629,12 +631,12 @@
           />
           <div style="margin-top: 15px">
             <div class="ex-find">
-              ក. គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធតាមគន្លង IF ។
+              <span>ក. គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធតាមគន្លង IF ។</span>
             </div>
             <div class="ex-find">
-              ខ.
+              <span>ខ.
               តើថាមពលកម្ដៅប៉ុន្មានដែលផ្តល់ឱ្យប្រព័ន្ធនៅពេលដែលដំណើរការនៃប្រព័ន្ធតាមគន្លង
-              IAF ?
+              IAF ?</span>
             </div>
           </div>
         </div>
