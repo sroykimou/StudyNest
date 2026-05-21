@@ -13,50 +13,132 @@
     <style>
         .admin-card {
             width: 100%;
-            max-width: 440px;
-            padding: 40px;
+            max-width: 460px;
+            padding: 45px;
+            border-radius: 32px;
         }
 
         .admin-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
         .admin-header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 26px;
             color: var(--accent);
             font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .logout-pill {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            color: #ef4444;
-            padding: 6px 16px;
-            border-radius: 20px;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ff5f5f;
+            padding: 8px 20px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             transition: 0.3s;
         }
 
         .logout-pill:hover {
-            background: rgba(239, 68, 68, 0.2);
-            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.25);
+            transform: scale(1.05);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrap .icon {
+            position: absolute;
+            left: 18px;
+            color: var(--accent);
+            font-size: 18px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .input-wrap input, .input-wrap select {
+            width: 100%;
+            padding: 14px 18px 14px 50px;
+            background: var(--input-bg);
+            border: 1.5px solid var(--input-border);
+            border-radius: 16px;
+            color: white;
+            font-size: 15px;
+            transition: 0.3s;
+            appearance: none;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 18px;
+            color: var(--text-muted);
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        .input-wrap input:focus, .input-wrap select:focus {
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px var(--accent-glow);
+            outline: none;
+        }
+
+        .sn-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            color: #0f172a;
+            border: none;
+            border-radius: 18px;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px var(--accent-glow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sn-btn:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
         }
 
         .result-box {
-            margin-top: 32px;
-            padding: 24px;
-            background: rgba(116, 235, 213, 0.03);
-            border-radius: 20px;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 24px;
             text-align: center;
-            border: 1.5px dashed var(--input-border);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px dashed var(--primary-glow);
+            transition: all 0.4s;
         }
 
         #generatedCode {
@@ -167,10 +249,20 @@
         StudyNest.initBackground();
 
         // --- SECURITY CONFIG ---
-        const ADMIN_PASSWORD = "kimou15062008"; 
+        // SHA-256 of "kimou15062008"
+        const ADMIN_HASH = "23c1a538db5b9fe80121f748954f875d5ea1b1314af33864a26aefe3e1775d20";
+        const SECRET_SALT = "STUDYNEST_PRIME_2024_@#!"; // Internal salt for code generation
         // -----------------------
 
-        function updateHandmadePreview() {
+        async function hashString(str) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+        }
+
+        async function updateHandmadePreview() {
             const name = document.getElementById("studentName").value.trim().toUpperCase().replace(/\s/g, "");
             const level = document.getElementById("planLevel").value;
             const secret = document.getElementById("handmadeSecret").value.trim();
@@ -186,7 +278,11 @@
             }
 
             const namePart = name.substring(0, 3);
-            const finalCode = namePart + level + secret;
+            // New logic: first 3 of name + level + first 4 of hash(name + level + secret + salt)
+            const rawString = name + level + secret + SECRET_SALT;
+            const fullHash = await hashString(rawString);
+            const hashPart = fullHash.substring(0, 4).toUpperCase();
+            const finalCode = namePart + level + hashPart;
             
             codeElem.textContent = finalCode;
             statusLabel.textContent = "Status: Ready to Activate";
@@ -238,9 +334,10 @@
             window.location.href = "../auth/login.html";
         }
 
-        function checkPass() {
+        async function checkPass() {
             const pass = document.getElementById("adminPass").value;
-            if (pass === ADMIN_PASSWORD) {
+            const inputHash = await hashString(pass);
+            if (inputHash === ADMIN_HASH) {
                 localStorage.setItem("isAdmin", "true");
                 document.getElementById("loginBox").style.display = "none";
                 document.getElementById("mainPanel").style.display = "block";

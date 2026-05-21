@@ -109,14 +109,19 @@
             btn.classList.add("loading");
 
             setTimeout(async () => {
+                // Utility for hashing
+                async function hashPass(p) {
+                    const encoder = new TextEncoder();
+                    const data = encoder.encode(p);
+                    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+                }
+
                 // Admin login check
                 async function tryAdminLogin(u, p) {
                     try {
-                        const encoder = new TextEncoder();
-                        const data = encoder.encode(p);
-                        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-                        const hashArray = Array.from(new Uint8Array(hashBuffer));
-                        const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+                        const hashHex = await hashPass(p);
                         const ADMIN_HASH = "23c1a538db5b9fe80121f748954f875d5ea1b1314af33864a26aefe3e1775d20";
                         if (u === "sroykimou" && hashHex === ADMIN_HASH) {
                             showToast("Admin Login Successful!", "success");
@@ -143,8 +148,16 @@
                 }
 
                 const userData = JSON.parse(storedData);
+                const hashedInput = await hashPass(pass);
 
-                if (userData.password === pass) {
+                if (userData.password === hashedInput || userData.password === pass) {
+                    // Fallback for old plaintext passwords (userData.password === pass)
+                    // We should ideally re-hash and save if it was plaintext
+                    if (userData.password === pass) {
+                        userData.password = hashedInput;
+                        localStorage.setItem("user_" + user, JSON.stringify(userData));
+                    }
+
                     showToast("ចូលប្រើប្រាស់ជោគជ័យ!", "success");
                     localStorage.setItem("currentUserName", user);
                     if (!localStorage.getItem("userLevel_" + user)) {

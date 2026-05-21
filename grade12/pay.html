@@ -206,8 +206,17 @@
         }
 
         const MY_SHORT_SECRET = "77"; 
+        const SECRET_SALT = "STUDYNEST_PRIME_2024_@#!"; // Must match admin_panel.html
 
-        function verifyUnlockCode() {
+        async function hashString(str) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+        }
+
+        async function verifyUnlockCode() {
             const input = document.getElementById("unlockCode").value.trim().toUpperCase();
             const msg = document.getElementById("unlockMsg");
             
@@ -217,14 +226,22 @@
                 return;
             }
 
-            const user = currentUser.toUpperCase().replace(/\s/g, "");
-            const namePart = user.substring(0, 3);
+            const name = currentUser.toUpperCase().replace(/\s/g, "");
+            const namePart = name.substring(0, 3);
             
             let detectedLevel = 0;
-            if (input === namePart + "6" + MY_SHORT_SECRET) {
-                detectedLevel = 6;
-            } else if (input === namePart + "3" + MY_SHORT_SECRET) {
-                detectedLevel = 3;
+            
+            // Try both level 3 and 6
+            for (let level of [3, 6]) {
+                const rawString = name + level + MY_SHORT_SECRET + SECRET_SALT;
+                const fullHash = await hashString(rawString);
+                const hashPart = fullHash.substring(0, 4).toUpperCase();
+                const expectedCode = namePart + level + hashPart;
+                
+                if (input === expectedCode) {
+                    detectedLevel = level;
+                    break;
+                }
             }
 
             if (detectedLevel > 0) {
