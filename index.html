@@ -95,20 +95,18 @@
                 StudyNest.initBackground();
             }
             
-            // ប្រសិនបើ Login រួចហើយ អាចបញ្ជូនទៅ Dashboard តែម្តង (Optional)
-            /*
+            // ប្រសិនបើ Login រួចហើយ អាចបញ្ជូនទៅ Dashboard តែម្តង
             if (StudyNest.getUser()) {
                 const user = StudyNest.getUser();
                 let branch = "science";
                 let grade = "12";
                 try {
-                    const userData = JSON.parse(localStorage.getItem("user_" + user) || "{}");
-                    if (userData.branch) branch = userData.branch;
-                    if (userData.grade) grade = userData.grade;
+                    // Try to get saved preferences if any
+                    const savedBranch = localStorage.getItem("userBranch_" + user);
+                    if (savedBranch) branch = savedBranch;
                 } catch (e) {}
                 window.location.href = `grade${grade}/${branch}/${branch}_home.html`;
             }
-            */
         });
     </script>
 </body>

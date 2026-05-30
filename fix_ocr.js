@@ -90,27 +90,37 @@ function applyFixes(content) {
     return newContent;
 }
 
-const directory = "C:/IT/kimou/StudyNest/grade12/science/physics_g12/exercise/chapter 3/";
-const files = [
-    "exercise(1-10).html", "exercise(11-20).html", "exercise(21-30).html",
-    "exercise(31-40).html", "exercise(41-50).html", "exercise(51-60).html",
-    "exercise(61-70).html", "exercise(71-80).html"
-];
+const baseDir = path.join(__dirname, "grade12/science/physics_g12/exercise");
+const chapters = ["chapter 1", "chapter 2", "chapter 3"];
 
-files.forEach(filename => {
-    const filePath = path.join(directory, filename);
-    if (fs.existsSync(filePath)) {
-        console.log(`Processing ${filename}...`);
-        const content = fs.readFileSync(filePath, 'utf8');
-        const newContent = applyFixes(content);
-        
-        if (newContent !== content) {
-            fs.writeFileSync(filePath, newContent, 'utf8');
-            console.log(`  Fixed errors in ${filename}`);
-        } else {
-            console.log(`  No errors found in ${filename}`);
-        }
-    } else {
-        console.log(`File ${filename} not found at ${filePath}`);
+chapters.forEach(chapter => {
+    const chapterPath = path.join(baseDir, chapter);
+    if (!fs.existsSync(chapterPath)) {
+        console.log(`Chapter directory ${chapter} not found.`);
+        return;
     }
+
+    // Function to process a directory recursively
+    function processDir(dir) {
+        const entries = fs.readdirSync(dir, { withFileTypes: true });
+        for (const entry of entries) {
+            const fullPath = path.join(dir, entry.name);
+            if (entry.isDirectory()) {
+                processDir(fullPath);
+            } else if (entry.isFile() && entry.name.endsWith('.html')) {
+                console.log(`Processing ${fullPath}...`);
+                const content = fs.readFileSync(fullPath, 'utf8');
+                const newContent = applyFixes(content);
+                
+                if (newContent !== content) {
+                    fs.writeFileSync(fullPath, newContent, 'utf8');
+                    console.log(`  Fixed errors in ${entry.name}`);
+                } else {
+                    console.log(`  No errors found in ${entry.name}`);
+                }
+            }
+        }
+    }
+
+    processDir(chapterPath);
 });

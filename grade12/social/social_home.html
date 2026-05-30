@@ -522,12 +522,20 @@
                     <span><i class="fas fa-edit" style="margin-right: 12px; color: var(--accent);"></i> លំហាត់</span>
                     <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
                 </button>
+                <button class="option-btn-modal" id="btn-bacii-unlocked" onclick="goToContent('bacii')" style="display: none;">
+                    <span><i class="fas fa-graduation-cap" style="margin-right: 12px; color: var(--accent);"></i> វិញ្ញាសាបាក់ឌុប</span>
+                    <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
+                </button>
             </div>
             
             <div id="lockedSection">
-                <button class="option-btn-modal" id="btn-exercise-locked" onclick="goToPay(3)" style="opacity: 0.6;">
+                <button class="option-btn-modal" id="btn-exercise-locked" onclick="goToPay(3)" style="opacity: 0.6; display: none;">
                     <span><i class="fas fa-lock" style="margin-right: 12px;"></i> លំហាត់</span>
-                    <span style="font-size: 11px; background: var(--accent); color: #0f172a; padding: 2px 8px; border-radius: 10px;">$3/m</span>
+                    <span style="font-size: 11px; background: var(--accent); color: #0f172a; padding: 2px 8px; border-radius: 10px;">$3</span>
+                </button>
+                <button class="option-btn-modal" id="btn-bacii-locked" onclick="goToPay(6)" style="opacity: 0.6; display: none;">
+                    <span><i class="fas fa-lock" style="margin-right: 12px;"></i> វិញ្ញាសាបាក់ឌុប</span>
+                    <span style="font-size: 11px; background: #a855f7; color: white; padding: 2px 8px; border-radius: 10px;">$6</span>
                 </button>
             </div>
             
@@ -541,15 +549,15 @@
             <h2 style="margin-bottom: 32px; font-size: 24px; color: white;">ជ្រើសរើសគម្រោងសិក្សា</h2>
             <button class="option-btn-modal" onclick="goToPay(3)" style="border-color: var(--accent);">
                 <div style="text-align: left;">
-                    <div style="font-weight: 700;">Standard Plan</div>
+                    <div style="font-weight: 700;">Exercise Plan</div>
                     <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">មេរៀន + លំហាត់ទាំងអស់</div>
                 </div>
                 <span style="color: var(--accent); font-weight: 700; font-family: 'Rajdhani'; font-size: 20px;">$3</span>
             </button>
             <button class="option-btn-modal" onclick="goToPay(6)" style="border-color: #a855f7;">
                 <div style="text-align: left;">
-                    <div style="font-weight: 700;">Premium AI Plan</div>
-                    <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">លំហាត់ + AI Assistant</div>
+                    <div style="font-weight: 700;">Bacii Plan</div>
+                    <div style="font-size: 11px; color: var(--text-muted); font-weight: 400;">លំហាត់ + វិញ្ញាសាបាក់ឌុប</div>
                 </div>
                 <span style="color: #a855f7; font-weight: 700; font-family: 'Rajdhani'; font-size: 20px;">$6</span>
             </button>
@@ -601,20 +609,35 @@
             userLevel = StudyNest.getLevel();
             
             const statusElem = document.getElementById("modalUserStatus");
-            if (userLevel >= 6) statusElem.textContent = "កម្រិតសិក្សា: Premium Plan";
-            else if (userLevel >= 3) statusElem.textContent = "កម្រិតសិក្សា: Standard Plan";
+            if (userLevel >= 6) statusElem.textContent = "កម្រិតសិក្សា: Bacii Plan";
+            else if (userLevel >= 3) statusElem.textContent = "កម្រិតសិក្សា: Exercise Plan";
             else statusElem.textContent = "កម្រិតសិក្សា: Free Plan";
             
+            // Exercise logic (Level 3)
             document.getElementById("btn-exercise-unlocked").style.display = (userLevel >= 3) ? "flex" : "none";
             document.getElementById("btn-exercise-locked").style.display = (userLevel < 3) ? "flex" : "none";
+            
+            // Bacii logic (Level 6)
+            document.getElementById("btn-bacii-unlocked").style.display = (userLevel >= 6) ? "flex" : "none";
+            document.getElementById("btn-bacii-locked").style.display = (userLevel < 6) ? "flex" : "none";
+
             document.getElementById("optionModal").style.display = "flex";
         }
 
         function closeModal() { document.getElementById("optionModal").style.display = "none"; }
         
         function goToContent(type) {
-            if (type === "lesson") window.location.href = currentSubjectPath;
-            else alert("មុខងារ " + type + " នឹងមកដល់ឆាប់ៗនេះ!");
+            if (type === "lesson") {
+                window.location.href = currentSubjectPath;
+            } else if (type === "exercise") {
+                if (StudyNest.checkAccess(3)) {
+                    alert("មាតិកាលំហាត់សម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
+                }
+            } else if (type === "bacii") {
+                if (StudyNest.checkAccess(6)) {
+                    alert("វិញ្ញាសាបាក់ឌុបសម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
+                }
+            }
         }
         function goToPay(level) { window.location.href = `../pay.html?p=${level}`; }
         function logout() { StudyNest.logout(); }
@@ -629,8 +652,6 @@
                 document.getElementById("userDropdown").classList.remove("show");
             }
         }
-
-        function logout() { StudyNest.logout(); }
     </script>
 </body>
 </html>

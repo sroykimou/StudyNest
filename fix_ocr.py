@@ -7,7 +7,6 @@ replacements = [
     ("ចរនT", "ចរន្ត"),
     ("ចរនអT", "ចរន្ត"),
     ("ចរនà", "ចរន្ត"),
-    # ("ចរន", "ចរន្ត"), # Rule 6: (in context of current) - will handle carefully
     ("@តង់", "ត្រង់"),
     ("@បែវង", "ប្រវែង"),
     ("@សប", "ស្រប"),
@@ -21,7 +20,6 @@ replacements = [
     ("បបូ ៊ីន", "បូប៊ីន"),
     ("ផចិត", "ផ្ចិត"),
     ("ផតចិ", "ផ្ចិត"),
-    # ("កំ", "កាំ"), # Rule 20: (as a word meaning radius) - will handle carefully
     ("ចមងយ", "ចម្ងាយ"),
     ("0ងំ តងស់ ុីេត", "អាំងតង់ស៊ីតេ"),
     ("0ំងតង់សុីេត", "អាំងតង់ស៊ីតេ"),
@@ -51,7 +49,7 @@ replacements = [
     ("បេងតក", "បង្កើត"),
     ("េក តមន", "កើតមាន"),
     ("𝜇%", "\\mu_0"),
-    ("𝜇0", "\\mu_0"), # Rule 50: (if in text but intended as var)
+    ("𝜇0", "\\mu_0"), 
     ("𝜇'", "\\mu_r"),
     ("𝜇𝑟", "\\mu_r"),
     ("𝜇-", "\\mu_r"),
@@ -68,7 +66,7 @@ replacements = [
     ("10\":", "10^{-3}"),
     ("10\"3B", "10^{-19}"),
     ("10\"3:", "10^{-13}"),
-    ("10\")", "10^{-4}"), # User says "or check if it's -4/ -5", but usually 10^{-4} in this context
+    ("10\")", "10^{-4}"),
     ("\\times 10\")", "\\times 10^{-4}"),
     ("10#", "10^5"),
     ("10&", "10^7"),
@@ -90,27 +88,28 @@ def apply_fixes(content):
 
     return content
 
-directory = r"C:/IT/kimou/StudyNest/grade12/science/physics_g12/exercise/chapter 3/"
-files = [
-    "exercise(1-10).html", "exercise(11-20).html", "exercise(21-30).html",
-    "exercise(31-40).html", "exercise(41-50).html", "exercise(51-60).html",
-    "exercise(61-70).html", "exercise(71-80).html"
-]
+base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "grade12", "science", "physics_g12", "exercise")
+chapters = ["chapter 1", "chapter 2", "chapter 3"]
 
-for filename in files:
-    path = os.path.join(directory, filename)
-    if os.path.exists(path):
-        print(f"Processing {filename}...")
-        with open(path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        new_content = apply_fixes(content)
-        
-        if new_content != content:
-            with open(path, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-            print(f"  Fixed errors in {filename}")
-        else:
-            print(f"  No errors found in {filename}")
-    else:
-        print(f"File {filename} not found at {path}")
+for chapter in chapters:
+    chapter_path = os.path.join(base_dir, chapter)
+    if not os.path.exists(chapter_path):
+        print(f"Chapter directory {chapter} not found.")
+        continue
+
+    for root, dirs, files in os.walk(chapter_path):
+        for filename in files:
+            if filename.endswith(".html"):
+                filepath = os.path.join(root, filename)
+                print(f"Processing {filepath}...")
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                new_content = apply_fixes(content)
+                
+                if new_content != content:
+                    with open(filepath, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
+                    print(f"  Fixed errors in {filename}")
+                else:
+                    print(f"  No errors found in {filename}")

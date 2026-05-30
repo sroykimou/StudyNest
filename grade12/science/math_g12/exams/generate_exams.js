@@ -1,7 +1,10 @@
 const fs = require('fs');
-const path = 'C:/IT/kimou/StudyNest/grade12/science/math_g12/exams/';
+const path = require('path');
 
-const template = fs.readFileSync(path + 'kanit-1.html', 'utf-8');
+const baseDir = __dirname;
+const templatePath = path.join(baseDir, 'kanit-1.html');
+
+const template = fs.readFileSync(templatePath, 'utf-8');
 
 function buildHtml(examNumber, titleNum, sectionsHtml) {
   let html = template.replace(/<title>.*?<\/title>/, `<title>វិញ្ញាសា គណិតវិទ្យា ${titleNum} | StudyNest</title>`);
@@ -559,5 +562,5 @@ const exam9Sections = `<!-- Section I -->
       </section>
 `;
 
-fs.writeFileSync(path + 'kanit-8.html', buildHtml(8, '០៨', exam8Sections));
-fs.writeFileSync(path + 'kanit-9.html', buildHtml(9, '០៩', exam9Sections));
+fs.writeFileSync(path.join(baseDir, 'kanit-8.html'), buildHtml(8, '០៨', exam8Sections));
+fs.writeFileSync(path.join(baseDir, 'kanit-9.html'), buildHtml(9, '០៩', exam9Sections));

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្តន៍ ADN | StudyNest</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600&family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bio-dark: #065f46;
+        --bio-main: #10b981;
+        --bio-light: #d1fae5;
+        --bg: #f8fafc;
+        --text: #1e293b;
+        --danger: #ef4444;
+        --blue: #2563eb;
+      }
+
+      body {
+        font-family: 'Kantumruy Pro', sans-serif;
+        background: var(--bg);
+        padding: 40px 20px;
+        line-height: 1.8;
+        color: var(--text);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 50px;
+        border-radius: 30px;
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.05);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 50px;
+        border-bottom: 2px solid var(--bio-light);
+        padding-bottom: 30px;
+      }
+
+      h1 {
+        color: var(--bio-dark);
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #64748b;
+      }
+
+      .section-header {
+        background: var(--bio-light);
+        color: var(--bio-dark);
+        padding: 12px 25px;
+        border-radius: 15px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 50px 0 25px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+      }
+
+      .example-card {
+        background: #fff;
+        border: 2px solid var(--danger);
+        padding: 25px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        position: relative;
+      }
+
+      .example-badge {
+        position: absolute;
+        top: -15px;
+        left: 25px;
+        background: var(--danger);
+        color: white;
+        padding: 4px 15px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .practice-set {
+        margin-bottom: 40px;
+      }
+
+      .set-title {
+        color: var(--bio-dark);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .practice-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        padding: 20px;
+        border-radius: 18px;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 15px;
+        transition: 0.3s;
+      }
+
+      .practice-card:hover {
+        border-color: var(--bio-main);
+        background: #f8fafc;
+      }
+
+      .prob-num {
+        background: var(--bio-main);
+        color: white;
+        min-width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 4px;
+      }
+
+      .math-font {
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 700;
+        color: var(--blue);
+      }
+
+      .answer-btn {
+        background: var(--bio-dark);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 20px;
+        font-family: inherit;
+        transition: 0.3s;
+      }
+
+      .answer-btn:hover {
+        background: var(--bio-main);
+        transform: translateY(-2px);
+      }
+
+      .answer-content {
+        display: none;
+        margin-top: 20px;
+        padding: 25px;
+        background: #f1f5f9;
+        border-radius: 15px;
+        border-left: 6px solid var(--bio-main);
+      }
+
+      .formula-step {
+        display: block;
+        margin: 8px 0;
+      }
+
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 40px;
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+        background: var(--bio-dark);
+        padding: 12px 25px;
+        border-radius: 15px;
+        transition: 0.3s;
+      }
+
+      .back-btn:hover {
+        background: var(--bio-main);
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 30px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        .practice-card {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>
+          <i class="fas fa-dna" style="color: var(--bio-main)"></i>
+          លំហាត់អនុវត្តន៍ ADN
+        </h1>
+        <div class="subtitle">
+          កម្រងលំហាត់ជីវវិទ្យាថ្នាក់ទី១២ (ថ្នាក់វិទ្យាសាស្ត្រ)
+        </div>
+        <div style="margin-top: 15px; font-size: 0.9rem; color: #64748b">
+          បង្រៀនដោយ៖ អ្នកគ្រូ លន លានអុីម
+        </div>
+      </header>
+
+      <!-- SECTION 1 -->
+      <div class="section-header">
+        <i class="fas fa-calculator"></i> ផ្នែកទី ១៖ គណនាចំនួននុយគ្លេអូទីត (M)
+      </div>
+
+      <div class="example-card">
+        <div class="example-badge">លំហាត់គំរូទី ១</div>
+        <p>
+          ADN មួយមានផលបូកនុយគ្លេអូទីតសរុបស្មើ
+          <span class="math-font">40000</span> និងនុយគ្លេអូទីតប្រភេទ
+          <span class="math-font">G = 2000</span>។
+          ចូររកចំនួននុយគ្លេអូទីតនីមួយៗរបស់ ADN?
+        </p>
+        <button class="answer-btn" onclick="toggleAnswer(this)">
+          បង្ហាញចម្លើយ
+        </button>
+        <div class="answer-content">
+          <strong>ចម្លើយ</strong><br />
+          <strong>១. រកនុយគ្លេអូទីតនីមួយៗរបស់ADN</strong><br />
+          <span class="formula-step">បម្រាប់៖ <span class="math-font">M = 40000</span> នុយគ្លេអូទីត, <span class="math-font">G = 2000</span> នុយគ្លេអូទីត</span>
+          <span class="formula-step">តាមគោលការណ៍បំពេញបាស A-T &rArr; A=T, C-G &rArr; C=G</span>
+          <span class="formula-step">&rArr; <span class="math-font">M = A + T + C + G</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= 2A + 2C</span></span>
+          <span class="formula-step">&rArr; <span class="math-font">A = M/2 - C</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= 40000/2 - 2000</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= 18000</span> នុយគ្លេអូទីត</span>
+          <span class="formula-step">ដូចនេះ <span class="math-font">A = T = 18000</span> នុយគ្លេអូទីត</span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">C = G = 2000</span> នុយគ្លេអូទីត</span>
+        </div>
+      </div>
+
+      <div class="practice-set">
+        <div class="set-title">
+          <i class="fas fa-pencil-alt"></i> លំហាត់អនុវត្តន៍ទី ១
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">២</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមាននុយគ្លេអូទីតអាដេនីនចំនួន
+            <span class="math-font">20000</span> និង កានីនចំនួន
+            <span class="math-font">30000</span>។
+            គណនានុយគ្លេអូទីតទាំងអស់របស់ម៉ូលេគុល ADN?
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៣</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានផលបូកនុយគ្លេអូទីតសរុបស្មើ
+            <span class="math-font">60000</span> និងនុយគ្លេអូទីតប្រភេទ
+            <span class="math-font">A = 20000</span>។
+            ចូររកចំនួននុយគ្លេអូទីតនីមួយៗរបស់ ADN?
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៤</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមាននុយប្រភេទ
+            <span class="math-font">C</span> ច្រើនជាង
+            <span class="math-font">T</span> ចំនួន
+            <span class="math-font">400</span>
+            ហើយគេដឹងថានុយគ្លេអូទីតសរុបមានចំនួន
+            <span class="math-font">5000</span>។ គណនាចំនួននុយគ្លេអូទីតនីមួយៗរបស់
+            ADN នេះ។
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៥</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមាននុយគ្លេអូទីតប្រភេទ
+            <span class="math-font">C = 8000</span> ហើយនុយគ្លេអូទីត
+            <span class="math-font">A</span> ស្មើ
+            <span class="math-font">2</span> ដងនៃ
+            <span class="math-font">C</span>។ គណនាចំនួននុយគ្លេអូទីតនីមួយៗរបស់
+            ADN នេះ។
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៦</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានផលសង <span class="math-font">A</span> និង
+            <span class="math-font">C</span> ស្មើ
+            <span class="math-font">700</span> ហើយគេដឹងថាម៉ូលេគុល ADN
+            នេះមាននុយគ្លេអូទីតសរុប <span class="math-font">60000</span>។
+            គណនាចំនួននុយគ្លេអូទីតនីមួយៗរបស់ ADN។
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="section-header">
+        <i class="fas fa-ruler-horizontal"></i> ផ្នែកទី ២៖ គណនាប្រវែងម៉ូលេគុល
+        (ℓ)
+      </div>
+
+      <div class="example-card" style="border-color: var(--blue)">
+        <div class="example-badge" style="background: var(--blue)">
+          លំហាត់គំរូទី ២
+        </div>
+        <p>
+          ADN មួយមានផលបូកនុយគ្លេអូទីតសរុបចំនួន
+          <span class="math-font">7000</span>។ គណនាប្រវែងម៉ូលេគុល ADN?
+        </p>
+        <button
+          class="answer-btn"
+          style="background: var(--blue)"
+          onclick="toggleAnswer(this)"
+        >
+          បង្ហាញចម្លើយ
+        </button>
+        <div class="answer-content" style="border-color: var(--blue)">
+          <strong>ចម្លើយ</strong><br />
+          <strong>១. គណនាប្រវែងម៉ូលេគុល ADN</strong><br />
+          <span class="formula-step">បម្រាប់៖ <span class="math-font">M = 7000</span> នុយគ្លេអូទីត</span>
+          <span class="formula-step">ដោយ១នុយគ្លេអូទីតទៅ១នុយគ្លេអូទីតទៀតមានប្រវែង <span class="math-font">0.34nm</span> ហើយ ADN ជាច្រវាក់ទ្វេ</span>
+          <span class="formula-step">&rArr; <span class="math-font">ℓ = (M / 2) &times; 0.34</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= (7000 / 2) &times; 0.34</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= 1190 nm</span></span>
+          <span class="formula-step">ដូចនេះ <span class="math-font">ℓ = 1190 nm</span></span>
+        </div>
+      </div>
+
+      <div class="practice-set">
+        <div class="set-title">
+          <i class="fas fa-pencil-alt"></i> លំហាត់អនុវត្តន៍ទី ២
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">២</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមាននុយគ្លេអូទីតប្រភេទស៊ីតូស៊ីនចំនួន
+            <span class="math-font">5000</span> និងទីមីនចំនួន
+            <span class="math-font">15000</span>។ គណនាប្រវែងម៉ូលេគុល ADN គិតជា
+            <span class="math-font">&mu;m</span>?
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៣</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានផលបូកនុយគ្លេអូទីតលើច្រវាក់ម្ខាងចំនួន
+            <span class="math-font">2.10⁵</span>។ គណនាប្រវែងម៉ូលេគុល ADN គិតជា
+            <span class="math-font">cm</span>?
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៤</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានប្រវែង
+            <span class="math-font">680nm</span>
+            ហើយមាននុយគ្លេអូទីតប្រភេទអាដេនីនចំនួន
+            <span class="math-font">500</span>។ ចូររកចំនួននុយគ្លេអូទីតនីមួយៗរបស់
+            ADN?
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៥</span>
+          <div>
+            ADN មួយមានប្រវែង <span class="math-font">510nm</span> និងមានសមាមាត្រ
+            <span class="math-font">A</span> និង
+            <span class="math-font">C</span> រៀងគ្នា
+            <span class="math-font">2</span> និង
+            <span class="math-font">3</span>។ គណនាចំនួននុយគ្លេអូទីតនីមួយៗរបស់
+            ADN?
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="section-header">
+        <i class="fas fa-wave-square"></i> ផ្នែកទី ៣៖ គណនាចំនួនរលក ឬសៀពៀរ (C)
+      </div>
+
+      <div class="example-card" style="border-color: var(--bio-main)">
+        <div class="example-badge" style="background: var(--bio-main)">
+          លំហាត់គំរូទី ៣
+        </div>
+        <p>
+          ម៉ូលេគុល ADN មួយមានប្រវែង <span class="math-font">1700nm</span>។
+          គណនាចំនួនរលក?
+        </p>
+        <button
+          class="answer-btn"
+          style="background: var(--bio-main)"
+          onclick="toggleAnswer(this)"
+        >
+          បង្ហាញចម្លើយ
+        </button>
+        <div class="answer-content" style="border-color: var(--bio-main)">
+          <strong>ចម្លើយ</strong><br />
+          <strong>១. គណនាចំនួនរលក</strong><br />
+          <span class="formula-step">បម្រាប់៖ <span class="math-font">ℓ = 1700nm</span></span>
+          <span class="formula-step">ដោយ១ជំហានស្មើនឹង <span class="math-font">3.4nm</span></span>
+          <span class="formula-step">&rArr; ចំនួនជំហាន = <span class="math-font">ℓ / 3.4</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= 1700 / 3.4</span></span>
+          <span class="formula-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="math-font">= 500</span> ជំហាន</span>
+          <span class="formula-step">ដូចនេះ ចំនួនជំហាន = <span class="math-font">500</span> ជំហាន</span>
+        </div>
+      </div>
+
+      <div class="practice-set">
+        <div class="set-title">
+          <i class="fas fa-pencil-alt"></i> លំហាត់អនុវត្តន៍ទី ៣
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">២</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមាននុយគ្លេអូទីតប្រភេទស៊ីតូស៊ីនចំនួន
+            <span class="math-font">35000</span> និងទីមីនចំនួន
+            <span class="math-font">15000</span>។ គណនាចំនួនរលក។
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៤</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមាននុយគ្លេអូទីតប្រភេទ
+            <span class="math-font">A = 4000</span> ហើយនុយគ្លេអូទីត
+            <span class="math-font">C</span> ស្មើ
+            <span class="math-font">3</span> ដងនៃ
+            <span class="math-font">A</span>។ គណនាចំនួននុយគ្លេអូទីតសរុប ប្រវែង
+            និងចំនួនរលក។
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="section-header">
+        <i class="fas fa-percentage"></i> ផ្នែកទី ៤៖ គណនាសមាមាត្រភាគរយ (%)
+      </div>
+
+      <div class="practice-set">
+        <div class="set-title">
+          <i class="fas fa-pencil-alt"></i> លំហាត់អនុវត្តន៍ទី ៤
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">១</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានភាគរយនៃនុយគ្លេអូទីតកានីន
+            <span class="math-font">30%</span>។
+            រកសមាមាត្រភាគរយនៃនុយគ្លេអូទីតនីមួយៗរបស់ ADN?
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៣</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានផលសងភាគរយ <span class="math-font">A</span> និង
+            <span class="math-font">C</span> ស្មើនឹង
+            <span class="math-font">30%</span>។ គណនាភាគរយនៃនុយគ្លេអូទីតនីមួយៗ។
+          </div>
+        </div>
+        <div class="practice-card">
+          <span class="prob-num">៥</span>
+          <div>
+            ម៉ូលេគុល ADN មួយមានប្រវែង
+            <span class="math-font">0.408&mu;m</span>
+            និងមានភាគរយនៃនុយគ្លេអូទីតកានីន <span class="math-font">20%</span>។
+            រកចំនួននុយគ្លេអូទីតនីមួយៗ។
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="footer-msg"
+        style="
+          text-align: center;
+          margin-top: 60px;
+          color: var(--bio-dark);
+          font-weight: 700;
+          border-top: 1px solid var(--bio-light);
+          padding-top: 30px;
+        "
+      >
+        ជូនពរប្អូនៗទទួលបានជោគជ័យក្នុងការប្រឡង!
+      </div>
+
+      <a href="biology_home.html" class="back-btn"
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+    </div>
+
+    <script src="../../../../assets/main.js"></script>
+    <script>
+      function toggleAnswer(btn) {
+        const content = btn.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+          btn.textContent = 'បង្ហាញចម្លើយ';
+        } else {
+          content.style.display = 'block';
+          btn.textContent = 'លាក់ចម្លើយ';
+        }
+      }
+
+      if (typeof StudyNest !== 'undefined') {
+        StudyNest.initBackground();
+      }
+    </script>
+  </body>
+</html>

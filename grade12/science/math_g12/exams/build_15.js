@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = 'C:/IT/kimou/StudyNest/grade12/science/math_g12/exams/';
+const path = __dirname + '/';
 
 const template = fs.readFileSync(path + 'kanit-1.html', 'utf-8');
 

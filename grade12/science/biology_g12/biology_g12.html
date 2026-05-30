@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ជីវវិទ្យា ថ្នាក់ទី១២ | StudyNest</title>
-    <meta name="description" content="មេរៀនជីវវិទ្យាថ្នាក់ទី១២ — ត្រៀមប្រឡងបាក់ឌុបជាមួយ StudyNest" />
+    <meta
+      name="description"
+      content="មេរៀនជីវវិទ្យាថ្នាក់ទី១២ — ត្រៀមប្រឡងបាក់ឌុបជាមួយ StudyNest"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap"
@@ -17,28 +20,36 @@
 
     <style>
       /* ── Reset ── */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       /* ── Design tokens (mirror of style.css) ── */
       :root {
-        --primary:       #4f46e5;
-        --primary-dark:  #4338ca;
+        --primary: #4f46e5;
+        --primary-dark: #4338ca;
         --primary-light: #6c63ff;
-        --primary-glow:  rgba(79, 70, 229, 0.45);
-        --accent:        #74ebd5;
-        --accent-dark:   #38c9b0;
-        --accent-glow:   rgba(116, 235, 213, 0.35);
-        --glass-bg:      rgba(255, 255, 255, 0.07);
-        --glass-border:  rgba(255, 255, 255, 0.15);
-        --text-primary:  #f0f4ff;
-        --text-muted:    rgba(210, 220, 255, 0.65);
-        --bio-teal:      #0d9488;
-        --font-main:     "Kantumruy Pro", sans-serif;
-        --font-brand:    "Rajdhani", sans-serif;
-        --radius-card:   20px;
+        --primary-glow: rgba(79, 70, 229, 0.45);
+        --accent: #74ebd5;
+        --accent-dark: #38c9b0;
+        --accent-glow: rgba(116, 235, 213, 0.35);
+        --glass-bg: rgba(255, 255, 255, 0.07);
+        --glass-border: rgba(255, 255, 255, 0.15);
+        --text-primary: #f0f4ff;
+        --text-muted: rgba(210, 220, 255, 0.65);
+        --bio-teal: #0d9488;
+        --font-main: 'Kantumruy Pro', sans-serif;
+        --font-brand: 'Rajdhani', sans-serif;
+        --radius-card: 20px;
       }
 
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
       body {
         font-family: var(--font-main);
@@ -51,7 +62,13 @@
       }
 
       /* ── Animated floating particles ── */
-      .drops { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+      .drops {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+      }
       .drop {
         position: absolute;
         border-radius: 50% 50% 60% 60%;
@@ -59,10 +76,20 @@
         animation: sn-fall linear infinite;
       }
       @keyframes sn-fall {
-        0%   { transform: translateY(-20px); opacity: 0; }
-        10%  { opacity: 1; }
-        90%  { opacity: 0.4; }
-        100% { transform: translateY(100vh); opacity: 0; }
+        0% {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
       }
 
       /* ── Page layout ── */
@@ -81,8 +108,14 @@
         animation: sn-fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
       }
       @keyframes sn-fadeUp {
-        from { opacity: 0; transform: translateY(28px) scale(0.97); }
-        to   { opacity: 1; transform: none; }
+        from {
+          opacity: 0;
+          transform: translateY(28px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
       }
 
       .back-btn {
@@ -100,7 +133,11 @@
         backdrop-filter: blur(8px);
         transition: 0.2s;
       }
-      .back-btn:hover { color: var(--accent); border-color: var(--accent-dark); background: rgba(116,235,213,0.08); }
+      .back-btn:hover {
+        color: var(--accent);
+        border-color: var(--accent-dark);
+        background: rgba(116, 235, 213, 0.08);
+      }
 
       .subject-badge {
         display: inline-block;
@@ -125,7 +162,9 @@
         font-size: 30px;
         color: #fff;
         margin: 0 auto 20px;
-        box-shadow: 0 0 32px var(--accent-glow), 0 0 16px rgba(13,148,136,0.3);
+        box-shadow:
+          0 0 32px var(--accent-glow),
+          0 0 16px rgba(13, 148, 136, 0.3);
       }
 
       .hero-header h1 {
@@ -153,21 +192,39 @@
         margin-bottom: 22px;
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         animation: sn-fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
-        transition: box-shadow 0.2s, transform 0.2s;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
       }
       .chapter-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 14px 48px rgba(0,0,0,0.4), 0 0 28px rgba(116,235,213,0.06);
+        box-shadow:
+          0 14px 48px rgba(0, 0, 0, 0.4),
+          0 0 28px rgba(116, 235, 213, 0.06);
       }
-      .chapter-card:nth-child(1) { animation-delay: 0.08s; }
-      .chapter-card:nth-child(2) { animation-delay: 0.14s; }
-      .chapter-card:nth-child(3) { animation-delay: 0.20s; }
-      .chapter-card:nth-child(4) { animation-delay: 0.26s; }
-      .chapter-card:nth-child(5) { animation-delay: 0.32s; }
-      .chapter-card:nth-child(6) { animation-delay: 0.38s; }
-      .chapter-card:nth-child(7) { animation-delay: 0.44s; }
+      .chapter-card:nth-child(1) {
+        animation-delay: 0.08s;
+      }
+      .chapter-card:nth-child(2) {
+        animation-delay: 0.14s;
+      }
+      .chapter-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .chapter-card:nth-child(4) {
+        animation-delay: 0.26s;
+      }
+      .chapter-card:nth-child(5) {
+        animation-delay: 0.32s;
+      }
+      .chapter-card:nth-child(6) {
+        animation-delay: 0.38s;
+      }
+      .chapter-card:nth-child(7) {
+        animation-delay: 0.44s;
+      }
 
       .chapter-title {
         display: flex;
@@ -202,11 +259,15 @@
         padding: 17px 22px;
         text-decoration: none;
         color: var(--text-primary);
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        transition: background 0.2s, transform 0.15s;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition:
+          background 0.2s,
+          transform 0.15s;
         gap: 16px;
       }
-      .lesson-link:last-child { border-bottom: none; }
+      .lesson-link:last-child {
+        border-bottom: none;
+      }
       .lesson-link:hover {
         background: rgba(116, 235, 213, 0.06);
         transform: translateX(5px);
@@ -223,7 +284,9 @@
         justify-content: center;
         font-size: 16px;
         flex-shrink: 0;
-        transition: background 0.2s, color 0.2s;
+        transition:
+          background 0.2s,
+          color 0.2s;
       }
       .lesson-link:hover .lesson-icon {
         background: rgba(116, 235, 213, 0.18);
@@ -245,7 +308,9 @@
         margin-left: auto;
         color: var(--glass-border);
         font-size: 12px;
-        transition: color 0.2s, transform 0.2s;
+        transition:
+          color 0.2s,
+          transform 0.2s;
       }
       .lesson-link:hover .chevron {
         color: var(--accent);
@@ -254,9 +319,15 @@
 
       /* ── Responsive ── */
       @media (max-width: 600px) {
-        .hero-header h1 { font-size: 2rem; }
-        .page-wrapper { padding: 0 14px 60px; }
-        .chapter-title { font-size: 14px; }
+        .hero-header h1 {
+          font-size: 2rem;
+        }
+        .page-wrapper {
+          padding: 0 14px 60px;
+        }
+        .chapter-title {
+          font-size: 14px;
+        }
       }
     </style>
   </head>
@@ -273,7 +344,9 @@
           <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
         </a>
 
-        <div class="subject-badge">ជីវវិទ្យាថ្នាក់ទី ១២ &bull; ត្រៀមប្រឡងបាក់ឌុប</div>
+        <div class="subject-badge">
+          ជីវវិទ្យាថ្នាក់ទី ១២ &bull; ត្រៀមប្រឡងបាក់ឌុប
+        </div>
 
         <div class="hero-icon">
           <i class="fas fa-dna"></i>
@@ -320,7 +393,9 @@
           <div class="lesson-icon"><i class="fas fa-brain"></i></div>
           <div>
             <div class="lesson-name">មេរៀនទី១៖ តម្រូវប្រសាទ</div>
-            <div class="lesson-meta">ប្រព័ន្ធប្រសាទ និងការបញ្ជាររបស់ខួរក្បាល</div>
+            <div class="lesson-meta">
+              ប្រព័ន្ធប្រសាទ និងការបញ្ជាររបស់ខួរក្បាល
+            </div>
           </div>
           <i class="fas fa-chevron-right chevron"></i>
         </a>
@@ -355,7 +430,9 @@
           <div class="lesson-icon"><i class="fas fa-microscope"></i></div>
           <div>
             <div class="lesson-name">មេរៀនទី១៖ អាស៊ីតអាមីណេ</div>
-            <div class="lesson-meta">រចនាសម្ព័ន្ធ និងតួនាទីអាស៊ីតអាមីណេក្នុងសារពាង្គកាយ</div>
+            <div class="lesson-meta">
+              រចនាសម្ព័ន្ធ និងតួនាទីអាស៊ីតអាមីណេក្នុងសារពាង្គកាយ
+            </div>
           </div>
           <i class="fas fa-chevron-right chevron"></i>
         </a>
@@ -364,7 +441,9 @@
           <div class="lesson-icon"><i class="fas fa-project-diagram"></i></div>
           <div>
             <div class="lesson-name">មេរៀនទី២៖ ប្រូតេអុីន</div>
-            <div class="lesson-meta">រចនាសម្ព័ន្ធ និងតួនាទីប្រូតេអុីនក្នុងសារពាង្គកាយ</div>
+            <div class="lesson-meta">
+              រចនាសម្ព័ន្ធ និងតួនាទីប្រូតេអុីនក្នុងសារពាង្គកាយ
+            </div>
           </div>
           <i class="fas fa-chevron-right chevron"></i>
         </a>
@@ -390,7 +469,9 @@
           <div class="lesson-icon"><i class="fas fa-microscope"></i></div>
           <div>
             <div class="lesson-name">មេរៀនទី១៖ DNA ជាទម្រព័ត៌មានសេនេទិច</div>
-            <div class="lesson-meta">រចនាសម្ព័ន្ធ DNA និងតួនាទីក្នុងសេនេទិច</div>
+            <div class="lesson-meta">
+              រចនាសម្ព័ន្ធ DNA និងតួនាទីក្នុងសេនេទិច
+            </div>
           </div>
           <i class="fas fa-chevron-right chevron"></i>
         </a>
@@ -408,7 +489,9 @@
           <div class="lesson-icon"><i class="fas fa-flask"></i></div>
           <div>
             <div class="lesson-name">មេរៀនទី៣៖ បច្ចេកវិទ្យាជីវ</div>
-            <div class="lesson-meta">ការប្រើប្រាស់បច្ចេកវិទ្យាជីវក្នុងវិទ្យាសាស្ត្រ</div>
+            <div class="lesson-meta">
+              ការប្រើប្រាស់បច្ចេកវិទ្យាជីវក្នុងវិទ្យាសាស្ត្រ
+            </div>
           </div>
           <i class="fas fa-chevron-right chevron"></i>
         </a>
@@ -430,7 +513,10 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lesson/chapter_6/evolutionary_evidence.html" class="lesson-link">
+        <a
+          href="lesson/chapter_6/evolutionary_evidence.html"
+          class="lesson-link"
+        >
           <div class="lesson-icon"><i class="fas fa-project-diagram"></i></div>
           <div>
             <div class="lesson-name">មេរៀនទី២៖ ភស្តតាងនៃការវិវត្ត</div>
@@ -447,51 +533,8 @@
           </div>
           <i class="fas fa-chevron-right chevron"></i>
         </a>
-      </div>
 
-      <!-- Chapter 7 -->
-      <div class="chapter-card">
-        <div class="chapter-title">
-          <i class="fas fa-leaf"></i>
-          ជំពូកទី ៧៖ ពពួក និងសហគមន៍
-        </div>
-
-        <a href="lesson/chapter_7/population.html" class="lesson-link">
-          <div class="lesson-icon"><i class="fas fa-microscope"></i></div>
-          <div>
-            <div class="lesson-name">មេរៀនទី១៖ ពពួក</div>
-            <div class="lesson-meta">ការសិក្សាបន្តិចនៃពពួក និងសហគមន៍</div>
-          </div>
-          <i class="fas fa-chevron-right chevron"></i>
-        </a>
-
-        <a href="lesson/chapter_7/ecosystem_interactions.html" class="lesson-link">
-          <div class="lesson-icon"><i class="fas fa-project-diagram"></i></div>
-          <div>
-            <div class="lesson-name">មេរៀនទី២៖ អន្តរអំពើក្នុងស្ថានប្រព័ន្ធ</div>
-            <div class="lesson-meta">ការសិក្សាបន្តិចនៃអន្តរអំពើក្នុងស្ថានប្រព័ន្ធ</div>
-          </div>
-          <i class="fas fa-chevron-right chevron"></i>
-        </a>
-      </div>
-
-      <!-- Exercises -->
-      <div class="chapter-card">
-        <div class="chapter-title">
-          <i class="fas fa-square-root-alt"></i>
-          រូបមន្ត​ និងលំហាត់
-        </div>
-
-        <a href="lesson/exercise/formulas.html" class="lesson-link">
-          <div class="lesson-icon"><i class="fas fa-square-root-alt"></i></div>
-          <div>
-            <div class="lesson-name">រូបមន្ត</div>
-            <div class="lesson-meta">រូបមន្តសំខាន់ៗក្នុងជីវវិទ្យា</div>
-          </div>
-          <i class="fas fa-chevron-right chevron"></i>
-        </a>
-
-        <a href="lesson/exercise/dna_exercises.html" class="lesson-link">
+        <a href="exercise/dna_exercises.html" class="lesson-link">
           <div class="lesson-icon"><i class="fas fa-file-signature"></i></div>
           <div>
             <div class="lesson-name">លំហាត់ ADN</div>
@@ -500,7 +543,7 @@
           <i class="fas fa-chevron-right chevron"></i>
         </a>
 
-        <a href="lesson/exercise/rna_exercises.html" class="lesson-link">
+        <a href="exercise/rna_exercises.html" class="lesson-link">
           <div class="lesson-icon"><i class="fas fa-file-signature"></i></div>
           <div>
             <div class="lesson-name">លំហាត់ ARNm</div>
