@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartography Grade 12 | StudyNest</title>
+    <title>ផែនទីវិទ្យា ថ្នាក់ទី១២ | StudyNest</title>
+    <meta name="description" content="មេរៀនផែនទីវិទ្យាថ្នាក់ទី១២ — ត្រៀមប្រឡងបាក់ឌុបជាមួយ StudyNest" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -12,9 +13,9 @@
     <link rel="stylesheet" href="../../../assets/style.css">
     <style>
         :root {
-            /* Override accent for Cartography - Teal/Cyan */
-            --accent: #06b6d4;
-            --accent-glow: rgba(6, 182, 212, 0.35);
+            /* Override accent for History — amber/gold */
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.35);
         }
 
         body {
@@ -72,6 +73,32 @@
             transform: translateX(-4px);
         }
 
+        /* ── Chapter section ── */
+        .chapter-section {
+            margin-bottom: 32px;
+        }
+
+        .chapter-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-left: 4px;
+        }
+
+        .chapter-title i {
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .chapter-title h2 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* ── Lesson card ── */
         .lesson-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -114,7 +141,7 @@
 
         .lesson-card:hover .icon-box {
             background: var(--accent);
-            color: #0f172a;
+            color: white;
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
@@ -150,6 +177,20 @@
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
         }
 
+        .start-btn.disabled {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: auto;
+        }
+
+        .start-btn.disabled:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: none;
+        }
+
         @media (max-width: 768px) {
             .lesson-card {
                 flex-direction: column;
@@ -177,31 +218,122 @@
 
     <div class="container">
         <header class="anim">
-            <h1 class="anim-1">ផែនទីវិទ្យា ថ្នាក់ទី១២</h1>
-            <p class="anim-2">សិក្សាអំពីការអាន និងការបង្កើតផែនទីភូមិសាស្ត្រ</p>
+            <h1 class="anim-1">ប្រវត្តិវិទ្យា ថ្នាក់ទី១២</h1>
+            <p class="anim-2">សិក្សាអំពីប្រវត្តិសាស្ត្រពិភពលោក និងមាតុភូមិនិវត្តន៍ — Master History</p>
         </header>
 
-        <div class="lesson-card anim-3">
-            <div class="lesson-info">
-                <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
-                <div class="lesson-text">
-                    <h3>មេរៀនទី ១៖ មូលដ្ឋានគ្រឹះនៃផែនទី</h3>
-                    <p>មាត្រដ្ឋាន និយាមកា និងនិមិត្តសញ្ញាផែនទីសំខាន់ៗ។</p>
-                </div>
+        <!-- Chapter 2: ប្រទេសកម្ពុជាពីឆ្នាំ ១៨៦៣ ដល់បច្ចុប្បន្ន -->
+        <div class="chapter-section">
+            <div class="chapter-title anim-2">
+                <i class="fas fa-landmark"></i>
+                <h2>ជំពូកទី ២៖ ប្រទេសកម្ពុជាពីឆ្នាំ ១៨៦៣ ដល់បច្ចុប្បន្ន</h2>
             </div>
-            <a href="#" class="start-btn">មើលមេរៀន</a>
+
+            <div class="lesson-card anim-3">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-university"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី១៖ កម្ពុជាក្រោមអាណាព្យាបាលបារាំង</h3>
+                        <p>ឆ្នាំ ១៨៦៣-១៩៥៣ និងការទាមទារឯករាជ្យ</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson1.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-4">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-landmark"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី២៖ របបសង្គមរាស្ត្រនិយម</h3>
+                        <p>ឆ្នាំ ១៩៥៣-១៩៧០ និងការកសាងជាតិ</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson2.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-5">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-monument"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី៣៖ សាធារណរដ្ឋខ្មែរ</h3>
+                        <p>ឆ្នាំ ១៩៧០-១៩៧៥ និងសង្គ្រាមស៊ីវិល</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson3.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-6">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-skull-crossbones"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី៤៖ កម្ពុជាប្រជាធិបតេយ្យ</h3>
+                        <p>ឆ្នាំ ១៩៧៥-១៩៧៩ និងរបបខ្មែរក្រហម</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson4.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-7">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-flag"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី៥៖ សាធារណរដ្ឋប្រជាមានិតកម្ពុជា</h3>
+                        <p>ឆ្នាំ ១៩៧៩-១៩៩៣ និងការកសាងជាតិឡើងវិញ</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson5.html" class="start-btn">ចូលរៀន</a>
+            </div>
         </div>
 
-        <div class="lesson-card anim-4">
-            <div class="lesson-info">
-                <div class="icon-box"><i class="fas fa-globe-africa"></i></div>
-                <div class="lesson-text">
-                    <h3>មេរៀនទី ២៖ ប្រព័ន្ធព័ត៌មានភូមិសាស្ត្រ (GIS)</h3>
-                    <p>ការប្រើប្រាស់បច្ចេកវិទ្យាដើម្បីគ្រប់គ្រងទិន្នន័យភូមិសាស្ត្រ។</p>
-                </div>
+        <!-- Chapter 1: ប្រវត្តិសាស្ត្រពិភពលោក -->
+        <div class="chapter-section">
+            <div class="chapter-title anim-3">
+                <i class="fas fa-globe-americas"></i>
+                <h2>ជំពូកទី ១៖ ប្រវត្តិសាស្ត្រពិភពលោក</h2>
             </div>
-            <a href="#" class="start-btn">មើលមេរៀន</a>
+
+            <div class="lesson-card anim-4">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-university"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ១៖ សង្គ្រាមលោកលើកទី២ (1939-1945)</h3>
+                        <p>មូលហេតុ ព្រឹត្តិការណ៍សំខាន់ៗ និងផលវិបាក</p>
+                    </div>
+                </div>
+                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
+            </div>
+
+            <div class="lesson-card anim-5">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-snowflake"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ២៖ សង្គ្រាមត្រជាក់ (The Cold War)</h3>
+                        <p>ការប្រជែងមហាអំណាចរវាងសហរដ្ឋអាមេរិក និងសូវៀត</p>
+                    </div>
+                </div>
+                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
+            </div>
         </div>
+
+        <!-- Chapter 3: កម្ពុជាក្រោយសម័យអាណានិគម -->
+        <div class="chapter-section">
+            <div class="chapter-title anim-4">
+                <i class="fas fa-landmark"></i>
+                <h2>ជំពូកទី ៣៖ កម្ពុជាក្រោយសម័យអាណានិគម</h2>
+            </div>
+
+            <div class="lesson-card anim-5">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-landmark"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ១៖ កម្ពុជាក្រោយឯករាជ្យ</h3>
+                        <p>សម័យសង្គមរាស្ត្រនិយម រហូតដល់បច្ចុប្បន្ន</p>
+                    </div>
+                </div>
+                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
+            </div>
+        </div>
+
     </div>
 
     <script src="../../../assets/main.js"></script>

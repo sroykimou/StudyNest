@@ -150,6 +150,33 @@
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
         }
 
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-left: 8px;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+        }
+
+        .start-btn.disabled {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: auto;
+        }
+
+        .start-btn.disabled:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: none;
+        }
+
         @media (max-width: 768px) {
             .lesson-card {
                 flex-direction: column;
@@ -197,10 +224,10 @@
                 <div class="icon-box"><i class="fas fa-vial"></i></div>
                 <div class="lesson-text">
                     <h3>មេរៀនទី ២៖ កត្តាដែលមានឥទ្ធិពលលើល្បឿនប្រតិកម្ម</h3>
-                    <p>ថេរលំនឹង និងកត្តាដែលជះឥទ្ធិពលលើលំនឹងគីមី។</p>
+                    <p>ថេរលំនឹង និងកត្តាដែលជះឥទ្ធិពលលើលំនឹងគីមី។ (Coming Soon)</p>
                 </div>
             </div>
-            <a href="lesson/chapter1/factors_affecting_rate.html" class="start-btn">ចូលរៀន</a>
+            <a href="#" onclick="alert('មេរៀននេះនឹងមកដល់ឆាប់ៗនេះ! (Coming Soon)')" class="start-btn" style="opacity: 0.7;">ចូលរៀន</a>
         </div>
 
         <div class="lesson-card anim-5">
@@ -208,10 +235,10 @@
                 <div class="icon-box"><i class="fas fa-atom"></i></div>
                 <div class="lesson-text">
                     <h3>មេរៀនទី ៣៖ អាស៊ីត-បាស</h3>
-                    <p>ទ្រឹស្ដីអាស៊ីត-បាស និងការគណនា pH នៃសូលុយស្យុង។</p>
+                    <p>ទ្រឹស្ដីអាស៊ីត-បាស និងការគណនា pH នៃសូលុយស្យុង។ (Coming Soon)</p>
                 </div>
             </div>
-            <a href="#" class="start-btn">ចូលរៀន</a>
+            <a href="#" onclick="alert('មេរៀននេះនឹងមកដល់ឆាប់ៗនេះ! (Coming Soon)')" class="start-btn" style="opacity: 0.7;">ចូលរៀន</a>
         </div>
     </div>
 

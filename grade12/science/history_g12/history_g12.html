@@ -5,358 +5,341 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ប្រវត្តិវិទ្យា ថ្នាក់ទី១២ | StudyNest</title>
     <meta name="description" content="មេរៀនប្រវត្តិវិទ្យាថ្នាក់ទី១២ — ត្រៀមប្រឡងបាក់ឌុបជាមួយ StudyNest" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Siemreap&family=Kantumruy+Pro:wght@400;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="../../../assets/style.css">
     <style>
-      :root {
-        --primary-color: #0c4a6e;
-        --accent-color: #f59e0b; /* Gold/Amber for History */
-        --bg-color: #f1f5f9;
-        --text-main: #1e293b;
-        --text-muted: #64748b;
-        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        --font-brand: "Rajdhani", sans-serif;
-      }
+        :root {
+            /* Override accent for History — amber/gold */
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.35);
+        }
 
-      body {
-        margin: 0;
-        font-family: "Kantumruy Pro", "Siemreap", Arial, sans-serif;
-        background: var(--bg-color);
-        color: var(--text-main);
-        line-height: 1.6;
-      }
+        body {
+            display: block;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
 
-      /* ── Hero header ── */
-      header {
-        background: linear-gradient(135deg, #1e3a8a, #0c4a6e);
-        color: white;
-        text-align: center;
-        padding: 60px 20px;
-        border-bottom: 5px solid var(--accent-color);
-        position: relative;
-        overflow: hidden;
-      }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-      header::after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: url('https://www.transparenttextures.com/patterns/cubes.png');
-        opacity: 0.1;
-      }
+        header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
 
-      .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: white;
-        text-decoration: none;
-        font-size: 0.9rem;
-        margin-bottom: 25px;
-        padding: 8px 16px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 40px;
-        backdrop-filter: blur(5px);
-        transition: 0.3s;
-        position: relative;
-        z-index: 2;
-      }
-      .back-link:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(-5px);
-      }
+        header h1 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 8px;
+        }
 
-      .hero-content {
-        position: relative;
-        z-index: 2;
-      }
+        header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
 
-      .hero-icon {
-        width: 80px;
-        height: 80px;
-        background: white;
-        color: var(--primary-color);
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 35px;
-        margin: 0 auto 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      }
+        .back-btn-fixed {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 100;
+        }
 
-      header h1 {
-        margin: 0;
-        font-family: var(--font-brand);
-        font-size: 2.5rem;
-        letter-spacing: 1px;
-      }
+        .back-btn-fixed a {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
 
-      header p {
-        margin-top: 10px;
-        opacity: 0.9;
-        font-size: 1.1rem;
-      }
+        .back-btn-fixed a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-4px);
+        }
 
-      /* ── Page content ── */
-      .container {
-        max-width: 900px;
-        margin: -40px auto 60px;
-        padding: 0 20px;
-        position: relative;
-        z-index: 3;
-      }
+        /* ── Chapter section ── */
+        .chapter-section {
+            margin-bottom: 32px;
+        }
 
-      /* ── Chapter card ── */
-      .chapter-card {
-        background: white;
-        border-radius: 20px;
-        margin-bottom: 30px;
-        box-shadow: var(--card-shadow);
-        overflow: hidden;
-      }
+        .chapter-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-left: 4px;
+        }
 
-      .chapter-header {
-        background: #f8fafc;
-        padding: 20px 25px;
-        border-bottom: 1px solid #e2e8f0;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
+        .chapter-title i {
+            color: var(--accent);
+            font-size: 18px;
+        }
 
-      .chapter-header i {
-        color: var(--accent-color);
-        font-size: 1.2rem;
-      }
+        .chapter-title h2 {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
 
-      .chapter-header h2 {
-        font-size: 1.15rem;
-        color: var(--primary-color);
-        margin: 0;
-      }
+        /* ── Lesson card ── */
+        .lesson-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
 
-      /* ── Lesson links ── */
-      .lesson-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
+        .lesson-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+            background: rgba(255, 255, 255, 0.12);
+        }
 
-      .lesson-item {
-        border-bottom: 1px solid #f1f5f9;
-        transition: 0.2s;
-      }
-      .lesson-item:last-child {
-        border-bottom: none;
-      }
+        .lesson-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-      .lesson-link {
-        display: flex;
-        align-items: center;
-        padding: 20px 25px;
-        text-decoration: none;
-        color: var(--text-main);
-        gap: 20px;
-      }
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--accent);
+            transition: 0.3s;
+        }
 
-      .lesson-item:hover {
-        background: #f1f5f9;
-      }
+        .lesson-card:hover .icon-box {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
 
-      .lesson-icon {
-        width: 45px;
-        height: 45px;
-        background: #eff6ff;
-        color: #2563eb;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        transition: 0.3s;
-      }
+        .lesson-text h3 {
+            color: white;
+            margin-bottom: 6px;
+            font-size: 17px;
+        }
 
-      .lesson-item:hover .lesson-icon {
-        background: var(--accent-color);
-        color: white;
-      }
+        .lesson-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.5;
+        }
 
-      .lesson-info {
-        flex: 1;
-      }
+        .start-btn {
+            background: var(--accent);
+            color: #0f172a;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
 
-      .lesson-name {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 4px;
-        font-size: 1.05rem;
-      }
+        .start-btn:hover {
+            transform: scale(1.05);
+            background: white;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
 
-      .lesson-meta {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-      }
+        .start-btn.disabled {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            box-shadow: none;
+            pointer-events: auto;
+        }
 
-      .chevron {
-        color: #cbd5e1;
-        font-size: 0.9rem;
-        transition: 0.3s;
-      }
+        .start-btn.disabled:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: none;
+        }
 
-      .lesson-item:hover .chevron {
-        color: var(--accent-color);
-        transform: translateX(5px);
-      }
-
-      footer {
-        text-align: center;
-        padding: 40px;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 600px) {
-        header { padding: 40px 15px; }
-        header h1 { font-size: 1.8rem; }
-        .hero-icon { width: 60px; height: 60px; font-size: 25px; }
-        .lesson-link { padding: 15px; }
-      }
+        @media (max-width: 768px) {
+            .lesson-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .start-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-      <div class="hero-content">
-        <a href="../social_home.html" class="back-link">
-          <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+
+    <!-- Animated Background -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="back-btn-fixed anim">
+        <a href="../science_home.html">
+            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
         </a>
-
-        <div class="hero-icon">
-          <i class="fas fa-monument"></i>
-        </div>
-
-        <h1>ប្រវត្តិវិទ្យា (History)</h1>
-        <p>សិក្សាអំពីប្រវត្តិសាស្ត្រពិភពលោក និងមាតុភូមិនិវត្តន៍</p>
-      </div>
-    </header>
+    </div>
 
     <div class="container">
-      <!-- Chapter 2 -->
-      <div class="chapter-card">
-        <div class="chapter-header">
-          <i class="fas fa-landmark"></i>
-          <h2>ជំពូកទី ២៖ ប្រទេសកម្ពុជាពីឆ្នាំ ១៨៦៣ ដល់បច្ចុប្បន្ន</h2>
-        </div>
-        <div class="lesson-list">
-          <div class="lesson-item">
-            <a href="chapter 2/lesson1.html" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-university"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី១៖ កម្ពុជាក្រោមអាណាព្យាបាលបារាំង</span>
-                <span class="lesson-meta">ឆ្នាំ ១៨៦៣-១៩៥៣ និងការទាមទារឯករាជ្យ</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-          <div class="lesson-item">
-            <a href="chapter 2/lesson2.html" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-landmark"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី២៖ របបសង្គមរាស្ត្រនិយម</span>
-                <span class="lesson-meta">ឆ្នាំ ១៩៥៣-១៩៧០ និងការកសាងជាតិ</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-          <div class="lesson-item">
-            <a href="chapter 2/lesson3.html" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-monument"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី៣៖ សាធារណរដ្ឋខ្មែរ</span>
-                <span class="lesson-meta">ឆ្នាំ ១៩៧០-១៩៧៥ និងសង្គ្រាមស៊ីវិល</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-          <div class="lesson-item">
-            <a href="chapter 2/lesson4.html" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-skull-crossbones"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី៤៖ កម្ពុជាប្រជាធិបតេយ្យ</span>
-                <span class="lesson-meta">ឆ្នាំ ១៩៧៥-១៩៧៩ និងរបបខ្មែរក្រហម</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-          <div class="lesson-item">
-            <a href="chapter 2/lesson5.html" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-flag"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី៥៖ សាធារណរដ្ឋប្រជាមានិតកម្ពុជា</span>
-                <span class="lesson-meta">ឆ្នាំ ១៩៧៩-១៩៩៣ និងការកសាងជាតិឡើងវិញ</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+        <header class="anim">
+            <h1 class="anim-1">ប្រវត្តិវិទ្យា ថ្នាក់ទី១២</h1>
+            <p class="anim-2">សិក្សាអំពីប្រវត្តិសាស្ត្រពិភពលោក និងមាតុភូមិនិវត្តន៍ — Master History</p>
+        </header>
 
-      <!-- Chapter 1 -->
-      <div class="chapter-card">
-        <div class="chapter-header">
-          <i class="fas fa-globe-americas"></i>
-          <h2>ជំពូកទី ១៖ ប្រវត្តិសាស្ត្រពិភពលោក</h2>
-        </div>
-        <div class="lesson-list">
-          <div class="lesson-item">
-            <a href="#" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-university"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី ១៖ សង្គ្រាមលោកលើកទី២ (1939-1945)</span>
-                <span class="lesson-meta">មូលហេតុ ព្រឹត្តិការណ៍សំខាន់ៗ និងផលវិបាក</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-          <div class="lesson-item">
-            <a href="#" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-snowflake"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី ២៖ សង្គ្រាមត្រជាក់ (The Cold War)</span>
-                <span class="lesson-meta">ការប្រជែងមហាអំណាចរវាងសហរដ្ឋអាមេរិក និងសូវៀត</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+        <!-- Chapter 2: ប្រទេសកម្ពុជាពីឆ្នាំ ១៨៦៣ ដល់បច្ចុប្បន្ន -->
+        <div class="chapter-section">
+            <div class="chapter-title anim-2">
+                <i class="fas fa-landmark"></i>
+                <h2>ជំពូកទី ២៖ ប្រទេសកម្ពុជាពីឆ្នាំ ១៨៦៣ ដល់បច្ចុប្បន្ន</h2>
+            </div>
 
-      <!-- Chapter 3 -->
-      <div class="chapter-card">
-        <div class="chapter-header">
-          <i class="fas fa-landmark"></i>
-          <h2>ជំពូកទី ៣៖ កម្ពុជាក្រោយសម័យអាណានិគម</h2>
+            <div class="lesson-card anim-3">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-university"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី១៖ កម្ពុជាក្រោមអាណាព្យាបាលបារាំង</h3>
+                        <p>ឆ្នាំ ១៨៦៣-១៩៥៣ និងការទាមទារឯករាជ្យ</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson1.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-4">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-landmark"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី២៖ របបសង្គមរាស្ត្រនិយម</h3>
+                        <p>ឆ្នាំ ១៩៥៣-១៩៧០ និងការកសាងជាតិ</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson2.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-5">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-monument"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី៣៖ សាធារណរដ្ឋខ្មែរ</h3>
+                        <p>ឆ្នាំ ១៩៧០-១៩៧៥ និងសង្គ្រាមស៊ីវិល</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson3.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-6">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-skull-crossbones"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី៤៖ កម្ពុជាប្រជាធិបតេយ្យ</h3>
+                        <p>ឆ្នាំ ១៩៧៥-១៩៧៩ និងរបបខ្មែរក្រហម</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson4.html" class="start-btn">ចូលរៀន</a>
+            </div>
+
+            <div class="lesson-card anim-7">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-flag"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី៥៖ សាធារណរដ្ឋប្រជាមានិតកម្ពុជា</h3>
+                        <p>ឆ្នាំ ១៩៧៩-១៩៩៣ និងការកសាងជាតិឡើងវិញ</p>
+                    </div>
+                </div>
+                <a href="chapter 2/lesson5.html" class="start-btn">ចូលរៀន</a>
+            </div>
         </div>
-        <div class="lesson-list">
-          <div class="lesson-item">
-            <a href="#" class="lesson-link">
-              <div class="lesson-icon"><i class="fas fa-landmark"></i></div>
-              <div class="lesson-info">
-                <span class="lesson-name">មេរៀនទី ១៖ កម្ពុជាក្រោយឯករាជ្យ</span>
-                <span class="lesson-meta">សម័យសង្គមរាស្ត្រនិយម រហូតដល់បច្ចុប្បន្ន</span>
-              </div>
-              <i class="fas fa-chevron-right chevron"></i>
-            </a>
-          </div>
+
+        <!-- Chapter 1: ប្រវត្តិសាស្ត្រពិភពលោក -->
+        <div class="chapter-section">
+            <div class="chapter-title anim-3">
+                <i class="fas fa-globe-americas"></i>
+                <h2>ជំពូកទី ១៖ ប្រវត្តិសាស្ត្រពិភពលោក</h2>
+            </div>
+
+            <div class="lesson-card anim-4">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-university"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ១៖ សង្គ្រាមលោកលើកទី២ (1939-1945)</h3>
+                        <p>មូលហេតុ ព្រឹត្តិការណ៍សំខាន់ៗ និងផលវិបាក</p>
+                    </div>
+                </div>
+                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
+            </div>
+
+            <div class="lesson-card anim-5">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-snowflake"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ២៖ សង្គ្រាមត្រជាក់ (The Cold War)</h3>
+                        <p>ការប្រជែងមហាអំណាចរវាងសហរដ្ឋអាមេរិក និងសូវៀត</p>
+                    </div>
+                </div>
+                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
+            </div>
         </div>
-      </div>
+
+        <!-- Chapter 3: កម្ពុជាក្រោយសម័យអាណានិគម -->
+        <div class="chapter-section">
+            <div class="chapter-title anim-4">
+                <i class="fas fa-landmark"></i>
+                <h2>ជំពូកទី ៣៖ កម្ពុជាក្រោយសម័យអាណានិគម</h2>
+            </div>
+
+            <div class="lesson-card anim-5">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-landmark"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ១៖ កម្ពុជាក្រោយឯករាជ្យ</h3>
+                        <p>សម័យសង្គមរាស្ត្រនិយម រហូតដល់បច្ចុប្បន្ន</p>
+                    </div>
+                </div>
+                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
+            </div>
+        </div>
 
     </div>
 
-    <footer>
-      <p>&copy; 2024 StudyNest - រក្សាសិទ្ធិគ្រប់យ៉ាង</p>
-    </footer>
+    <script src="../../../assets/main.js"></script>
+    <script>
+        // Initialize background
+        StudyNest.initBackground();
+    </script>
 </body>
 </html>

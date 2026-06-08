@@ -224,7 +224,7 @@
             </label>
             <input type="file" id="fileInput" hidden accept="image/*" />
 
-            <img src="" id="bigAvatar" alt="Profile" />
+            <img id="bigAvatar" alt="Profile avatar" />
             <div class="header-overlay"></div>
 
             <div class="profile-info-main">
@@ -247,6 +247,22 @@
                 <div class="info-content">
                     <label>កម្រិតវប្បធម៌</label>
                     <div id="uEducation">សិស្សថ្នាក់ទី ១២</div>
+                </div>
+            </div>
+
+            <div class="info-row anim-3">
+                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                <div class="info-content">
+                    <label>អ៊ីមែល (Email)</label>
+                    <div id="uEmail">example@gmail.com</div>
+                </div>
+            </div>
+
+            <div class="info-row anim-3">
+                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                <div class="info-content">
+                    <label>លេខទូរស័ព្ទ (Phone Number)</label>
+                    <div id="uPhone">012345678</div>
                 </div>
             </div>
 
@@ -295,6 +311,22 @@
             document.getElementById("pName").textContent = user;
             document.getElementById("uHandle").textContent = "@" + user.toLowerCase().replace(/\s/g, "");
             
+            // Fetch detailed email & phone
+            const userDataStr = localStorage.getItem("user_" + user);
+            let emailVal = "មិនទាន់កំណត់ (Not Set)";
+            let phoneVal = "មិនទាន់កំណត់ (Not Set)";
+            if (userDataStr) {
+                try {
+                    const userData = JSON.parse(userDataStr);
+                    if (userData.email) emailVal = userData.email;
+                    if (userData.phone) phoneVal = userData.phone;
+                } catch(e) {
+                    console.error("Error reading profile user data:", e);
+                }
+            }
+            document.getElementById("uEmail").textContent = emailVal;
+            document.getElementById("uPhone").textContent = phoneVal;
+            
             // Plan Badge
             const levelBadge = document.getElementById("pLevel");
             if (userLevel >= 6) {
@@ -322,7 +354,15 @@
         document.getElementById("fileInput").onchange = function (e) {
             const reader = new FileReader();
             reader.onload = function () {
-                localStorage.setItem("profile_" + user, reader.result);
+                try {
+                    localStorage.setItem("profile_" + user, reader.result);
+                } catch (err) {
+                    if (err.name === "QuotaExceededError" || err.code === 22) {
+                        alert("រូបភាពធំពេក មិនអាចរក្សាទុកបានទេ។ សូមជ្រើសរើសរូបភាពតូចជាង។\n(Image is too large to save. Please choose a smaller image.)");
+                        return;
+                    }
+                    throw err;
+                }
                 document.getElementById("bigAvatar").src = reader.result;
             };
             if (e.target.files[0]) {

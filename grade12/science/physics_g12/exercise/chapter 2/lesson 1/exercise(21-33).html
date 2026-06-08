@@ -248,7 +248,68 @@
         content: "➤";
         color: var(--blue);
         font-size: 1.1rem;
-              display: block;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
       }
 
       @media (max-width: 700px) {
@@ -261,6 +322,10 @@
         .ex-head,
         .ex-body {
           padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
       }
     </style>
@@ -312,6 +377,69 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( y = A \sin(\omega t + \phi) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">
+                  \( y_1 = 4 \sin(2\pi t + \pi/2) \text{ cm} \)<br>
+                  នាំឲ្យ៖ អំព្លីទុត \( A_1 = 4 \text{ cm} \), ពុលសាស្យុង \( \omega_1 = 2\pi \text{ rad/s} \), ផាសដើម \( \phi_1 = \pi/2 \text{ rad} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">
+                  \( y_2 = 5 \sin(2\pi t + \pi/2) \text{ cm} \)<br>
+                  នាំឲ្យ៖ អំព្លីទុត \( A_2 = 5 \text{ cm} \), ពុលសាស្យុង \( \omega_2 = 2\pi \text{ rad/s} \), ផាសដើម \( \phi_2 = \pi/2 \text{ rad} \)
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta\phi = \pi/2 - \pi/2 = 0 \text{ rad} \) (រលកទាំងពីរស្របផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = A_1 + A_2 = 4 + 5 = 9 \text{ cm} \) (ដោយសាររលកស្របផាសគ្នា)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{2\pi} = 1 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">\( \phi = \pi/2 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = A \sin(\omega t + \phi) = 9 \sin(2\pi t + \pi/2) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) និង \( \vec{A}_2 \) ស្របគ្នា បង្កើតបានវ៉ិចទ័រផលបូក \( \vec{A} = \vec{A}_1 + \vec{A}_2 \) មានទិសដៅដូចគ្នា និងមានប្រវែង \( 9 \text{ cm} \) ។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 9 \sin(2\pi t + \pi/2) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -331,6 +459,61 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">
+                  \( y_1 = 5 \sin(4\pi t + \pi/3) \text{ cm} \)<br>
+                  នាំឲ្យ៖ \( A_1 = 5 \text{ cm} \), \( \omega_1 = 4\pi \text{ rad/s} \), \( \phi_1 = \pi/3 \text{ rad} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">
+                  \( y_2 = 6 \sin(4\pi t + \pi/3) \text{ cm} \)<br>
+                  នាំឲ្យ៖ \( A_2 = 6 \text{ cm} \), \( \omega_2 = 4\pi \text{ rad/s} \), \( \phi_2 = \pi/3 \text{ rad} \)
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 = \pi/3 - \pi/3 = 0 \text{ rad} \) (រលកទាំងពីរស្របផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = A_1 + A_2 = 5 + 6 = 11 \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{4\pi} = 0.5 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">\( \phi = \pi/3 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 11 \sin(4\pi t + \pi/3) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) និង \( \vec{A}_2 \) ស្របគ្នា មានផាស \( \pi/3 \) នាំឲ្យ \( \vec{A} \) មានប្រវែង \( 11 \text{ cm} \) និងផាសដើម \( \pi/3 \text{ rad} \)។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 11 \sin(4\pi t + \pi/3) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -350,6 +533,55 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 6 \text{ cm} \), \( \omega_1 = 4\pi \text{ rad/s} \), \( \phi_1 = \pi/3 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 3 \text{ cm} \), \( \omega_2 = 4\pi \text{ rad/s} \), \( \phi_2 = 4\pi/3 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 = 4\pi/3 - \pi/3 = \pi \text{ rad} \) (រលកទាំងពីរប្រឆាំងផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = |A_1 - A_2| = |6 - 3| = 3 \text{ cm} \) (ដោយសាររលកប្រឆាំងផាសគ្នា)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{4\pi} = 0.5 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">\( \phi = \pi/3 \text{ rad} \) (យកតាមផាសរបស់រលកដែលមានអំព្លីទុតធំជាង គឺរលកទី១)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 3 \sin(4\pi t + \pi/3) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (ប្រវែង \(6\text{cm}\), មុំ \(\pi/3\)) និង \( \vec{A}_2 \) (ប្រវែង \(3\text{cm}\), មុំ \(4\pi/3\)) មានទិសដៅផ្ទុយគ្នា។ វ៉ិចទ័រលទ្ធផល \( \vec{A} \) មានប្រវែង \(3\text{cm}\) និងមានទិសដៅស្របតាម \( \vec{A}_1 \) ។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 3 \sin(4\pi t + \pi/3) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -369,6 +601,55 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 4 \text{ cm} \), \( \omega_1 = 5\pi \text{ rad/s} \), \( \phi_1 = \pi/2 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 3 \text{ cm} \), \( \omega_2 = 5\pi \text{ rad/s} \), \( \phi_2 = 3\pi/2 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 = 3\pi/2 - \pi/2 = \pi \text{ rad} \) (រលកទាំងពីរប្រឆាំងផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = |A_1 - A_2| = |4 - 3| = 1 \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{5\pi} = 0.4 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">\( \phi = \pi/2 \text{ rad} \) (យកតាមផាសរបស់រលកទី១ ព្រោះ \( A_1 > A_2 \))</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 1 \sin(5\pi t + \pi/2) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (\(\phi_1 = \pi/2\)) និង \( \vec{A}_2 \) (\(\phi_2 = 3\pi/2\)) ផ្ទុយទិសគ្នាស្របតាមអ័ក្សអរដោនេ។ វ៉ិចទ័រតម្រួត \( \vec{A} \) មានប្រវែង \(1\text{ cm}\) និងទិសដៅឡើងលើស្របតាម \( \vec{A}_1 \)។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = \sin(5\pi t + \pi/2) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -388,6 +669,55 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 4 \text{ cm} \), \( \omega_1 = 10\pi \text{ rad/s} \), \( \phi_1 = \pi/2 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 9 \text{ cm} \), \( \omega_2 = 10\pi \text{ rad/s} \), \( \phi_2 = 3\pi/2 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta\phi = 3\pi/2 - \pi/2 = \pi \text{ rad} \) (រលកទាំងពីរប្រឆាំងផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = |A_1 - A_2| = |4 - 9| = 5 \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{10\pi} = 0.2 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">\( \phi = 3\pi/2 \text{ rad} \) (យកតាមផាសរបស់រលកទី២ ព្រោះ \( A_2 > A_1 \))</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 5 \sin(10\pi t + 3\pi/2) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (ឡើងលើ, ប្រវែង \(4\text{cm}\)) និង \( \vec{A}_2 \) (ចុះក្រោម, ប្រវែង \(9\text{cm}\)) ផ្ទុយទិសគ្នា។ វ៉ិចទ័រផលបូក \( \vec{A} \) ចង្អុលចុះក្រោមមានប្រវែង \(5\text{ cm}\) និងផាសដើម \( 3\pi/2 \text{ rad} \)។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 5 \sin(10\pi t + 3\pi/2) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -407,6 +737,55 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 3 \text{ cm} \), \( \omega_1 = 4\pi \text{ rad/s} \), \( \phi_1 = \pi/3 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 6 \text{ cm} \), \( \omega_2 = 4\pi \text{ rad/s} \), \( \phi_2 = 4\pi/3 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta\phi = 4\pi/3 - \pi/3 = \pi \text{ rad} \) (រលកទាំងពីរប្រឆាំងផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = |A_1 - A_2| = |3 - 6| = 3 \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{4\pi} = 0.5 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">\( \phi = 4\pi/3 \text{ rad} \) (យកតាមផាសរបស់រលកទី២ ព្រោះ \( A_2 > A_1 \))</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 3 \sin(4\pi t + 4\pi/3) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (មុំ \(60^\circ\), ប្រវែង \(3\text{cm}\)) និង \( \vec{A}_2 \) (មុំ \(240^\circ\), ប្រវែង \(6\text{cm}\)) ប្រឆាំងគ្នា។ វ៉ិចទ័រតម្រួត \( \vec{A} \) មានប្រវែង \(3\text{ cm}\) និងស្របតាមទិសដៅ \( \vec{A}_2 \) (មុំ \(240^\circ\) ឬ \(4\pi/3 \text{ rad}\))។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 3 \sin(4\pi t + 4\pi/3) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -426,6 +805,63 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 9 \text{ cm} \text{, } \omega_1 = 4\pi \text{ rad/s} \text{, } \phi_1 = \pi/6 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 4 \text{ cm} \text{, } \omega_2 = 4\pi \text{ rad/s} \text{, } \phi_2 = 2\pi/3 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ផលសងផាស :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 = 2\pi/3 - \pi/6 = \dfrac{4\pi - \pi}{6} = \dfrac{\pi}{2} \text{ rad} \) (រលកទាំងពីរកែងផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">
+                  \( A = \sqrt{A_1^2 + A_2^2 + 2A_1 A_2 \cos(\Delta\phi)} \)<br>
+                  ដោយ \( \Delta\phi = \pi/2 \text{ rad} \) នាំឲ្យ៖<br>
+                  \( A = \sqrt{9^2 + 4^2} = \sqrt{81 + 16} = \sqrt{97} \approx 9.85 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{4\pi} = 0.5 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">
+                  \( \tan\phi = \dfrac{A_1 \sin\phi_1 + A_2 \sin\phi_2}{A_1 \cos\phi_1 + A_2 \cos\phi_2} = \dfrac{9\sin(\pi/6) + 4\sin(2\pi/3)}{9\cos(\pi/6) + 4\cos(2\pi/3)} \)<br>
+                  \( \tan\phi = \dfrac{9(0.5) + 4(\sqrt{3}/2)}{9(\sqrt{3}/2) + 4(-0.5)} = \dfrac{4.5 + 2\sqrt{3}}{4.5\sqrt{3} - 2} \approx \dfrac{7.964}{5.794} \approx 1.375 \)<br>
+                  នាំឲ្យ៖ \( \phi \approx 0.94 \text{ rad} \)
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 9.85 \sin(4\pi t + 0.94) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (មុំ \(30^\circ\)) និង \( \vec{A}_2 \) (មុំ \(120^\circ\)) កែងគ្នា។ វ៉ិចទ័រតម្រួត \( \vec{A} \) ជាអង្កត់ទ្រូងចតុកោណកែងដែលសង់លើ \( \vec{A}_1 \) និង \( \vec{A}_2 \) មានប្រវែង \( 9.85 \text{ cm} \) និងមុំ \( 0.94 \text{ rad} \) (ឬ \(54^\circ\))។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 9.85 \sin(4\pi t + 0.94) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -445,6 +881,59 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 12 \text{ cm} \text{, } \omega_1 = 4\pi \text{ rad/s} \text{, } \phi_1 = \pi/2 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 9 \text{ cm} \text{, } \omega_2 = 4\pi \text{ rad/s} \text{, } \phi_2 = \pi \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ផលសងផាស :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 = \pi - \pi/2 = \pi/2 \text{ rad} \) (កែងផាសគ្នា)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">\( A = \sqrt{A_1^2 + A_2^2} = \sqrt{12^2 + 9^2} = \sqrt{144 + 81} = \sqrt{225} = 15 \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{4\pi} = 0.5 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">
+                  \( \tan\phi = \dfrac{A_1\sin\phi_1 + A_2\sin\phi_2}{A_1\cos\phi_1 + A_2\cos\phi_2} = \dfrac{12\sin(\pi/2) + 9\sin(\pi)}{12\cos(\pi/2) + 9\cos(\pi)} = \dfrac{12(1) + 9(0)}{12(0) + 9(-1)} = -\dfrac{4}{3} \approx -1.33 \)<br>
+                  ដោយសារ \( X = -9 < 0 \) និង \( Y = 12 > 0 \) មុំ \( \phi \) ស្ថិតក្នុងកាដ្រង់ទី២៖<br>
+                  \( \phi = \pi - \arctan(4/3) \approx 3.14 - 0.93 = 2.21 \text{ rad} \)
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 15 \sin(4\pi t + 2.21) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (ទិសដៅឡើងលើតាមអ័ក្សអរដោនេ, ប្រវែង \(12\text{cm}\)) និង \( \vec{A}_2 \) (ទិសដៅទៅឆ្វេងតាមអ័ក្សអាប់ស៊ីសអវិជ្ជមាន, ប្រវែង \(9\text{cm}\)) កែងគ្នា។ វ៉ិចទ័រលទ្ធផល \( \vec{A} \) ជាអង្កត់ទ្រូងចតុកោណកែងមានប្រវែង \(15\text{ cm}\) និងផាសដើម \( 2.21 \text{ rad} \) (ឬ \(126.87^\circ\))។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 15 \sin(4\pi t + 2.21) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -464,6 +953,64 @@
           <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
           <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
           <div class="ex-find"><span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង២ ។</span></div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី១ :</span>
+                <span class="sol-math">\( A_1 = 12 \text{ cm} \text{, } \omega_1 = 4\pi \text{ rad/s} \text{, } \phi_1 = \pi/4 \text{ rad} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រលកទី២ :</span>
+                <span class="sol-math">\( A_2 = 9 \text{ cm} \text{, } \omega_2 = 4\pi \text{ rad/s} \text{, } \phi_2 = 3\pi/2 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាផលសងផាសនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ផលសងផាស :</span>
+                <span class="sol-math">\( \Delta\phi = \phi_2 - \phi_1 = 3\pi/2 - \pi/4 = 5\pi/4 \text{ rad} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត</div>
+              <div class="sol-step">
+                <span class="sol-label">អំព្លីទុត :</span>
+                <span class="sol-math">
+                  \( A = \sqrt{A_1^2 + A_2^2 + 2A_1 A_2 \cos(\Delta\phi)} \)<br>
+                  \( A = \sqrt{12^2 + 9^2 + 2(12)(9)\cos(5\pi/4)} \)<br>
+                  \( A = \sqrt{144 + 81 + 216\left(-\dfrac{\sqrt{2}}{2}\right)} = \sqrt{225 - 108\sqrt{2}} \approx \sqrt{225 - 152.73} \approx 8.50 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{4\pi} = 0.5 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ផាសដើម :</span>
+                <span class="sol-math">
+                  \( Y = A_1\sin\phi_1 + A_2\sin\phi_2 = 12\sin(\pi/4) + 9\sin(3\pi/2) = 6\sqrt{2} - 9 \approx -0.515 \)<br>
+                  \( X = A_1\cos\phi_1 + A_2\cos\phi_2 = 12\cos(\pi/4) + 9\cos(3\pi/2) = 6\sqrt{2} \approx 8.485 \)<br>
+                  \( \tan\phi = \dfrac{Y}{X} = \dfrac{6\sqrt{2}-9}{6\sqrt{2}} \approx -0.0607 \)<br>
+                  ដោយ \( X > 0 \text{, } Y < 0 \) នាំឲ្យ \( \phi \approx -0.06 \text{ rad} \) (កាដ្រង់ទី៤)។
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ឃ. សរសេរសមីការរលកតម្រួត និងសំណង់ប្រេណែល</div>
+              <div class="sol-step">
+                <span class="sol-label">សមីការ :</span>
+                <span class="sol-math">\( y = 8.50 \sin(4\pi t - 0.06) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេណែល :</span>
+                <span class="sol-math">វ៉ិចទ័រ \( \vec{A}_1 \) (មុំ \(45^\circ\)) និង \( \vec{A}_2 \) (ចង្អុលចុះក្រោម) ផ្សំគ្នាបង្កើតបានវ៉ិចទ័រផលបូក \( \vec{A} \) ស្ថិតក្នុងកាដ្រង់ទី៤ មានប្រវែង \( 8.50 \text{ cm} \) និងមានផាសដើម \(-0.06 \text{ rad}\) ។</span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 8.50 \sin(4\pi t - 0.06) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -484,6 +1031,63 @@
           <div class="ex-find"><span>ក. កំណត់សមីការ តម្រួតនៃរលកជញ្រ្ជុំនេះ ។</span> </div>
           <div class="ex-find"><span>ខ. កំណត់ទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។</span> </div>
           <div class="ex-find"><span>គ. គណនាអេឡុងកាស្យុងរបស់សមីការ ។</span> </div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់សមីការតម្រួតនៃរលកជញ្ជ្រុំនេះ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  \( y = y_1 + y_2 = a\sin(kx - \omega t) + a\sin(kx + \omega t) \)<br>
+                  តាមរូបមន្តត្រីកោណមាត្រ៖ \( \sin(A-B) + \sin(A+B) = 2\sin A\cos B \)<br>
+                  គេបាន៖ \( y = 2a \sin(kx) \cos(\omega t) \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គណនា :</span>
+                <span class="sol-math">
+                  - ពុលសាស្យុង៖ \( \omega = 2\pi f = 2\pi(50) = 100\pi \text{ rad/s} \)<br>
+                  - ចំនួនរលក៖ \( k = \dfrac{2\pi}{\lambda} = \dfrac{2\pi}{2\pi} = 1 \text{ rad/cm} \)<br>
+                  - អំព្លីទុត៖ \( 2a = 2(4) = 8 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឲ្យ :</span>
+                <span class="sol-math">\( y = 8 \sin(x) \cos(100\pi t) \text{ cm} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. កំណត់ទីតាំងថ្នាំង និងទីតាំងពោះ</div>
+              <div class="sol-step">
+                <span class="sol-label">ថ្នាំងរលក :</span>
+                <span class="sol-math">
+                  កើតឡើងនៅពេលអំព្លីទុតស្មើសូន្យ៖ \( 2a \sin(kx) = 0 \Rightarrow \sin(x) = 0 \)<br>
+                  នាំឲ្យទីតាំងថ្នាំងគឺ៖ \( x = d\pi \text{ cm} \) (ចំពោះ \( d \in \mathbb{Z} \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ពោះរលក :</span>
+                <span class="sol-math">
+                  កើតឡើងនៅពេលអំព្លីទុតអតិបរមា៖ \( |\sin(kx)| = 1 \Rightarrow \sin(x) = \pm 1 \)<br>
+                  នាំឲ្យទីតាំងពោះគឺ៖ \( x = (2d+1)\dfrac{\pi}{2} \text{ cm} \) (ចំពោះ \( d \in \mathbb{Z} \))
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាអេឡុងកាស្យុងរបស់សមីការត្រង់ \(x = 10 \text{ cm}\)</div>
+              <div class="sol-step">
+                <span class="sol-label">ជំនួស :</span>
+                <span class="sol-math">
+                  \( y = 8 \sin(10) \cos(100\pi t) \text{ cm} \)<br>
+                  ដោយ \( \sin(10 \text{ rad}) \approx -0.544 \)<br>
+                  គេបាន៖ \( y = 8(-0.544) \cos(100\pi t) = -4.35 \cos(100\pi t) \text{ cm} \)
+                </span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកជញ្ជ្រុំគឺ \( y = 8 \sin(x) \cos(100\pi t) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -501,6 +1105,41 @@
           </p>
           <div class="ex-find"><span>ក. សរសេរសមីការតម្រួតនៃរលកទាំងពីរ ។</span></div>
           <div class="ex-find"><span>ខ. កំណត់អំព្លីទុតនៃរលកជញ្រ្ជុំ ។ បើ \(k = \pi/2 \text{ rad/cm}\) ; \(x = 1 \text{ cm}\) ។</span>  </div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. សរសេរសមីការតម្រួតនៃរលកទាំងពីរ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  \( y = y_1 + y_2 = 2A \sin(kx) \cos(\omega t) \)<br>
+                  ដោយ \( A = 5 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( y = 10 \sin(kx) \cos(\omega t) \text{ cm} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. កំណត់អំព្លីទុតនៃរលកជញ្ជ្រុំ បើ \(k = \pi/2 \text{ rad/cm}\) ; \(x = 1 \text{ cm}\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( A_x = |2A \sin(kx)| = |10 \sin(kx)| \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( A_x = |10 \sin(\pi/2 \cdot 1)| = |10 \sin(\pi/2)| \)<br>
+                  ដោយ \( \sin(\pi/2) = 1 \) នាំឲ្យ \( A_x = 10 \text{ cm} \)
+                </span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ អំព្លីទុតនៃរលកជញ្ជ្រុំត្រង់ចំនុចនោះគឺ \( A_x = 10 \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -517,8 +1156,50 @@
            គេធ្វើឲ្យរលកពីរមានទិសដៅផ្ទុយគ្នាដាលកាត់គ្នាក្នុងមជ្ឈដ្ឋានតែមួយបង្កើតបានជារលកជញ្រ្ជុំមួយ និងមានសមីការចលនាគឺ \(y_1 = A \sin(kx - \omega t)\) និង \(y_2 = A \sin(kx + \omega t)\) ។ 
            ដែល \(A = 4 \text{ cm}\) , \(k = 3 \text{ rad/m}\) , \(\omega = 2 \text{ rad/s}\) ។
           </p>
-          <div class="ex-find"><span>ក. គណនាអេឡុងកាស្យុងរបស់សមីការចលនារលកត្រង់ \(x = 2.3 \text{ cm}\) ។</span> </div>
+          <div class="ex-find"><span>ក. គណនាអេឡុងកាស្យុងរបស់សមីការចលនារលកត្រង់ \(x = 2.3 \text{ m}\) ។</span> </div>
           <div class="ex-find"><span>ខ. គណនាទីតាំងថ្នាំងត្រង់អំព្លីទុតស្មើសូន្យ និងទីតាំងពោះត្រង់អំព្លីទុតអតិបរមា ។</span>  </div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាអេឡុងកាស្យុងរបស់សមីការចលនារលកត្រង់ \(x = 2.3 \text{ m}\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( y = 2A \sin(kx) \cos(\omega t) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ជំនួស :</span>
+                <span class="sol-math">
+                  \( y = 2(4) \sin(3 \times 2.3) \cos(2t) = 8 \sin(6.9) \cos(2t) \text{ cm} \)<br>
+                  ដោយ \( \sin(6.9 \text{ rad}) \approx 0.578 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( y = 8(0.578) \cos(2t) = 4.62 \cos(2t) \text{ cm} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាទីតាំងថ្នាំង និងទីតាំងពោះ</div>
+              <div class="sol-step">
+                <span class="sol-label">ថ្នាំងរលក :</span>
+                <span class="sol-math">
+                  \( 2A \sin(kx) = 0 \Rightarrow \sin(3x) = 0 \Rightarrow 3x = d\pi \)<br>
+                  នាំឲ្យទីតាំងថ្នាំង៖ \( x = \dfrac{d\pi}{3} \text{ m} \) (ចំពោះ \( d \in \mathbb{Z} \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ពោះរលក :</span>
+                <span class="sol-math">
+                  \( |\sin(3x)| = 1 \Rightarrow 3x = (2d+1)\dfrac{\pi}{2} \)<br>
+                  នាំឲ្យទីតាំងពោះ៖ \( x = (2d+1)\dfrac{\pi}{6} \text{ m} \) (ចំពោះ \( d \in \mathbb{Z} \))
+                </span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ អេឡុងកាស្យុងគឺ \( y = 4.62 \cos(2t) \text{ cm} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -537,6 +1218,56 @@
           <div class="ex-find"><span>ក. គណនាអំព្លីទុតអតិបរមានៃលំយោលត្រង់ទីតាំងពោះ ។</span></div>
           <div class="ex-find"><span>ខ. កំណត់ទីតាំងថ្នាំងនៃរលកជញ្ជ្រុំ ។</span>  </div>
           <div class="ex-find"><span>គ. គណនាជំហានរលក ប្រេកង់ និងល្បឿននៃរលក ។</span>  </div>
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាអំព្លីទុតអតិបរមានៃលំយោលត្រង់ទីតាំងពោះ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមសមីការ :</span>
+                <span class="sol-math">\( y = A_x \sin(400t) \text{ ដែល } A_x = 0.2 \cos(4x) \text{ cm} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ពោះរលក :</span>
+                <span class="sol-math">អំព្លីទុតអតិបរមាត្រង់ទីតាំងពោះគឺ \( A_{\text{max}} = 0.2 \text{ cm} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. កំណត់ទីតាំងថ្នាំងនៃរលកជញ្ជ្រុំ</div>
+              <div class="sol-step">
+                <span class="sol-label">លក្ខខណ្ឌ :</span>
+                <span class="sol-math">
+                  ថ្នាំងកើតឡើងពេលអំព្លីទុតស្មើសូន្យ៖ \( A_x = 0 \Rightarrow \cos(4x) = 0 \)<br>
+                  \( 4x = (2d+1)\dfrac{\pi}{2} \Rightarrow x = (2d+1)\dfrac{\pi}{8} \text{ cm} \) (ចំពោះ \( d \in \mathbb{Z} \))
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">គ. គណនាជំហានរលក ប្រេកង់ និងល្បឿននៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ជំហានរលក :</span>
+                <span class="sol-math">
+                  តាមសមីការ៖ \( k = 4 \text{ rad/cm} \)<br>
+                  នាំឲ្យ៖ \( \lambda = \dfrac{2\pi}{k} = \dfrac{2\pi}{4} = \dfrac{\pi}{2} \approx 1.57 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេកង់ :</span>
+                <span class="sol-math">
+                  តាមសមីការ៖ \( \omega = 400 \text{ rad/s} \)<br>
+                  នាំឲ្យ៖ \( f = \dfrac{\omega}{2\pi} = \dfrac{400}{2\pi} = \dfrac{200}{\pi} \approx 63.66 \text{ Hz} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ល្បឿនរលក :</span>
+                <span class="sol-math">
+                  \( v = \dfrac{\omega}{k} = \dfrac{400}{4} = 100 \text{ cm/s} = 1 \text{ m/s} \)
+                </span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ \( \lambda \approx 1.57 \text{ cm} \text{, } f \approx 63.66 \text{ Hz} \text{, } v = 1 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>

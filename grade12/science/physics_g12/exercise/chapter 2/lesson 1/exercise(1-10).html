@@ -248,7 +248,68 @@
         content: "➤";
         color: var(--blue);
         font-size: 1.1rem;
-              display: block;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
       }
 
       @media (max-width: 700px) {
@@ -261,6 +322,10 @@
         .ex-head,
         .ex-body {
           padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
       }
     </style>
@@ -296,6 +361,7 @@
         <div class="section-head-line"></div>
       </div>
 
+      <!-- Ex 1 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -305,12 +371,37 @@
         </div>
         <div class="ex-body">
           <p>
-            រលកមេកានិចមួយមានប្រេកង់ \( 120 \, Hz \) ដាលក្នុងមជ្ឈដ្ឋានមួយដោយល្បឿន \( 60 \, m/s \) ។
+            រលកមេកានិចមួយមានប្រេកង់ <span class="given">\( 120 \, Hz \)</span> ដាលក្នុងមជ្ឈដ្ឋានមួយដោយល្បឿន <span class="given">\( 60 \, m/s \)</span> ។
           </p>
           <div class="ex-find"><span>គណនាជំហានរលក ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាជំហានរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v = \lambda \cdot f \quad \Rightarrow \quad \lambda = \dfrac{v}{f} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( v = 60 \text{ m/s} \) (ល្បឿនដំណាលរលក)<br>
+                  \( f = 120 \text{ Hz} \) (ប្រេកង់រលក)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \lambda = \dfrac{60}{120} = 0.5 \text{ m} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ជំហានរលកគឺ \( \lambda = 0.5 \text{ m} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 2 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -320,12 +411,37 @@
         </div>
         <div class="ex-body">
           <p>
-            ខ្សែយឺតមួយអាចរញ្ជួយដោយល្បឿន \( 10 \, m/s \) ។ រញ្ជួយអាចបង្កើតបានជាលំយោលស៊ីនុយសូអ៊ីត (រលកទទឹង) ដែលមានប្រេកង់ \( f = 2.5 \, Hz \) ។
+            ខ្សែយឺតមួយអាចរញ្ជួយដោយល្បឿន <span class="given">\( 10 \, m/s \)</span> ។ រញ្ជួយអាចបង្កើតបានជាលំយោលស៊ីនុយសូអ៊ីត (រលកទទឹង) ដែលមានប្រេកង់ <span class="given">\( f = 2.5 \, Hz \)</span> ។
           </p>
           <div class="ex-find"><span>គណនាជំហានរលកដាល ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាជំហានរលកដាល</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \lambda = \dfrac{v}{f} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( v = 10 \text{ m/s} \) (ល្បឿនរលក)<br>
+                  \( f = 2.5 \text{ Hz} \) (ប្រេកង់លំយោល)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \lambda = \dfrac{10}{2.5} = 4 \text{ m} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ជំហានរលកដាលគឺ \( \lambda = 4 \text{ m} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 3 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -335,12 +451,37 @@
         </div>
         <div class="ex-body">
           <p>
-            ស្ថានីយ៍វិទ្យុមួយផ្សាយដោយប្រេកង់ \( f = 99.9 \, MHz \) ហើយរលកវិទ្យុនេះមានជំហានរលកស្មើនឹង \( 3 \, m \) ។
+            ស្ថានីយ៍វិទ្យុមួយផ្សាយដោយប្រេកង់ <span class="given">\( f = 99.9 \, MHz \)</span> ហើយរលកវិទ្យុនេះមានជំហានរលកស្មើនឹង <span class="given">\( 3 \, m \)</span> ។
           </p>
           <div class="ex-find"><span>រកល្បឿនដំណាលនៃរលកវិទ្យុនេះ ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">រកល្បឿនដំណាលនៃរលកវិទ្យុ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v = \lambda \cdot f \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \lambda = 3 \text{ m} \) (ជំហានរលក)<br>
+                  \( f = 99.9 \text{ MHz} = 99.9 \times 10^6 \text{ Hz} \) (ប្រេកង់រលក)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v = 3 \times 99.9 \times 10^6 = 2.997 \times 10^8 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនដំណាលរលកវិទ្យុគឺ \( v = 2.997 \times 10^8 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 4 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -350,13 +491,55 @@
         </div>
         <div class="ex-body">
           <p>
-            រលកមួយមានប្រេកង់មុំ \( 110 \, rad/s \) និងជំហានរលក \( 1.8 \, m \) ។
+            រលកមួយមានប្រេកង់មុំ <span class="given">\( 110 \, rad/s \)</span> និងជំហានរលក <span class="given">\( 1.8 \, m \)</span> ។
           </p>
           <div class="ex-find"><span>ក. គណនាចំនួនរលក ។</span></div>
           <div class="ex-find"><span>ខ. គណនាល្បឿនដំណាលនៃរលក ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាចំនួនរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( k = \dfrac{2\pi}{\lambda} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">\( \lambda = 1.8 \text{ m} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( k = \dfrac{2\pi}{1.8} = \dfrac{10\pi}{9} \approx 3.49 \text{ rad/m} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនរលកគឺ \( k = \dfrac{10\pi}{9} \text{ rad/m} \approx 3.49 \text{ rad/m} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. គណនាល្បឿនដំណាលនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v = \dfrac{\omega}{k} \quad \text{ឬ} \quad v = \dfrac{\omega}{2\pi} \cdot \lambda \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \omega = 110 \text{ rad/s} \)<br>
+                  \( \lambda = 1.8 \text{ m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v = \dfrac{110}{2\pi} \times 1.8 = \dfrac{99}{\pi} \approx 31.51 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនដំណាលនៃរលកគឺ \( v \approx 31.51 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 5 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -366,12 +549,37 @@
         </div>
         <div class="ex-body">
           <p>
-            ល្បឿនសូរក្នុងទឹកសមុទ្រគឺ \( 1530 \, m/s \) ដែលត្រូវបានបន្សាយក្នុងទឹកសមុទ្រដែលមានប្រេកង់ \( 1800 \, Hz \) ។
+            ល្បឿនសូរក្នុងទឹកសមុទ្រគឺ <span class="given">\( 1530 \, m/s \)</span> ដែលត្រូវបានបន្សាយក្នុងទឹកសមុទ្រដែលមានប្រេកង់ <span class="given">\( 1800 \, Hz \)</span> ។
           </p>
           <div class="ex-find"><span>គណនាជំហានរលកនៃសូរ ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាជំហានរលកនៃសូរ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \lambda = \dfrac{v}{f} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( v = 1530 \text{ m/s} \) (ល្បឿនសូរ)<br>
+                  \( f = 1800 \text{ Hz} \) (ប្រេកង់សូរ)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \lambda = \dfrac{1530}{1800} = 0.85 \text{ m} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ជំហានរលកនៃសូរគឺ \( \lambda = 0.85 \text{ m} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 6 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -381,13 +589,61 @@
         </div>
         <div class="ex-body">
           <p>
-            រលកមួយផ្លាស់ទីដោយល្បឿន \( 1 \, m/s \) និងមានជំហានរលក \( 3 \, m \) ។
+            រលកមួយផ្លាស់ទីដោយល្បឿន <span class="given">\( 1 \, m/s \)</span> និងមានជំហានរលក <span class="given">\( 3 \, m \)</span> ។
           </p>
           <div class="ex-find"><span>ក. គណនាខួប ប្រេកង់ ពុលសាស្យុង និងចំនួនរលក ។</span></div>
           <div class="ex-find"><span>ខ. សរសេរសមីការរលកបើវាមានអំព្លីទុត \( 2 \, m \) និងផាសដើម \( \pi/6 \, rad \) ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាខួប ប្រេកង់ ពុលសាស្យុង និងចំនួនរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">គណនាខួប :</span>
+                <span class="sol-math">\( T = \dfrac{\lambda}{v} = \dfrac{3}{1} = 3 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គណនាប្រេកង់ :</span>
+                <span class="sol-math">\( f = \dfrac{1}{T} = \dfrac{1}{3} \text{ Hz} \approx 0.33 \text{ Hz} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ពុលសាស្យុង :</span>
+                <span class="sol-math">\( \omega = 2\pi f = \dfrac{2\pi}{3} \text{ rad/s} \approx 2.09 \text{ rad/s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ចំនួនរលក :</span>
+                <span class="sol-math">\( k = \dfrac{2\pi}{\lambda} = \dfrac{2\pi}{3} \text{ rad/m} \approx 2.09 \text{ rad/m} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ \( T = 3 \text{ s} \), \( f \approx 0.33 \text{ Hz} \), \( \omega \approx 2.09 \text{ rad/s} \), \( k \approx 2.09 \text{ rad/m} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. សរសេរសមីការរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">រូបមន្តទូទៅ :</span>
+                <span class="sol-math">\( y = A \sin(\omega t - kx + \varphi) \) (ករណីដាលតាមទិសវិជ្ជមាន)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( A = 2 \text{ m} \)<br>
+                  \( \omega = \dfrac{2\pi}{3} \text{ rad/s} \)<br>
+                  \( k = \dfrac{2\pi}{3} \text{ rad/m} \)<br>
+                  \( \varphi = \dfrac{\pi}{6} \text{ rad} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( y = 2 \sin\left(\dfrac{2\pi}{3} t - \dfrac{2\pi}{3} x + \dfrac{\pi}{6}\right) \text{ (m)} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកគឺ \( y = 2 \sin\left[\dfrac{2\pi}{3}(t - x) + \dfrac{\pi}{6}\right] \text{ (m)} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 7 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -397,13 +653,48 @@
         </div>
         <div class="ex-body">
           <p>
-            ចល័តមួយធ្វើចលនាលំយោលស៊ីនុយសូអ៊ីតមាន៖ \( y = 0.2 \sin(\pi t + \pi/4) \, (cm) \) ។
+            ចល័តមួយធ្វើចលនាលំយោលស៊ីនុយសូអ៊ីតមាន៖ <span class="given">\( y = 0.2 \sin(\pi t + \pi/4) \, (cm) \)</span> ។
           </p>
           <div class="ex-find"><span>ក. ទាញរកអំព្លីទុត និងផាសដើមនៃលំយោល ។</span></div>
           <div class="ex-find"><span>ខ. គណនាខួប និងប្រេកង់នៃលំយោល ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. ទាញរកអំព្លីទុត និងផាសដើមនៃលំយោល</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមសមីការ :</span>
+                <span class="sol-math">\( y = 0.2 \sin\left(\pi t + \dfrac{\pi}{4}\right) \text{ (cm)} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ធៀបនឹង :</span>
+                <span class="sol-math">\( y = A \sin(\omega t + \varphi) \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អំព្លីទុតគឺ \( A = 0.2 \text{ cm} \) និងផាសដើមគឺ \( \varphi = \dfrac{\pi}{4} \text{ rad} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. គណនាខួប និងប្រេកង់នៃលំយោល</div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">\( \omega = \pi \text{ rad/s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{\pi} = 2 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេកង់ :</span>
+                <span class="sol-math">\( f = \dfrac{1}{T} = \dfrac{1}{2} = 0.5 \text{ Hz} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ខួបគឺ \( T = 2 \text{ s} \) និងប្រេកង់គឺ \( f = 0.5 \text{ Hz} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 8 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -413,14 +704,52 @@
         </div>
         <div class="ex-body">
           <p>
-            ប្រភពលំញ័រមួយមានសមីការចលនា៖ \( y = 4 \sin(125t + \pi/3) \, (cm) \) ។ ប្រភពលំញ័រនេះបញ្ជួនរលកដាលផុតខ្សែប្រវែង \( 25 \, m \) ក្នុងរយៈពេល \( 2.5 \, s \) ។
+            ប្រភពលំញ័រមួយមានសមីការចលនា៖ <span class="given">\( y = 4 \sin(125t + \pi/3) \, (cm) \)</span> ។ ប្រភពលំញ័រនេះបញ្ជួនរលកដាលផុតខ្សែប្រវែង <span class="given">\( 25 \, m \)</span> ក្នុងរយៈពេល <span class="given">\( 2.5 \, s \)</span> ។
           </p>
           <div class="ex-find"><span>ក. កំណត់អំព្លីទុតនៃលំញ័រ និងផាសដើមនៃលំញ័រ ។</span></div>
           <div class="ex-find"><span>ខ. គណនាខួប ប្រេកង់នៃលំញ័រ ល្បឿនដំណាលនៃរលក និងជំហានរលក ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. កំណត់អំព្លីទុតនៃលំញ័រ និងផាសដើមនៃលំញ័រ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមសមីការ :</span>
+                <span class="sol-math">\( y = 4 \sin\left(125t + \dfrac{\pi}{3}\right) \text{ (cm)} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ធៀបនឹង :</span>
+                <span class="sol-math">\( y = A \sin(\omega t + \varphi) \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អំព្លីទុតគឺ \( A = 4 \text{ cm} \) និងផាសដើមគឺ \( \varphi = \dfrac{\pi}{3} \text{ rad} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. គណនាខួប ប្រេកង់ ល្បឿនដំណាលរលក និងជំហានរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ខួបលំញ័រ :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{125} \approx 0.05 \text{ s} \) (ដោយ \( \omega = 125 \text{ rad/s} \))</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេកង់ :</span>
+                <span class="sol-math">\( f = \dfrac{1}{T} = \dfrac{125}{2\pi} \approx 19.89 \text{ Hz} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ល្បឿនរលក :</span>
+                <span class="sol-math">\( v = \dfrac{d}{t} = \dfrac{25}{2.5} = 10 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ជំហានរលក :</span>
+                <span class="sol-math">\( \lambda = \dfrac{v}{f} = 10 \times \dfrac{2\pi}{125} = \dfrac{4\pi}{25} \text{ m} \approx 0.50 \text{ m} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ \( T \approx 0.05 \text{ s} \), \( f \approx 19.89 \text{ Hz} \), \( v = 10 \text{ m/s} \), \( \lambda \approx 0.50 \text{ m} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
-      <!-- 09 -->
+      <!-- Ex 9 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -429,12 +758,49 @@
           </div>
         </div>
         <div class="ex-body">
-          <p>រលកមួយដាលដោយសមីការ \( y = 3 \sin(4\pi x + 2\pi t) \, (m) \) ។</p>
+          <p>រលកមួយដាលដោយសមីការ <span class="given">\( y = 3 \sin(4\pi x + 2\pi t) \, (m) \)</span> ។</p>
           <div class="ex-find"><span>កំណត់អំព្លីទុត ចំនួនរលក ពុលសាស្យុង ខួប ប្រេកង់ ជំហានរលក និងល្បឿនរលក ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">កំណត់បណ្ដាលក្ខណៈនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ធៀបសមីការ :</span>
+                <span class="sol-math">\( y = 3 \sin(4\pi x + 2\pi t) \text{ ជាមួយ } y = A \sin(kx + \omega t) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ទាញបាន :</span>
+                <span class="sol-math">
+                  - អំព្លីទុត : \( A = 3 \text{ m} \)<br>
+                  - ចំនួនរលក : \( k = 4\pi \text{ rad/m} \approx 12.57 \text{ rad/m} \)<br>
+                  - ពុលសាស្យុង : \( \omega = 2\pi \text{ rad/s} \approx 6.28 \text{ rad/s} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គណនាខួប :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{2\pi} = 1 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ប្រេកង់ :</span>
+                <span class="sol-math">\( f = \dfrac{1}{T} = 1 \text{ Hz} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ជំហានរលក :</span>
+                <span class="sol-math">\( \lambda = \dfrac{2\pi}{k} = \dfrac{2\pi}{4\pi} = 0.5 \text{ m} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ល្បឿនរលក :</span>
+                <span class="sol-math">\( v = \lambda \cdot f = 0.5 \times 1 = 0.5 \text{ m/s} \) (ឬ \( v = \dfrac{\omega}{k} \))</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ \( A = 3 \text{ m} \), \( k = 4\pi \text{ rad/m} \), \( \omega = 2\pi \text{ rad/s} \), \( T = 1 \text{ s} \), \( f = 1 \text{ Hz} \), \( \lambda = 0.5 \text{ m} \), \( v = 0.5 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
-      <!-- 10 -->
+      <!-- Ex 10 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -443,8 +809,41 @@
           </div>
         </div>
         <div class="ex-body">
-          <p>បម្លាស់ទីនៃរលកមួយឲ្យដោយសមីការ \( y = 0.10 \sin(0.10x + 0.10t) \, (m) \) ។</p>
+          <p>បម្លាស់ទីនៃរលកមួយឲ្យដោយសមីការ <span class="given">\( y = 0.10 \sin(0.10x + 0.10t) \, (m) \)</span> ។</p>
           <div class="ex-find"><span>គណនាអំព្លីទុតនៃរលក ចំនួនរលក ជំហានរលក ខួបនៃរលក និងល្បឿនដំណាលរលក ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាបណ្ដាលក្ខណៈនៃរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">ធៀបសមីការ :</span>
+                <span class="sol-math">\( y = 0.10 \sin(0.10x + 0.10t) \text{ ជាមួយ } y = A \sin(kx + \omega t) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ទាញបាន :</span>
+                <span class="sol-math">
+                  - អំព្លីទុត : \( A = 0.10 \text{ m} \)<br>
+                  - ចំនួនរលក : \( k = 0.10 \text{ rad/m} \)<br>
+                  - ពុលសាស្យុង : \( \omega = 0.10 \text{ rad/s} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ជំហានរលក :</span>
+                <span class="sol-math">\( \lambda = \dfrac{2\pi}{k} = \dfrac{2\pi}{0.10} = 20\pi \text{ m} \approx 62.83 \text{ m} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខួបនៃរលក :</span>
+                <span class="sol-math">\( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{0.10} = 20\pi \text{ s} \approx 62.83 \text{ s} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ល្បឿនរលក :</span>
+                <span class="sol-math">\( v = \dfrac{\omega}{k} = \dfrac{0.10}{0.10} = 1 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ \( A = 0.10 \text{ m} \), \( k = 0.10 \text{ rad/m} \), \( \lambda \approx 62.83 \text{ m} \), \( T \approx 62.83 \text{ s} \), \( v = 1 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>

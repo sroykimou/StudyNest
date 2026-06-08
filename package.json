@@ -1,4 +1,7 @@
 {
+  "name": "studynest",
+  "version": "1.0.0",
+  "description": "Grade 12 Cambodian educational platform",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
     "@napi-rs/canvas": "^0.1.80",

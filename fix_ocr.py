@@ -1,3 +1,4 @@
+# DEPRECATED: Use fix_ocr.js instead. This file is kept for reference.
 import os
 import re
 

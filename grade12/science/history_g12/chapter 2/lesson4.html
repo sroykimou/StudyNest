@@ -8,53 +8,31 @@
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Siemreap&family=Bokor&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../assets/style.css">
 
     <style>
-      :root {
-        --royal-blue: #1e3a8a;
-        --deep-blue: #0f172a;
-        --gold: #f59e0b;
-        --soft-white: #ffffff;
-        --bg-slate: #f8fafc;
-        --text-main: #1e293b;
-        --text-muted: #64748b;
-        --glass: rgba(255, 255, 255, 0.85);
-        --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
+      /* Override body layout for scrolling lessons */
       body {
-        margin: 0;
-        font-family: "Kantumruy Pro", "Siemreap", Arial, sans-serif;
-        background-color: var(--bg-slate);
-        color: var(--text-main);
-        line-height: 1.8;
+        display: block !important;
+        overflow-y: auto !important;
+        padding: 40px 20px;
+        background: radial-gradient(ellipse at 25% 35%, #451a03 0%, transparent 55%),
+                    radial-gradient(ellipse at 75% 65%, #0f172a 0%, transparent 55%),
+                    linear-gradient(135deg, #1e1b4b 0%, #0c0a09 50%, #1e1b4b 100%) !important;
+        min-height: 100vh;
+      }
+      
+      /* Subject specific accent colors (Gold/Amber) */
+      :root {
+        --accent: #f59e0b;
+        --accent-glow: rgba(245, 158, 11, 0.35);
+        --primary: #d97706;
+        --primary-glow: rgba(217, 119, 6, 0.45);
       }
 
-      header {
-        background: linear-gradient(135deg, var(--deep-blue), var(--royal-blue));
-        color: white;
-        padding: 80px 20px 100px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      header::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: url('https://www.transparenttextures.com/patterns/graphy.png');
-        opacity: 0.15;
-      }
-
-      header .container-nav {
+      .main-content {
         max-width: 900px;
-        margin: 0 auto;
-        text-align: left;
+        margin: 40px auto 80px;
         position: relative;
         z-index: 10;
       }
@@ -66,44 +44,41 @@
         color: white;
         text-decoration: none;
         font-size: 0.95rem;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.1);
         padding: 10px 20px;
         border-radius: 50px;
         backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         transition: 0.3s;
       }
 
       .back-btn:hover {
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.2);
         transform: translateX(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+        border-color: var(--accent);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        position: relative;
+        z-index: 10;
       }
 
       header h1 {
-        margin: 30px 0 10px;
-        font-size: 2.5rem;
+        font-family: "Kantumruy Pro", "Siemreap", sans-serif;
+        font-size: 2.8rem;
         font-weight: 700;
-        position: relative;
-        z-index: 10;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        color: #fff;
+        text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        margin-top: 20px;
       }
 
       header p {
-        font-size: 1.1rem;
-        opacity: 0.85;
-        position: relative;
-        z-index: 10;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .main-content {
-        max-width: 900px;
-        margin: -50px auto 80px;
-        padding: 0 20px;
-        position: relative;
-        z-index: 20;
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-top: 10px;
       }
 
       .section-label {
@@ -115,85 +90,93 @@
 
       .section-label h3 {
         margin: 0;
-        font-size: 1.3rem;
-        color: var(--royal-blue);
+        font-size: 1.4rem;
+        color: #f59e0b;
         font-weight: 700;
         white-space: nowrap;
+        text-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
       }
 
       .section-label::after {
         content: "";
         height: 2px;
-        background: linear-gradient(to right, var(--gold), transparent);
+        background: linear-gradient(to right, var(--accent), transparent);
         flex: 1;
         border-radius: 2px;
       }
 
+      /* Dark glassmorphic card container structure */
       .card {
-        background: var(--soft-white);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-radius: 24px;
-        padding: 35px;
-        margin-bottom: 25px;
-        box-shadow: var(--card-shadow);
-        border: 1px solid rgba(226, 232, 240, 0.8);
+        padding: 32px;
+        margin-bottom: 24px;
+        color: white;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
         overflow: hidden;
       }
 
       .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        border-color: var(--gold);
+        transform: translateY(-5px);
+        border-color: var(--accent);
+        box-shadow: 0 12px 40px rgba(245, 158, 11, 0.15);
       }
 
       .card::before {
         content: "";
         position: absolute;
         top: 0; left: 0; width: 6px; height: 100%;
-        background: var(--royal-blue);
-        opacity: 0.1;
+        background: var(--accent);
+        opacity: 0.3;
         transition: 0.3s;
       }
 
       .card:hover::before {
         opacity: 1;
-        background: var(--gold);
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent);
       }
 
       .question-box {
         display: flex;
+        align-items: center;
         gap: 18px;
         margin-bottom: 20px;
-        border-bottom: 1px solid #f1f5f9;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding-bottom: 15px;
       }
 
       .q-badge {
-        background: var(--royal-blue);
-        color: white;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #000;
+        font-weight: 800;
         min-width: 40px;
         height: 40px;
-        border-radius: 14px;
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
         font-size: 1.1rem;
         flex-shrink: 0;
-        box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+        box-shadow: 0 4px 15px var(--accent-glow);
       }
 
       .question-text {
         font-weight: 700;
-        font-size: 1.2rem;
-        color: var(--royal-blue);
-        line-height: 1.5;
+        font-size: 1.25rem;
+        color: #fff;
+        line-height: 1.6;
       }
 
       .answer-box {
-        color: #334155;
-        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        line-height: 1.8;
       }
 
       ul {
@@ -209,67 +192,61 @@
       }
 
       li::before {
-        content: "-";
+        content: "✦";
         position: absolute;
         left: 0;
-        color: var(--gold);
+        color: var(--accent);
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
 
       .sub-header {
         display: block;
         margin-top: 25px;
         font-weight: 700;
-        color: var(--royal-blue);
-        font-size: 1.1rem;
-        border-bottom: 2px solid #eff6ff;
-        padding-bottom: 5px;
+        color: var(--accent);
+        font-size: 1.15rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 8px;
         margin-bottom: 15px;
       }
-
-      .status-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 16px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin: 20px 0 10px;
-      }
-
-      .positive { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
-      .negative { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 
       footer {
         text-align: center;
         padding: 60px 20px;
-        background: white;
-        border-top: 1px solid #e2e8f0;
+        margin-top: 80px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         color: var(--text-muted);
       }
 
       .study-logo {
         font-family: "Bokor", cursive;
-        font-size: 1.5rem;
-        color: var(--royal-blue);
+        font-size: 1.8rem;
+        color: var(--accent);
         margin-bottom: 10px;
         display: block;
+        text-shadow: 0 0 10px var(--accent-glow);
       }
 
+      /* Responsive styling */
       @media (max-width: 600px) {
-        header { padding: 60px 15px 80px; }
+        body {
+          padding: 20px 10px;
+        }
         header h1 { font-size: 1.8rem; }
-        .card { padding: 25px; }
+        .card { padding: 24px; }
         .question-text { font-size: 1.1rem; }
+        .q-badge { min-width: 35px; height: 35px; font-size: 1rem; }
       }
     </style>
 </head>
 <body>
 
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
     <header>
-      <div class="container-nav">
+      <div class="container-nav" style="max-width: 900px; margin: 0 auto; text-align: left;">
         <a href="../history_g12.html" class="back-btn">
           <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
         </a>
@@ -288,7 +265,7 @@
         <div class="answer-box">
           <ul>
             <li><strong>លក្ខខណ្ឌកម្រិត៖</strong> គោលការណ៍ច្បាប់ ឬសេចក្ដីកំណត់ដែលបានចែងទុកជាមុន។</li>
-            <li><strong>កមូហភាវូបនីយកម្ម៖</strong> ការធ្វើឱ្យប្រជាជនរស់នៅក្នុងសហករណ៍កម្រិតខ្ពស់ គឺដេកជាមួយគ្នា ហូបរួមគ្នា ដែលអ្វីៗទាំងអស់ដាក់ជាសម្បត្តិរួមគ្នា។</li>
+            <li><strong>កមូហភាវូបនីយកម្ម៖</strong> การធ្វើឱ្យប្រជាជនរស់នៅក្នុងសហករណ៍កម្រិតខ្ពស់ គឺដេកជាមួយគ្នា ហូបរួមគ្នា ដែលអ្វីៗទាំងអស់ដាក់ជាសម្បត្តិរួមគ្នា។</li>
             <li><strong>អនីតិជន៖</strong> ជនដែលរុំទាន់គ្រប់អាយុតាមច្បាប់ ឬ គឺអាយុតិចជាង ១៨ ឆ្នាំ។</li>
             <li><strong>អង្គការភ្នែកម្នាស់៖</strong> គឺជាយន្តការតាមដានគ្នាទៅវិញទៅមក និងរាយការណ៍ប្រាប់អង្គការ ដែលមនុស្សទាំងអស់ជាផ្នែករបស់អង្គការ។</li>
           </ul>
@@ -500,7 +477,7 @@
         <div class="answer-box">
           ពួកខ្មែរក្រហមបានបែងចែកវណ្ណៈសង្គមជា ២ គឺ៖
           <ul>
-            <li><strong>ប្រជាជនមូលដ្ឋាន ឬប្រជាជនចាស់៖</strong> គឺជាប្រជាជនដែលរស់នៅតាមតំបន់រំដោះគ្រប់គ្រងដោយបក្សកុម្មុយនីស្តកម្ពុជា មុនថ្ងៃទី ១៧ ខែមេសា ឆ្នាំ ១៩៧៥។</li>
+            <li><strong>...ប្រជាជនមូលដ្ឋាន ឬប្រជាជនចាស់៖</strong> គឺជាប្រជាជនដែលរស់នៅតាមតំបន់រំដោះគ្រប់គ្រងដោយបក្សកុម្មុយនីស្តកម្ពុជា មុនថ្ងៃទី ១៧ ខែមេសា ឆ្នាំ ១៩៧៥។</li>
             <li><strong>ប្រជាជនថ្មី ឬប្រជាជន ១៧ មេសា៖</strong> គឺជាប្រជាជនជម្លៀសចេញពីទីក្រុង ឬទីប្រជុំជននានា ក្រោយថ្ងៃទី ១៧ ខែមេសា ឆ្នាំ ១៩៧៥។</li>
           </ul>
         </div>
@@ -608,5 +585,14 @@
       </div>
     </footer>
 
+    <!-- StudyNest Core Script & Background Init -->
+    <script src="../../../../assets/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        if (typeof StudyNest !== 'undefined' && typeof StudyNest.initBackground === 'function') {
+          StudyNest.initBackground();
+        }
+      });
+    </script>
 </body>
 </html>

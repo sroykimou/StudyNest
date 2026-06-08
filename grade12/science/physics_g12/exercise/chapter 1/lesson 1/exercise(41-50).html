@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>លំហាត់អនុវត្ត ២៤–៥៩ | StudyNest Physics G12</title>
+    <title>លំហាត់អនុវត្ត ៤១–៥០ | StudyNest Physics G12</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
       rel="stylesheet"
@@ -168,10 +168,14 @@
         box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
       }
 
-      .ex-card:nth-child(3n + 2) {
-        border-left-color: var(--accent2);
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
       }
       .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
         border-left-color: var(--accent);
       }
 
@@ -198,10 +202,13 @@
         flex-shrink: 0;
       }
 
-      .ex-card:nth-child(3n + 2) .ex-badge {
-        background: var(--accent2);
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
       }
       .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
         background: var(--accent);
       }
 
@@ -224,11 +231,15 @@
         border-radius: 6px;
       }
 
-      .ex-card:nth-child(3n + 2) .given {
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
         background: #d1fae5;
         color: #065f46;
       }
-      .ex-card:nth-child(3n) .given {
+      .ex-card:nth-child(3n + 1) .given {
         background: #fef3c7;
         color: #92400e;
       }
@@ -249,7 +260,68 @@
         content: "➤";
         color: var(--blue);
         font-size: 1.1rem;
-              display: block;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
       }
 
       @media (max-width: 700px) {
@@ -262,6 +334,10 @@
         .ex-head,
         .ex-body {
           padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
       }
     </style>
@@ -282,11 +358,10 @@
     </header>
 
     <div class="container">
-      <!-- Exercises 24–40 are already in previous messages. Below are the completed 41–59 -->
-
-      
-
-      
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
 
       <!-- 41 -->
       <div class="ex-card">
@@ -296,9 +371,39 @@
         </div>
         <div class="ex-body">
           <p>បាឡុងមួយមានឧស្ម័នអេល្យូម <span class="given">500 m³</span> នៅសីតុណ្ហភាព <span class="given">27°C</span> និងសម្ពាធ <span class="given">1 atm</span> ។</p>
-          <p>គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាព <span class="given">-3°C</span> និងសម្ពាធ <span class="given">0.5 atm</span> ។</p>  
-          </p>
-          
+          <p>គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាព <span class="given">-3°C</span> និងសម្ពាធ <span class="given">0.5 atm</span> ។</p>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌរបស់ឧស្ម័នអេល្យូម (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = \dfrac{P_1 V_1 T_2}{P_2 T_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V_1 = 500 \text{ m}^3 \)<br>
+                  \( P_1 = 1 \text{ atm} \)<br>
+                  \( T_1 = 27 + 273 = 300 \text{ K} \)<br>
+                  \( P_2 = 0.5 \text{ atm} \)<br>
+                  \( T_2 = -3 + 273 = 270 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = \dfrac{1 \times 500 \times 270}{0.5 \times 300} = 900 \text{ m}^3 \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌរបស់ឧស្ម័នអេល្យូមថ្មីគឺ \( V_2 = 900 \text{ m}^3 \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -312,9 +417,41 @@
           <p>
             មធ្យោបាយមួយដើម្បីឲ្យឧស្ម័នចុះត្រជាក់គឺធ្វើឲ្យឧស្ម័នរីកមាឌ ។ ធម្មតាឧស្ម័ននៅសីតុណ្ហភាព <span class="given">27°C</span> និងសម្ពាធ <span class="given">400 atm</span> ត្រូវបានពង្រឹកដល់សម្ពាធបរិយាកាសនិងមាឌធំជាងមុន ១៣ដង។
           </p>
-          
           <div class="ex-find"><span>គណនាសីតុណ្ហភាពថ្មីរបស់ឧស្ម័ននោះ។</span></div>
-          
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសីតុណ្ហភាពថ្មីរបស់ឧស្ម័ន (\(T_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( T_2 = T_1 \times \dfrac{P_2}{P_1} \times \dfrac{V_2}{V_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_1 = 27 + 273 = 300 \text{ K} \)<br>
+                  \( P_1 = 400 \text{ atm} \)<br>
+                  \( P_2 = 1 \text{ atm} \)<br>
+                  \( V_2 = 13 V_1 \Rightarrow \dfrac{V_2}{V_1} = 13 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( T_2 = 300 \times \dfrac{1}{400} \times 13 = 9.75 \text{ K} \)<br>
+                  គិតជាអង្សាសេ៖ \( t_2 = 9.75 - 273 = -263.25^\circ\text{C} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សីតុណ្ហភាពថ្មីរបស់ឧស្ម័នគឺ \( T_2 = 9.75 \text{ K} \quad (t_2 = -263.25^\circ\text{C}) \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -329,7 +466,37 @@
             បាឡុងមួយមានឧស្ម័នអុីដ្រូសែន <span class="given"> 20 L</span> និងសម្ពាធ
             <span class="given">​1 atm</span>។ 
           </p>
-          <div class="ex-find"><span>គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាព  <span class="given">0 °C</span> និងសម្ពាធ <span class="given">0.2 atm</span> ។</span></div>
+          <div class="ex-find"><span>គណនាមាឌរបស់ឧស្ម័ននៅសម្ពាធ <span class="given">0.2 atm</span> ដោយរក្សាសីតុណ្ហភាពថេរ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌរបស់ឧស្ម័ន (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P_1 V_1 = P_2 V_2 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = \dfrac{P_1 V_1}{P_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V_1 = 20 \text{ L} \)<br>
+                  \( P_1 = 1 \text{ atm} \)<br>
+                  \( P_2 = 0.2 \text{ atm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = \dfrac{1 \times 20}{0.2} = 100 \text{ L} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌរបស់ឧស្ម័នអ៊ីដ្រូសែនគឺ \( V_2 = 100 \text{ L} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -344,9 +511,37 @@
             ផើងមួយបិទជិតមានមាឌ​ <span class="given">10 L</span> ដាក់ឧស្ម័នក្រោមសម្ពាធ
             <span class="given">2.4 atm</span>។ នៅក្រោយពេលដែលគេបន្ធូរមាឌដល់សម្ពាធមានតម្លៃ​​ <span class="given">1.2 atm</span> ដោយរក្សាសីតុណ្ហភាពថេរ​ ។
           </p>
-          
-          <div class="ex-find"><span>គណនាមាឌរបស់ឧស្ម័ននៅសីតុណ្ហភាពថ្មី។</span></div>
-          
+          <div class="ex-find"><span>គណនាមាឌរបស់ឧស្ម័ននៅសម្ពាធថ្មី។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌរបស់ឧស្ម័ននៅសម្ពាធថ្មី (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P_1 V_1 = P_2 V_2 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = \dfrac{P_1 V_1}{P_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V_1 = 10 \text{ L} \)<br>
+                  \( P_1 = 2.4 \text{ atm} \)<br>
+                  \( P_2 = 1.2 \text{ atm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = \dfrac{2.4 \times 10}{1.2} = 20 \text{ L} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌថ្មីរបស់ឧស្ម័នគឺ \( V_2 = 20 \text{ L} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -361,6 +556,36 @@
              ក្រោមសម្ពាធ <span class="given">1 atm</span> ឧស្ម័នមួយមានមាឌ <span class="given">10 L</span>។ ក្រោយមកឧស្ម័ននោះក៏ស្ថិតក្រោមសម្ពាធ <span class="given">5 atm</span> ស្ថិតក្រោមសីតុណ្ហភាពថេរ។
           </p>
           <div class="ex-find"><span>គណនាមាឌរបស់ឧស្ម័នថ្មី។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌរបស់ឧស្ម័នថ្មី (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P_1 V_1 = P_2 V_2 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = \dfrac{P_1 V_1}{P_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V_1 = 10 \text{ L} \)<br>
+                  \( P_1 = 1 \text{ atm} \)<br>
+                  \( P_2 = 5 \text{ atm} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = \dfrac{1 \times 10}{5} = 2 \text{ L} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌរបស់ឧស្ម័នថ្មីគឺ \( V_2 = 2 \text{ L} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -372,10 +597,34 @@
         </div>
         <div class="ex-body">
           <p>
-            បាឡុងមួយបិទមានមាឌដើម \(V_0\) មានដាក់ឧស្ម័នពេញស្ថិតក្រោមសម្ពាធ<span class="given">\(  3 \times 10^{5} \) Pa</span> ។ ក្រោយមកបាឡុងនោះត្រូវបានបណ្ណែនមាឌរបស់វាថយចុះតូចជាងមុន២ដង​ តាមលំនាំអុីសូទែម។
+            បាឡុងមួយបិទមានមាឌដើម \(V_0\) មានដាក់ឧស្ម័នពេញស្ថិតក្រោមសម្ពាធ<span class="given">\( 3 \times 10^{5} \) Pa</span> ។ ក្រោយមកបាឡុងនោះត្រូវបានបណ្ណែនមាឌរបស់វាថយចុះតូចជាងមុន២ដង​ តាមលំនាំអុីសូទែម។
           </p>
-          
           <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័នក្រោយគេបានបណ្ណែន។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសម្ពាធនៃឧស្ម័នក្រោយពេលបណ្ណែន (\(P_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P_1 V_1 = P_2 V_2 \Rightarrow P_2 = P_1 \times \dfrac{V_1}{V_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P_1 = 3 \times 10^5 \text{ Pa} \)<br>
+                  \( V_2 = \dfrac{V_1}{2} \Rightarrow \dfrac{V_1}{V_2} = 2 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( P_2 = 3 \times 10^5 \times 2 = 6 \times 10^5 \text{ Pa} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សម្ពាធឧស្ម័នក្រោយពេលបណ្ណែនគឺ \( P_2 = 6 \times 10^5 \text{ Pa} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -388,8 +637,38 @@
         <div class="ex-body">
           <p>
             នៅក្នុងធុងមួយមានមាឌ​ <span class="given">62 dm³</span> មានផ្ទុកឧស្ម័នអុីដ្រូសែនក្រោមសីតុណ្ហភាព  <span class="given">37°C</span>​ ។ បើសម្ពាធរបស់វាថេរ ។ 
-          
+          </p>
           <div class="ex-find"><span>គណនាមាឌរបស់ឧស្ម័នអុីដ្រូសែន នៅសីតុណ្ហភាព <span class="given">67°C</span>។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌរបស់ឧស្ម័នអុីដ្រូសែន (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{V_1}{T_1} = \dfrac{V_2}{T_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = V_1 \times \dfrac{T_2}{T_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V_1 = 62 \text{ dm}^3 \)<br>
+                  \( T_1 = 37 + 273 = 310 \text{ K} \)<br>
+                  \( T_2 = 67 + 273 = 340 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = 62 \times \dfrac{340}{310} = 68 \text{ dm}^3 \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌរបស់ឧស្ម័នអ៊ីដ្រូសែនគឺ \( V_2 = 68 \text{ dm}^3 \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -401,11 +680,37 @@
         </div>
         <div class="ex-body">
           <p>
-            បំពង់មួយផ្ទុកឧស្ម័នអុកសុីសែនក្រោមសីតុណ្ហភាព <span class="given">27°C</span> និង ។​ គេធ្វើឲ្យឧស្ម័នរីកមាឌកើនឡើងពីរដងតាមលំនាំអុីសូបារ។
+            បំពង់មួយផ្ទុកឧស្ម័នអុកសុីសែនក្រោមសីតុណ្ហភាព <span class="given">27°C</span> ។​ គេធ្វើឲ្យឧស្ម័នរីកមាឌកើនឡើងពីរដងតាមលំនាំអុីសូបារ។
           </p>
-          
           <div class="ex-find"><span>គណនាសីតុណ្ហភាពនៃឧស្ម័ននៅខណ:នោះ។</span></div>
-          
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសីតុណ្ហភាពនៃឧស្ម័ន (\(T_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{V_1}{T_1} = \dfrac{V_2}{T_2} \Rightarrow T_2 = T_1 \times \dfrac{V_2}{V_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_1 = 27 + 273 = 300 \text{ K} \)<br>
+                  \( V_2 = 2 V_1 \Rightarrow \dfrac{V_2}{V_1} = 2 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( T_2 = 300 \times 2 = 600 \text{ K} \)<br>
+                  គិតជាអង្សាសេ៖ \( t_2 = 600 - 273 = 327^\circ\text{C} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សីតុណ្ហភាពគឺ \( t_2 = 327^\circ\text{C} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -419,8 +724,34 @@
           <p>
             តើគេត្រូវកម្ដៅឧស្ម័នមួយដល់សីតុណ្ហភាពប៉ុន្មាន ដើម្បីឲ្យវាមាឌរបស់វាធំជាងពីរដង​ តែសម្ពាធនៅដដែល ? គេឲ្យសីតុណ្ហភាពដើមនៃឧស្ម័ន  <span class="given">0°C</span>។
           </p>
-         
-          
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសីតុណ្ហភាពថ្មី (\(T_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{V_1}{T_1} = \dfrac{V_2}{T_2} \Rightarrow T_2 = T_1 \times \dfrac{V_2}{V_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_1 = 0 + 273 = 273 \text{ K} \)<br>
+                  \( V_2 = 2 V_1 \Rightarrow \dfrac{V_2}{V_1} = 2 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( T_2 = 273 \times 2 = 546 \text{ K} \)<br>
+                  គិតជាអង្សាសេ៖ \( t_2 = 546 - 273 = 273^\circ\text{C} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ គេត្រូវកម្ដៅដល់សីតុណ្ហភាព \( t_2 = 273^\circ\text{C} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -435,174 +766,37 @@
             ដបមួយផ្ទុកឧស្ម័នមានមាឌថេរស្ថិតក្រោមសម្ពាធ <span class="given">\(  1.25 \times 10^{5} \) N/m²</span>នៅសីតុណ្ហភាព <span class="given">17°C</span>។ 
             គេដុតកម្ដៅឧស្ម័នដល់សីតុណ្ហភាព <span class="given">57°C</span> តាមលំនាំអុីសូករ។
           </p>
-          
           <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័នក្នុងដប ។</span></div>
-         
-        </div>
-      </div>
 
-      <!-- 51 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">51</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥១</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            ដបមួយផ្ទុកឧស្ម័នពេញ ស្ថិតក្រោមសម្ពាធ <span class="given"> 2.5 atm</span> នៅសីតុណ្ហភាព
-            <span class="given"> 27°C</span>សម្ពាធកើនឡើងដល់ <span class="given">3 atm</span>។
-          </p>
-          <div class="ex-find"><span>តើគេត្រូវកម្ដៅឧស្ម័នដល់សីតុណ្ហភាពប៉ុន្មាន °C ?</span></div>
-        </div>
-      </div>
-      <!-- 52 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">52</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥២</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            បាឡុងមួយបិទជិតមានផ្ទុកឧស្ម័នដែលគេសន្មត់ថាជាឧស្ម័នបរិសុទ្ធស្ថិតក្រោមសម្ពាធ <span class="given">1 atm</span> 
-            បើគេទុកបាឡុងនោះនៅក្នុងម្លប់មានសីតុណ្ហភាព <span class="given">\(T_1\)</span>។ បន្ទាប់មកគេយកបាឡុងនោះទៅដាក់ហាលថ្ងៃនាំឧ្យសីតុណ្ណភាពវាកើនឡើងពីរដង ។
-          </p>
-          <div class="ex-find"><span>គណនាសម្ពាធឧស្ម័នក្នុងបាឡុងនោះ បើគេសន្មត់ថាមាឌបាឡុងថេរ​ ។</span></div>
-        </div>
-      </div>
-
-      <!-- 53 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">53</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៣</span>
-        </div>
-        <div class="ex-body">
-          
-          <p>
-            បាឡុងមួយបិទជិតមានផ្ទុកឧស្ម័នដែលគេសន្មត់ថាជាឧស្ម័នបរិសុទ្ធស្ថិតក្រោមសម្ពាធ <span class="given">2 atm</span> 
-            បើគេទុកបាឡុងនោះនៅក្នុងម្លប់មានសីតុណ្ហភាព <span class="given">27°C</span>។
-             បន្ទាប់មកគេយកបាឡុងនោះទៅដាក់ហាលថ្ងៃនាំឧ្យសីតុណ្ណភាពវាកើនឡើងរហូតដល់ <span class="given">47°C</span> ។
-          </p>
-          <div class="ex-find"><span>គណនាសម្ពាធឧស្ម័នក្នុងបាឡុងនោះ បើគេសន្មត់ថាមាឌបាឡុងថេរ​ ។</span></div>
-        </div>
-      </div>
-
-      <!-- 54 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">54</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៤</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            ផង់នីមួយៗមានម៉ាស \(m_0\) និងផ្លាស់ដោយល្បឿន \(v_0\)តាមបណ្ដោយអ័ក្ស \(ox\)។ គេដឹងថាក្នុងផ្ទៃ <span class="given">4 mm²</span>
-            និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 1 \times 10^5 \)</span> ទៅទង្គិចផ្ទៃនោះ ។​ គេសន្មត់ទង្គិចរវាងផង់និងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
-          </p>
-          <p>
-            គេឲ្យ \( m_0 = 9.11 \times 10^{-31} \) kg និង \( v_0 = 8 \times 10^7 \) m/s ។ 
-          </p>
-          <div class="ex-find">
-           <span>ចូររកសម្ពាធរបស់ផង់លើផ្ទៃប៉ះនោះ ។</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 55 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">55</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៥</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            ប្រូតុងមានមួយមានម៉ាស <span class="given">\( m_p = 1.67 \times 10^{-27} \) kg</span> និងផ្លាស់ទីដោយល្បឿនដើម \(v_o\)
-            តាមបណ្តោយអ័ក្ស \(ox\)ក្នុងធុងមួយមានរាងជាគូប ។ គេដឹងថាក្នុងផ្ទៃ <span class="given">4 mm²</span> និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 5 \times 10^{13} \)</span> ទៅទង្គិចផ្ទៃនោះ
-            ហើយសម្ពាធរបស់ប្រូតុងលើផ្ទៃប៉ះគឺ<span class="given">\(  8.35 \times 10^{-2} \) Pa</span>។ គេសន្មត់ទង្គិចរវាងប្រូតុងនិងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
-          </p>
-          
-          <div class="ex-find"><span>ក. គណនាកម្លាំងដែលប្រូតុងនីមួយៗមានលើផ្ទៃប៉ះ ។</span></div>
-          <div class="ex-find"><span>ខ. គណនាល្បឿនប្រូតុងនៅខណ:វាទៅប៉ះនឹងផ្ទៃម្ខាងទៀតនៃគូប ។</span></div>
-        </div>
-      </div>
-
-      <!-- 56 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">56</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៦</span>
-        </div>
-        <div class="ex-body">
-          <p>
-         ប្រូតុងមួយមានម៉ាស <span class="given">\(  6.68 \times 10^{-27} \) kg</span> និងផ្លាស់ទីដោយល្បឿន  \(v\)
-            តាមបណ្តោយអ័ក្ស \(ox\)ក្នុងគូបមួយដែលមានទ្រនុង <span class="given">L = 3 mm</span>។ប្រូតុងផ្លាស់ពីផ្ទៃម្ខាងទៅផ្ទៃម្ខាងទៀតនិងក្នុងក្នុងរយ:ពេល <span class="given">2 ns</span>។ 
-             គេសន្មត់ទង្គិចរវាងប្រូតុងនិងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។ គេដឹងថាក្នុងរយ:ពេល <span class="given">2 ns</span> មានផង់ចំនួន <span class="given">\( 2 \times 10^{6} \)</span> ទៅទង្គិចនឹងផ្ទៃខាងគូបនោះ ។
-          </p>
-          <div class="ex-find"><span>ក. គណនាល្បឿនដើមប្រូតុងនៅខណ:វាចាប់ផ្តើមចេញពីផ្ធៃខាងគូប ។</span></div>
-          <div class="ex-find"><span>ខ. គណនាសម្ពាធប្រូតុងលើផ្ទៃខាងគូប ។</span></div>
-          <div class="ex-find"><span>គ. គណនាសម្ពាធសរុបរបស់ប្រូតុងលើផ្ទៃខាងនៃគូប ។</span></div>
-        </div>
-      </div>
-
-      <!-- 57 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">57</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៧</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            ភាគល្អិតមួយមានម៉ាស <span class="given">\(  6.68 \times 10^{-27} \) kg</span> និងផ្លាស់ទីដោយល្បឿន <span class="given">1500 Km/s</span>
-            តាមបណ្តោយអ័ក្ស \(ox\)ក្នុងមាឌមួយដែលមានរាងជាគូបទ្រនុងនីមួយៗមានរង្វាស់ប្រវែង L។ គេដឹងថាក្នុងផ្ទៃ <span class="given">4 mm²</span> និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 5 \times 10^{13} \)</span> ទៅទង្គិចផ្ទៃនោះ
-            ហើយសម្ពាធរបស់ប្រូតុងលើផ្ទៃប៉ះគឺ<span class="given">\(  8.35 \times 10^{-2} \) Pa</span>។ គេសន្មត់ទង្គិចរវាងប្រូតុងនិងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
-          </p>
-          <p>
-            ពេលប៉ះ <span class="given">25 ns</span> ; ចំនួន
-            <span class="given">25 \times 10^6</span>។
-          </p>
-          <div class="ex-find"><span>ក. គណនាប្រវែងទ្រនុង L ​នៃគូប និងកម្លាំងដែលមានអំពើលើផង់មួយ ។</span></div>
-          <div class="ex-find"><span>ខ. គណនាអាំពុលស្យុង និងសម្ពាធលើផ្ទៃខាងគូប ។</span></div>
-          <div class="ex-find"><span>គ. គណនាសម្ពាធសរុបរបស់ប្រូតុងលើផ្ទៃខាងនៃគូប ។</span></div>
-        </div>
-      </div>
-
-      <!-- 58 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">58</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៨</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            ផង់នីមួយៗមានម៉ាស \(m_0\) និងផ្លាស់ដោយល្បឿន \(v_0\)តាមបណ្ដោយអ័ក្ស \(ox\)។ គេដឹងថាក្នុងផ្ទៃ <span class="given">2 mm²</span>
-            និងក្នុងមួយវិនាទីមានផង់ចំនួន <span class="given">\( 1 \times 10^5 \)</span> ទៅទង្គិចផ្ទៃនោះ ។​ គេសន្មត់ទង្គិចរវាងផង់និងផ្ទៃប៉ះ ជាទង្គិចស្ទក់ ។
-          </p>
-          <p>
-            គេឲ្យ \( m_0 = 9.11 \times 10^{-31} \) kg និង \( v_0 = 8 \times 10^7 \) m/s ។
-          </p>
-
-          <div class="ex-find"><span>ក. គណនាកម្លាំងសរុបដែលផង់មួយមានលើផ្ទៃប៉ះ ។</span></div>
-          <div class="ex-find"><span>ខ. គណនាសម្ពាធលើផ្ទៃប៉ះ ។</span></div>
-        </div>
-      </div>
-
-      <!-- 59 -->
-      <div class="ex-card">
-        <div class="ex-head">
-          <div class="ex-badge">59</div>
-          <span class="ex-title">លំហាត់អនុវត្ត ៥៩</span>
-        </div>
-        <div class="ex-body">
-          <p>
-            អេឡិចត្រុងមួយមានម៉ាស <span class="given">\( m_e = 9.11 \times 10^{-31} \) kg</span> និងផ្លាស់ទីដោយល្បឿន <span class="given">\(v\)</span>តាមបណ្តោយអ័ក្ស <span class="given">\(ox\)</span>ក្នុងគូបមួយដែលមានទ្រនុង <span class="given">L = 2 mm</span>។ 
-            អេឡិចត្រុងផ្លាស់ពីផ្ទៃម្ខាងទៅផ្ទៃម្ខាងទៀតនិងក្នុងរយ:ពេល <span class="given">25 ns</span>។ គេសន្មត់ទង្គិចរវាងអេឡិចត្រុងនិងផ្ទៃប៉ះ ជាទង្គិចខ្ទាត ។ គេដឹងថាក្នុងរយ:ពេល <span class="given">25 ns</span> មានផង់ចំនួន <span class="given">\( 25 \times 10^{6} \)</span> ទៅទង្គិចនឹងផ្ទៃខាងគូបនោះ ។
-          </p>
-          <div class="ex-find"><span>ក. គណនាល្បឿនអេឡិចត្រុងនៅខណ:វាចាប់ផ្តើមចេញពីផ្ធៃខាងគូប ។</span></div>
-          <div class="ex-find">
-            <span>ខ. គណនាសម្ពាធរបស់អេឡិចត្រុងលើផ្ទៃខាងគូប ។</span>
-          </div>
-          <div class="ex-find">
-            <span>គ. គណនាសម្ពាធសរុបរបស់អេឡិចត្រុងលើផ្ទៃគូប ។</span>
-          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសម្ពាធនៃឧស្ម័នក្នុងដប (\(P_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{P_1}{T_1} = \dfrac{P_2}{T_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( P_2 = P_1 \times \dfrac{T_2}{T_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P_1 = 1.25 \times 10^5 \text{ N/m}^2 \)<br>
+                  \( T_1 = 17 + 273 = 290 \text{ K} \)<br>
+                  \( T_2 = 57 + 273 = 330 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( P_2 = 1.25 \times 10^5 \times \dfrac{330}{290} \approx 1.42 \times 10^5 \text{ N/m}^2 \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សម្ពាធឧស្ម័នក្នុងដបគឺ \( P_2 \approx 1.42 \times 10^5 \text{ N/m}^2 \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>

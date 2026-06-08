@@ -246,6 +246,76 @@
         display: block;
       }
 
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      .system-diagram {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      }
+
       @media (max-width: 700px) {
         header h1 {
           font-size: 2.3rem;
@@ -256,6 +326,10 @@
         .ex-head,
         .ex-body {
           padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
       }
     </style>
@@ -304,6 +378,32 @@
           <div class="ex-find">
             <span>គណនាតម្លៃអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ខ្សែចម្លង។</span>
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ខ្សែចម្លង</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 2\pi \times 10^{-7} \dfrac{I}{R} \implies I = \dfrac{B \cdot R}{2\pi \times 10^{-7}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( B = 400\,\mu\text{T} = 400 \times 10^{-6}\,\text{T} = 4 \times 10^{-4}\,\text{T} \)<br>
+                  \( R = 12.56\,\text{cm} = 12.56 \times 10^{-2}\,\text{m} \approx 4\pi \times 10^{-2}\,\text{m} \) (ព្រោះ \(4 \times 3.14 = 12.56\))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( I = \dfrac{4 \times 10^{-4} \times 4\pi \times 10^{-2}}{2\pi \times 10^{-7}} = \dfrac{16\pi \times 10^{-6}}{2\pi \times 10^{-7}} = 8 \times 10 = 80\,\text{A} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់គឺ \( I = 80\,\text{A} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -323,6 +423,33 @@
           <div class="ex-find">
             <span>គណនាអាំងឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃបូប៊ីនសំប៉ែតនេះ ។</span>
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃបូប៊ីនសំប៉ែត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 2\pi \times 10^{-7} \dfrac{N \cdot I}{R} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 60\,\text{ស្ពៀ} \)<br>
+                  \( I = 20\,\text{A} \)<br>
+                  \( R = 15.7\,\text{cm} = 15.7 \times 10^{-2}\,\text{m} \approx 5\pi \times 10^{-2}\,\text{m} \) (ព្រោះ \(5 \times 3.14 = 15.7\))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( B = 2\pi \times 10^{-7} \times \dfrac{60 \times 20}{5\pi \times 10^{-2}} = \dfrac{2400\pi \times 10^{-7}}{5\pi \times 10^{-2}} = 480 \times 10^{-5}\,\text{T} = 4.8 \times 10^{-3}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងឌុចស្យុងម៉ាញេទិចគឺ \( B = 4.8\,\text{mT} = 4.8 \times 10^{-3}\,\text{T} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -343,6 +470,33 @@
           <div class="ex-find">
             <span>គណនាអាំងតង់ ស៊ីតេចរន្តឆ្លងកាត់បូប៊ីនសំប៉ែតនេះ ។</span>
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងតង់ស៊ីតេចរន្តឆ្លងកាត់បូប៊ីនសំប៉ែត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 2\pi \times 10^{-7} \dfrac{N \cdot I}{R} \implies I = \dfrac{B \cdot R}{2\pi \times 10^{-7} \cdot N} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 200\,\text{ស្ពៀ} \)<br>
+                  \( R = 40\,\text{cm} = 0.4\,\text{m} \)<br>
+                  \( B = 7.85 \times 10^{-3}\,\text{mT} = 7.85 \times 10^{-6}\,\text{T} \approx 2.5\pi \times 10^{-6}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( I = \dfrac{7.85 \times 10^{-6} \times 0.4}{2\pi \times 10^{-7} \times 200} = \dfrac{3.14 \times 10^{-6}}{400\pi \times 10^{-7}} = \dfrac{\pi \times 10^{-6}}{400\pi \times 10^{-7}} = 0.025\,\text{A} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងតង់ស៊ីតេចរន្តឆ្លងកាត់គឺ \( I = 0.025\,\text{A} = 25\,\text{mA} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -363,6 +517,33 @@
           <div class="ex-find">
             <span>គណនាអាំងតង់ស៊ីតេចរន្តឆ្លងកាត់ប៊ូប៊ីនសំប៉ែតនេះ។</span>
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងតង់ស៊ីតេចរន្តឆ្លងកាត់ប៊ូប៊ីនសំប៉ែត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 2\pi \times 10^{-7} \dfrac{N \cdot I}{R} \implies I = \dfrac{B \cdot R}{2\pi \times 10^{-7} \cdot N} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 500\,\text{ស្ពៀ} \)<br>
+                  \( R = 20\,\text{cm} = 0.2\,\text{m} \)<br>
+                  \( B = 7.85 \times 10^{-3}\,\text{mT} = 7.85 \times 10^{-6}\,\text{T} \approx 2.5\pi \times 10^{-6}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( I = \dfrac{7.85 \times 10^{-6} \times 0.2}{2\pi \times 10^{-7} \times 500} = \dfrac{1.57 \times 10^{-6}}{1000\pi \times 10^{-7}} \approx \dfrac{0.5\pi \times 10^{-6}}{1000\pi \times 10^{-7}} = 0.005\,\text{A} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងតង់ស៊ីតេចរន្តឆ្លងកាត់គឺ \( I = 0.005\,\text{A} = 5\,\text{mA} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -383,6 +564,33 @@
           <div class="ex-find">
             <span>គណនាចំនួនស្ពៀដែលរុំដើម្បីបង្កើតប៊ូប៊ីនសំប៉ែតនេះ។</span>
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនស្ពៀដែលរុំដើម្បីបង្កើតប៊ូប៊ីនសំប៉ែត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 2\pi \times 10^{-7} \dfrac{N \cdot I}{R} \implies N = \dfrac{B \cdot R}{2\pi \times 10^{-7} \cdot I} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( R = 25.12\,\text{cm} = 25.12 \times 10^{-2}\,\text{m} \approx 8\pi \times 10^{-2}\,\text{m} \) (ព្រោះ \(8 \times 3.14 = 25.12\))<br>
+                  \( I = 5\,\text{A} \)<br>
+                  \( B = 4\,\text{mT} = 4 \times 10^{-3}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( N = \dfrac{4 \times 10^{-3} \times 8\pi \times 10^{-2}}{2\pi \times 10^{-7} \times 5} = \dfrac{32\pi \times 10^{-5}}{10\pi \times 10^{-7}} = 3.2 \times 10^2 = 320\,\text{ស្ពៀ} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនស្ពៀគឺ \( N = 320\,\text{ស្ពៀ} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -403,6 +611,33 @@
               >គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃប៊ូប៊ីនសំប៉ែតនេះ។</span
             >
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃប៊ូប៊ីនសំប៉ែត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 2\pi \times 10^{-7} \dfrac{N \cdot I}{R} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 50\,\text{ស្ពៀ} \)<br>
+                  \( R = 0.10\,\text{m} \)<br>
+                  \( I = 20\,\text{A} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( B = 2\pi \times 10^{-7} \times \dfrac{50 \times 20}{0.10} = 2\pi \times 10^{-7} \times 10000 = 2\pi \times 10^{-3}\,\text{T} \approx 6.28 \times 10^{-3}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងឌុចស្យុងម៉ាញេទិចគឺ \( B = 6.28\,\text{mT} = 2\pi \times 10^{-3}\,\text{T} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -425,6 +660,34 @@
               >គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃប៊ូប៊ីនសំប៉ែតនេះ។</span
             >
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងឌុចស្យុងម៉ាញេទិចត្រង់ផ្ចិតនៃប៊ូប៊ីនសំប៉ែត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = \mu_r \cdot B_0 = \mu_r \cdot 2\pi \times 10^{-7} \dfrac{N \cdot I}{R} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 200\,\text{ស្ពៀ} \)<br>
+                  \( R = 25.12\,\text{m} \approx 8\pi\,\text{m} \) (ព្រោះ \(8 \times 3.14 = 25.12\))<br>
+                  \( I = 4\,\text{A} \)<br>
+                  \( \mu_r = 500 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( B = 500 \times 2\pi \times 10^{-7} \times \dfrac{200 \times 4}{8\pi} = 1000\pi \times 10^{-7} \times \dfrac{800}{8\pi} = 10^{-2}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងឌុចស្យុងម៉ាញេទិចគឺ \( B = 10^{-2}\,\text{T} = 10\,\text{mT} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -455,6 +718,46 @@
           ចូរធ្វើគំនូសបំព្រួញវ៉ិចទ័រដែនម៉ាញេទិចត្រង់ផ្ចិតបង្កើតដោយសៀគ្វីវង់នីមួយៗ។<br />
           ខ. គណនាតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិត \(O\) បង្កើតដោយសៀគ្វីវង់នីមួយៗ។<br />
           គ. គណនាអាំងតង់ស៊ីតេចរន្ត \(I\) ឆ្លងកាត់សៀគ្វីវង់នីមួយៗ។
+          
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ដំណោះស្រាយលំហាត់១៨</div>
+              
+              <div class="sol-step">
+                <span class="sol-label">ក. គំនូសវ៉ិចទ័រ :</span>
+                <span class="sol-math">
+                  ដោយប្លង់នៃវង់ខ្សែទាំងពីរត្រួតស៊ីគ្នាត្រង់ផ្ចិត \(O\) ហើយកែងគ្នា នោះវ៉ិចទ័រដែនម៉ាញេទិច \(\vec{B}_1\) និង \(\vec{B}_2\) ដែលបង្កើតដោយខ្សែនីមួយៗគឺកែងគ្នា (\(\vec{B}_1 \perp \vec{B}_2\))។<br>
+                  វ៉ិចទ័រដែនម៉ាញេទិចផ្គួបគឺ៖ \(\vec{B} = \vec{B}_1 + \vec{B}_2\)
+                </span>
+              </div>
+
+              <div class="sol-step">
+                <span class="sol-label">ខ. ដែនម៉ាញេទិច :</span>
+                <span class="sol-math">
+                  ដោយចរន្តឆ្លងកាត់មានតម្លៃស្មើគ្នា និងកាំស្មើគ្នា នាំឱ្យ៖ \( B_1 = B_2 = B' \)<br>
+                  ដោយ \(\vec{B}_1 \perp \vec{B}_2\) គេបាន៖ \( B = \sqrt{B_1^2 + B_2^2} = B'\sqrt{2} \)<br>
+                  នាំឱ្យ៖ \( B' = \dfrac{B}{\sqrt{2}} = \dfrac{30\sqrt{2}\,\mu\text{T}}{\sqrt{2}} = 30\,\mu\text{T} \)<br>
+                  ដូចនេះ៖ \( B_1 = B_2 = 30\,\mu\text{T} = 3 \times 10^{-5}\,\text{T} \)
+                </span>
+              </div>
+
+              <div class="sol-step">
+                <span class="sol-label">គ. គណនា \(I\) :</span>
+                <span class="sol-math">
+                  តាមរូបមន្ត៖ \( B' = 2\pi \times 10^{-7} \dfrac{I}{R} \implies I = \dfrac{B' \cdot R}{2\pi \times 10^{-7}} \)<br>
+                  ដោយ៖<br>
+                  \( B' = 30\,\mu\text{T} = 3 \times 10^{-5}\,\text{T} \)<br>
+                  \( R = 6.28\,\text{cm} = 6.28 \times 10^{-2}\,\text{m} \approx 2\pi \times 10^{-2}\,\text{m} \) (ព្រោះ \(2 \times 3.14 = 6.28\))<br>
+                  គេបាន៖<br>
+                  \( I = \dfrac{3 \times 10^{-5} \times 2\pi \times 10^{-2}}{2\pi \times 10^{-7}} = 3\,\text{A} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចរន្តឆ្លងកាត់ខ្សែនីមួយៗគឺ \( I = 3\,\text{A} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -474,6 +777,42 @@
               >គណនាដែនម៉ាញេទិចត្រង់ផ្ចិតរួមនៃវង់ខ្សែទាំងពីរដោយគូសរូបបញ្ជាក់ផង។</span
             >
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាដែនម៉ាញេទិចត្រង់ផ្ចិតរួមនៃវង់ខ្សែទាំងពីរ</div>
+              <div class="sol-step">
+                <span class="sol-label">ពន្យល់ :</span>
+                <span class="sol-math">
+                  ដោយអ័ក្សនៃខ្សែចម្លងវង់ទាំងពីរកែងគ្នា នោះប្លង់នៃវង់ខ្សែទាំងពីរក៏កែងគ្នាដែរ។ នាំឱ្យវ៉ិចទ័រដែនម៉ាញេទិចដែលបង្កើតដោយវង់ខ្សែនីមួយៗត្រង់ផ្ចិតរួម \(O\) មានទិសកែងគ្នា (\(\vec{B}_1 \perp \vec{B}_2\))។
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">រូបមន្តដែន :</span>
+                <span class="sol-math">
+                  \( B_1 = B_2 = 2\pi \times 10^{-7} \dfrac{I}{R} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( I = 5\,\text{A} \)<br>
+                  \( R = 5\,\text{cm} = 5 \times 10^{-2}\,\text{m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គណនា :</span>
+                <span class="sol-math">
+                  \( B_1 = B_2 = 2\pi \times 10^{-7} \times \dfrac{5}{5 \times 10^{-2}} = 2\pi \times 10^{-5}\,\text{T} \approx 6.28 \times 10^{-5}\,\text{T} \)<br>
+                  ដែនម៉ាញេទិចផ្គួបគឺ៖ \( B = \sqrt{B_1^2 + B_2^2} = B_1\sqrt{2} \)<br>
+                  \( B = 2\pi \times 10^{-5} \times \sqrt{2} = 2\pi\sqrt{2} \times 10^{-5}\,\text{T} \approx 8.88 \times 10^{-5}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ដែនម៉ាញេទិចផ្គួបត្រង់ផ្ចិតរួមគឺ \( B \approx 8.88 \times 10^{-5}\,\text{T} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -494,6 +833,33 @@
           <div class="ex-find">
             <span>គណនាដែនម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត។</span>
           </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាដែនម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B = 4\pi \times 10^{-7} \dfrac{N \cdot I}{L} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 200\,\text{ស្ពៀ} \)<br>
+                  \( I = 3.25\,\text{A} \)<br>
+                  \( L = 20\,\text{cm} = 0.2\,\text{m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( B = 4\pi \times 10^{-7} \times \dfrac{200 \times 3.25}{0.2} = 4\pi \times 10^{-7} \times 3250 = 1.3\pi \times 10^{-3}\,\text{T} \approx 4.08 \times 10^{-3}\,\text{T} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ដែនម៉ាញេទិចគឺ \( B \approx 4.08 \times 10^{-3}\,\text{T} = 4.08\,\text{mT} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>

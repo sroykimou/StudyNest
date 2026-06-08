@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>លំហាត់អនុវត្ត ១–២៣ | StudyNest Physics G12</title>
+    <title>លំហាត់អនុវត្ត ១–១០ | StudyNest Physics G12</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
       rel="stylesheet"
@@ -248,7 +248,68 @@
         content: "➤";
         color: var(--blue);
         font-size: 1.1rem;
-              display: block;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
       }
 
       @media (max-width: 700px) {
@@ -261,6 +322,10 @@
         .ex-head,
         .ex-body {
           padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
         }
       }
     </style>
@@ -296,6 +361,7 @@
         <div class="section-head-line"></div>
       </div>
 
+      <!-- Ex 1 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -309,9 +375,34 @@
             \(M(C) = 12\) g/mol, \(M(O) = 16\) g/mol
           </p>
           <div class="ex-find"><span>គណនាចំនួនម៉ូលនៃឧស្ម័ន \(CO_2\) ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនម៉ូលនៃឧស្ម័ន \(CO_2\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{m}{M} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( m = 0.220 \text{ g} \)<br>
+                  \( M(CO_2) = M(C) + 2M(O) = 12 + 2(16) = 44 \text{ g/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( n = \dfrac{0.220}{44} = 0.005 \text{ mol} = 5 \times 10^{-3} \text{ mol} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលគឺ \( n = 0.005 \text{ mol} = 5 \times 10^{-3} \text{ mol} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 2 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -325,9 +416,34 @@
             <span class="given">0.14 mol</span> ។ គេឲ្យ \(M = 14\) g/mol
           </p>
           <div class="ex-find"><span>គណនាម៉ាសនៃឧស្ម័នអាសូត ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាម៉ាសនៃឧស្ម័នអាសូត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{m}{M} \text{ នាំឲ្យ } m = n \cdot M \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( n = 0.14 \text{ mol} \)<br>
+                  \( M(N_2) = 2 \times 14 = 28 \text{ g/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( m = 0.14 \times 28 = 3.92 \text{ g} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ម៉ាសនៃឧស្ម័នអាសូតគឺ \( m = 3.92 \text{ g} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 3 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -342,9 +458,34 @@
           </p>
           <p>គេឲ្យ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។</p>
           <div class="ex-find"><span>គណនាចំនួនម៉ូលនៃឧស្ម័នអាសូត ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនម៉ូលនៃឧស្ម័នអាសូត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{N}{N_A} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( N = 30.1 \times 10^{21} \text{ ម៉ូលេគុល} \)<br>
+                  \( N_A = 6.02 \times 10^{23} \text{ ម៉ូលេគុល/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( n = \dfrac{30.1 \times 10^{21}}{6.02 \times 10^{23}} = 0.05 \text{ mol} = 5 \times 10^{-2} \text{ mol} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលឧស្ម័នគឺ \( n = 0.05 \text{ mol} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 4 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -359,9 +500,34 @@
           </p>
           <p>គេឲ្យ \(N_A = 6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។</p>
           <div class="ex-find"><span>គណនាចំនួនម៉ូលេគុលរបស់ឧស្ម័នអ៊ីដ្រូសែន ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនម៉ូលេគុលឧស្ម័នអ៊ីដ្រូសែន</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{N}{N_A} \text{ នាំឲ្យ } N = n \cdot N_A \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( n = 0.5 \text{ mol} \)<br>
+                  \( N_A = 6.02 \times 10^{23} \text{ ម៉ូលេគុល/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( N = 0.5 \times 6.02 \times 10^{23} = 3.01 \times 10^{23} \text{ ម៉ូលេគុល} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលេគុលគឺ \( N = 3.01 \times 10^{23} \text{ ម៉ូលេគុល} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 5 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -377,9 +543,34 @@
           </p>
           <p>គេឲ្យ \(V_m = 22.4 \times 10^{-3}\) m³/mol ។</p>
           <div class="ex-find"><span>គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនម៉ូលនៃឧស្ម័ន</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{V}{V_m} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V = 1.2 \times 10^3 \text{ m}^3 \)<br>
+                  \( V_m = 22.4 \times 10^{-3} \text{ m}^3/\text{mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( n = \dfrac{1.2 \times 10^3}{22.4 \times 10^{-3}} \approx 53571.43 \text{ mol} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលនៃឧស្ម័នគឺ \( n \approx 53571.43 \text{ mol} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 6 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -394,9 +585,34 @@
           </p>
           <p>គេឲ្យ \(V_m = 22.4 \times 10^{-3}\) m³/mol ។</p>
           <div class="ex-find"><span>គណនាចំនួនម៉ូលនៃឧស្ម័ន ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនម៉ូលនៃឧស្ម័ន</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{V}{V_m} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( V = 2.4 \text{ L} = 2.4 \times 10^{-3} \text{ m}^3 \)<br>
+                  \( V_m = 24 \text{ L/mol} = 24 \times 10^{-3} \text{ m}^3/\text{mol} \) (ក្នុងលក្ខណ្ឌបន្ទប់)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( n = \dfrac{2.4 \times 10^{-3}}{24 \times 10^{-3}} = 0.1 \text{ mol} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលគឺ \( n = 0.1 \text{ mol} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 7 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -414,9 +630,34 @@
             <span class="given">\(N = 5 \times 10^{23}\)</span> ម៉ូលេគុល​​​ ។
           </p>
           <div class="ex-find"><span>គណនាម៉ាសសរុបនៃឧស្ម័ននីត្រូសែន ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាម៉ាសសរុបនៃឧស្ម័ននីត្រូសែន</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( m = N \times m_0 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( m_0 = 4.65 \times 10^{-26} \text{ kg} \)<br>
+                  \( N = 5 \times 10^{23} \text{ ម៉ូលេគុល} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( m = 5 \times 10^{23} \times 4.65 \times 10^{-26} = 0.02325 \text{ kg} = 23.25 \text{ g} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ម៉ាសសរុបគឺ \( m = 0.02325 \text{ kg} = 23.25 \text{ g} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
+      <!-- Ex 8 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -431,10 +672,34 @@
             <span class="given">5 g</span> ។
           </p>
           <div class="ex-find"><span>គណនាចំនួនម៉ូលេគុលនៃឧស្ម័ននៅក្នុងធុង ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចំនួនម៉ូលេគុលឧស្ម័ន</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( N = \dfrac{m}{m_0} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( m = 5 \text{ g} = 5 \times 10^{-3} \text{ kg} \)<br>
+                  \( m_0 = 5 \times 10^{-26} \text{ kg} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( N = \dfrac{5 \times 10^{-3}}{5 \times 10^{-26}} = 1 \times 10^{23} \text{ ម៉ូលេគុល} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលេគុលគឺ \( N = 1 \times 10^{23} \text{ ម៉ូលេគុល} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
-      <!-- 09 -->
+      <!-- Ex 9 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -450,10 +715,34 @@
             6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។
           </p>
           <div class="ex-find"><span>គណនាម៉ាសម៉ូលេគុលនីត្រូសែនពីរ ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាម៉ាសម៉ូលេគុលនីត្រូសែនពីរ (ឬនីមួយៗ)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( m_0 = \dfrac{M}{N_A} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( M = 28 \text{ kg/kmol} = 0.028 \text{ kg/mol} \)<br>
+                  \( N_A = 6.02 \times 10^{23} \text{ ម៉ូលេគុល/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( m_0 = \dfrac{0.028}{6.02 \times 10^{23}} \approx 4.65 \times 10^{-26} \text{ kg} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ម៉ាសម៉ូលេគុលនីមួយៗគឺ \( m_0 = 4.65 \times 10^{-26} \text{ kg} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
 
-      <!-- 10 -->
+      <!-- Ex 10 -->
       <div class="ex-card">
         <div class="ex-head">
           <div class="ex-num">
@@ -469,6 +758,30 @@
             6.02 \times 10^{23}\) ម៉ូលេគុល/mol ។
           </p>
           <div class="ex-find"><span>គណនាម៉ាសម៉ូលេគុលអុកស៊ីសែននីមួយៗ ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាម៉ាសម៉ូលេគុលអុកស៊ីសែននីមួយៗ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( m_0 = \dfrac{M}{N_A} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( M = 32 \text{ g/mol} = 0.032 \text{ kg/mol} \)<br>
+                  \( N_A = 6.02 \times 10^{23} \text{ ម៉ូលេគុល/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( m_0 = \dfrac{0.032}{6.02 \times 10^{23}} \approx 5.32 \times 10^{-26} \text{ kg} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ម៉ាសម៉ូលេគុលនីមួយៗគឺ \( m_0 = 5.32 \times 10^{-26} \text{ kg} \)
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </div>

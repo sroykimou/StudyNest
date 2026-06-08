@@ -173,10 +173,8 @@
             សូមរក្សារូបភាព <b>ABA KHQR</b> នេះ រួចចូលទៅកាន់កម្មវិធី <b>ABA Mobile</b> ដើម្បីស្កេនបង់ប្រាក់។ បន្ទាប់ពីបង់រួច សូមចុចប៊ូតុងខាងក្រោមដើម្បីផ្ញើវិក្កយបត្រ។
         </p>
 
-        <a href="https://t.me/kimou_15" target="_blank" style="text-decoration: none;" class="anim-4">
-            <button class="sn-btn">
-                <span class="btn-text"><i class="fab fa-telegram-plane"></i> ផ្ញើវិក្កយបត្រទៅតេឡេក្រាម</span>
-            </button>
+        <a href="https://t.me/kimou_15" target="_blank" style="text-decoration: none;" class="sn-btn anim-4">
+            <span class="btn-text"><i class="fab fa-telegram-plane"></i> ផ្ញើវិក្កយបត្រទៅតេឡេក្រាម</span>
         </a>
 
         <div class="unlock-section anim-5">
@@ -205,6 +203,7 @@
             window.location.href = "../auth/login.html";
         }
 
+        // WARNING: Move these to a server-side backend for production use
         const MY_SHORT_SECRET = "77"; 
         const SECRET_SALT = "STUDYNEST_PRIME_2024_@#!"; // Must match admin_panel.html
 
@@ -262,6 +261,10 @@
         }
 
         function goBack() {
+            if (!currentUser) {
+                window.location.href = "../auth/login.html";
+                return;
+            }
             const userDataStr = localStorage.getItem("user_" + currentUser);
             let branch = "science";
             if (userDataStr) {

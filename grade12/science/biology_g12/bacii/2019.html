@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>វិញ្ញាសាជីវវិទ្យា ២០១៩ | StudyNest</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --bg-canvas: #f1f5f9;
+        --paper-bg: #ffffff;
+        --ink-black: #0f172a;
+        --ink-gray: #475569;
+        --royal-blue: #1e3a8a;
+        --border-color: #cbd5e1;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--bg-canvas);
+        color: var(--ink-black);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.8;
+        padding: 40px 10px;
+      }
+
+      /* Top Action Bar (Hidden in Print) */
+      .action-bar {
+        max-width: 210mm;
+        margin: 0 auto 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        padding: 12px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+        border: 1px solid #e2e8f0;
+      }
+
+      .action-bar-left a {
+        color: var(--royal-blue);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s;
+      }
+
+      .action-bar-left a:hover {
+        color: var(--ink-black);
+        transform: translateX(-3px);
+      }
+
+      .action-bar-right {
+        display: flex;
+        gap: 12px;
+      }
+
+      .action-btn {
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 13.5px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--border-color);
+        background: #ffffff;
+        color: var(--ink-black);
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .action-btn:hover {
+        background: #f8fafc;
+        border-color: var(--ink-black);
+      }
+
+      .action-btn-primary {
+        background: var(--royal-blue);
+        color: #ffffff;
+        border-color: var(--royal-blue);
+      }
+
+      .action-btn-primary:hover {
+        background: #172554;
+        border-color: #172554;
+      }
+
+      /* A4 Paper Styling */
+      .paper {
+        background: var(--paper-bg);
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0 auto;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        position: relative;
+        border: 1px solid #cbd5e1;
+      }
+
+      /* Header Layout */
+      .paper-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      .header-left {
+        text-align: center;
+      }
+
+      .header-right {
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .royal-title {
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      /* Main Title block */
+      .exam-title-block {
+        text-align: center;
+        margin-bottom: 32px;
+        border-bottom: 2px double var(--ink-black);
+        padding-bottom: 20px;
+      }
+
+      .exam-title-block h1 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink-black);
+        margin-bottom: 8px;
+      }
+
+      .exam-info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 13px;
+        color: var(--ink-gray);
+        margin-top: 12px;
+        font-weight: 600;
+      }
+
+      /* Question Elements */
+      .question-block {
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+      }
+
+      .q-title {
+        font-weight: 700;
+        font-size: 15.5px;
+        color: var(--ink-black);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .q-num {
+        min-width: 32px;
+      }
+
+      .q-text {
+        flex: 1;
+      }
+
+      .sub-q {
+        margin: 8px 0 8px 32px;
+        font-size: 14.5px;
+      }
+
+      /* Global Answer Toggle Style */
+      .global-answer-btn-wrapper {
+        text-align: center;
+        margin: 25px 0;
+        page-break-inside: avoid;
+      }
+
+      .global-answer-btn {
+        background: var(--royal-blue);
+        border: 1px solid var(--royal-blue);
+        color: #ffffff;
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s;
+      }
+
+      .global-answer-btn:hover {
+        background: #172554;
+        border-color: #172554;
+      }
+
+      /* Global Answer Panel */
+      .global-answer-panel {
+        display: none;
+        margin-top: 30px;
+        border-top: 2px dashed var(--border-color);
+        padding-top: 25px;
+        animation: printFadeIn 0.3s ease;
+      }
+
+      .ans-section {
+        margin-bottom: 35px;
+      }
+
+      .ans-section-title {
+        font-weight: 700;
+        font-size: 15.5px;
+        color: var(--royal-blue);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 6px;
+        margin-bottom: 12px;
+      }
+
+      @keyframes printFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .ans-section p {
+        margin-bottom: 8px;
+        font-size: 14.5px;
+      }
+
+      .formula-box {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 12px 0;
+        text-align: left;
+        font-weight: 500;
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+        font-size: 13.5px;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #cbd5e1;
+        padding: 8px 12px;
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background: #f1f5f9;
+        color: var(--ink-black);
+        font-weight: 700;
+      }
+
+      /* Print optimization */
+      @media print {
+        body {
+          background: #ffffff !important;
+          padding: 0 !important;
+        }
+
+        .action-bar,
+        .global-answer-btn-wrapper {
+          display: none !important;
+        }
+
+        .paper {
+          width: 100% !important;
+          box-shadow: none !important;
+          border: none !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+
+        .global-answer-panel {
+          display: none !important;
+        }
+      }
+
+      @media (max-width: 220mm) {
+        body {
+          padding: 10px 0;
+        }
+        .action-bar {
+          width: 95%;
+          border-radius: 8px;
+        }
+        .paper {
+          width: 95%;
+          padding: 20px;
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <div class="action-bar-left">
+        <a href="biology_bacii_exams.html">
+          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅបញ្ជីវិញ្ញាសា
+        </a>
+      </div>
+      <div class="action-bar-right">
+        <button class="action-btn" onclick="window.print()">
+          <i class="fas fa-print"></i> បោះពុម្ពវិញ្ញាសា (Print)
+        </button>
+      </div>
+    </div>
+
+    <!-- A4 Paper Exam Sheet -->
+    <div class="paper">
+      <!-- Header -->
+
+      <!-- Exam Title Block -->
+      <div class="exam-title-block">
+        <h1>វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)</h1>
+        <div style="font-weight: 700; font-size: 16px; margin-top: 6px">
+          សម័យប្រឡង៖ ១៩ សីហា ២០១៩ &bull; មុខវិជ្ជា៖ ជីវវិទ្យា
+          (ថ្នាក់វិទ្យាសាស្ត្រ)
+        </div>
+        <div class="exam-info-grid">
+          <span><i class="far fa-clock"></i> រយៈពេល៖ ៩០ នាទី</span>
+          <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ៧៥</span>
+        </div>
+      </div>
+
+      <!-- Questions Section -->
+      <div class="questions-container">
+        <!-- Question I -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">I.</span>
+            <span class="q-text"
+              >ដូចម្ដេចដែលហៅថាដំណើរលំអងសិប្បនិម្មិត?
+              ហេតុអ្វីបានជាគេធ្វើដំណើរលំអងសិប្បនិម្មិត?</span
+            >
+          </div>
+        </div>
+
+        <!-- Question II -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">II.</span>
+            <span class="q-text">ចូរពនយល់ពី៖</span>
+          </div>
+          <div class="sub-q">ក. ដំណើរឆ្លងកាត់ស៊ីណាប់របស់អាំងភ្លុចប្រសាទ។</div>
+          <div class="sub-q">ខ. ការកកើតនៃពុម្ពក្រៅ ។</div>
+        </div>
+
+        <!-- Question III -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">III.</span>
+            <span class="q-text">ចូរពណ៌នាពីលក្ខណៈរបស់អង់ស៊ីម។</span>
+          </div>
+        </div>
+
+        <!-- Question IV -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">IV.</span>
+            <span class="q-text"
+              >តើអរម៉ូនដែលបញ្ចេញដោយកោសិកាបេតា (β) និងកោសិកាអាល់ហ្វា (α)
+              របស់លំពែងមានសកម្មភាពយ៉ាងដូចម្ដេចខ្លះ?</span
+            >
+          </div>
+        </div>
+
+        <!-- Question V -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">V.</span>
+            <span class="q-text">ចូរប្រៀបធៀប ADN និងប្រូតេអ៊ីន។</span>
+          </div>
+        </div>
+
+        <!-- Question VI -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">VI.</span>
+            <span class="q-text"
+              >ម៉ូលេគុល ADN មួយមានចំនួនរង្វិលជុំស្មើ \( 10^5 \)។
+              ដោយការ៉េនៃផលសងនុយគ្លេអូទីត A និងនុយគ្លេអូទីត C ស្មើ \( 4 \times
+              10^{10} \)。</span
+            >
+          </div>
+          <div class="sub-q">ក. រកចំនួននុយគ្លេអូទីតប្រភេទនីមួយៗរបស់ ADN។</div>
+          <div class="sub-q">
+            ខ. តើ ADN នេះ ស្វ័យដំឡើងទ្វេប៉ុន្មានដង? បើដឹងថា
+            ក្រោយស្វ័យដំឡើងទ្វេរួច ADN កូនមាននុយគ្លេអូទីត A ស្មើ \( 48 \times
+            10^5 \)。
+          </div>
+        </div>
+
+        <!-- Question VII -->
+        <div class="question-block">
+          <div class="q-title">
+            <span class="q-num">VII.</span>
+            <span class="q-text"
+              >ច្រវ៉ាក់ម្ខាងនៃសែនមួយមាននុយគ្លេអូទីត \( C = \frac{1}{2} \), \( A
+              = \frac{1}{3} \), \( T = \frac{1}{6} \)
+              មួយចម្លងក្រមចេញពីច្រវ៉ាក់ម្ខាងនៃសែននេះមានរីបូនុយក្លេអូទីត
+              750។</span
+            >
+          </div>
+          <div class="sub-q">
+            ក. គណនាចំនួនរីបូនុយគ្លេអូទីតប្រភេទនីមួយៗរបស់ ARNm នេះ។
+          </div>
+          <div class="sub-q">ខ. គណនាចំនួនសម្ពន្ធអ៊ីដ្រូសែននៃសែនខាងលើ។</div>
+        </div>
+      </div>
+
+      <!-- Global Toggle Button for Answers -->
+      <div class="global-answer-btn-wrapper">
+        <button
+          id="global-toggle-btn"
+          class="global-answer-btn"
+          onclick="toggleAllAnswers()"
+        >
+          <i class="fas fa-eye"></i> បង្ហាញចម្លើយ (Show Answers)
+        </button>
+      </div>
+
+      <!-- Global Answer Panel showing all answers -->
+      <div id="global-answer-panel" class="global-answer-panel">
+        <div
+          style="
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: underline;
+          "
+        >
+          ចម្លើយ (Answers)
+        </div>
+
+        <!-- Answer I -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី I</div>
+          <p>
+            -
+            ដំណើរលំអងសិប្បនិម្មិតជាដំណើរលំអងដែលមនុស្សយកគ្រាប់លំអងពីរុក្ខជាតិមួយ
+            ទៅដាក់លើស្ទិចម៉ាតនៃរុក្ខជាតិមួយទៀត ។
+          </p>
+          <p>- ឬជាដំណើរលំអងកាត់ដែលត្រូវបញ្ជួនដោយមនុស្ស ។</p>
+          <p style="margin-top: 8px">
+            - មនុស្សធ្វើដំណើរលំអងសិប្បនិម្មិត
+            ដើម្បីបង្កាត់រុក្ខជាតិមានលក្ខណៈពិសេសៗដែលគេចង់បាន ។
+          </p>
+        </div>
+
+        <!-- Answer II -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី II</div>
+          <p><strong>ក. ដំណើរឆ្លងកាត់ស៊ីណាប់របស់អាំងភ្លុចប្រសាទ</strong></p>
+          <p>
+            នៅចុងអាក់សូនមានថង់តូចៗជាច្រើនដែលផ្ទុកសារធាតុ(ណឺរ៉ូនបញ្ជូនឬណឺរ៉ូនបញ្ជូនសារឬពពុះតូចៗ)។
+            ​ពេលអាំងភ្លុចប្រសាទទៅដល់ចុងអាក់សូនថង់តូចៗទាំងនោះផ្ទុះបែក
+            ហើយបញ្ចេញណឺរ៉ូនបញ្ជូនសារសាយឆ្លងកាត់ស៊ីណាប់។
+            បន្ទាប់មកណឺរ៉ូនបញ្ជូនសារនេះ
+            បង្កើតអាំងភ្លុចប្រសាទថ្មីទៅក្នុងដង់ឌី្រតរបស់ណឺរ៉ូនបន្ទាប់
+            រួចធ្វើដំណើរតាមតួកោសិកានិងចុះតាមអាក់សូន រហូតដល់ចុងអាក់សូន។
+          </p>
+          <p style="margin-top: 10px">
+            <strong>ខ. ការកកើតនៃពុម្ពក្រៅ</strong>
+          </p>
+          <p>
+            កកើតឡើងនៅពេល សារពាង្គកាយកប់ក្នុងកម្ទេចកំណត្រូវរលាយបន្តិច ម្ដងៗ
+            ហើយបន្សល់ទុកនូវពុម្ពទទេដែលមានទម្រង់ដូចសារពាង្គកាយ។
+            ពុម្ពទទេនេះជាពុម្ពក្រៅ។ ឬនៅ ពេលភាវៈរស់បានងាប់ទៅបានធ្លាក់ទៅបាតបឹងឬ
+            សមុទ្រ ទឹកហូរនាំសិលាកម្ទេចកំណទៅគ្របដណ្តប់ លើសាកសពនោះ។
+            សាកសពរលួយបែកធាតុ ហើយបន្សល់ទុកនៅតែរូបរាងដែលបង្ហាញពីរូបរាង
+            របស់ភាវៈរស់នោះ។ នេះជាពុម្ពក្រៅ។។
+          </p>
+        </div>
+
+        <!-- Answer III -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី III</div>
+          <p><strong> ពណ៍នាពីលក្ខណៈរបស់អង់ស៊ីម៖</strong></p>
+          <ul style="margin-left: 20px; list-style-type: square">
+            <li>អង់ស៊ីមទាំងអស់ជាប្រូតេអ៊ីនមានអំពើជាយថា ប្រភេទ។</li>
+            <li>
+              អង់ស៊ីមមានសកម្មភាពខ្លាំងគឺ អង់ស៊ីមមួយចំនួន
+              តូចអាចបង្កើនល្បឿនប្រតិកម្មគីមីបានមួយចំនួនធំ។
+            </li>
+            <li>
+              អង់ស៊ីមប្រែប្រួលទម្រង់និងនាទីទៅតាម សីតុណ្ហភាព ឥទ្ធិពលPH
+              និងកំហាប់ស៊ុបស្អាត។
+            </li>
+            <li>អង់ស៊ីមជាកាតាលីករដែលមានប្រតិកម្មបញ្ច្រាស ទៅវិញទៅមក។</li>
+            <li>អង់ស៊ីមខ្លះត្រូវការកូអង់ស៊ីម។</li>
+          </ul>
+        </div>
+
+        <!-- Answer IV -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី IV</div>
+          <p>
+            សកម្មភាពអរម៉ូនដែលបញ្ចេញដោយកោសិកាបេតា(β)នៅពេលកម្រិតគ្លុយកូសក្នុងឈាមឡើងខ្ពស់
+            កោសិកា (β) របស់លំពែងត្រូវបានភ្លោច
+            រួចបញ្ចេញអរម៉ូនអាំងស៊ុយលីនចូលទៅក្នុងចរន្តឈាម
+            ទៅភ្ញោចកោសិកាគោលដៅមានដូចជា ថ្លើម កោសិកាដៅ មានដូចជា ថ្លើម
+            កោសិកាសាច់ដុំជាប់ឆ្អឹង
+            និងជាលិកាខ្លាញ់ឱ្យចាប់យកគ្លុយកូសប្រើប្រាស់ជាប្រភពថាមពលសម្រាប់សកម្មភាពផ្សេងៗ។
+            គ្លុយកូសនៅសល់ បំប្លែងជាគ្លីកូសែន
+            ហើយស្តុកទុកក្នុងថ្លើមនិងសាច់ដុំជាប់ឆ្អឹង។ ម៉្យាងទៀតគ្លុយ
+            កូសត្រូវប្លែងជាខ្លាញ់ ហើយស្ដុកទុកក្នុងជាលិកាខ្លាញ់។
+          </p>
+          <p>
+            សកម្មភាពអរម៉ូនដែលបញ្ចេញដោយកោសិកាអាល់ ហ្វា(α)
+            នៅពេលកំហាប់គ្លុយកូសក្នុងឈាមធ្លាក់ចុះក្រោមកម្រិតកំណត់
+            កោសិកាអាល់ហ្វារបស់លំពែង ត្រូវបានភ្ញោចឱ្យបញ្ចេញអរម៉ូនគ្លុយកាកុង
+            ភ្ញោចកោសិកាគោលដៅឱ្យផលិតគ្លុយកូស។ ក្នុងថ្លើម
+            គ្លុយកាកុងបំប្លែងគ្លីកូសែនឱ្យទៅជាគ្លុយកូសសាយ ចូលទៅក្នុងចរន្តឈាម។
+            គ្លុយកាកុងធ្វើឱ្យអាស៊ីតអាមីនេនិងអាស៊ីតខ្លាញ់ប្លែងជាគ្លុយកូសវិញ។
+          </p>
+        </div>
+
+        <!-- Answer V -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី V</div>
+          <p><strong>- លក្ខណៈដូចគ្នា៖</strong></p>
+          <ul style="margin-left: 20px; list-style-type: square">
+            <li>ជាម៉ាក្រូម៉ូលេគុល</li>
+            <li>
+              ម៉ូលេគុលនីមួយៗមានតំណលំដាប់នុយក្លេអូទីត
+              ឬតំណលំដាប់អាសុីតអាមីនេជាក់លាក់
+            </li>
+          </ul>
+          <p style="margin-top: 12px"><strong>- លក្ខណៈខុសគ្នា៖</strong></p>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>ADN</th>
+                <th>ប្រូតេអ៊ីន</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ម៉ូណូមែគឺនុយក្លេអូទីត</td>
+                <td>ម៉ូណូមែគឺអាស៊ីតអាមីណេ</td>
+              </tr>
+              <tr>
+                <td>កើតពីច្រវ៉ាក់នុយក្លេអូទីត ២ ខ្សែ</td>
+                <td>កើតពីច្រវ៉ាក់អាស៊ីតអាមីណេទោល</td>
+              </tr>
+              <tr>
+                <td>នុយក្លេអូទីតច្រើន ម៉ាស់ធំ ប្រវែងវែង</td>
+                <td>អាស៊ីតអាមីណេតិច ម៉ាស់តូច ប្រវែងខ្លី</td>
+              </tr>
+              <tr>
+                <td>នុយក្លេអូទីត ៣ កំណត់អាស៊ីតអាមីណេ ១</td>
+                <td>អាស៊ីតអាមីណេ ១ កំណត់ដោយ ៣ នុយក្លេអូទីត</td>
+              </tr>
+              <tr>
+                <td>តំណលំដាប់នុយក្លេអូទីតកំណត់នូវតំណលំដាប់អាស៊ីតអាមីណេ</td>
+                <td>
+                  តំណលំដាប់អាស៊ីតអាមីណេកំណត់ដោយតំណលំដាប់នុយក្លេអូទីតរបស់ ADN
+                </td>
+              </tr>
+              <tr>
+                <td>បង្កឡើងពីនុយក្លេអូទីត ៤ ប្រភេទ (A, T, C, G)</td>
+                <td>បង្កឡើងពីអាស៊ីតអាមីណេ ២០ ប្រភេទ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Answer VI -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី VI</div>
+          <p><strong>ក. រកចំនួននុយគ្លេអូទីតប្រភេទនីមួយៗរបស់ ADN</strong></p>
+          <div class="formula-box">
+            បម្រាប់៖ ADN មាន \(10^5\) រង្វិលជុំ ; \( (A - C)^2 = 4 \times
+            10^{10} \)<br />
+            ដោយ ១ រង្វិលជុំ = ២០ នុយក្លេអូទីត <br />
+            \(M =\)ចំនួនរង្វិលជុំ \(\times 20 \) <br />
+            \( \implies M = 10^5 \times 20 = 2 \times 10^6 \) នុយក្លេអូទីត<br />
+            តាមគោលការណ៍បំពេញបាស៖ A-T ; C-G នាំឱ្យ A=T ; C=G <br />
+            \( M = 2A + 2C = 2(A + C) \)<br />
+            \( \implies A + C = \frac{M}{2} = \frac{2 \times 10^6}{2} = 10^6
+            (1)\)<br />
+            ដោយ \( (A - C)^2 = 4 \times 10^{10} \)<br />
+            \( \implies A - C = 2 \times 10^5 (2)\)<br />
+            តាម (1) និង (2) យើងបាន៖<br />
+            \( A + C = 10 \times 10^5 \)<br />
+            \( A - C = 2 \times 10^5 \) <br />
+            ---------------- <br />
+            \( 2A = 12 \times 10^5 \)<br />
+            \( \implies A = \frac{12 \times 10^5}{2}= 6 \times 10^5 \)
+            នុយក្លេអូទីត<br />
+            \( \implies C = 10 \times 10^5 - 6 \times 10^5 = 4 \times 10^5 \)
+            នុយក្លេអូទីត<br /><br />
+            ដូចនេះ ចំនួននុយក្លេអូទីតនីមួយៗ៖ \( A = T = 6 \times 10^5 \)
+            នុយក្លេអូទីត ; \( C = G = 4 \times 10^5 \) នុយក្លេអូទីត<br />
+          </div>
+
+          <p style="margin-top: 12px">
+            <strong>ខ. គណនាចំនួនដងស្វ័យដំឡើងទ្វេ ADN</strong>
+          </p>
+          <div class="formula-box">
+            តាមបម្រាប់៖ \( A_{\text{កូនសរុប}} = 48 \times 10^5 \)
+            នុយក្លេអូទីត<br />
+            រូបមន្ត៖ \( A_{\text{កូនសរុប}} = A \times 2^n \)<br />
+            \( \implies 2^n = \frac{A_{\text{កូនសរុប}}}{A} = \frac{48 \times
+            10^5}{6 \times 10^5} \)<br />
+            \( 2^n = 8 = 2^3 \implies n = 3 \)<br /><br />
+            ដូចនេះ ADN ស្វ័យដំឡើងទ្វេបាន ៣ ដង។
+          </div>
+        </div>
+
+        <!-- Answer VII -->
+        <div class="ans-section">
+          <div class="ans-section-title">ចម្លើយ សំណួរទី VII</div>
+          <p>
+            <strong>ក. គណនាចំនួនរីបូនុយក្លេអូទីតប្រភេទនីមួយៗរបស់ ARNm</strong>
+          </p>
+          <div class="formula-box">
+            តាមបម្រាប់៖<br />
+            \( C_1 = \frac{1}{2} \) នៃ \( \frac{M}{2} = \frac{1}{2} \times
+            \frac{M}{2} \)<br />
+            \( A_1 = \frac{1}{3} \) នៃ \( \frac{M}{2} = \frac{1}{3} \times
+            \frac{M}{2} \)<br />
+            \( T_1 = \frac{1}{6} \) នៃ \( \frac{M}{2} = \frac{1}{6} \times
+            \frac{M}{2} \)<br />
+            \( m = 750 \) រីបូនុយក្លេអូទីត<br />
+            ដោយម៉ូលេគុល ARNm សំយោគចេញពីច្រវ៉ាក់ម្ខាងនៃសែន៖ <br />
+            \( m = \frac{M}{2} = 750 \) នុយក្លេអូទីត<br />
+            \( \implies A_1 = \frac{1}{3} \times 750 = 250 \) នុយក្លេអូទីត<br />
+            \( \implies T_1 = \frac{1}{6} \times 750 = 125 \) នុយក្លេអូទីត<br />
+            \( \implies C_1 = \frac{1}{2} \times 750 = 375 \) នុយក្លេអូទីត<br />
+            តាមរូបមន្ត៖ \( \frac{M}{2} = A_1 + T_1 + C_1 + G_1 \)<br />
+            \( \implies G_1 = \frac{M}{2} - (A_1 + T_1 + C_1) \)<br />
+            \( \implies G_1 = 750 - (250 + 125 + 375) = 0 \) នុយក្លេអូទីត<br />
+            តាមគោលការណ៍បំពេញបាស (ចម្លងក្រម)៖<br />
+            \( A_{ARNm} = T_1 = 125 \) រីបូនុយក្លេអូទីត<br />
+            \( U_{ARNm} = A_1 = 250 \) រីបូនុយក្លេអូទីត<br />
+            \( G_{ARNm} = C_1 = 375 \) រីបូនុយក្លេអូទីត<br />
+            \( C_{ARNm} = G_1 = 0 \) រីបូនុយក្លេអូទីត<br /><br />
+            ដូចនេះ៖ \( A_{ARNm} = 125 \); \( U_{ARNm} = 250 \); \( G_{ARNm} =
+            375 \); \( C_{ARNm} = 0 \) (រីបូនុយក្លេអូទីត)
+          </div>
+
+          <p style="margin-top: 12px">
+            <strong>ខ. គណនាចំនួនសម្ព័ន្ធអ៊ីដ្រូសែនរបស់សែន</strong>
+          </p>
+          <div class="formula-box">
+            តាមគោលការណ៍ចម្លងក្រម៖ <br />
+            \( A = T = A_{ARNm} + U_{ARNm} = 125 + 250 = 375 \) នុយក្លេអូទីត<br />
+            \( C = G = C_{ARNm} + G_{ARNm} = 0 + 375 = 375 \) នុយក្លេអូទីត<br /><br />
+            សម្ព័ន្ធអ៊ីដ្រូសែន៖ \( L_H = 2A + 3C \)<br />
+            \( \implies L_H = 2(375) + 3(375) = 1875 \) សម្ព័ន្ធអ៊ីដ្រូសែន<br /><br />
+            ដូចនេះ \( L_H = 1875 \) សម្ព័ន្ធអ៊ីដ្រូសែន
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleAllAnswers() {
+        const panel = document.getElementById("global-answer-panel");
+        const btn = document.getElementById("global-toggle-btn");
+
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+          btn.innerHTML =
+            '<i class="fas fa-eye"></i> បង្ហាញចម្លើយទាំងអស់ (Show All Answers)';
+        } else {
+          panel.style.display = "block";
+          btn.innerHTML =
+            '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយទាំងអស់ (Hide All Answers)';
+        }
+      }
+    </script>
+  </body>
+</html>

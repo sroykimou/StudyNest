@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>មេរៀនទី ១៖ ល្បឿនប្រតិកម្មគីមី | StudyNest</title>
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Siemreap&family=Rajdhani:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Siemreap&family=Bokor&family=Rajdhani:wght@600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -35,65 +35,70 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="../../../../assets/style.css" />
+
     <style>
       :root {
-        --primary-color: #0c4a6e;
         --accent-color: #10b981;
-        --bg-color: #f1f5f9;
-        --font-brand: "Rajdhani", sans-serif;
-        --font-khmer: "Kantumruy Pro", "Siemreap", sans-serif;
+        --accent-glow: rgba(16, 185, 129, 0.35);
       }
 
       body {
-        margin: 0;
-        font-family: var(--font-khmer);
-        background: var(--bg-color);
-        color: #1e293b;
-        line-height: 1.6;
+        display: block;
         overflow-y: auto;
+        padding: 40px 20px;
+        color: white;
       }
 
       header {
-        background: linear-gradient(135deg, #064e3b, var(--primary-color));
-        color: white;
         text-align: center;
-        padding: 60px 20px;
-        border-bottom: 5px solid var(--accent-color);
+        padding: 40px 20px 20px;
         position: relative;
+        z-index: 10;
+        max-width: 900px;
+        margin: 0 auto;
       }
 
       header h1 {
-        margin: 0;
+        margin: 10px 0 0;
         font-size: 2.6rem;
         font-family: var(--font-brand);
         letter-spacing: 1px;
         font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 20px var(--accent-glow);
       }
+
       header p {
         margin: 10px 0 0;
         font-weight: 400;
-        opacity: 0.9;
+        color: var(--text-muted);
       }
 
       .container {
         max-width: 900px;
-        margin: -40px auto 60px;
-        padding: 0 20px;
+        margin: 20px auto 60px;
+        position: relative;
+        z-index: 10;
       }
 
       .card {
-        background: white;
-        border-radius: 16px;
-        padding: 30px;
-        margin-bottom: 25px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e2e8f0;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 32px;
+        margin-bottom: 24px;
+        color: white;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 40px rgba(16, 185, 129, 0.05);
       }
 
       .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(16, 185, 129, 0.12);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 0 50px var(--accent-glow);
         border-color: var(--accent-color);
       }
 
@@ -101,47 +106,56 @@
         font-family: var(--font-brand);
         font-size: 1.5rem;
         font-weight: 700;
-        color: var(--primary-color);
+        color: #fff;
         margin-bottom: 20px;
         display: flex;
         align-items: center;
         gap: 12px;
-        border-bottom: 2px solid #f1f5f9;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding-bottom: 12px;
         letter-spacing: 0.5px;
       }
 
+      h2 i {
+        color: var(--accent-color);
+        text-shadow: 0 0 10px var(--accent-glow);
+      }
+
       .formula-box {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 12px;
         padding: 25px;
         margin: 20px 0;
         text-align: center;
         font-size: 1.2rem;
-        color: var(--primary-color);
+        color: #fff;
+        box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.05);
       }
 
       .graph-wrapper {
-        background: white;
+        background: rgba(15, 23, 42, 0.3);
         border-radius: 12px;
         padding: 20px;
         margin: 20px 0;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         height: 400px;
       }
 
       .practice-box {
         border-left: 5px solid var(--accent-color);
-        background: #f0fdf4;
+        background: rgba(16, 185, 129, 0.05);
         padding: 25px;
         border-radius: 0 12px 12px 0;
         margin: 20px 0;
+        border-top: 1px solid rgba(16, 185, 129, 0.1);
+        border-right: 1px solid rgba(16, 185, 129, 0.1);
+        border-bottom: 1px solid rgba(16, 185, 129, 0.1);
       }
 
       .practice-title {
         font-weight: bold;
-        color: #065f46;
+        color: #34d399;
         margin-bottom: 12px;
         display: flex;
         align-items: center;
@@ -149,7 +163,7 @@
       }
 
       .solution-btn {
-        background: white;
+        background: transparent;
         border: 1.5px solid var(--accent-color);
         color: var(--accent-color);
         padding: 8px 18px;
@@ -158,21 +172,24 @@
         font-family: "Siemreap", sans-serif;
         font-size: 14px;
         margin-top: 15px;
-        transition: 0.2s;
+        transition: all 0.2s ease;
         font-weight: 600;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
       }
 
       .solution-btn:hover {
         background: var(--accent-color);
-        color: white;
+        color: #0f172a;
+        box-shadow: 0 0 20px var(--accent-glow);
+        transform: translateY(-1px);
       }
 
       .solution-content {
         display: none;
         margin-top: 20px;
         padding-top: 20px;
-        border-top: 1px dashed #cbd5e1;
-        color: #334155;
+        border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        color: var(--text-muted);
       }
 
       .back-link {
@@ -185,38 +202,50 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         padding: 8px 15px;
         border-radius: 50px;
         transition: 0.2s;
+        backdrop-filter: blur(10px);
       }
       .back-link:hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.15);
         transform: translateX(-5px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
         margin: 20px 0;
-        background: white;
+        background: rgba(15, 23, 42, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       th,
       td {
-        border: 1px solid #cbd5e1;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         padding: 15px;
         text-align: left;
       }
 
       th {
-        background: #f8fafc;
-        color: var(--primary-color);
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      td {
+        color: var(--text-muted);
       }
 
       .badge {
-        background: #dcfce7;
-        color: #166534;
+        background: rgba(16, 185, 129, 0.15);
+        color: #34d399;
+        border: 1px solid rgba(16, 185, 129, 0.3);
         padding: 2px 10px;
         border-radius: 4px;
         font-size: 0.85rem;
@@ -226,8 +255,10 @@
       footer {
         text-align: center;
         padding: 40px;
-        color: #64748b;
+        color: var(--text-muted);
         font-size: 0.9rem;
+        position: relative;
+        z-index: 10;
       }
 
       @media (max-width: 600px) {
@@ -238,7 +269,7 @@
           font-size: 1.6rem;
         }
         .container {
-          margin-top: -20px;
+          margin-top: 10px;
         }
         .graph-wrapper {
           height: 300px;
@@ -247,12 +278,16 @@
     </style>
   </head>
   <body>
+    <!-- Background Animation Containers -->
+    <div id="drops" class="drops"></div>
+    <div id="particles" class="particles"></div>
+
     <header>
       <a href="../../chemistry_g12.html" class="back-link">
         <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
       </a>
       <h1>មេរៀនទី ១៖ ល្បឿនប្រតិកម្មគីមី</h1>
-      <p>ជំពូក ១៖ ស៊ីនេទិចគីមី &bull;</p>
+      <p>ជំពូក ១៖ ស៊ីនេទិចគីមី &bull; StudyNest Chemistry</p>
     </header>
 
     <div class="container">
@@ -273,13 +308,13 @@
           "
         >
           <div class="formula-box">
-            <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 8px">
+            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 8px">
               ល្បឿនកំណ (Formation)
             </div>
             \[ V = \frac{\Delta [P]}{\Delta t} \]
           </div>
           <div class="formula-box">
-            <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 8px">
+            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 8px">
               ល្បឿនបំបាត់ (Disappearance)
             </div>
             \[ V = -\frac{\Delta [R]}{\Delta t} \]
@@ -386,27 +421,29 @@
       <!-- Summary Table -->
       <div class="card">
         <h2><i class="fas fa-table"></i> សេចក្តីសង្ខេប</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ប្រភេទល្បឿន</th>
-              <th>អង្គធាតុកកកើត (P)</th>
-              <th>អង្គធាតុប្រតិករ (R)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>ល្បឿនមធ្យម</strong></td>
-              <td>\( V_m = \frac{\Delta [P]}{\Delta t} \)</td>
-              <td>\( V_m = -\frac{\Delta [R]}{\Delta t} \)</td>
-            </tr>
-            <tr>
-              <td><strong>ល្បឿនខណៈ</strong></td>
-              <td>\( V = \frac{d [P]}{dt} \)</td>
-              <td>\( V = -\frac{d [R]}{dt} \)</td>
-            </tr>
-          </tbody>
-        </table>
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>ប្រភេទល្បឿន</th>
+                <th>អង្គធាតុកកកើត (P)</th>
+                <th>អង្គធាតុប្រតិករ (R)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ល្បឿនមធ្យម</strong></td>
+                <td>\( V_m = \frac{\Delta [P]}{\Delta t} \)</td>
+                <td>\( V_m = -\frac{\Delta [R]}{\Delta t} \)</td>
+              </tr>
+              <tr>
+                <td><strong>ល្បឿនខណៈ</strong></td>
+                <td>\( V = \frac{d [P]}{dt} \)</td>
+                <td>\( V = -\frac{d [R]}{dt} \)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Lesson Exercises -->
@@ -433,6 +470,9 @@
 
     <footer>ចេះគឺជាប់ &bull; StudyNest Chemistry 2026</footer>
 
+    <!-- Global Javascript Framework -->
+    <script src="../../../../assets/main.js"></script>
+
     <script>
       function toggleSol(id) {
         const el = document.getElementById(id);
@@ -448,7 +488,7 @@
 
       function initCharts() {
         Chart.defaults.font.family = "Kantumruy Pro";
-        Chart.defaults.color = "#64748b";
+        Chart.defaults.color = "#94a3b8";
 
         // Chart 1: Formation
         new Chart(document.getElementById("chartFormation").getContext("2d"), {
@@ -472,14 +512,23 @@
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  color: "#e2e8f0"
+                }
+              }
+            },
             scales: {
               y: {
-                grid: { color: "#f1f5f9" },
-                title: { display: true, text: "Concentration" },
+                grid: { color: "rgba(255, 255, 255, 0.08)" },
+                ticks: { color: "#94a3b8" },
+                title: { display: true, text: "Concentration", color: "#e2e8f0" },
               },
               x: {
-                grid: { color: "#f1f5f9" },
-                title: { display: true, text: "Time (s)" },
+                grid: { color: "rgba(255, 255, 255, 0.08)" },
+                ticks: { color: "#94a3b8" },
+                title: { display: true, text: "Time (s)", color: "#e2e8f0" },
               },
             },
           },
@@ -509,14 +558,23 @@
             options: {
               responsive: true,
               maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  labels: {
+                    color: "#e2e8f0"
+                  }
+                }
+              },
               scales: {
                 y: {
-                  grid: { color: "#f1f5f9" },
-                  title: { display: true, text: "Concentration" },
+                  grid: { color: "rgba(255, 255, 255, 0.08)" },
+                  ticks: { color: "#94a3b8" },
+                  title: { display: true, text: "Concentration", color: "#e2e8f0" },
                 },
                 x: {
-                  grid: { color: "#f1f5f9" },
-                  title: { display: true, text: "Time (s)" },
+                  grid: { color: "rgba(255, 255, 255, 0.08)" },
+                  ticks: { color: "#94a3b8" },
+                  title: { display: true, text: "Time (s)", color: "#e2e8f0" },
                 },
               },
             },
@@ -524,7 +582,12 @@
         );
       }
 
-      window.onload = initCharts;
+      window.onload = function() {
+        initCharts();
+        if (window.StudyNest && typeof window.StudyNest.initBackground === 'function') {
+          StudyNest.initBackground();
+        }
+      };
     </script>
   </body>
 </html>
