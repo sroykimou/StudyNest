@@ -68,7 +68,7 @@
           <i class="fas fa-user-circle"></i> ប្រវត្តិរូប
         </a>
         <a href="#" onclick="openPayModal()" class="dropdown-item">
-          <i class="fas fa-credit-card"></i> បង់ប្រាក់
+          <i class="fas fa-credit-card"></i> គម្រោងឥតគិតថ្លៃ
         </a>
 
         <div class="dropdown-divider"></div>
@@ -191,7 +191,7 @@
             font-weight: 600;
           "
         >
-          កម្រិតសិក្សា: Free
+          កម្រិតសិក្សា: Full Free Plan
         </p>
 
         <div id="unlockedSection">
@@ -268,7 +268,7 @@
                 padding: 2px 8px;
                 border-radius: 10px;
               "
-              >$3</span
+              >Free</span
             >
           </button>
 
@@ -289,7 +289,7 @@
                 padding: 2px 8px;
                 border-radius: 10px;
               "
-              >$6</span
+              >Free</span
             >
           </button>
         </div>
@@ -310,7 +310,7 @@
           style="border-color: var(--accent)"
         >
           <div style="text-align: left">
-            <div style="font-weight: 700">Exercise Plan</div>
+            <div style="font-weight: 700">Free Exercise Plan</div>
             <div
               style="
                 font-size: 11px;
@@ -328,7 +328,7 @@
               font-family: &quot;Rajdhani&quot;;
               font-size: 20px;
             "
-            >$3</span
+            >Free</span
           >
         </button>
         <button
@@ -337,7 +337,7 @@
           style="border-color: #a855f7"
         >
           <div style="text-align: left">
-            <div style="font-weight: 700">Bacii Plan</div>
+            <div style="font-weight: 700">Full Free Plan</div>
             <div
               style="
                 font-size: 11px;
@@ -355,7 +355,7 @@
               font-family: &quot;Rajdhani&quot;;
               font-size: 20px;
             "
-            >$6</span
+            >Free</span
           >
         </button>
         <div class="modal-cancel" onclick="closePayModal()">បោះបង់</div>
@@ -412,7 +412,7 @@
       updateProgress();
 
       function openPayModal() {
-        document.getElementById("payModal").style.display = "flex";
+        alert("គម្រោងទាំងអស់ឥឡូវនេះឥតគិតថ្លៃ!");
       }
       function closePayModal() {
         document.getElementById("payModal").style.display = "none";
@@ -425,10 +425,10 @@
 
         const statusElem = document.getElementById("modalUserStatus");
         if (userLevel >= 6)
-          statusElem.textContent = "កម្រិតសិក្សា: Bacii Plan";
+          statusElem.textContent = "កម្រិតសិក្សា: Full Free Plan";
         else if (userLevel >= 3)
-          statusElem.textContent = "កម្រិតសិក្សា: Exercise Plan";
-        else statusElem.textContent = "កម្រិតសិក្សា: Free Plan";
+          statusElem.textContent = "កម្រិតសិក្សា: Full Free Plan Exercise Plan";
+        else statusElem.textContent = "កម្រិតសិក្សា: Full Free Plan";
 
         // Update labels based on subject
         const isHistory = subject === "ប្រវត្តិវិទ្យា";
@@ -496,7 +496,7 @@
         }
       }
       function goToPay(level) {
-        window.location.href = `../pay.html?p=${level}`;
+        alert("គម្រោងទាំងអស់ឥឡូវនេះឥតគិតថ្លៃ!");
       }
       function logout() {
         StudyNest.logout();

@@ -229,7 +229,7 @@
 
             <div class="profile-info-main">
                 <h2 id="pName">Username</h2>
-                <span class="badge" id="pLevel">Free Plan</span>
+                <span class="badge" id="pLevel">Full Free Plan</span>
             </div>
         </div>
 
@@ -330,13 +330,13 @@
             // Plan Badge
             const levelBadge = document.getElementById("pLevel");
             if (userLevel >= 6) {
-                levelBadge.textContent = "Bacii Plan";
+                levelBadge.textContent = "Full Free Plan";
                 levelBadge.style.background = "linear-gradient(135deg, #a855f7, #7c3aed)";
             } else if (userLevel >= 3) {
-                levelBadge.textContent = "Exercise Plan";
+                levelBadge.textContent = "Free Exercise Plan";
                 levelBadge.style.background = "linear-gradient(135deg, var(--primary), var(--accent))";
             } else {
-                levelBadge.textContent = "Free Plan";
+                levelBadge.textContent = "Full Free Plan";
                 levelBadge.style.background = "rgba(255,255,255,0.15)";
             }
 

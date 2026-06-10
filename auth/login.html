@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="../assets/style.css">
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         /* Specific overrides for login card if needed */
         .card {
             width: 100%;
-            max-width: 380px;
-            padding: 40px;
+            max-width: 520px;
+            padding: 64px 70px;
         }
         
         /* Tab switcher styling */
@@ -54,6 +56,125 @@
         .login-tab:hover:not(.active) {
             color: var(--text-primary);
             background: rgba(255, 255, 255, 0.05);
+        }
+
+        .social-login {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .social-btn {
+            width: 100%;
+            min-height: 46px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: var(--radius-btn);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.13);
+            border-color: rgba(255, 255, 255, 0.24);
+        }
+
+        .social-btn.google i {
+            color: #fbbc05;
+        }
+
+        .social-btn.facebook i {
+            color: #1877f2;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.13);
+        }
+
+        .social-code-panel {
+            display: none;
+            margin: -8px 0 20px;
+            padding: 14px;
+            border: 1px solid rgba(116, 235, 213, 0.2);
+            border-radius: var(--radius-input);
+            background: rgba(116, 235, 213, 0.06);
+        }
+
+        .social-code-panel.show {
+            display: block;
+        }
+
+        .social-code-panel label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-label);
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .social-code-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-code-row input {
+            flex: 1;
+            background: var(--input-bg);
+            border: 1.5px solid var(--input-border);
+            border-radius: 10px;
+            color: white;
+            font-family: "Rajdhani", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            padding: 10px 12px;
+            text-align: center;
+            outline: none;
+        }
+
+        .social-code-row input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .social-code-row button {
+            width: 48px;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #0f172a;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .social-code-row button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
         }
 
         /* OTP input group button styling */
@@ -165,10 +286,233 @@
         }
 
         @media (max-width: 480px) {
+            .card {
+                max-width: calc(100vw - 28px);
+                padding: 38px 24px;
+            }
+
             .otp-notif {
                 width: calc(100vw - 32px);
                 right: 16px;
                 top: 16px;
+            }
+        }
+
+        body {
+            background: #eef4f7;
+            color: #1f2937;
+            overflow: auto;
+        }
+
+        .drops,
+        .particles,
+        .logo-wrap,
+        .login-tabs,
+        .forgot,
+        #otpLoginFields {
+            display: none !important;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            animation: none;
+        }
+
+        .card::before {
+            display: none;
+        }
+
+        .brand {
+            color: #23272f;
+            font-family: "Poppins", sans-serif;
+            font-size: 27px;
+            line-height: 1.25;
+            letter-spacing: 0;
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: #6b7280;
+            font-family: "Kantumruy Pro", "Poppins", sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: left;
+            margin-bottom: 34px;
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+        }
+
+        .input-group label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .input-wrap .icon,
+        .eye-toggle {
+            display: none;
+        }
+
+        .input-wrap input {
+            height: 62px;
+            padding: 0 34px !important;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            color: #2b2f36;
+            font-family: "Poppins", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: none;
+        }
+
+        .input-wrap input::placeholder {
+            color: #6f737a;
+            font-weight: 500;
+        }
+
+        .input-wrap input:focus {
+            border-color: #80b7ff;
+            background: #fff;
+            box-shadow: 0 0 0 1px #80b7ff;
+        }
+
+        .divider {
+            margin: 42px 0 22px;
+            color: #5f6368;
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .divider::before,
+        .divider::after {
+            background: #e5e7eb;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 44px;
+        }
+
+        .social-btn {
+            min-height: 62px;
+            width: 100%;
+            max-width: 320px;
+            background: #f8f8f8;
+            border: 0;
+            border-radius: 4px;
+            color: #111827;
+            font-size: 24px;
+            box-shadow: none;
+        }
+
+        .social-btn span {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 600;
+            margin-left: 10px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .social-btn.google i {
+            color: #4285f4;
+        }
+
+        .social-btn.facebook i {
+            color: #0078ff;
+        }
+
+        .social-btn.apple i {
+            color: #000;
+        }
+
+        .social-btn:hover {
+            background: #f1f5f9;
+            border-color: transparent;
+            transform: translateY(-1px);
+        }
+
+        .social-code-panel {
+            margin: -22px 0 28px;
+            border-color: #bfdbfe;
+            background: #eff6ff;
+        }
+
+        .social-code-panel label {
+            color: #1d4ed8;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .social-code-row input {
+            background: #fff;
+            border-color: #dbeafe;
+            color: #111827;
+        }
+
+        .social-code-row button {
+            background: #0d6efd;
+            color: #fff;
+        }
+
+        .sn-btn {
+            height: 62px;
+            width: 72%;
+            margin: 0 auto;
+            background: #0d6efd;
+            border-radius: 6px;
+            color: #fff;
+            font-family: "Kantumruy Pro", "Poppins", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: none;
+        }
+
+        .sn-btn:hover {
+            background: #0b5ed7;
+            box-shadow: none;
+            transform: translateY(-1px);
+        }
+
+        .footer-links {
+            color: #6b7280;
+            margin-top: 26px;
+        }
+
+        .footer-links a {
+            color: #0d6efd;
+        }
+
+        @media (max-width: 480px) {
+            .brand {
+                font-size: 24px;
+            }
+
+            .tagline {
+                font-size: 14px;
+            }
+
+            .social-login {
+                gap: 10px;
+            }
+
+            .sn-btn {
+                width: 100%;
             }
         }
     </style>
@@ -186,8 +530,8 @@
             </div>
         </div>
 
-        <h1 class="brand anim-2">StudyNest</h1>
-        <p class="tagline anim-3">ចូលប្រើប្រាស់គណនីរបស់អ្នក</p>
+        <h1 class="brand anim-2">Back to your digital life</h1>
+        <p class="tagline anim-3">Choose one of the option to go</p>
 
         <!-- Tab Switcher -->
         <div class="login-tabs anim-3">
@@ -203,18 +547,18 @@
             <!-- Password Login Fields -->
             <div id="passwordLoginFields">
                 <div class="input-group anim-4">
-                    <label for="username">ឈ្មោះអ្នកប្រើប្រាស់</label>
+                    <label for="username">Email or username</label>
                     <div class="input-wrap">
                         <i class="fas fa-user icon"></i>
-                        <input type="text" id="username" placeholder="បញ្ចូលឈ្មោះ..." required autocomplete="username">
+                        <input type="text" id="username" placeholder="Email or username" required autocomplete="username">
                     </div>
                 </div>
 
                 <div class="input-group anim-5">
-                    <label for="password">លេខសម្ងាត់</label>
+                    <label for="password">Password</label>
                     <div class="input-wrap">
                         <i class="fas fa-lock icon"></i>
-                        <input type="password" id="password" placeholder="••••••••" required autocomplete="current-password">
+                        <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
                         <i class="far fa-eye eye-toggle" id="togglePassword"></i>
                     </div>
                 </div>
@@ -223,6 +567,18 @@
                     <a href="#">ភ្លេចលេខសម្ងាត់?</a>
                 </div>
             </div>
+
+            <div class="divider anim-4">Or continue with</div>
+
+            <div class="social-login anim-4">
+                <button type="button" class="social-btn google" data-provider="google" aria-label="Continue with Google">
+                    <i class="fab fa-google"></i>
+                    <span>Sign in with Google</span>
+                </button>
+            </div>
+
+            <!-- Removed mock social panels -->
+
 
             <!-- OTP Login Fields -->
             <div id="otpLoginFields" style="display: none;">
@@ -246,7 +602,7 @@
             </div>
 
             <button type="submit" class="sn-btn anim-7" id="loginBtn">
-                <span class="btn-text" id="loginBtnText">ចូលប្រើប្រាស់</span>
+                <span class="btn-text" id="loginBtnText">Log in</span>
                 <div class="btn-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>
             </button>
         </form>
@@ -472,6 +828,170 @@
             }, 3000);
         }
 
+        function normalizeSocialProvider(provider) {
+            if (provider === "facebook") return "Meta";
+            if (provider === "apple") return "Apple";
+            return "Google";
+        }
+
+        function getOrCreateSocialUser(provider) {
+            const providerName = normalizeSocialProvider(provider);
+            const username = provider === "facebook" ? "meta_student" : provider + "_student";
+            const storageKey = "user_" + username;
+            const existingData = localStorage.getItem(storageKey);
+
+            if (existingData) {
+                return JSON.parse(existingData);
+            }
+
+            const userData = {
+                username: username,
+                email: username + "@studynest.local",
+                phone: "",
+                password: "",
+                grade: "12",
+                branch: "science",
+                authProvider: providerName
+            };
+
+            localStorage.setItem(storageKey, JSON.stringify(userData));
+            localStorage.setItem("userLevel_" + username, "6");
+            return userData;
+        }
+
+        function showVerificationNotification(code) {
+            otpNotifVal.textContent = code;
+            otpNotifValEn.textContent = code;
+
+            otpProgressBar.style.transition = "none";
+            otpProgressBar.style.width = "100%";
+            void otpProgressBar.offsetWidth;
+            otpProgressBar.style.transition = "width 8s linear";
+            otpProgressBar.style.width = "0%";
+
+            otpNotif.classList.add("show");
+            if (timerTimeout) clearTimeout(timerTimeout);
+            timerTimeout = setTimeout(() => {
+                otpNotif.classList.remove("show");
+            }, 8000);
+        }
+
+        const socialCodePanel = document.getElementById("socialCodePanel");
+        const socialCodeInput = document.getElementById("socialCode");
+        const verifySocialCodeBtn = document.getElementById("verifySocialCodeBtn");
+        let pendingSocialUser = null;
+        let pendingSocialProvider = null;
+        let socialVerificationCode = null;
+
+        // --- Google OAuth Integration ---
+        const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com";
+
+        function handleGoogleResponse(response) {
+            try {
+                // Decode the JWT token (Base64 decode)
+                const base64Url = response.credential.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+
+                const googleUser = JSON.parse(jsonPayload);
+                console.log("Google User Data:", googleUser);
+
+                // Create or update local user
+                const username = googleUser.email.split('@')[0] + "_google";
+                const storageKey = "user_" + username;
+                
+                const userData = {
+                    username: username,
+                    email: googleUser.email,
+                    fullName: googleUser.name,
+                    picture: googleUser.picture,
+                    grade: "12",
+                    branch: "science",
+                    authProvider: "Google"
+                };
+
+                localStorage.setItem(storageKey, JSON.stringify(userData));
+                localStorage.setItem("currentUserName", username);
+                localStorage.setItem("userLevel_" + username, "6"); // Default access level
+                localStorage.setItem("userGrade", "12");
+
+                showToast(`ស្វាគមន៍ ${googleUser.name}! ចូលប្រើប្រាស់ជោគជ័យ។`, "success");
+
+                setTimeout(() => {
+                    window.location.href = "../grade12/science/science_home.html";
+                }, 1000);
+
+            } catch (error) {
+                console.error("Google Login Error:", error);
+                showToast("ការចូលប្រើប្រាស់តាម Google បានបរាជ័យ!", "error");
+            }
+        }
+
+        window.onload = function () {
+            if (typeof google !== 'undefined') {
+                google.accounts.id.initialize({
+                    client_id: GOOGLE_CLIENT_ID,
+                    callback: handleGoogleResponse
+                });
+            }
+        };
+
+        document.querySelectorAll(".social-btn").forEach((button) => {
+            button.addEventListener("click", () => {
+                const provider = button.dataset.provider;
+                
+                if (provider === "google") {
+                    google.accounts.id.prompt(); // Show One Tap if available
+                    google.accounts.id.requestCode(); // Or standard login flow
+                    return;
+                }
+
+                const providerName = normalizeSocialProvider(provider);
+                pendingSocialUser = getOrCreateSocialUser(provider);
+                pendingSocialProvider = providerName;
+                socialVerificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+                socialCodePanel.classList.add("show");
+                socialCodeInput.value = "";
+                socialCodeInput.focus();
+                showVerificationNotification(socialVerificationCode);
+                showToast(`សូមបញ្ចូលលេខកូដ ${providerName}`, "success");
+            });
+        });
+
+        verifySocialCodeBtn.addEventListener("click", () => {
+            const enteredCode = socialCodeInput.value.trim();
+
+            if (!pendingSocialUser || !socialVerificationCode) {
+                showToast("សូមជ្រើសរើស Google ឬ Facebook ជាមុនសិន", "error");
+                return;
+            }
+
+            if (enteredCode !== socialVerificationCode) {
+                showToast("លេខកូដមិនត្រឹមត្រូវ!", "error");
+                return;
+            }
+
+            showToast(`${pendingSocialProvider} ចូលប្រើប្រាស់ជោគជ័យ!`, "success");
+            localStorage.setItem("currentUserName", pendingSocialUser.username);
+            localStorage.setItem("userGrade", pendingSocialUser.grade || "12");
+
+            setTimeout(() => {
+                const branch = pendingSocialUser.branch || "science";
+                const grade = pendingSocialUser.grade || "12";
+                window.location.href = `../grade${grade}/${branch}/${branch}_home.html`;
+            }, 800);
+        });
+
+        socialCodeInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                verifySocialCodeBtn.click();
+            }
+        });
+
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
             const btn = document.getElementById("loginBtn");
@@ -492,7 +1012,7 @@
                     showToast("ចូលប្រើប្រាស់ជោគជ័យ! (Login Successful)", "success");
                     localStorage.setItem("currentUserName", resolvedUsername);
                     if (!localStorage.getItem("userLevel_" + resolvedUsername)) {
-                        localStorage.setItem("userLevel_" + resolvedUsername, "0");
+                        localStorage.setItem("userLevel_" + resolvedUsername, "6");
                     }
 
                     setTimeout(() => {
@@ -556,7 +1076,7 @@
                         showToast("ចូលប្រើប្រាស់ជោគជ័យ!", "success");
                         localStorage.setItem("currentUserName", user);
                         if (!localStorage.getItem("userLevel_" + user)) {
-                            localStorage.setItem("userLevel_" + user, "0");
+                            localStorage.setItem("userLevel_" + user, "6");
                         }
 
                         setTimeout(() => {

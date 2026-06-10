@@ -1,0 +1,350 @@
+/* StudyNest professional visual refresh */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #60a5fa;
+  --primary-glow: rgba(37, 99, 235, 0.18);
+  --accent: #14b8a6;
+  --accent-dark: #0f766e;
+  --accent-glow: rgba(20, 184, 166, 0.16);
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --input-bg: #ffffff;
+  --input-border: #dbe3ef;
+  --input-focus: #2563eb;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --text-label: #475569;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --caution: #ca8a04;
+  --success: #059669;
+  --radius-card: 14px;
+  --radius-input: 10px;
+  --radius-btn: 10px;
+  --font-brand: "Poppins", "Kantumruy Pro", sans-serif;
+}
+
+html {
+  background: #eef4f8;
+}
+
+body:not(.bg-dark),
+body.dashboard-body {
+  color: var(--text-primary) !important;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.08), transparent 34rem),
+    linear-gradient(180deg, #f8fbfd 0%, #eef4f8 100%) !important;
+  overflow-x: hidden !important;
+}
+
+body.bg-dark {
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.54), rgba(15, 23, 42, 0.7)),
+    radial-gradient(circle at 25% 20%, rgba(20, 184, 166, 0.22), transparent 24rem),
+    linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+}
+
+body.bg-dark .brand,
+body.bg-dark h1 {
+  color: #ffffff !important;
+}
+
+body.bg-dark .tagline,
+body.bg-dark p {
+  color: rgba(226, 232, 240, 0.82) !important;
+}
+
+.drops,
+.particles {
+  opacity: 0.28;
+}
+
+.card,
+.panel,
+.stat-card,
+.lesson-card,
+.chapter-card,
+.quiz-card,
+.notice-card,
+.subject-card,
+.user-dropdown,
+.modal-content,
+.top-profile-box,
+.admin-card,
+.pay-card,
+.profile-card {
+  border-radius: var(--radius-card) !important;
+  border: 1px solid var(--glass-border) !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+.card::before,
+.panel::before,
+.stat-card::before,
+.lesson-card::before,
+.chapter-card::before {
+  opacity: 0 !important;
+}
+
+.brand,
+h1,
+h2,
+h3,
+h4,
+.panel-title,
+.lesson-title,
+.lesson-text h3,
+.chapter-card h2,
+.subject-card h3,
+.welcome-header h1,
+.dashboard-section-title,
+.topbar-left h1,
+.admin-header h1,
+.profile-name,
+.stat-value {
+  color: var(--text-primary) !important;
+  letter-spacing: 0 !important;
+}
+
+.tagline,
+p,
+.lesson-text p,
+.lesson-meta,
+.subject-card p,
+.welcome-header p,
+.topbar-left p,
+.stat-label,
+.user-role,
+.notice-body,
+.chapter-card p {
+  color: var(--text-muted) !important;
+}
+
+.logo-icon,
+.icon-box,
+.subject-icon-box,
+.stat-icon,
+.quiz-icon,
+.lesson-thumb,
+.user-avatar,
+.top-avatar {
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%) !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.container,
+.main-content {
+  max-width: 1180px;
+}
+
+.main-content {
+  background: transparent !important;
+}
+
+.sidebar,
+.user-menu-wrapper .user-dropdown {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: var(--glass-border) !important;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.11) !important;
+}
+
+.sidebar-brand .brand-text,
+.nav-item,
+.dropdown-item,
+.top-profile-name {
+  color: var(--text-primary) !important;
+}
+
+.nav-section-label,
+.top-profile-level {
+  color: var(--text-muted) !important;
+}
+
+.nav-item:hover,
+.dropdown-item:hover,
+.dropdown-item.active,
+.user-card:hover {
+  background: rgba(37, 99, 235, 0.08) !important;
+  color: var(--primary-dark) !important;
+}
+
+.nav-item.active {
+  background: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: var(--primary-dark) !important;
+}
+
+.user-card {
+  background: #f8fafc !important;
+  border-color: var(--glass-border) !important;
+}
+
+.input-wrap input,
+.input-wrap select,
+.search-bar input,
+.code-input,
+input,
+select,
+textarea {
+  border-radius: var(--radius-input) !important;
+  border-color: var(--input-border) !important;
+  background: #ffffff !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+
+.input-wrap input::placeholder,
+.search-bar input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.input-wrap input:focus,
+.input-wrap select:focus,
+.search-bar input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14) !important;
+  outline: none !important;
+}
+
+.input-wrap .icon,
+.select-arrow,
+.eye-toggle,
+.search-bar i {
+  color: #64748b !important;
+}
+
+.sn-btn,
+.start-btn,
+.btn-unlock,
+.option-btn-modal,
+.nav-btn,
+button[type="submit"],
+button:not(.login-tab):not(.social-btn):not(.icon-btn) {
+  border-radius: var(--radius-btn) !important;
+  border: 1px solid transparent !important;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.18) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease !important;
+}
+
+.sn-btn:hover,
+.start-btn:hover,
+.btn-unlock:hover,
+.option-btn-modal:hover,
+.nav-btn:hover,
+button[type="submit"]:hover,
+button:not(.login-tab):not(.social-btn):not(.icon-btn):hover {
+  background: #1d4ed8 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24) !important;
+}
+
+a[aria-disabled="true"],
+.start-btn[aria-disabled="true"] {
+  background: #e2e8f0 !important;
+  color: #64748b !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+}
+
+.lesson-card,
+.chapter-card,
+.quiz-card,
+.subject-card,
+.stat-card {
+  transform: none !important;
+}
+
+.lesson-card:hover,
+.chapter-card:hover,
+.quiz-card:hover,
+.subject-card:hover,
+.stat-card:hover {
+  border-color: rgba(37, 99, 235, 0.22) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.14) !important;
+}
+
+.chapter-title,
+header,
+.header-card,
+.welcome-header,
+.topbar {
+  color: var(--text-primary) !important;
+}
+
+.subject-card.blue,
+.subject-card.purple,
+.subject-card.teal,
+.subject-card.orange,
+.subject-card.pink,
+.subject-card.green,
+.subject-card.red,
+.subject-card.gold {
+  background: #ffffff !important;
+}
+
+.subject-name,
+.subject-lessons,
+.subject-pct {
+  color: var(--text-primary) !important;
+}
+
+.subject-progress-bar {
+  background: #e2e8f0 !important;
+}
+
+.subject-progress-bar span,
+.progress-fill,
+.progress-bar-fill {
+  background: linear-gradient(90deg, #2563eb, #14b8a6) !important;
+  box-shadow: none !important;
+}
+
+.back-btn-fixed a,
+.back-link {
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08) !important;
+}
+
+.toast {
+  background: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.24) !important;
+}
+
+.modal {
+  background: rgba(15, 23, 42, 0.45) !important;
+}
+
+@media (max-width: 768px) {
+  .card,
+  .panel,
+  .lesson-card,
+  .chapter-card,
+  .subject-card {
+    border-radius: 12px !important;
+  }
+
+  .main-content {
+    max-width: none;
+  }
+}

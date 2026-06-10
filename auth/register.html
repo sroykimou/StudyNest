@@ -35,7 +35,7 @@
 
         <h1 class="brand anim-2">StudyNest</h1>
         <p class="tagline anim-3">បង្កើតគណនីសម្រាប់សិស្សថ្នាក់ទី ១២</p>
-        <p class="promo-badge anim-3" style="color: var(--accent); font-size: 13px; font-weight: 700; background: rgba(245, 158, 11, 0.1); padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px;">🎁 កាដូពិសេស៖ ចុះឈ្មោះឥឡូវនេះ ទទួលបានគម្រោង $3 ដោយឥតគិតថ្លៃ!</p>
+        <p class="promo-badge anim-3" style="color: var(--accent); font-size: 13px; font-weight: 700; background: rgba(245, 158, 11, 0.1); padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px;">🎁 កាដូពិសេស៖ ចុះឈ្មោះឥឡូវនេះ ទទួលបានគម្រោងទាំងអស់ដោយឥតគិតថ្លៃ!</p>
 
         <form id="registerForm">
             <div class="input-group anim-4">
@@ -193,9 +193,9 @@
                 localStorage.setItem("currentUserName", user);
                 localStorage.setItem("userGrade", grade);
                 
-                // Promo: Give $3 plan (Level 3) for free with 10 years expiry
+                // Promo: Give full access (Level 6) for free with 10 years expiry
                 const tenYears = 10 * 365 * 24 * 60 * 60 * 1000;
-                localStorage.setItem("userLevel_" + user, "3");
+                localStorage.setItem("userLevel_" + user, "6");
                 localStorage.setItem("userLevelExpiry_" + user, (Date.now() + tenYears).toString());
 
                 showToast("ចុះឈ្មោះជោគជ័យ! 🎉", "success");

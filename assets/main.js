@@ -24,6 +24,9 @@ const StudyNest = {
     const user = this.getUser();
     if (!user) return -1; // មិនទាន់ Login
 
+    // All StudyNest plans are currently free for logged-in users.
+    return 6;
+
     const currentLevel = parseInt(localStorage.getItem("userLevel_" + user)) || 0;
     const expiryTimestamp = localStorage.getItem("userLevelExpiry_" + user);
 
@@ -85,7 +88,24 @@ const StudyNest = {
     return true;
   },
 
-  // 6. មុខងារបង្កើត Background Animations
+  // 6. Apply the shared professional visual refresh after page-level styles load.
+  initProfessionalTheme: function () {
+    const path = window.location.pathname.toLowerCase();
+    if (path.endsWith("/auth/login.html") || path.endsWith("\\auth\\login.html")) {
+      return;
+    }
+    if (document.getElementById("studynest-professional-theme")) {
+      return;
+    }
+
+    const link = document.createElement("link");
+    link.id = "studynest-professional-theme";
+    link.rel = "stylesheet";
+    link.href = this.getRoot() + "assets/professional.css";
+    document.head.appendChild(link);
+  },
+
+  // 7. មុខងារបង្កើត Background Animations
   initBackground: function () {
     const dropsContainer = document.getElementById("drops");
     const particlesContainer = document.getElementById("particles");
@@ -120,6 +140,8 @@ const StudyNest = {
     }
   },
 };
+
+StudyNest.initProfessionalTheme();
 
 // បើអ្នកចង់ឱ្យវាឆែក Auth ដោយស្វ័យប្រវត្តិរាល់ពេលភ្ជាប់ File នេះ
 // StudyNest.authGuard();
