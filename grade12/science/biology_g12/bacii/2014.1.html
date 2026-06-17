@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>វិញ្ញាសាជីវវិទ្យា ២០១៤ លើកទី១ | StudyNest</title>
+    <title>វិញ្ញាសាជីវវិទ្យា ២០១៤ (លើកទី១) - Photo View</title>
+    
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome -->
@@ -15,912 +16,135 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
-        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
-      };
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
-
     <style>
-      :root {
-        --bg-canvas: #e2e8f0;
-        --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-        --paper-bg: rgba(255, 255, 255, 0.95);
-        --ink-black: #0f172a;
-        --ink-gray: #475569;
-        --royal-blue: #1e3a8a;
-        --accent-blue: #3b82f6;
-        --border-color: rgba(203, 213, 225, 0.6);
-        --shadow-sm:
-          0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        --shadow-lg: 0 20px 40px -5px rgba(15, 23, 42, 0.1);
-        --shadow-glow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        background: var(--bg-gradient);
-        color: var(--ink-black);
-        font-family: "Kantumruy Pro", "Poppins", sans-serif;
-        line-height: 1.8;
-        padding: 40px 10px;
-        min-height: 100vh;
-      }
-
-      /* Top Action Bar (Hidden in Print) */
-      .action-bar {
-        max-width: 210mm;
-        margin: 0 auto 24px;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f2f5;
+        font-family: "Kantumruy Pro", sans-serif;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 16px 28px;
-        border-radius: 16px;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
+        gap: 20px;
       }
 
-      .action-bar:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .action-bar-left a {
-        color: var(--royal-blue);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 15px;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        padding: 8px 12px;
+      /* Clean Photo Frame */
+      .photo-container {
+        width: 100%;
+        max-width: 900px;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         border-radius: 8px;
-      }
-
-      .action-bar-left a:hover {
-        color: var(--accent-blue);
-        background: rgba(59, 130, 246, 0.08);
-        transform: translateX(-4px);
-      }
-
-      .action-bar-right {
-        display: flex;
-        gap: 12px;
-      }
-
-      .action-btn {
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid var(--border-color);
-        background: #ffffff;
-        color: var(--ink-gray);
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .action-btn:hover {
-        background: #f8fafc;
-        color: var(--ink-black);
-        border-color: var(--ink-gray);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-sm);
-      }
-
-      /* A4 Paper Styling */
-      .paper {
-        background: var(--paper-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        width: 210mm;
-        min-height: 297mm;
-        padding: 25mm;
-        margin: 0 auto;
-        box-shadow: var(--shadow-lg);
-        border-radius: 20px;
         position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        transition: box-shadow 0.4s ease;
-      }
-
-      /* Header Layout */
-      .paper-header {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 30px;
-        font-size: 13.5px;
-        line-height: 1.6;
-      }
-
-      .header-right {
-        text-align: right;
-        font-weight: 600;
-        color: var(--ink-gray);
-        background: rgba(241, 245, 249, 0.6);
-        padding: 12px 20px;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-      }
-
-      .royal-title {
-        font-weight: 700;
-        font-size: 15.5px;
-        color: var(--ink-black);
-        margin-bottom: 4px;
-        letter-spacing: 0.5px;
-      }
-
-      /* Main Title block */
-      .exam-title-block {
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-        padding-bottom: 25px;
-      }
-
-      .exam-title-block::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 150px;
-        height: 4px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--royal-blue),
-          transparent
-        );
-        border-radius: 4px;
-      }
-
-      .exam-title-block h1 {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--ink-black);
-        margin-bottom: 12px;
-        line-height: 1.4;
-      }
-
-      .exam-info-grid {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        font-size: 13.5px;
-        color: var(--royal-blue);
-        margin-top: 16px;
-        font-weight: 700;
-      }
-
-      .exam-info-grid span {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(30, 58, 138, 0.05);
-        padding: 6px 14px;
-        border-radius: 20px;
-      }
-
-      /* Question Elements */
-      .question-block {
-        margin-bottom: 24px;
-        page-break-inside: avoid;
-        padding: 16px 20px;
-        border-radius: 12px;
-        border: 1px solid transparent;
-        transition: all 0.3s ease;
-      }
-
-      .question-block:hover {
-        background: rgba(248, 250, 252, 0.7);
-        border-color: rgba(226, 232, 240, 0.8);
-        transform: translateX(4px);
-      }
-
-      .q-title {
-        font-weight: 700;
-        font-size: 16.5px;
-        color: var(--ink-black);
-        margin-bottom: 10px;
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        line-height: 1.7;
-      }
-
-      .q-num {
-        min-width: 38px;
-        height: 38px;
-        background: linear-gradient(
-          135deg,
-          var(--royal-blue),
-          var(--accent-blue)
-        );
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
-      }
-
-      .q-text {
-        flex: 1;
-        padding-top: 5px;
-      }
-
-      .sub-q {
-        margin: 12px 0 12px 48px;
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--ink-black);
-        position: relative;
-        line-height: 1.7;
-      }
-
-      .sub-q::before {
-        content: "";
-        position: absolute;
-        left: -16px;
-        top: 12px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent-blue);
-        opacity: 0.6;
-      }
-
-      /* Global Answer Toggle Style */
-      .global-answer-btn-wrapper {
-        text-align: center;
-        margin: 40px 0;
-        page-break-inside: avoid;
-      }
-
-      .global-answer-btn {
-        background: linear-gradient(
-          135deg,
-          var(--royal-blue),
-          var(--accent-blue)
-        );
-        border: none;
-        color: #ffffff;
-        padding: 14px 32px;
-        border-radius: 12px;
-        font-size: 15px;
-        font-weight: 700;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: var(--shadow-glow);
-      }
-
-      .global-answer-btn:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.5);
-      }
-
-      .global-answer-btn:active {
-        transform: translateY(1px);
-      }
-
-      /* Global Answer Panel */
-      .global-answer-panel {
-        display: none;
-        margin-top: 40px;
-        position: relative;
-        animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .global-answer-panel::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: 10%;
-        right: 10%;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--border-color),
-          transparent
-        );
-      }
-
-      .ans-section {
-        margin-bottom: 40px;
-        background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow-sm);
         transition: transform 0.3s ease;
       }
 
-      .ans-section:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      .photo-container:hover {
+        transform: translateY(-5px);
       }
 
-      .ans-section-title {
+      .pdf-view {
+        width: 100%;
+        height: 1200px;
+        border: none;
+        border-radius: 4px;
+        display: block;
+      }
+
+      /* Label below "photo" */
+      .caption {
+        padding: 15px;
+        text-align: center;
         font-weight: 700;
-        font-size: 16.5px;
-        color: var(--royal-blue);
-        margin-bottom: 16px;
-        display: inline-block;
-        padding-bottom: 6px;
-        border-bottom: 2px solid var(--accent-blue);
+        color: #1e3a8a;
+        font-size: 18px;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
       }
 
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      /* Simple Toggle Button */
+      .reveal-btn {
+        background: #1e3a8a;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        position: sticky;
+        bottom: 20px;
+        z-index: 100;
       }
 
-      .ans-section p {
+      .reveal-btn:hover {
+        background: #2563eb;
+      }
+
+      .back-link {
+        align-self: flex-start;
+        text-decoration: none;
+        color: #64748b;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         margin-bottom: 10px;
-        font-size: 15px;
-        color: var(--ink-black);
       }
 
-      .formula-box {
-        background: linear-gradient(145deg, #f8fafc, #f1f5f9);
-        border: 1px solid rgba(226, 232, 240, 0.8);
-        border-left: 4px solid var(--accent-blue);
-        padding: 18px 24px;
-        border-radius: 0 12px 12px 0;
-        margin: 16px 0;
-        text-align: left;
-        font-weight: 500;
-        line-height: 1.8;
-        font-size: 15px;
-        color: var(--ink-black);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-        overflow-x: auto;
+      /* Hide browser PDF UI as much as possible */
+      iframe {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
-
-      /* Print optimization */
-      @media print {
-        body {
-          background: #ffffff !important;
-          padding: 0 !important;
-        }
-
-        .action-bar,
-        .global-answer-btn-wrapper {
-          display: none !important;
-        }
-
-        .paper {
-          width: 100% !important;
-          box-shadow: none !important;
-          border: none !important;
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-
-        .global-answer-panel {
-          display: none !important;
-        }
-
-        .question-block:hover,
-        .ans-section:hover {
-          transform: none;
-          box-shadow: none;
-        }
-      }
-
-      @media (max-width: 220mm) {
-        body {
-          padding: 15px 10px;
-        }
-        .action-bar {
-          width: 100%;
-          border-radius: 12px;
-        }
-        .paper {
-          width: 100%;
-          padding: 20px;
-          border-radius: 12px;
-        }
+      iframe::-webkit-scrollbar {
+        display: none;
       }
     </style>
-      <link rel="stylesheet" href="../../../../assets/professional.css">
-</head>
+  </head>
   <body>
-    <!-- Action Bar -->
-    <div class="action-bar">
-      <div class="action-bar-left">
-        <a href="biology_bacii_exams.html">
-          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅបញ្ជីវិញ្ញាសា
-        </a>
-      </div>
-      <div class="action-bar-right">
-        <button class="action-btn" onclick="window.print()">
-          <i class="fas fa-print"></i> បោះពុម្ព (Print)
-        </button>
-      </div>
+    <a href="biology_bacii_exams.html" class="back-link">
+      <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+    </a>
+
+    <!-- Exam "Photo" -->
+    <div class="photo-container">
+      <iframe class="pdf-view" src="2014.1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="caption">វិញ្ញាសាប្រឡងបាក់ឌុប ២០១៤ (លើកទី១)</div>
     </div>
 
-    <!-- A4 Paper Exam Sheet -->
-    <div class="paper">
-      <!-- Header -->
-
-      <!-- Title Block -->
-      <div class="exam-title-block">
-        <h1>វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)</h1>
-        <div style="font-weight: 700; font-size: 16px; margin-top: 6px">
-          សម័យប្រឡង៖ ០៤ សីហា ២០១៤ (លើកទី១)
-        </div>
-        <div class="exam-info-grid">
-          <span><i class="far fa-clock"></i> រយៈពេល៖ ៩០ នាទី</span>
-          <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ៧៥</span>
-        </div>
-      </div>
-
-      <!-- Questions Section -->
-      <div class="questions-container">
-        <!-- Question I -->
-        <div class="question-block">
-          <div class="q-title">
-            <span class="q-num">I.</span>
-            <span class="q-text">ចូរឆ្លើយសំណួរខាងក្រោម៖</span>
-          </div>
-          <div class="sub-q">
-            ១. តើគេសម្គាល់រុក្ខជាតិឌីកូទីលេដូនបានដោយសារអ្វីខ្លះ?
-          </div>
-          <div class="sub-q">២. ដូចម្តេចដែលហៅថាការបង្កកំណើតទ្វេ?</div>
-        </div>
-
-        <!-- Question II -->
-        <div class="question-block">
-          <div class="q-title">
-            <span class="q-num">II.</span>
-            <span class="q-text"
-              >ការពិសោធន៍អំពីអត្តសញ្ញាណប្រូតេអ៊ីន៖<br />គេដាក់សូលុយស្យុងសូដ្យូមអ៊ីដ្រុកស៊ីត
-              (NaOH) 10% និងសូលុយស្យុងទង់ដែងស៊ុលផាត (CuSO4) 0.5% ចំណុះ: 3ml
-              ដូចគ្នាទៅក្នុងកែវដែលមានសូលុយស្យុងអាល់ប៊ុយមីនចំណុះ: 3ml ដែរ
-              រួចក្រឡុកឱ្យសព្វ។</span
-            >
-          </div>
-          <div class="sub-q">
-            ១. តើគេសង្កេតឃើញពណ៌អ្វីដែលកើតឡើងនៅក្នុងកែវដបនោះ?
-          </div>
-          <div class="sub-q">
-            ២. តើគេប្រើសូលុយស្យុង 10% នៃសូដ្យូមអ៊ីដ្រុកស៊ីត (NaOH) និង 0.5%
-            ទង់ដែងស៊ុលផាត (CuSO4) ដើម្បីអ្វី?
-          </div>
-        </div>
-
-        <!-- Question III -->
-        <div class="question-block">
-          <div class="q-title">
-            <span class="q-num">III.</span>
-            <span class="q-text">ចូរឆ្លើយសំណួរខាងក្រោម៖</span>
-          </div>
-          <div class="sub-q">
-            ១. តើនុយក្លេអូទីតជាអ្វី? តើវាផ្សំឡើងពីធាតុបង្កអ្វីខ្លះ?
-          </div>
-          <div class="sub-q">
-            ២. នុយក្លេអូទីតមានតែបួនប្រភេទ ហេតុអ្វីបានជាអាចបង្កើតម៉ូលេគុល ADN
-            ខុសគ្នាជាច្រើន?
-          </div>
-        </div>
-
-        <!-- Question IV -->
-        <div class="question-block">
-          <div class="q-title">
-            <span class="q-num">IV.</span>
-            <span class="q-text"
-              >ពេលឮទូរសព្ទរោទ៍ អ្នកលើកទូរសព្ទឡើងដើម្បីឆ្លើយតប។ ក្នុងករណីនេះ
-              តើមានណឺរ៉ូនអ្វីខ្លះដែលចូលរួម?
-              ចូររៀបរាប់ពីនាទីរបស់ណឺរ៉ូននីមួយៗ។</span
-            >
-          </div>
-        </div>
-
-        <!-- Question V -->
-        <div class="question-block">
-          <div class="q-title">
-            <span class="q-num">V.</span>
-            <span class="q-text"
-              >ម៉ូលេគុល ADN មួយមាននុយក្លេអូទីត \(T = 640000\)
-              និងមានចំនួននុយក្លេអូទីត \(C = 50\%\) នៃនុយក្លេអូទីតទីមីន។</span
-            >
-          </div>
-          <div class="sub-q">១. រកចំនួននុយក្លេអូទីតសរុបរបស់ម៉ូលេគុល ADN។</div>
-          <div class="sub-q">
-            ២. តើម៉ូលេគុល ADN
-            នេះត្រូវការនុយក្លេអូទីតសេរីចំនួនប៉ុន្មានពេលស្វ័យដំឡើងទ្វេ ៣លើក?
-          </div>
-          <div class="sub-q">៣. រកចំនួនសម្ព័ន្ធគីមីរបស់ ADN។</div>
-        </div>
-
-        <!-- Question VI -->
-        <div class="question-block">
-          <div class="q-title">
-            <span class="q-num">VI.</span>
-            <span class="q-text"
-              >ម៉ូលេគុលប្រូតេអ៊ីនមួយមាន១៧៨ អាស៊ីតអាមីណេ។</span
-            >
-          </div>
-          <div class="sub-q">
-            ១. គណនាប្រវែងម៉ូលេគុល ARNm ដែលចម្លងចេញពីសែនខាងលើ។
-          </div>
-          <div class="sub-q">
-            ២. ក្នុងសែនខាងលើ គេឃើញថាផលដកវាងនុយក្លេអូទីតអាដេនីន
-            និងនុយក្លេអូទីតហ្គានីនស្មើ 200។ រកចំនួននៃប្រភេទនុយក្លេអូទីតរបស់សែន
-            និងចំនួននៃប្រភេទនុយក្លេអូទីតរបស់ច្រវ៉ាក់ទោលនីមួយៗនៃសែន។
-          </div>
-          <div class="sub-q">
-            ៣. គណនាសមាមាត្រភាគរយនៃប្រភេទនុយក្លេអូទីតនីមួយៗរបស់ម៉ូលេគុល ARNm។
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Global Toggle Button for Answers -->
-      <div class="global-answer-btn-wrapper">
-        <button
-          id="global-toggle-btn"
-          class="global-answer-btn"
-          onclick="toggleAllAnswers()"
-        >
-          <i class="fas fa-eye"></i> បង្ហាញចម្លើយ (Show Answers)
-        </button>
-      </div>
-
-      <!-- Single Answer Panel showing all answers -->
-      <div id="global-answer-panel" class="global-answer-panel">
-        <div
-          style="
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 700;
-            font-size: 18px;
-            text-decoration: underline;
-          "
-        >
-          ចម្លើយ (Answers)
-        </div>
-
-        <!-- Answer I -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី I</div>
-          <p><strong>១. គេសម្គាល់រុក្ខជាតិឌីកូទីលេដុងបានដោយសារ៖</strong></p>
-          <p style="margin-left: 20px">
-            - គ្រាប់មានកូទីលេដុង២<br />
-            - ផ្កាមាន៤ឬ៥ស្រទាប់<br />
-            - ស្លឹកមានទ្រនុងបែកខ្នែង<br />
-            - ដើមមានបាច់សរសៃស្ថិតនៅជារង្វង់<br />
-            - ឫសជាឫសកែវ ។
-          </p>
-          <p style="margin-top: 10px">
-            <strong>២. ដែលហៅថា ការបង្កកំណើតទ្វេ</strong>
-          </p>
-          <p>ជាការបង្កកំណើតពីរដងក្នុងពេលតែមួយរបស់រុក្ខជាតិ​ ។</p>
-        </div>
-
-        <!-- Answer II -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី II</div>
-          <p><strong>១. នៅក្នុងកែវដបនោះ៖</strong> យើងសង្កេតឃើញមានពណ៌ស្វាយ។</p>
-          <p style="margin-top: 10px">
-            <strong
-              >២. គេប្រើសូលុយស្យុង 10% នៃសូដ្យូមអ៊ីដ្រុកស៊ីត (NaOH) និង 0.5%
-              ទង់ដែងស៊ុលផាត (CuSO4) ដើម្បី៖</strong
-            >
-          </p>
-          <p>ដើម្បីបញ្ជាក់ថាមិនមានតែមានប្រូតេអ៊ីន។ ឬយើងអាចឆ្លើយបានថា៖</p>
-          <p style="margin-left: 20px">
-            - គេប្រើសូលុយស្យុងសូដ្យូមអ៊ីដ្រុកស៊ីត (NaOH) 10%
-            ដើម្បីផ្តាច់សម្ព័ន្ធប៉ិបទីត ឬចំណងប៉ិបទីត។<br />
-            - គេប្រើសូលុយស្យុងទង់ដែងស៊ុលផាត (CuSO4) 0.5%
-            ដើម្បីបញ្ជាក់ថាមានវត្តមានប្រូតេអ៊ីន។
-          </p>
-        </div>
-
-        <!-- Answer III -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី III</div>
-          <p>
-            <strong>១. នុយក្លេអូទីត៖</strong> ជាឯកតានៃធាតុបង្ក ឬម៉ូណូមែរបស់ ADN
-            ។ នុយក្លេអូទីតផ្សំឡើងពី៖
-          </p>
-          <p style="margin-left: 20px">
-            - ស្ករដេអុកស៊ីរីបូស (\(\text{C}_5\text{H}_{10}\text{O}_4\))
-            មួយម៉ូលេគុល<br />
-            - អាស៊ីតផូស្វរិច (\(\text{H}_3\text{PO}_4\)) មួយម៉ូលេគុល<br />
-            - បាសអាសូត (\(\text{A, T, C, G}\)) មួយម៉ូលេគុល
-          </p>
-          <p style="margin-top: 10px">
-            <strong
-              >២. បានជានុយក្លេអូទីតមានតែ៤ប្រភេទអាចបង្កើតម៉ូលេគុល ADN
-              ខុសគ្នាជាច្រើនប្រភេទ ព្រោះ</strong
-            >
-          </p>
-          <p>
-            ម៉ូលេគុល ADN នីមួយៗកើតឡើងពីនុយក្លេអូទីតច្រើន ឬរាប់ម៉ឺន
-            ដែលតម្រៀបគ្នាតាមកំណត់លំដាប់ជាក់លាក់។ ម៉ូលេគុល ADN នីមួយៗ
-            ខុសគ្នាដោយសារចំនួននុយក្លេអូទីត ប្រភេទនុយក្លេអូទីត
-            និងទីតាំងរបស់នុយក្លេអូទីត។
-          </p>
-        </div>
-
-        <!-- Answer IV -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី IV</div>
-          <p>
-            ពេលឮទូរសព្ទរោទ៍ អ្នកលើកទូរសព្ទឡើងដើម្បីឆ្លើយតប​
-            ។ក្នុងករណីនេះមានណឺរ៉ូន ៣ ប្រភេទចូលរួមគឺ៖
-            <strong
-              >ណឺរ៉ូនវិញ្ញាណនាំ, ណឺរ៉ូនភ្ជាប់ឬអន្តរណឺរ៉ូន, និងណឺរ៉ូនចលករ</strong
-            >។
-          </p>
-          <p style="margin-top: 10px">
-            <strong>រៀបរាប់ពីនាទីរបស់ណឺរ៉ូននីមួយៗ៖</strong>
-          </p>
-          <p style="margin-left: 20px">
-            -
-            <strong>ណឺរ៉ូនវិញ្ញាណ៖</strong>
-            ដឹកនាំព័ត៌មាន
-            ឬ​អាំងភ្លុចប្រសាទពីធ្មួលវិញ្ញាណនៅក្នុងត្រចៀកទៅកាន់មជ្ឈមណ្ឌលប្រសាទ(ខួរក្បាល)។<br />
-            -
-            <strong>ណឺរ៉ូនភ្ជាប់ឬណឺរ៉ូនអន្តរ</strong>
-            មាននាទីបញ្ជូនបន្តព័ត៌មានពីណឺរ៉ូនវិញ្ញាណនាំទៅណឺរ៉ូនចលករ
-            ក្រោយការបកស្រាយអាំងភ្លុចប្រសាទពីខួរក្បាល។<br />
-            -
-            <strong>ណឺរ៉ូនចលករ</strong>
-            មាននាទីបញ្ជូនអាំងភ្លុចប្រសាទ
-            ពីមជ្ឈមណ្ឌលប្រសាទទៅកាន់សរីរាង្គប្រតិកម្ម (សាច់ដុំ) ។
-          </p>
-        </div>
-
-        <!-- Answer V -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី V</div>
-          <p><strong>១. រកចំនួននុយក្លេអូទីតសរុបរបស់ម៉ូលេគុល ADN</strong></p>
-          <div class="formula-box">
-            តាមបម្រាប់ \(T = 640000\) នុយក្លេអូទីត<br />
-            \(C = 50\%\) នៃចំនួននុយក្លេអូទីត \(T\)
-          </div>
-          នាំឲ្យ \(C = \frac{50 \times T}{100} = \frac{50 \times 640000}{100} =
-          320000\) នុយក្លេអូទីត<br />
-          តាមគោលការណ៍បំពេញបាសអាសូត A-T , C-G នាំឱ្យ A = T , C = G<br />
-          តាមរូបមន្ត M = A + T + C + G នាំឲ្យ M = 2(T + C) <br />
-          គេបាន M = 2(640000) + 2(320000) = 1920000 នុយក្លេអូទីត
-          <br />
-          <strong>ដូចនេះ</strong> ចំនួននុយក្លេអូទីតសរុបរបស់ម៉ូលេគុល ADN គឺ M =
-          1920000 នុយក្លេអូទីត
-        </div>
-
-        <p style="margin-top: 12px">
-          <strong
-            >២. រកចំនួននុយក្លេអូទីតសេរីរបស់ម៉ូលេគុល ADN
-            នេះក្រោយពេលស្វ័យដំឡើងទ្វេ ៣លើក</strong
-          >
-        </p>
-        <div class="formula-box">
-          ដោយម៉ូលេគុល ADN មេមួយ ស្វ័យដំឡើងទ្វេ៖<br />
-          1 ដង បាន ADN កូន \(2^1\)<br />
-          2ដង បាន ADN កូន \(2^2\)<br />
-          3 ដង បាន ADN កូន \(2^3\)<br />
-          ......................<br />
-          \(n\)ដង បាន ADN កូន \(2^n\)<br /><br />
-          បើ ADNមេមួយស្វ័យដំឡើង៣ដង បង្កើតបាន ADN កូនសរុប \(2^3\) ដែលក្នុងនោះមាន
-          ADN ១ជា ADN មេនោះចំនួន ADN កូនដែលកើតថ្មីស្មើនឹង \((2^3 - 1)\)<br />
-          គេបាន\( M' = M(2^3 - 1) \)<br />
-          \(M' = 1920000(2^3 - 1) = 1920000 \times 7 = 13440000\)
-          នុយក្លេអូទីតសេរី<br />
-          <strong>ដូចនេះ</strong> ចំនួននុយក្លេអូទីតសេរីរបស់ម៉ូលេគុល ADN
-          ក្រោយស្វ័យដំឡើងទ្វេ៣ដងគឺ \(M' = 13440000\) នុយក្លេអូទីតសេរី
-        </div>
-
-        <p style="margin-top: 12px">
-          <strong>៣. រកចំនួនសម្ព័ន្ធគីមីក្នុងម៉ូលេគុល ADN</strong>
-        </p>
-        <div class="formula-box">
-          ដោយនុយក្លេអូទីត២ភ្ជាប់គ្នាដោយសម្ព័ន្ធគីមី១(ឬសម្ព័ន្ធកូវ៉ាឡង់១)ក្នុងច្រវ៉ាក់ម្ខាងៗរបស់ម៉ូលេគុល
-          ADN<br />
-          តាមរូបមន្ត ចំនួនសម្ព័ន្ធគីមីក្នុងម៉ូលេគុល ADN = M - 2 <br />
-          គេបាន ចំនួនសម្ព័ន្ធគីមីក្នុងម៉ូលេគុល ADN​ = 1920000 - 2 = 1919998
-          សម្ព័ន្ធគីមី
-          <br />
-          <strong>ដូចនេះ</strong> ចំនួនសម្ព័ន្ធគីមីក្នុងម៉ូលេគុល ADN = 1919998
-          សម្ព័ន្ធគីមី ។
-        </div>
-        <!-- Answer VI -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី VI</div>
-
-          <!-- Part 1: ARNm length -->
-          <p>
-            <strong>១. គណនាប្រវែងម៉ូលេគុល ARN<sub>m</sub></strong>
-          </p>
-          <div class="formula-box">
-            តាមបម្រាប់៖ ម៉ូលេគុលប្រូតេអ៊ីន ១ មាន 178 អាស៊ីតអាមីណេ<br /><br />
-            ដោយរីបូនុយក្លេអូទីត៣ជាក្រមនៃអាស៊ីតអាមីណេមួយនៅលើម៉ូលេគុល ARNm
-            មានកូដុងផ្តើមមួយហើយកូដុងស្តុបមួយ<br />
-            នាំឲ្យ ចំនួនអាស៊ីតអាមីណេ = m/3 + 2<br />
-            m = ចំនួនអាស៊ីតអាមីណេ &times; 3 + 6<br />
-            គេបាន \(m = (178 \times 3) + 6 = 540\) រីបូនុយក្លេអូទីត<br /><br />
-            ដោយរីបូនុយក្លេអូទីតមួយទៅរីបូនុយក្លេអូទីតមួយមានប្រវែង 0.34nm<br />
-            នាំឲ្យ \(l_{ARN_m} = m \times 0.34\text{nm}\)<br />
-            គេបាន \( = 540 \times 0.34\text{nm} = 183.6\text{nm}\)<br />
-            <br />
-            <strong>ដូចនេះ</strong> \(\boxed{l_{ARN_m} = 183.6 \text{nm}}\)
-          </div>
-
-          <!-- Part 2: Nucleotide counts -->
-          <p style="margin-top: 12px">
-            <strong
-              >២. រកចំនួននៃប្រភេទនុយក្លេអូទីតរបស់សែន
-              និងចំនួននៃប្រភេទនុយក្លេអូទីតរបស់ច្រវ៉ាក់ទោលនីមួយៗនៃសែន</strong
-            >
-          </p>
-          <div class="formula-box">
-            តាមបម្រាប់៖ \(A - G = 200 \quad (1)\) ; \(U = 250\) ; \(C_{ARN_m} =
-            60\)<br />
-            <br /><br />
-            ដោយម៉ូលេគុល ARN<sub>m</sub> ចម្លងចេញពីច្រវ៉ាក់នៃសែន<br />
-            នាំឲ្យ \(m = \frac{M}{2} = 540\) នុយក្លេអូទីត<br /><br />
-            តាមគោលការណ៍បំពេញបាសអាសូត A–T ; C–G នាំឲ្យ A = T ; C = G<br />
-            <br />
-            ដោយ \(M = A + T + C + G\)<br />
-            \(M = 2A + 2G = 2(A + G)\)<br />
-            \(\Rightarrow A + G = \frac{M}{2} \) <br />
-            \(\Rightarrow A + G = 540 \quad (2)\)
-          </div>
-
-          <div class="formula-box" style="margin-top: 10px">
-            ពី \((1)\) និង \((2)\) ជាប្រព័ន្ធសមីការ<br /><br />
-            \(\begin{cases} A - G = 200 \\ A + G = 540 \end{cases}\)<br /><br />
-            \(2A = 740 \Rightarrow A = \frac{740}{2} = 370\)<br /><br />
-            យក A​=370 ជួសក្នុង \((2)\)<br />
-            \( \Rightarrow 370 + G = 540\)<br />
-            \(\Rightarrow G = 540 - 370 = 170\) នុយក្លេអូទីត<br /><br />
-            <strong>ដូចនេះ</strong>ចំនួននៃប្រភេទនុយក្លេអូទីតរបស់សែន A = T = 370
-            នុយក្លេអូទីត <br />និង​ C = G = 170 នុយក្លេអូទីត
-          </div>
-
-          <div class="formula-box" style="margin-top: 10px">
-            សន្មត ARN<sub>m</sub> ចម្លងចេញពីត្រាក់ស្គ្រីបទី ១ របស់សែន<br />
-            តាមគោលការណ៍បំពេញបាសបំពេញ<br /><br />
-            \(A_1 = U = 250\) ; \(G_1 = C_{ARN_m} = 60\)<br /><br />
-            \(A\)<sub>សែន</sub> \(= A_1 + A_2\)<br />
-            ដែល \(A_2 = T_1\)<br />
-            \(\Rightarrow A\)<sub>សែន</sub> \(= A_1 + T_1\)<br />
-            \(\Rightarrow T_1 = A\)<sub>សែន</sub> \( - A_1\)<br />
-            \(= 370 - 250\)<br />
-            \(= 120\) នុយក្លេអូទីត<br /><br />
-            ដោយ \(C\)<sub>សែន</sub> \(= C_1 + C_2\) ដែល \(C_2 = G_1\)<br />
-            \(= C_1 + G_1\)<br />
-            \(\Rightarrow C_1 = C\)<sub>សែន</sub> \( - G_1\)<br />
-            \(= 170 - 60\)<br />
-            \(= 110\) នុយក្លេអូទីត<br /><br />
-            <strong>ដូច្នេះ៖</strong><br />
-            <span
-              style="
-                border: 1px solid var(--ink-black);
-                padding: 2px 6px;
-                display: inline-block;
-                margin-bottom: 4px;
-              "
-              >\(A_1 = T_2 = 250\) នុយក្លេអូទីត</span
-            ><br />
-            <span
-              style="
-                border: 1px solid var(--ink-black);
-                padding: 2px 6px;
-                display: inline-block;
-                margin-bottom: 4px;
-              "
-              >\(T_1 = A_2 = 120\) នុយក្លេអូទីត</span
-            ><br />
-            <span
-              style="
-                border: 1px solid var(--ink-black);
-                padding: 2px 6px;
-                display: inline-block;
-                margin-bottom: 4px;
-              "
-              >\(C_1 = G_2 = 110\) នុយក្លេអូទីត</span
-            ><br />
-            <span
-              style="
-                border: 1px solid var(--ink-black);
-                padding: 2px 6px;
-                display: inline-block;
-              "
-              >\(G_1 = C_2 = 60\) នុយក្លេអូទីត</span
-            >
-          </div>
-
-          <!-- Part 3: Percentages -->
-          <p style="margin-top: 12px">
-            <strong
-              >៣. រកសមាមាត្រភាគរយនៃប្រភេទនុយក្លេអូទីតនីមួយៗរបស់ម៉ូលេគុល ARN<sub
-                >m</sub
-              ></strong
-            >
-          </p>
-          <div class="formula-box">
-            ដោយ ARN<sub>m</sub> ចម្លងចេញពីច្រវ៉ាក់ទី ១<br /><br />
-            \(A_1 = T_2 = U = 250\) នុយក្លេអូទីត<br />
-            \(T_1 = A_2 = A_{ARN_m} = 120\) នុយក្លេអូទីត<br />
-            \(C_1 = G_2 = G_{ARN_m} = 110\) នុយក្លេអូទីត<br />
-            \(G_1 = C_2 = C_{ARN_m} = 60\) នុយក្លេអូទីត
-          </div>
-
-          <p style="margin-top: 12px"><strong>គេបាន </strong></p>
-          <div class="formula-box">
-            \(\% U = \frac{250 \times 100}{540} = 46.29\%\)<br /><br />
-            \(\% A = \frac{120 \times 100}{540} = 22.22\%\)<br /><br />
-            \(\% G = \frac{110 \times 100}{540} = 20.37\%\)<br /><br />
-            \(\% C = \frac{60 \times 100}{540} = 11.11\%\)
-          </div>
-
-          <p style="margin-top: 12px">
-            <strong
-              >ដូចនេះ ភាគរយនៃប្រភេទនុយក្លេអូទីតនីមួយៗរបស់ម៉ូលេគុល ARN<sub
-                >m</sub
-              >
-              គឺ៖</strong
-            >
-          </p>
-          <div class="formula-box">
-            \(\boxed{U = 46.29\%}\)<br />
-            \(\boxed{A = 22.22\%}\)<br />
-            \(\boxed{G = 20.37\%}\)<br />
-            \(\boxed{C = 11.11\%}\)
-          </div>
-        </div>
-      </div>
+    <!-- Solution "Photo" (Hidden by default) -->
+    <div id="solution-photo" class="photo-container" style="display: none;">
+      <iframe class="pdf-view" src="2014.1answer.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="caption">ដំណោះស្រាយលម្អិត ២០១៤ (លើកទី១)</div>
     </div>
+
+    <!-- Sticky Reveal Button -->
+    <button id="toggleBtn" class="reveal-btn" onclick="toggleSolution()">
+      <i class="fas fa-lightbulb"></i> មើលចម្លើយ (Show Solution)
+    </button>
 
     <script>
-      function toggleAllAnswers() {
-        const panel = document.getElementById("global-answer-panel");
-        const btn = document.getElementById("global-toggle-btn");
-
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-          btn.innerHTML =
-            '<i class="fas fa-eye"></i> បង្ហាញចម្លើយទាំងអស់ (Show All Answers)';
+      function toggleSolution() {
+        const sol = document.getElementById('solution-photo');
+        const btn = document.getElementById('toggleBtn');
+        
+        if (sol.style.display === 'none') {
+          sol.style.display = 'block';
+          btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយ (Hide Solution)';
+          btn.style.background = '#475569';
+          // Scroll to solution
+          sol.scrollIntoView({ behavior: 'smooth' });
         } else {
-          panel.style.display = "block";
-          btn.innerHTML =
-            '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយទាំងអស់ (Hide All Answers)';
+          sol.style.display = 'none';
+          btn.innerHTML = '<i class="fas fa-lightbulb"></i> មើលចម្លើយ (Show Solution)';
+          btn.style.background = '#1e3a8a';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
     </script>
