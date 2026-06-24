@@ -3,949 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>វិញ្ញាសាជីវវិទ្យា ២០១៨ | StudyNest</title>
-
+    <title>វិញ្ញាសាជីវវិទ្យា ២០១៨ - Photo View</title>
+    
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600;700&family=Rajdhani:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
-        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
-      };
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
-
     <style>
-      :root {
-        --bg-canvas: #e2e8f0;
-        --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-        --paper-bg: rgba(255, 255, 255, 0.95);
-        --ink-black: #0f172a;
-        --ink-gray: #475569;
-        --royal-blue: #1e3a8a;
-        --accent-blue: #3b82f6;
-        --border-color: rgba(203, 213, 225, 0.6);
-        --shadow-sm:
-          0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-        --shadow-lg: 0 20px 40px -5px rgba(15, 23, 42, 0.1);
-        --shadow-glow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        background: var(--bg-gradient);
-        color: var(--ink-black);
-        font-family: "Kantumruy Pro", "Poppins", sans-serif;
-        line-height: 1.8;
-        padding: 40px 10px;
-        min-height: 100vh;
-      }
-
-      /* Top Action Bar (Hidden in Print) */
-      .action-bar {
-        max-width: 210mm;
-        margin: 0 auto 24px;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f2f5;
+        font-family: "Kantumruy Pro", sans-serif;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        padding: 16px 28px;
-        border-radius: 16px;
-        box-shadow: var(--shadow-sm);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
+        gap: 20px;
       }
 
-      .action-bar:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
-      }
-
-      .action-bar-left a {
-        color: var(--royal-blue);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 15px;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s ease;
-        padding: 8px 12px;
-        border-radius: 8px;
-      }
-
-      .action-bar-left a:hover {
-        color: var(--accent-blue);
-        background: rgba(59, 130, 246, 0.08);
-        transform: translateX(-4px);
-      }
-
-      .action-bar-right {
-        display: flex;
-        gap: 12px;
-      }
-
-      .action-btn {
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid var(--border-color);
-        background: #ffffff;
-        color: var(--ink-gray);
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .action-btn:hover {
-        background: #f8fafc;
-        color: var(--ink-black);
-        border-color: var(--ink-gray);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-sm);
-      }
-
-      /* A4 Paper Styling */
-      .paper {
-        background: var(--paper-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        width: 210mm;
-        min-height: 297mm;
-        padding: 25mm;
-        margin: 0 auto;
-        box-shadow: var(--shadow-lg);
-        border-radius: 20px;
-        position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        transition: box-shadow 0.4s ease;
-      }
-
-      /* Header Layout */
-      .paper-header {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 30px;
-        font-size: 13.5px;
-        line-height: 1.6;
-      }
-
-      .header-right {
-        text-align: right;
-        font-weight: 600;
-        color: var(--ink-gray);
-        background: rgba(241, 245, 249, 0.6);
-        padding: 12px 20px;
-        border-radius: 12px;
-        border: 1px solid var(--border-color);
-      }
-
-      .royal-title {
-        font-weight: 700;
-        font-size: 15.5px;
-        color: var(--ink-black);
-        margin-bottom: 4px;
-        letter-spacing: 0.5px;
-      }
-
-      /* Main Title block */
-      .exam-title-block {
-        text-align: center;
-        margin-bottom: 40px;
-        position: relative;
-        padding-bottom: 25px;
-      }
-
-      .exam-title-block::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 150px;
-        height: 4px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--royal-blue),
-          transparent
-        );
-        border-radius: 4px;
-      }
-
-      .exam-title-block h1 {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--ink-black);
-        margin-bottom: 12px;
-        line-height: 1.4;
-      }
-
-      .exam-info-grid {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        font-size: 13.5px;
-        color: var(--royal-blue);
-        margin-top: 16px;
-        font-weight: 700;
-      }
-
-      .exam-info-grid span {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        background: rgba(30, 58, 138, 0.05);
-        padding: 6px 14px;
-        border-radius: 20px;
-      }
-
-      /* Question Elements */
-      .question-block {
-        margin-bottom: 24px;
-        page-break-inside: avoid;
-        padding: 16px 20px;
-        border-radius: 12px;
-        border: 1px solid transparent;
-        transition: all 0.3s ease;
-      }
-
-      .question-block:hover {
-        background: rgba(248, 250, 252, 0.7);
-        border-color: rgba(226, 232, 240, 0.8);
-        transform: translateX(4px);
-      }
-
-      .q-title {
-        font-weight: 700;
-        font-size: 16.5px;
-        color: var(--ink-black);
-        margin-bottom: 10px;
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        line-height: 1.7;
-      }
-
-      .q-num {
-        min-width: 38px;
-        height: 38px;
-        background: linear-gradient(
-          135deg,
-          var(--royal-blue),
-          var(--accent-blue)
-        );
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
-      }
-
-      .q-text {
-        flex: 1;
-        padding-top: 5px;
-      }
-
-      .sub-q {
-        margin: 12px 0 12px 48px;
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--ink-black);
-        position: relative;
-        line-height: 1.7;
-      }
-
-      .sub-q::before {
-        content: "";
-        position: absolute;
-        left: -16px;
-        top: 12px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent-blue);
-        opacity: 0.6;
-      }
-
-      /* Table Styling inside Question / Answer */
-      .comparison-table {
+      /* Clean Photo Frame */
+      .photo-container {
         width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-        font-size: 14px;
-      }
-
-      .comparison-table th,
-      .comparison-table td {
-        border: 1px solid var(--border-color);
-        padding: 8px 12px;
-        text-align: left;
-      }
-
-      .comparison-table th {
-        background-color: #f8fafc;
-        font-weight: 700;
-        color: var(--ink-black);
-      }
-
-      /* Global Answer Toggle Style */
-      .global-answer-btn-wrapper {
-        text-align: center;
-        margin: 40px 0;
-        page-break-inside: avoid;
-      }
-
-      .global-answer-btn {
-        background: linear-gradient(
-          135deg,
-          var(--royal-blue),
-          var(--accent-blue)
-        );
-        border: none;
-        color: #ffffff;
-        padding: 14px 32px;
-        border-radius: 12px;
-        font-size: 15px;
-        font-weight: 700;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: var(--shadow-glow);
-      }
-
-      .global-answer-btn:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.5);
-      }
-
-      .global-answer-btn:active {
-        transform: translateY(1px);
-      }
-
-      /* Global Answer Panel */
-      .global-answer-panel {
-        display: none;
-        margin-top: 40px;
+        max-width: 900px;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-radius: 8px;
         position: relative;
-        animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .global-answer-panel::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: 10%;
-        right: 10%;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--border-color),
-          transparent
-        );
-      }
-
-      .ans-section {
-        margin-bottom: 40px;
-        background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: var(--shadow-sm);
         transition: transform 0.3s ease;
       }
 
-      .ans-section:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      .photo-container:hover {
+        transform: translateY(-5px);
       }
 
-      .ans-section-title {
+      .pdf-view {
+        width: 100%;
+        height: 1200px;
+        border: none;
+        border-radius: 4px;
+        display: block;
+      }
+
+      /* Label below "photo" */
+      .caption {
+        padding: 15px;
+        text-align: center;
         font-weight: 700;
-        font-size: 16.5px;
-        color: var(--royal-blue);
-        margin-bottom: 16px;
-        display: inline-block;
-        padding-bottom: 6px;
-        border-bottom: 2px solid var(--accent-blue);
+        color: #1e3a8a;
+        font-size: 18px;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
       }
 
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      /* Simple Toggle Button */
+      .reveal-btn {
+        background: #1e3a8a;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        position: sticky;
+        bottom: 20px;
+        z-index: 100;
       }
 
-      .ans-section p {
+      .reveal-btn:hover {
+        background: #2563eb;
+      }
+
+      .back-link {
+        align-self: flex-start;
+        text-decoration: none;
+        color: #64748b;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         margin-bottom: 10px;
-        font-size: 15px;
-        color: var(--ink-black);
       }
 
-      .formula-box {
-        background: linear-gradient(145deg, #f8fafc, #f1f5f9);
-        border: 1px solid rgba(226, 232, 240, 0.8);
-        border-left: 4px solid var(--accent-blue);
-        padding: 18px 24px;
-        border-radius: 0 12px 12px 0;
-        margin: 16px 0;
-        text-align: left;
-        font-weight: 500;
-        line-height: 1.8;
-        font-size: 15px;
-        color: var(--ink-black);
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-        overflow-x: auto;
+      /* Hide browser PDF UI as much as possible */
+      iframe {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
-
-      /* Print optimization */
-      @media print {
-        body {
-          background: #ffffff !important;
-          padding: 0 !important;
-          font-size: 14px;
-          line-height: 1.6;
-        }
-
-        .action-bar,
-        .global-answer-btn-wrapper {
-          display: none !important;
-        }
-
-        .paper {
-          width: 100% !important;
-          box-shadow: none !important;
-          border: none !important;
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-
-        .global-answer-panel {
-          display: none !important;
-        }
-
-        .question-block {
-          padding: 8px 0;
-          margin-bottom: 12px;
-        }
-
-        .q-title {
-          font-size: 15px;
-        }
-
-        .sub-q {
-          font-size: 14px;
-          margin: 8px 0 8px 40px;
-        }
-
-        .question-block:hover,
-        .ans-section:hover {
-          transform: none;
-          box-shadow: none;
-        }
-
-        .exam-title-block h1 {
-          font-size: 18px;
-        }
-
-        .exam-title-block {
-          margin-bottom: 20px;
-        }
-      }
-
-      @media (max-width: 220mm) {
-        body {
-          padding: 15px 10px;
-        }
-        .action-bar {
-          width: 100%;
-          border-radius: 12px;
-        }
-        .paper {
-          width: 100%;
-          padding: 20px;
-          border-radius: 12px;
-        }
+      iframe::-webkit-scrollbar {
+        display: none;
       }
     </style>
-      <link rel="stylesheet" href="../../../../assets/professional.css">
-</head>
+    <!-- Main JS -->
+    <script src="../../../../assets/main.js"></script>
+    <script>
+      StudyNest.checkAccess(6);
+    </script>
+  </head>
   <body>
-    <!-- Action Bar -->
-    <div class="action-bar">
-      <div class="action-bar-left">
-        <a href="biology_bacii_exams.html">
-          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅបញ្ជីវិញ្ញាសា
-        </a>
-      </div>
-      <div class="action-bar-right">
-        <button class="action-btn" onclick="window.print()">
-          <i class="fas fa-print"></i> បោះពុម្ព (Print)
-        </button>
-      </div>
+    <a href="biology_bacii_exams.html" class="back-link">
+      <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+    </a>
+
+    <!-- Exam "Photo" -->
+    <div class="photo-container">
+      <iframe class="pdf-view" src="2018/2018.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="caption">វិញ្ញាសាប្រឡងបាក់ឌុប ២០១៨</div>
     </div>
 
-    <!-- A4 Paper Exam Sheet -->
-    <div class="paper">
-      <!-- Title Block -->
-      <div class="exam-title-block">
-        <h1>វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)</h1>
-        <div style="font-weight: 700; font-size: 16px; margin-top: 6px">
-          សម័យប្រឡង៖ ២០ សីហា ២០១៨ &bull; មុខវិជ្ជា៖ ជីវវិទ្យា
-          (ថ្នាក់វិទ្យាសាស្ត្រ)
-        </div>
-        <div class="exam-info-grid">
-          <span><i class="far fa-clock"></i> រយៈពេល៖ ៩០ នាទី</span>
-          <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ៧៥</span>
-        </div>
-      </div>
-
-      <!-- Question I -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">I.</span>
-          <span class="q-text"
-            >ដូចម្ដេចដែលហៅថា អាំងភ្លុចប្រសាទ?
-            តើអាំងភ្លុចប្រសាទឆ្លងកាត់ស៊ីណាប់យ៉ាងដូចម្ដេច?</span
-          >
-        </div>
-      </div>
-
-      <!-- Question II -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">II.</span>
-          <span class="q-text"
-            >តើរលកសូរមានឥទ្ធិពលទៅលើផ្នែកផ្សេងៗនៃត្រចៀកយ៉ាងដូចម្ដេច?</span
-          >
-        </div>
-      </div>
-
-      <!-- Question III -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">III.</span>
-          <span class="q-text"
-            >តើវិស្វកម្មសេនេទិចផ្ដល់ផលល្អ
-            និងផលអាក្រក់អ្វីខ្លះដល់មនុស្សអ្វីខ្លះ?</span
-          >
-        </div>
-      </div>
-
-      <!-- Question IV -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">IV.</span>
-          <span class="q-text">ចូររកលក្ខណៈខុសគ្នារវាង៖</span>
-        </div>
-        <div class="sub-q">
-          ក. រុក្ខជាតិម៉ូណូកូទីលេដូន និងរុក្ខជាតិឌីកូទីលេដូន។
-        </div>
-        <div class="sub-q">ខ. ការបង្កាត់ជិត និងការបង្កាត់ឆ្ងាយ។</div>
-      </div>
-
-      <!-- Question V -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">V.</span>
-          <span class="q-text"
-            >ក. តើអាំងស៊ុយលីនជាអ្វី?
-            បើកង្វះអរម៉ូនអាំងស៊ុយលីនបណ្ដាលឱ្យមានផលវិបាកអ្វីខ្លះ?</span
-          >
-        </div>
-        <div class="sub-q">
-          ខ. ចូរបកស្រាយពីរបៀបផលិតអរម៉ូនអាំងស៊ុយលីនដោយវិស្វកម្មសេនេទិច។
-        </div>
-      </div>
-
-      <!-- Question VI -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">VI.</span>
-          <span class="q-text"
-            >ក. ចូររៀបរាប់ពីតួនាទីរបស់អង់ស៊ីម ARN ប៉ូលីមេរ៉ាស។</span
-          >
-        </div>
-        <div class="sub-q">
-          ខ. ម៉ូលេគុល ARNm មួយមានទំនាក់ទំនងរីបូនុយក្លេអូទីត៖ \( A = 4U \); \(
-          \frac{G}{C} = \frac{1}{2} \); \( \frac{U}{G} = \frac{1}{5} \)
-          <br />គណនាភាគរយនៃនុយក្លេអូទីតនីមួយៗរបស់អងកត់ ADN ដែលកំណត់សំយោគ ARNm
-          នេះ។
-        </div>
-      </div>
-
-      <!-- Question VII -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">VII.</span>
-          <span class="q-text"
-            >ម៉ូលេគុល ADN មួយមាននុយក្លេអូទីតប្រភេទ \( C = 35\% \)
-            នៃនុយក្លេអូទីតសរុប ហើយនុយក្លេអូទីតប្រភេទ \( C \)
-            លើសនុយក្លេអូទីតប្រភេទ \( A \) ចំនួន \( 4400 \).</span
-          >
-        </div>
-        <div class="sub-q">ក. គណនាចំនួននុយក្លេអូទីតនីមួយៗរបស់ ADN។</div>
-        <div class="sub-q">ខ. តើម៉ូលេគុល ADN នេះ មានប៉ុន្មានជំហាន?</div>
-        <div class="sub-q">
-          គ. បើម៉ូលេគុល ADN នេះស្វ័យដំឡើងទ្វេ ៤ដង
-          តើត្រូវការនុយក្លេអូទីតសេរីចំនួនប៉ុន្មាន?
-        </div>
-      </div>
-
-      <!-- Global Answer Toggle Button -->
-      <div class="global-answer-btn-wrapper">
-        <button
-          id="global-toggle-btn"
-          class="global-answer-btn"
-          onclick="toggleAllAnswers()"
-        >
-          <i class="fas fa-eye"></i> បង្ហាញចម្លើយ (Show Answers)
-        </button>
-      </div>
-
-      <!-- Global Answer Panel -->
-      <div id="global-answer-panel" class="global-answer-panel">
-        <!-- Answer I -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី I</div>
-          <p>
-            អាំងភ្លុចប្រសាទ​ ជាព័ត៌មានដែលណឺរ៉ូនដឹកនាំ៕
-            ឬជាចរន្តព័ត៌មានដែលដឹកនាំតាមបណ្ដោយណឺរ៉ូននៅចុងអ័ក្សូនមានថង់តូចៗជាច្រើនដែលផ្ទុកសារធាតុគីមី
-            (ណឺរ៉ូនបញ្ជូនសារ)។ ពេលអាំងភ្លុចប្រសាទទៅដល់ចុងអ័ក្សូន
-            នោះថង់ទាំងនោះផ្ទុះបែកបញ្ចេញណឺរ៉ូនបញ្ជូនសារ សាយឆ្លងកាត់ស៊ីណាប់ ។
-            បន្ទាប់មកណឺរ៉ូនបញ្ជូនសារនៅក្នុងដង់ឌ្រីតរបស់ណឺរ៉ូនបន្ទាប់
-            រួចវាធ្វើដំណើរតាមតួកោសិកា និងចុះតាមអ័ក្សូនរហូតដល់ចុងអ័ក្សូន​ ។
-          </p>
-          <p>
-            ឬ នៅពេលអាំងភ្លុចប្រសាទធ្វើដំណើរទៅដល់ចុងអ័ក្សូន ថង់តូចៗក៏ផ្ទុះ
-            បែកបញ្ចេញសារធាតុគីមី (ណឺរ៉ូនបញ្ជូនសារ) ទៅក្នុងស៊ីណាប់ សារធាតុ
-            គីមីនេះត្រូវបានភ្ញោចបង្កើតបានជាអាំងភ្លុចប្រសាទថ្មីនៅក្នុងដង់ឌ្រីតហើយ
-            បញ្ជូនទៅក្នុងកោសិកាចុះតាមអ័ក្សូន។
-          </p>
-        </div>
-
-        <!-- Answer II -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី II</div>
-          <p>
-            រលកសូរមានឥទ្ធិពលទៅលើផ្នែកផ្សេងៗរបស់ត្រចៀក៖
-            ត្រចៀកក្រៅ:ស្លឹកត្រចៀកប្រមូលផ្ដុំរលកសូរ ហើយរន្ធត្រចៀក (បំពងសោត
-            វិញ្ញាណ) ដឹកនាំរលកសូរទៅកាន់ត្រចៀកកណ្តាលដោយឆ្លងកាត់ក្រដាស ត្រចៀក។
-            ក្រដាសត្រចៀកញ័រ ហើយលំញ័រត្រូវបានឆ្លងកាត់ត្រចៀកតាម ឆ្អឹងតូចៗបី។
-            ឆ្អឹងទាំងបីញ័របណ្តាលឲ្យខ្មាសបង្អួចរាងពងក្រពើញ័រ។ លំញ័រ
-            នៃភ្នាសនេះធ្វើឲ្យធាតុរាវក្នុងបំពងរាងគូទខ្យងញ័រ ដែលបណ្ដាលឲ្យរោមល្អិ
-            តៗនៃកោសិកាផ្តួលក្នុងបំពងនោះញ័រ។ ក្រោយមកកោសិកាធ្នូលប្តូរលំញ័រ
-            ទៅជាអាំងភ្លុចប្រសាទ។
-          </p>
-        </div>
-
-        <!-- Answer III -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី III</div>
-          <p><strong>- ផលល្អដល់មនុស្ស ៖</strong></p>
-          <ul style="margin-left: 20px; list-style-type: square">
-            <li>
-              <strong>វិស័យសុខាភិបាល៖</strong> ផលិតអាំងស៊ុយលីន អាំងទែផេរ៉ូន
-              អាំងទែឡឺគីន អង់ទីប្យូទិច អង់ទីគ័រ និងវ៉ាក់សាំង។
-            </li>
-            <li>
-              <strong>វិស័យកសិកម្ម៖</strong> ធ្វើឱ្យរុក្ខជាតិមានផ្លែផ្កាល្អ
-              ធន់នឹងជំងឺ ធន់នឹងអាកាសធាតុ ធន់នឹងថ្នាំសម្លាប់សត្វល្អិត
-              និងជួយបង្កើនគុណភាពដីដាំដុះ។
-            </li>
-            <li>
-              <strong>វិស័យឧស្សាហកម្មអាហារ៖</strong>​ស្បៀង ផលិតអាហារ ទឹកដោះគោជូរ
-              ប្រូម៉ាស ស្រាបៀរ​ នំបុ័រ​ ។
-            </li>
-          </ul>
-          <p style="margin-top: 10px">
-            <strong>- ផលអាក្រក់ដល់មនុស្ស ៖</strong>
-          </p>
-          <ul style="margin-left: 20px; list-style-type: square">
-            <li>
-              <strong>ប៉ះពាល់បរិស្ថាន៖</strong> រុក្ខជាតិ (GM)
-              ធ្វើឱ្យបាត់បង់ជីវចម្រុះ សត្វល្អិតមួយចំនួនអាចធន់នឹងរុក្ខជាតិ (GM)
-              ធ្វើឲ្យរុក្ខជាតិឈ្មោលអារមិនអាចផលិត គ្រាប់សម្អងសម្រាប់ន្តពូជ។
-            </li>
-            <li>
-              <strong>គ្រោះថ្នាក់ដល់សុខភាព៖</strong>
-              ផលិតសារធាតុគីមីសម្រាប់ប្រើប្រាស់ក្នុងសង្គ្រាម អង់ទីប្យូទិច
-              មិនអាចព្យាបាលជំងឺដែលបណ្តាលមកពីសែនដែលធន់នឹងអង់ទីប្យូទិច។
-            </li>
-            <li>
-              <strong>គ្រោះថ្នាក់ប៉ះពាល់សីលធម៌ និងសង្គម៖</strong>
-              ធ្វើឱ្យសែនមុយតាស្យុងមានឥទ្ធិពលអាក្រក់ដល់សណ្តានក្រោយ ប៉ះពាល់សាសនា
-              បែងចែកវណ្ណៈ (មានតែអ្នកមានទើបអាចធ្វើវិស្វកម្មសេនេទិចបាន)។
-            </li>
-            <li>
-              <strong>គ្រោះថ្នាក់ប៉ះពាល់សេដ្ឋកិច្ច៖</strong>
-              ក្រុមហ៊ុនផលិតគ្រាប់រុក្ខជាតិ (GM) មានសិទ្ធិការពារស្របច្បាប់
-              មិនឱ្យក្រុមហ៊ុនដទៃផលិតគ្រាប់រុក្ខជាតិ (GM) នោះឡើយ។ គ្រាប់រុក្ខជាតិ
-              (GM) មិនអាចទុកពូជបានទេ គឺតម្រូវឱ្យទិញពីក្រុមហ៊ុនរៀងរាល់ឆ្នាំ។
-            </li>
-          </ul>
-        </div>
-
-        <!-- Answer IV -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី IV</div>
-          <p>
-            <strong>ក. រុក្ខជាតិម៉ូណូកូទីលេដូន និងរុក្ខជាតិឌីកូទីលេដូន៖</strong>
-          </p>
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>ម៉ូណូកូទីលេដូន</th>
-                <th>ឌីកូទីលេដូន</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>គ្រាប់មានកូទីលេដុង ១</td>
-                <td>គ្រាប់មានកូទីលេដុង ២</td>
-              </tr>
-              <tr>
-                <td>ស្លឺកមានទ្រនុងស្រប</td>
-                <td>ស្លឹកមានទ្រនុងបែកខ្នែង</td>
-              </tr>
-              <tr>
-                <td>ផ្កាមាន ៣ ស្រទាប់ ឬគុណនឹង ៣</td>
-                <td>ផ្កាមាន ៤ ឬ ៥ ស្រទាប់</td>
-              </tr>
-              <tr>
-                <td>ដើមមានបាច់សរសៃនាំនៅរាយប៉ាយ</td>
-                <td>ដើមមានបាច់សរសៃនាំរៀបជារង្វង់</td>
-              </tr>
-              <tr>
-                <td>ឫសជាឫសស្ញែ</td>
-                <td>ឫសជាឫសកែវ</td>
-              </tr>
-            </tbody>
-          </table>
-          <p>
-            <strong>ខ. ការបង្កាត់ជិត និងការបង្កាត់ឆ្ងាយ៖</strong>
-          </p>
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>ការបង្កាត់ជិត</th>
-                <th>ការបង្កាត់ឆ្ងាយ</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  ជាការបង្កាត់រវាងសត្វចេញពីមេបាមួយគូ ឬរវាងមេបា និងកូនរបស់វា
-                </td>
-                <td>
-                  ជាការបង្កាត់រវាងពូជខុសគ្នា ឬមានខ្សែស្រឡាយខុសគ្នា
-                  ឬប្រភេទខុសគ្នា
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  សណ្តានក្រោយមានកម្លាំងជីវិតខ្សោយ លទ្ធភាពបន្តពូជថយចុះ
-                  បង្កើនភាពមិនប្រក្រតីនៃក្រូម៉ូសូម នាំទៅរកការផុតពូជ
-                </td>
-                <td>
-                  អុីប្រ៊ីតមានកម្លាំងជីវិតខ្លាំង ធន់នឹងជំងឺ ឆាប់លូតលាស់ល្អ
-                  ផ្តល់ទិន្នផលខ្ពស់
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  អាចបង្កើតបនិងរក្សាទុកនូវពូជសុទ្ធចំពោះលក្ខណ:ដែលគេចង់បាន ។
-                </td>
-                <td>អារ មិនអាចបង្កកំណើតបាន(ក្នុងករណីមេបាជាប្រភេទខុសគ្នា)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- Answer V -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី V</div>
-          <p><strong>ក. អាំងស៊ុយលីន៖</strong> ជាអរម៉ូន។</p>
-          <p>
-            - បើកង្វះអាំងស៊ុយលីនបណ្ដាលឲ្យគ្លុយកូសក្នុងឈាមកើនឡើង
-            តម្រង់នោមមិនអាចធ្វើឲ្យគ្លុយកូសទាំងអស់ជ្រាប់ចេញវិញបាន
-            ហើយបញ្ចេញគ្លុយកូសទៅក្នុងទឹកនោម ធ្វើឲ្យទឹកនោមមានបរិមាណគ្លុយកូសច្រើន
-            បង្កឲ្យកើតជំងឺទឹកនោមផ្អែម។
-          </p>
-          <p style="margin-top: 10px">
-            <strong
-              >ខ. របៀបផលិតអាំងស៊ុយលីនដោយវិស្វកម្មសេនេទិច (៤ ជំហាន)៖</strong
-            >
-          </p>
-          <ol style="margin-left: 20px">
-            <li>
-              <strong>ជំហានទី១៖</strong> យកក្រូម៉ូសូម ឬ ADN
-              របស់មនុស្សដែលមានផ្ទុកសែនសំយោគអាំងស៊ុយលីនចេញពីកោសិកាលំពែងមនុស្ស
-              បន្ទាប់មកកាត់យកសែនសំយោគអាំងស៊ុយលីនដោយប្រើអង់ស៊ីមកាត់។
-            </li>
-            <li>
-              <strong>ជំហានទី២៖</strong> យកប្លាស្មីត (ADN បាក់តេរី)
-              ចេញពីបាក់តេរី ហើយកាត់យកអង្កត់ ADN ចេញពីប្លាស្មីតដោយអង់ស៊ីមកាត់។
-            </li>
-            <li>
-              <strong>ជំហានទី៣៖</strong>
-              បញ្ចូលសែនមនុស្សទៅក្នុងប្លាស្មីតរបស់បាក់តេរីដោយប្រើអង់ស៊ីមភ្ជាប់។
-              រួចយកប្លាស្មីតនេះបញ្ចូលទៅក្នុងបាក់តេរី។
-            </li>
-            <li>
-              <strong>ជំហានទី៤៖</strong> បាក់តេរីបន្តពូជបង្កើតបាក់តេរីច្រើន
-              ធ្វើឱ្យសែនសំយោគអាំងស៊ុយលីនមានកាន់តែច្រើន
-              សែននីមួយៗសំយោគប្រូតេអ៊ីនអាំងស៊ុយលីន។
-            </li>
-          </ol>
-        </div>
-
-        <!-- Answer VI -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី VI</div>
-          <p><strong>ក. តួនាទីរបស់អង់ស៊ីម ARN ប៉ូលីមេរ៉ាស ៖</strong></p>
-          <ul style="margin-left: 20px; list-style-type: disc">
-            <li>
-              ទទួលស្គាល់សញ្ញាសេនេទិចលើ ADN ដែលអាចឱ្យវាចាប់ផ្តើម
-              និងបញ្ចប់ការសំយោគ ARNm នៅត្រង់កន្លែងជាក់លាក់មួយ ។
-            </li>
-            <li>
-              បើកម៉ូលេគុល ADN
-              ដោយផ្តាច់សម្ព័ន្ធអ៊ីដ្រូសែនដែលភ្ជាប់ច្រវ៉ាក់ទាំងពីររបស់ ADN ។
-            </li>
-            <li>
-              ធ្វើឱ្យមានប៉ូលីមែកម្មនៃរីបូនុយក្លេអូទីតសេរីដែលចូលមកបំពេញលើច្រវ៉ាក់នុយក្លេទីតម្ខាងរបស់
-              ADN តាមគោលការណ៍បំពេញបាស (ឬគោលការណ៍ចម្លងក្រម) A-U, C-G។
-            </li>
-          </ul>
-
-          <p style="margin-top: 12px">
-            <strong>ខ. គណនាភាគរយនៃនុយគ្លេអូទីតនីមួយៗរបស់អង្កត់ ADN៖</strong>
-          </p>
-          <div class="formula-box">
-            បម្រាប់ ARNm ៖<br />
-            \( A = 4U \); \( \frac{G}{C} = \frac{1}{2} \); \( \frac{U}{G} =
-            \frac{1}{5} \)<br />
-            \( \implies G = 5U \) <br />
-            \( \implies C = 2G = 2 \times 5U = 10U \) <br />
-            ARNm ជាច្រវ៉ាក់ទោល៖<br />
-            \( A + U + G + C = 100\% \) <br />
-            \( 4U + U + 5U + 10U = 100\% \) <br />
-            \( \implies 20U = 100\% \) <br />
-            \( \implies U = \frac{100\%}{20} = 5\% \) <br />
-            \( \implies A = 4 \times 5\% = 20\% \)<br />
-            \( \implies G = 5 \times 5\% = 25\% \)<br />
-            \( \implies C = 10 \times 5\% = 50\% \)<br /><br />
-            តាមគោលការណ៍ចម្លងក្រម៖<br />
-            \( \implies \%A = \%T = \frac{\%A_{ARNm} + \%U_{ARNm}}{2} =
-            \frac{20\% + 5\%}{2} = 12.5\% \) <br />
-            \( \implies \%C = \%G = \frac{\%C_{ARNm} + \%G_{ARNm}}{2} =
-            \frac{50\% + 25\%}{2} = 37.5\% \) <br /><br />
-            ដូចនេះ \( \%A = \%T = 12.5\% \) និង \( \%C = \%G = 37.5\% \)
-          </div>
-        </div>
-
-        <!-- Answer VII -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី VII</div>
-          <p><strong>ក. គណនាចំនួននុយក្លេអូទីតប្រភេទនីមួយៗរបស់ ADN</strong></p>
-          <div class="formula-box">
-            ​ បម្រាប់៖ \( \%C = 35\% \)​ , \( C - A = 4400 \) នុយក្លេអូទីត<br />
-            តាមគោលការណ៍បំពេញបាស A - T , C- G នាំឲ្យ​ A = T ,C = G <br />
-            \( \implies A + T + C + G = 100\% \)<br />
-            \( \implies 2A + 2C = 100\% \)<br />
-            \( \implies A + C = 50\% \)<br />
-            \( \implies A = 50\% - 35\% \)<br />
-            \( \implies A = 15\% \)<br />
-            តាម​\( C - A = 4400 \) នុយក្លេអូទីត <br />
-            \( \frac{35M}{100} - \frac{15M}{100} = 4400​ \)<br />
-            \( \frac{20M}{100} = 4400 \) <br />
-            \( \implies M = \frac{4400 \times 100}{20} = 22000 \)
-            នុយក្លេអូទីត<br />​ គេបាន​ \( A = \frac{15}{100} \times M =
-            \frac{15}{100} \times 22000 = 3300 \)នុយក្លេអូទីត<br />
-            \( \implies C =\frac{35}{100} \times M = \frac{35}{100} \times 22000
-            = 7700 \)នុយក្លេអូទីត<br />
-            ដូចនេះ៖ \( A = T = 3300 \) នុយក្លេអូទីត និង \( C = G = 7700 \)
-            ​នុយក្លេអូទីត​ ។
-          </div>
-
-          <p style="margin-top: 12px">
-            <strong>ខ. គណនាចំនួនជំហានរបស់ ADN</strong>
-          </p>
-          <div class="formula-box">
-            ដោយ ១ជំហាន = ១០គូបាស = ២០នុយក្លេអូទីត<br />
-            ចំនួនជំហាន​ = \(\frac{M}{20}= \frac{22000}{20} = 1100\)ជំហាន<br />
-            ដូចនេះ ADNមាន \( 1100 \) ជំហាន​ ។
-          </div>
-
-          <p style="margin-top: 12px">
-            <strong>គ. រកចំនួននុយក្លេអូទីតសេរី</strong>
-          </p>
-          <div class="formula-box">
-            ​​ ADN មេមួយស្វ័យដំឡើងទ្វេ<br />
-            1 ដង បាន ADN កូន \(2^1\)<br />
-            2ដង បាន ADN កូន \(2^2\)<br />
-            3 ដង បាន ADN កូន \(2^3\)<br />
-            ......................<br />
-            \(n\)ដង បាន ADN កូន \(2^n\)<br /><br />
-            ដោយADN ស្វ័យដំឡើងទ្វេ 4ដងទទួលបានADNកូន \(2^4\)ក្នុងនោះមាន
-            ADNមេមួយ<br />
-            នាំឲ្យ ADN កើតថ្មី​ \( = 2^4 -1 = 15 \) គេបាន \( M'= M \times 15
-            \)<br />
-            \( M' = 22000 \times 15 = 330000 \) នុយក្លេអូទីតសេរី <br />
-            ដូចនេះ \( M' = 330,000 \) នុយក្លេអូទីតសេរី ។
-          </div>
-        </div>
-      </div>
+    <!-- Solution "Photo" (Hidden by default) -->
+    <div id="solution-photo" class="photo-container" style="display: none;">
+      <iframe class="pdf-view" src="2018/2018answer.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="caption">ដំណោះស្រាយលម្អិត ២០១៨</div>
     </div>
+
+    <!-- Sticky Reveal Button -->
+    <button id="toggleBtn" class="reveal-btn" onclick="toggleSolution()">
+      <i class="fas fa-lightbulb"></i> មើលចម្លើយ (Show Solution)
+    </button>
 
     <script>
-      function toggleAllAnswers() {
-        const panel = document.getElementById("global-answer-panel");
-        const btn = document.getElementById("global-toggle-btn");
-
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-          btn.innerHTML =
-            '<i class="fas fa-eye"></i> បង្ហាញចម្លើយ (Show Answers)';
+      function toggleSolution() {
+        const sol = document.getElementById('solution-photo');
+        const btn = document.getElementById('toggleBtn');
+        
+        if (sol.style.display === 'none') {
+          sol.style.display = 'block';
+          btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយ (Hide Solution)';
+          btn.style.background = '#475569';
+          // Scroll to solution
+          sol.scrollIntoView({ behavior: 'smooth' });
         } else {
-          panel.style.display = "block";
-          btn.innerHTML =
-            '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយ (Hide Answers)';
+          sol.style.display = 'none';
+          btn.innerHTML = '<i class="fas fa-lightbulb"></i> មើលចម្លើយ (Show Solution)';
+          btn.style.background = '#1e3a8a';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
     </script>

@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>វិញ្ញាសាជីវវិទ្យា ២០២១ | StudyNest</title>
+    <title>វិញ្ញាសាជីវវិទ្យា ២០២១ - Photo View</title>
+    
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome -->
@@ -15,683 +16,140 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
-        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
-      };
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
-
     <style>
-      :root {
-        --bg-canvas: #f1f5f9;
-        --paper-bg: #ffffff;
-        --ink-black: #0f172a;
-        --ink-gray: #475569;
-        --royal-blue: #1e3a8a;
-        --border-color: #cbd5e1;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        background-color: var(--bg-canvas);
-        color: var(--ink-black);
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f2f5;
         font-family: "Kantumruy Pro", sans-serif;
-        line-height: 1.8;
-        padding: 40px 10px;
-      }
-
-      /* Top Action Bar (Hidden in Print) */
-      .action-bar {
-        max-width: 210mm;
-        margin: 0 auto 20px;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
-        background: #ffffff;
-        padding: 12px 24px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-        border: 1px solid #e2e8f0;
+        gap: 20px;
       }
 
-      .action-bar-left a {
-        color: var(--royal-blue);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 14.5px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: 0.2s;
-      }
-
-      .action-bar-left a:hover {
-        color: var(--ink-black);
-        transform: translateX(-3px);
-      }
-
-      .action-bar-right {
-        display: flex;
-        gap: 12px;
-      }
-
-      .action-btn {
-        padding: 8px 16px;
+      /* Clean Photo Frame */
+      .photo-container {
+        width: 100%;
+        max-width: 900px;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         border-radius: 8px;
-        font-size: 13.5px;
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid var(--border-color);
-        background: #ffffff;
-        color: var(--ink-black);
-        cursor: pointer;
-        transition: 0.2s;
-      }
-
-      .action-btn:hover {
-        background: #f8fafc;
-        border-color: var(--ink-black);
-      }
-
-      .action-btn-primary {
-        background: var(--royal-blue);
-        color: #ffffff;
-        border-color: var(--royal-blue);
-      }
-
-      .action-btn-primary:hover {
-        background: #172554;
-        border-color: #172554;
-      }
-
-      /* A4 Paper Styling */
-      .paper {
-        background: var(--paper-bg);
-        width: 210mm;
-        min-height: 297mm;
-        padding: 20mm;
-        margin: 0 auto;
-        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-        border-radius: 6px;
         position: relative;
-        border: 1px solid #cbd5e1;
+        transition: transform 0.3s ease;
       }
 
-      /* Header Layout */
-      .paper-header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-        font-size: 13.5px;
-        line-height: 1.6;
+      .photo-container:hover {
+        transform: translateY(-5px);
       }
 
-      .header-left {
+      .pdf-view {
+        width: 100%;
+        height: 1200px;
+        border: none;
+        border-radius: 4px;
+        display: block;
+      }
+
+      /* Label below "photo" */
+      .caption {
+        padding: 15px;
         text-align: center;
-      }
-
-      .header-right {
-        text-align: center;
-        font-weight: 600;
-      }
-
-      .royal-title {
         font-weight: 700;
-        font-size: 14px;
-        margin-bottom: 4px;
+        color: #1e3a8a;
+        font-size: 18px;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
       }
 
-      /* Main Title block */
-      .exam-title-block {
-        text-align: center;
-        margin-bottom: 32px;
-        border-bottom: 2px double var(--ink-black);
-        padding-bottom: 20px;
-      }
-
-      .exam-title-block h1 {
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--ink-black);
-        margin-bottom: 8px;
-      }
-
-      .exam-info-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        font-size: 13px;
-        color: var(--ink-gray);
-        margin-top: 12px;
-        font-weight: 600;
-      }
-
-      /* Question Elements */
-      .question-block {
-        margin-bottom: 20px;
-        page-break-inside: avoid;
-      }
-
-      .q-title {
-        font-weight: 700;
-        font-size: 15.5px;
-        color: var(--ink-black);
-        margin-bottom: 8px;
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .q-num {
-        min-width: 32px;
-      }
-
-      .q-text {
-        flex: 1;
-      }
-
-      .sub-q {
-        margin: 8px 0 8px 32px;
-        font-size: 14.5px;
-      }
-
-      /* Global Answer Toggle Style */
-      .global-answer-btn-wrapper {
-        text-align: center;
-        margin: 25px 0;
-        page-break-inside: avoid;
-      }
-
-      .global-answer-btn {
-        background: var(--royal-blue);
-        border: 1px solid var(--royal-blue);
-        color: #ffffff;
-        padding: 10px 24px;
-        border-radius: 8px;
-        font-size: 14px;
+      /* Simple Toggle Button */
+      .reveal-btn {
+        background: #1e3a8a;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
         font-weight: 700;
         cursor: pointer;
-        display: inline-flex;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        position: sticky;
+        bottom: 20px;
+        z-index: 100;
+      }
+
+      .reveal-btn:hover {
+        background: #2563eb;
+      }
+
+      .back-link {
+        align-self: flex-start;
+        text-decoration: none;
+        color: #64748b;
+        font-weight: 700;
+        display: flex;
         align-items: center;
         gap: 8px;
-        transition: 0.2s;
+        margin-bottom: 10px;
       }
 
-      .global-answer-btn:hover {
-        background: #172554;
-        border-color: #172554;
+      /* Hide browser PDF UI as much as possible */
+      iframe {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
       }
-
-      /* Global Answer Panel */
-      .global-answer-panel {
+      iframe::-webkit-scrollbar {
         display: none;
-        margin-top: 30px;
-        border-top: 2px dashed var(--border-color);
-        padding-top: 25px;
-        animation: printFadeIn 0.3s ease;
-      }
-
-      .ans-section {
-        margin-bottom: 35px;
-      }
-
-      .ans-section-title {
-        font-weight: 700;
-        font-size: 15.5px;
-        color: var(--royal-blue);
-        border-bottom: 1px solid var(--border-color);
-        padding-bottom: 6px;
-        margin-bottom: 12px;
-      }
-
-      @keyframes printFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(4px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .formula-box {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        padding: 12px;
-        border-radius: 8px;
-        margin: 12px 0 12px 0;
-        text-align: center;
-        font-weight: 600;
-      }
-
-      /* Print optimization */
-      @media print {
-        body {
-          background: #ffffff !important;
-          padding: 0 !important;
-        }
-
-        .action-bar,
-        .global-answer-btn-wrapper,
-        .global-answer-panel {
-          display: none !important;
-        }
-
-        .paper {
-          width: 100% !important;
-          box-shadow: none !important;
-          border: none !important;
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-      }
-
-      @media (max-width: 220mm) {
-        body {
-          padding: 10px 0;
-        }
-        .action-bar {
-          width: 95%;
-          border-radius: 8px;
-        }
-        .paper {
-          width: 95%;
-          padding: 20px;
-          min-height: auto;
-        }
       }
     </style>
-      <link rel="stylesheet" href="../../../../assets/professional.css">
-</head>
+    <!-- Main JS -->
+    <script src="../../../../assets/main.js"></script>
+    <script>
+      StudyNest.checkAccess(6);
+    </script>
+  </head>
   <body>
-    <!-- Action Bar (Hidden in Print) -->
-    <div class="action-bar">
-      <div class="action-bar-left">
-        <a href="biology_bacii_exams.html">
-          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅបញ្ជីវិញ្ញាសា
-        </a>
-      </div>
-      <div class="action-bar-right">
-        <button class="action-btn" onclick="window.print()">
-          <i class="fas fa-print"></i> បោះពុម្ពវិញ្ញាសា (Print)
-        </button>
-      </div>
+    <a href="biology_bacii_exams.html" class="back-link">
+      <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+    </a>
+
+    <!-- Exam "Photo" -->
+    <div class="photo-container">
+      <iframe class="pdf-view" src="2021/2021.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="caption">វិញ្ញាសាប្រឡងបាក់ឌុប ២០២១</div>
     </div>
 
-    <!-- A4 Paper Exam Sheet -->
-    <div class="paper">
-      <!-- Header -->
-
-      <!-- Exam Title Block -->
-      <div class="exam-title-block">
-        <h1>វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប)</h1>
-        <div style="font-weight: 700; font-size: 16px; margin-top: 6px">
-          សម័យប្រឡង៖ ២៧ ធ្នូ ២០២១ &bull; មុខវិជ្ជា៖ ជីវវិទ្យា
-          (ថ្នាក់វិទ្យាសាស្ត្រ)
-        </div>
-        <div class="exam-info-grid">
-          <span><i class="far fa-clock"></i> រយៈពេល៖ ៩០ នាទី</span>
-          <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ៧៥</span>
-          <span><i class="fas fa-print"></i> ទម្រង់៖ A4 Print Ready</span>
-        </div>
-      </div>
-
-      <!-- Question I -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">I.</span>
-          <span class="q-text"
-            >តើគេសម្គាល់ផ្ការបស់រុក្ខជាតិឌីកូទីលេដូនបានដោយសារអ្វី?
-            តើផ្កាមាននាទីអ្វីខ្លះ?</span
-          >
-        </div>
-      </div>
-
-      <!-- Question II -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">II.</span>
-          <span class="q-text">ចូរពនយល់ពី៖</span>
-        </div>
-        <div class="sub-q">ក. អង្គស៊ីលីយ៉ែ (Ciliary body)</div>
-        <div class="sub-q">
-          ខ. បាតុភូតដែលធ្វើឱ្យយើងអាចមើលឃើញវត្ថុផ្សេងៗស្ថិតក្នុងចម្ងាយខុសៗគ្នា។
-        </div>
-      </div>
-
-      <!-- Question III -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">III.</span>
-          <span class="q-text"
-            >ក. ហេតុអ្វីបានជាសកម្មភាពអង់ស៊ីមត្រូវបាត់បង់គុណភាពនៅសីតុណ្ហភាពលើសពី
-            45°C?</span
-          >
-        </div>
-        <div class="sub-q">
-          ខ. តើលក្ខខណ្ឌអ្វីខ្លះដែលធ្វើឱ្យប្រូតេអ៊ីនបាត់បង់គុណភាពបាន?
-        </div>
-      </div>
-
-      <!-- Question IV -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">IV.</span>
-          <span class="q-text"
-            >តើវិស្វកម្មសេនេទិចផ្ដល់ផលល្អ និងផលអាក្រក់អ្វីខ្លះដល់មនុស្ស?</span
-          >
-        </div>
-      </div>
-
-      <!-- Question V -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">V.</span>
-          <span class="q-text">ម៉ូលេគុល ADN មួយមាន 3000 នុយគ្លេអូទីត។</span>
-        </div>
-        <div class="sub-q">
-          ក. បើភាគរយនៃនុយគ្លេអូទីតប្រភេទស៊ីតូស៊ីនស្មើ 30%
-          នៃចំនួននុយគ្លេអូទីតសរុប។ តើម៉ូលេគុល ADN
-          នេះមានសម្ពន្ធអ៊ីដ្រូសែនប៉ុន្មាន?
-        </div>
-        <div class="sub-q">
-          ខ. ពេលម៉ូលេគុល ADN នេះស្វ័យដំឡើងទ្វេ ៤ដង
-          តើវាត្រូវការនុយគ្លេអូទីតសេរីចំនួនប៉ុន្មាន?
-        </div>
-      </div>
-
-      <!-- Question VI -->
-      <div class="question-block">
-        <div class="q-title">
-          <span class="q-num">VI.</span>
-          <span class="q-text"
-            >សែនមួយមាននុយគ្លេអូទីតសរុប 480 និងនុយគ្លេអូទីតប្រភេទអាដេនីនស្មើ 100។
-            ម៉ូលេគុល ARNm
-            ដែលសំយោគចេញពីសែននេះមានរីបូនុយគ្លេអូទីតប្រភេទអ៊ុយរ៉ាស៊ីលស្មើ 50
-            និងស៊ីតូស៊ីនស្មើ 60។</span
-          >
-        </div>
-        <div class="sub-q">ក. រកប្រវែងម៉ូលេគុល ARNm ដែលសំយោគចេញពីសែននេះ។</div>
-        <div class="sub-q">
-          ខ. រកចំនួនរីបូនុយគ្លេអូទីតប្រភេទផ្សេងទៀតរបស់ ARNm នេះ។
-        </div>
-        <div class="sub-q">
-          គ. រកសមាមាត្រភាគរយនៃរីបូនុយគ្លេអូទីតនីមួយៗរបស់ ARNm នេះ។
-        </div>
-      </div>
-
-      <!-- Global Answer Toggle Button -->
-      <div class="global-answer-btn-wrapper">
-        <button
-          id="global-toggle-btn"
-          class="global-answer-btn"
-          onclick="toggleAllAnswers()"
-        >
-          <i class="fas fa-eye"></i> បង្ហាញចម្លើយទាំងអស់ (Show All Answers)
-        </button>
-      </div>
-
-      <!-- Global Answer Panel -->
-      <div id="global-answer-panel" class="global-answer-panel">
-        <!-- Answer I -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី I</div>
-          <p>
-            <strong>- ការសម្គាល់ផ្ការុក្ខជាតិឌីកូទីលេដូន៖</strong>
-            ផ្កាមានស្រទាប់ផ្កា ឬត្របកផ្កាចំនួន ៤ ឬ ៥ ឬពហុគុណរបស់វា (៤ ឬ ៥)។
-          </p>
-          <p style="margin-top: 8px">
-            <strong>- នាទីរបស់ផ្កា៖</strong>
-            ផ្កាជាសរីរាង្គបន្តពូជរបស់រុក្ខជាតិផ្កា ដោយមាននាទីដូចជា៖
-          </p>
-          <ul style="margin-left: 20px; list-style-type: disc">
-            <li>
-              បង្កើតកោសិកាបន្តពូជញី (អូវុល) និងកោសិកាបន្តពូជឈ្មោល (លំអងធូលី)។
-            </li>
-            <li>ទាក់ទាញសត្វល្អិតសម្រាប់ជួយក្នុងដំណើរលំអង។</li>
-            <li>
-              បង្កលក្ខខណ្ឌឱ្យមានការបង្កកំណើត ដើម្បីបង្កើតជាគ្រាប់ និងផ្លែ។
-            </li>
-            <li>ប្លោកលំអងមាននាទីផ្ទុកគ្រាប់លំអង។</li>
-            <li>អូវែមាននាទីការពារ និងផ្ទុកអូវុល។</li>
-          </ul>
-        </div>
-
-        <!-- Answer II -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី II</div>
-          <p>
-            <strong>ក. អង្គស៊ីលីយ៉ែ៖</strong> ជាសាច់ដុំរលីងស្ថិតនៅជុំវិញកែវភ្នែក
-            ហើយភ្ជាប់ទៅនឹងកែវភ្នែកដោយសរសៃចំណង (Suspensory ligaments)។
-            វាមាននាទីកន្ត្រាក់ ឬបន្ធូរ
-            ដើម្បីសម្រួលដល់កម្រាស់កែវភ្នែកក្នុងការមើលរូបភាព។
-          </p>
-          <p style="margin-top: 10px">
-            <strong
-              >ខ. បាតុភូតដែលធ្វើឱ្យមើលឃើញរូបភាពនៅចម្ងាយខុសៗគ្នា
-              (សម្របតម្រូវភ្នែក)៖</strong
-            >
-          </p>
-          <p>
-            ដើម្បីឱ្យយើងមើលឃើញវត្ថុផ្សេងៗនៅចម្ងាយខុសគ្នាបានច្បាស់
-            រូបភាពនៃវត្ថុនោះត្រូវតែធ្លាក់ចំរ៉េទីន
-            ដោយកែវភ្នែកត្រូវតែប្តូរកម្រាស់របស់វា៖
-          </p>
-          <ul style="margin-left: 20px; list-style-type: square">
-            <li>
-              <strong>ពេលមើលវត្ថុនៅជិត៖</strong>
-              សាច់ដុំអង្គស៊ីលីយ៉ែកន្ត្រាក់រួមតូច ធ្វើឱ្យសរសៃចំណងធូរ រលុង។
-              ពេលនោះកែវភ្នែកឡើងប៉ោង (ក្រាស់)
-              នាំឱ្យរូបភាពធ្លាក់ចំរ៉េទីនច្បាស់ល្អ។
-            </li>
-            <li>
-              <strong>ពេលមើលវត្ថុនៅឆ្ងាយ៖</strong> សាច់ដុំអង្គស៊ីលីយ៉ែបន្ធូរ
-              ធ្វើឱ្យសរសៃចំណងតឹង នាំឱ្យទាញកែវភ្នែកឱ្យឡើងសំប៉ែត (ស្តើង)
-              នាំឱ្យមើលឃើញរូបភាពនៅឆ្ងាយច្បាស់ល្អ។
-            </li>
-          </ul>
-          <p style="margin-top: 8px">
-            បាតុភូតទាំងនេះ គេហៅថា
-            <strong>កម្លាំងសម្របតម្រូវនៃភ្នែក (Accommodation power)</strong>។
-          </p>
-        </div>
-
-        <!-- Answer III -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី III</div>
-          <p>
-            <strong
-              >ក. អង់ស៊ីមបាត់បង់គុណភាពនៅសីតុណ្ហភាពលើសពី 45°C ព្រោះ៖</strong
-            >
-          </p>
-          <ul style="margin-left: 20px; list-style-type: disc">
-            <li>អង់ស៊ីមទាំងអស់មានទម្រង់ជាប្រូតេអ៊ីន។</li>
-            <li>
-              កាលណាសីតុណ្ហភាពឡើងខ្ពស់ហួសពី 45°C ចំណងប៉ិបទីត
-              និងជាពិសេសសម្ពន្ធអ៊ីដ្រូសែនដែលជួយរក្សាទ្រង់ទ្រាយប្រូតេអ៊ីនត្រូវរលាយ
-              ឬដាច់ផ្តាច់។
-            </li>
-            <li>
-              បាតុភូតនេះធ្វើឱ្យទ្រង់ទ្រាយ 3
-              វិមាត្ររបស់អង់ស៊ីមផ្លាស់ប្តូរទាំងស្រុង (Denaturation)
-              នាំឱ្យវាមិនអាចដំណើរការជាកាតាលីករជីវៈបានទៀតឡើយ។
-            </li>
-          </ul>
-          <p style="margin-top: 10px">
-            <strong>ខ. លក្ខខណ្ឌដែលធ្វើឱ្យប្រូតេអ៊ីនបាត់បង់គុណភាព៖</strong>
-          </p>
-          <ul style="margin-left: 20px; list-style-type: circle">
-            <li>បម្រែបម្រួលកម្រិត pH ខ្លាំង (អាស៊ីតខ្លាំង ឬបាសខ្លាំង)</li>
-            <li>សាប៊ូ និងភ្នាក់ងារសាប៊ូដុសខាត់</li>
-            <li>អង្គធាតុរំលាយសរីរាង្គ (ដូចជា អាល់កុល)</li>
-            <li>វត្តមានលោហៈធ្ងន់ (ដូចជា 鉛, 汞)</li>
-            <li>កំហាប់អំបិលខ្ពស់</li>
-            <li>កម្តៅខ្លាំង ឬបម្រែបម្រួលសីតុណ្ហភាពខ្លាំង</li>
-            <li>ចលនាមេកានិចខ្លាំង (ដូចជា ការវាយបំបែក)</li>
-            <li>ភ្នាក់ងារគីមីបំបែកផ្សេងៗ (ដូចជា អ៊ុយរ៉េ)</li>
-          </ul>
-        </div>
-
-        <!-- Answer IV -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី IV</div>
-          <p><strong>- ផលល្អ៖</strong></p>
-          <ul style="margin-left: 20px; list-style-type: disc">
-            <li>
-              <strong>វិស័យសុខាភិបាល៖</strong> ផលិតអរម៉ូនអាំងស៊ុយលីន
-              (ព្យាបាលទឹកនោមផ្អែម) អាំងទែផេរ៉ូន អាំងទែឡឺគីន អង់ទីប៊ីយូទិច
-              និងវ៉ាក់សាំងការពារជំងឺផ្សេងៗ។
-            </li>
-            <li>
-              <strong>វិស័យកសិកម្ម៖</strong> បង្កើតពូជរុក្ខជាតិ
-              ឬសត្វដែលធន់នឹងជំងឺ ធន់នឹងអាកាសធាតុ ធន់នឹងថ្នាំសម្លាប់សត្វល្អិត
-              និងផ្តល់ទិន្នផលខ្ពស់។
-            </li>
-            <li>
-              <strong>វិស័យឧស្សាហកម្មអាហារ៖</strong> ផលិតអង់ស៊ីម ទឹកដោះគោជូរ
-              ស្រាបៀរ នំប៉័ង ប្រូម៉ាស និងការផលិតសារធាតុបន្ថែមអាហារ។
-            </li>
-          </ul>
-          <p style="margin-top: 10px"><strong>- ផលអាក្រក់៖</strong></p>
-          <ul style="margin-left: 20px; list-style-type: disc">
-            <li>
-              <strong>ប៉ះពាល់បរិស្ថាន៖</strong> រុក្ខជាតិដែលកែច្នៃសែន (GM)
-              អាចបង្កឱ្យបាត់បង់ជីវចម្រុះ សត្វល្អិតមួយចំនួនអាចមានសកម្មភាពពុល
-              និងបង្កើតជាស្មៅដែលធន់នឹងថ្នាំកម្ចាត់ស្មៅ។
-            </li>
-            <li>
-              <strong>ប៉ះពាល់សុខភាព៖</strong>
-              ផលិតផលសែនកែច្នៃអាចបង្កប្រតិកម្មអាឡែស៊ី
-              ឬការប្រើប្រាស់បាក់តេរីកែច្នៃក្នុងអាវុធជីវសាស្ត្រក្នុងសង្គ្រាម។
-            </li>
-            <li>
-              <strong>សីលធម៌ និងសង្គម៖</strong> បង្កក្តីបារម្ភផ្នែកសាសនា
-              និងសង្គម (ការបែងចែកវណ្ណៈ ដោយមានតែអ្នកមានធនធានទើបអាចកែច្នៃសែនបាន)។
-            </li>
-            <li>
-              <strong>សេដ្ឋកិច្ច៖</strong>
-              ក្រុមហ៊ុនពហុជាតិគ្រប់គ្រងសិទ្ធិផ្តាច់មុខលើគ្រាប់ពូជ GM
-              ធ្វើឱ្យកសិករខ្សត់ខ្សោយព្រោះត្រូវទិញពូជថ្មីរៀងរាល់ឆ្នាំ។
-            </li>
-          </ul>
-        </div>
-
-        <!-- Answer V -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី V</div>
-          <p><strong>ក. គណនាចំនួនសម្ពន្ធអ៊ីដ្រូសែនសរុប (\(H\))៖</strong></p>
-          <div class="formula-box">
-            តាមបម្រាប់៖ ចំនួននុយគ្លេអូទីតសរុប \( N = 3000 \) នុយគ្លេអូទីត<br />
-            និងភាគរយ \( \%C = 30\% \)<br />
-            តាមគោលការណ៍បំពេញបាស៖ \( \%C = \%G = 30\% \)<br />
-            នាំឱ្យ៖ \( C = G = \frac{30 \times 3000}{100} = 900 \)
-            នុយគ្លេអូទីត<br />
-            តាមរូបមន្ត៖ \( \%A + \%C = 50\% \implies \%A = 50\% - 30\% = 20\%
-            \)<br />
-            នាំឱ្យ៖ \( A = T = \frac{20 \times 3000}{100} = 600 \)
-            នុយគ្លេអូទីត<br /><br />
-            សម្ពន្ធអ៊ីដ្រូសែន៖ \( H = 2A + 3C \)<br />
-            \( H = 2(600) + 3(900) = 1200 + 2700 = 3900 \) សម្ពន្ធអ៊ីដ្រូសែន<br />
-            ដូចនេះ៖ ចំនួនសម្ពន្ធអ៊ីដ្រូសែនរបស់ ADN គឺ \( H = 3900 \)
-          </div>
-
-          <p style="margin-top: 12px">
-            <strong
-              >ខ. គណនាចំនួននុយគ្លេអូទីតសេរីត្រូវការ
-              (\(N_{\text{free}}\))៖</strong
-            >
-          </p>
-          <div class="formula-box">
-            តាមរូបមន្តស្វ័យដំឡើងទ្វេ \( n \) ដង៖ \( N_{\text{free}} = N(2^n - 1)
-            \)<br />
-            ដោយ៖ \( N = 3000 \) នុយគ្លេអូទីត និង \( n = 4 \) ដង<br />
-            គេបាន៖ \( N_{\text{free}} = 3000 \times (2^4 - 1) = 3000 \times (16
-            - 1) = 3000 \times 15 = 45,000 \) នុយគ្លេអូទីត<br />
-            ដូចនេះ៖ នុយគ្លេអូទីតសេរីដែលត្រូវការគឺ \( N_{\text{free}} = 45,000 \)
-            នុយគ្លេអូទីត
-          </div>
-        </div>
-
-        <!-- Answer VI -->
-        <div class="ans-section">
-          <div class="ans-section-title">ចម្លើយ សំណួរទី VI</div>
-          <p>
-            <strong>ក. រកប្រវែងម៉ូលេគុល ARNm (\(L_{\text{mRNA}}\))៖</strong>
-          </p>
-          <div class="formula-box">
-            តាមបម្រាប់៖ ចំនួននុយគ្លេអូទីតសរុបរបស់សែន \( N = 480 \)<br />
-            \(\implies\) ចំនួនរីបូនុយគ្លេអូទីតសរុបរបស់ ARNm គឺ៖ \( N_m =
-            \frac{N}{2} = \frac{480}{2} = 240 \) រីបូនុយគ្លេអូទីត<br />
-            ប្រវែង ARNm គណនាតាមរូបមន្ត៖ \( L = N_m \times 0.34 \text{ nm} \)<br />
-            \( L = 240 \times 0.34 = 81.6 \text{ nm} \)<br />
-            ដូចនេះ៖ ប្រវែងម៉ូលេគុល ARNm គឺ \( L = 81.6 \text{ nm} \)
-          </div>
-
-          <p style="margin-top: 12px">
-            <strong
-              >ខ. រកចំនួនរីបូនុយគ្លេអូទីតប្រភេទផ្សេងទៀត (\(A_m\),
-              \(G_m\))៖</strong
-            >
-          </p>
-          <div class="formula-box">
-            តាមបម្រាប់៖ \( U_m = 50 \), \( C_m = 60 \) គ្រាប់ និង \(
-            A_{\text{gene}} = 100 \)<br />
-            តាមគោលការណ៍ចម្លងក្រម៖ \( A_{\text{gene}} = A_m + U_m \)<br />
-            នាំឱ្យ៖ \( A_m = A_{\text{gene}} - U_m = 100 - 50 = 50 \)
-            រីបូនុយគ្លេអូទីត<br /><br />
-            គណនាចំនួនស៊ីតូស៊ីនរបស់សែន (\(C_{\text{gene}}\))៖<br />
-            តាមរូបមន្ត៖ \( N_m = A_{\text{gene}} + C_{\text{gene}} \implies 240
-            = 100 + C_{\text{gene}} \implies C_{\text{gene}} = 140 \)<br />
-            តាមគោលការណ៍ចម្លងក្រម៖ \( C_{\text{gene}} = C_m + G_m \)<br />
-            នាំឱ្យ៖ \( G_m = C_{\text{gene}} - C_m = 140 - 60 = 80 \)
-            រីបូនុយគ្លេអូទីត<br />
-            ដូចនេះ៖ រីបូនុយគ្លេអូទីតប្រភេទផ្សេងទៀតគឺ \( A_m = 50 \) និង \( G_m =
-            80 \)
-          </div>
-
-          <p style="margin-top: 12px">
-            <strong
-              >គ. រកសមាមាត្រភាគរយនៃរីបូនុយគ្លេអូទីតនីមួយៗរបស់ ARNm៖</strong
-            >
-          </p>
-          <div class="formula-box">
-            ភាគរយនីមួយៗគណនាតាមរូបមន្ត៖ \( \%X_m = \frac{X_m}{N_m} \times 100\%
-            \)<br />
-            \( \%A_m = \frac{50}{240} \times 100\% \approx 20.83\% \)<br />
-            \( \%U_m = \frac{50}{240} \times 100\% \approx 20.83\% \)<br />
-            \( \%C_m = \frac{60}{240} \times 100\% = 25\% \)<br />
-            \( \%G_m = \frac{80}{240} \times 100\% \approx 33.33\% \)<br />
-            ដូចនេះ៖ \( \%A_m \approx 20.83\% \), \( \%U_m \approx 20.83\% \), \(
-            \%C_m = 25\% \), \( \%G_m \approx 33.33\% \)
-          </div>
-        </div>
-      </div>
+    <!-- Solution "Photo" (Hidden by default) -->
+    <div id="solution-photo" class="photo-container" style="display: none;">
+      <iframe class="pdf-view" src="2021/2021answer.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+      <div class="caption">ដំណោះស្រាយលម្អិត ២០២១</div>
     </div>
+
+    <!-- Sticky Reveal Button -->
+    <button id="toggleBtn" class="reveal-btn" onclick="toggleSolution()">
+      <i class="fas fa-lightbulb"></i> មើលចម្លើយ (Show Solution)
+    </button>
 
     <script>
-      function toggleAllAnswers() {
-        const panel = document.getElementById("global-answer-panel");
-        const btn = document.getElementById("global-toggle-btn");
-
-        if (panel.style.display === "block") {
-          panel.style.display = "none";
-          btn.innerHTML =
-            '<i class="fas fa-eye"></i> បង្ហាញចម្លើយទាំងអស់ (Show All Answers)';
+      function toggleSolution() {
+        const sol = document.getElementById('solution-photo');
+        const btn = document.getElementById('toggleBtn');
+        
+        if (sol.style.display === 'none') {
+          sol.style.display = 'block';
+          btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយ (Hide Solution)';
+          btn.style.background = '#475569';
+          // Scroll to solution
+          sol.scrollIntoView({ behavior: 'smooth' });
         } else {
-          panel.style.display = "block";
-          btn.innerHTML =
-            '<i class="fas fa-eye-slash"></i> លាក់ចម្លើយទាំងអស់ (Hide All Answers)';
+          sol.style.display = 'none';
+          btn.innerHTML = '<i class="fas fa-lightbulb"></i> មើលចម្លើយ (Show Solution)';
+          btn.style.background = '#1e3a8a';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
     </script>

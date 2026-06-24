@@ -588,6 +588,9 @@
     <!-- StudyNest Core Script & Background Init -->
     <script src="../../../../assets/main.js"></script>
     <script>
+      StudyNest.authGuard();
+    </script>
+    <script>
       document.addEventListener("DOMContentLoaded", function() {
         if (typeof StudyNest !== 'undefined' && typeof StudyNest.initBackground === 'function') {
           StudyNest.initBackground();
