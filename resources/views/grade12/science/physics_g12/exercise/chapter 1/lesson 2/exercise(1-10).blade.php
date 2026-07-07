@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ១–១០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 2_home"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ច្បាប់ទី១ទែម៉ូឌីណាមិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ១–១០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 01 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">01</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយនៅក្នុងស៊ីឡាំងដែលបិទជិតដោយពីស្តុងអាចរីកមាឌក្រោមសម្ពាធថេរ
+            <span class="given">\(5 \text{ atm}\)</span> រីកមាឌពី
+            <span class="given">\(10 \text{ L}\)</span> ទៅ
+            <span class="given">\(25 \text{ L}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាកម្មន្តក្នុងលំនាំនេះ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តក្នុងលំនាំនេះ (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( \Delta V = V_2 - V_1 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = P(V_2 - V_1) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 5 \text{ atm} = 5 \times 1.013 \times 10^5 \text{ Pa} = 5.065 \times 10^5 \text{ Pa} \)<br>
+                  \( V_1 = 10 \text{ L} = 10 \times 10^{-3} \text{ m}^3 = 0.01 \text{ m}^3 \)<br>
+                  \( V_2 = 25 \text{ L} = 25 \times 10^{-3} \text{ m}^3 = 0.025 \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 5.065 \times 10^5 \times (0.025 - 0.01) = 7597.5 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តក្នុងលំនាំនេះគឺ \( W = 7597.5 \text{ J} \) (ឬ \( 7500 \text{ J} \) បើ \( 1 \text{ atm} \approx 10^5 \text{ Pa} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">02</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            នៅសម្ពាធថេរ
+            <span class="given">\(15 \times 10^4 \text{ Pa}\)</span>
+            ឧស្ម័នមួយរីកមានមាឌពី
+            <span class="given">\(V_1 = 7500 \text{ cm}^3\)</span> ទៅ
+            <span class="given">\(V_2 = 9000 \text{ cm}^3\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ននោះ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ន (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( \Delta V = V_2 - V_1 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = P(V_2 - V_1) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 15 \times 10^4 \text{ Pa} \)<br>
+                  \( V_1 = 7500 \text{ cm}^3 = 7500 \times 10^{-6} \text{ m}^3 = 7.5 \times 10^{-3} \text{ m}^3 \)<br>
+                  \( V_2 = 9000 \text{ cm}^3 = 9000 \times 10^{-6} \text{ m}^3 = 9 \times 10^{-3} \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 15 \times 10^4 \times (9 - 7.5) \times 10^{-3} = 225 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបំពេញដោយឧស្ម័ននោះគឺ \( W = 225 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">03</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយប្រែប្រួលមាឌពី
+            <span class="given">\(0.75 \text{ m}^3\)</span> ទៅ
+            <span class="given">\(1.9 \text{ m}^3\)</span> ជាមួយនឹងសម្ពាធថេរ
+            <span class="given">\(P = 200 \text{ kPa}\)</span> ។
+          </p>
+          <div class="ex-find">
+            <span>គណនាកម្មន្តដែលបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌ ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តដែលបំពេញដោយឧស្ម័ន (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( \Delta V = V_2 - V_1 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = P(V_2 - V_1) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 200 \text{ kPa} = 2 \times 10^5 \text{ Pa} \)<br>
+                  \( V_1 = 0.75 \text{ m}^3 \)<br>
+                  \( V_2 = 1.9 \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 2 \times 10^5 \times (1.9 - 0.75) = 2.3 \times 10^5 \text{ J} = 230 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបំពេញដោយឧស្ម័នគឺ \( W = 230 \text{ kJ} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">04</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នក្នុងធុងមួយមានមាឌ
+            <span class="given">\(V_1\)</span> ស្ថិតក្រោមសម្ពាធ
+            <span class="given">\(240 \text{ Pa}\)</span> ។
+            គេធ្វើឱ្យឧស្ម័នរីកមាឌកើនឡើង ២ ដងនៃមាឌដើមតាមលំនាំអ៊ីសូបារ
+            ហើយកម្មន្តបំពេញដោយឧស្ម័នក្នុងរយៈពេលរីកមាឌនោះមានតម្លៃ
+            <span class="given">\(2.88 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាមាឌដើម និងមាឌស្រេចនៃឧស្ម័ន ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌដើម (\(V_1\)) និងមាឌស្រេច (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">
+                  \( V_2 = 2 V_1 \)<br>
+                  \( \Delta V = V_2 - V_1 = 2V_1 - V_1 = V_1 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = P \cdot V_1 \Rightarrow V_1 = \dfrac{W}{P} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 240 \text{ Pa} \)<br>
+                  \( W = 2.88 \text{ kJ} = 2880 \text{ J} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( V_1 = \dfrac{2880}{240} = 12 \text{ m}^3 \)<br>
+                  នាំឱ្យ៖ \( V_2 = 2 \times 12 = 24 \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌដើមគឺ \( V_1 = 12 \text{ m}^3 \) និងមាឌស្រេចគឺ \( V_2 = 24 \text{ m}^3 \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">05</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេសន្មតថាឧស្ម័នមួយនៅក្នុងស៊ីឡាំងបិទដោយពីស្តុង
+            ដែលអាចរីកមាឌក្រោមសម្ពាធថេរ
+            <span class="given">\(100 \text{ kPa}\)</span> ពី
+            <span class="given">\(2 \text{ dm}^3\)</span> ទៅ
+            <span class="given">\(5 \text{ dm}^3\)</span> ។
+          </p>
+          <div class="ex-find">
+            <span>តើកម្មន្តធ្វើដោយឧស្ម័ននោះមានតម្លៃស្មើប៉ុន្មាន ?</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តធ្វើដោយឧស្ម័ន (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( \Delta V = V_2 - V_1 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = P(V_2 - V_1) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 100 \text{ kPa} = 10^5 \text{ Pa} \)<br>
+                  \( V_1 = 2 \text{ dm}^3 = 2 \times 10^{-3} \text{ m}^3 \)<br>
+                  \( V_2 = 5 \text{ dm}^3 = 5 \times 10^{-3} \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 10^5 \times (5 - 2) \times 10^{-3} = 300 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តធ្វើដោយឧស្ម័ននោះគឺ \( W = 300 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">06</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយមានសម្ពាធ
+            <span class="given">\(50 \text{ kPa}\)</span> រងនូវលំនាំអ៊ីសូបារ
+            ហើយមានមាឌ
+            <span class="given">\(V_1 = 75 \times 10^4 \text{ cm}^3\)</span> ។
+            បើគេដឹងថាកម្មន្តបំពេញដោយឧស្ម័នក្នុងរយៈពេលនោះមានតម្លៃ
+            <span class="given">\(22.5 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find"><span>តើមាឌកើនដល់កម្រិតណា ?</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌស្រេចនៃឧស្ម័ន (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \Rightarrow \Delta V = \dfrac{W}{P} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( \Delta V = V_2 - V_1 \Rightarrow V_2 = V_1 + \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = V_1 + \dfrac{W}{P} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 50 \text{ kPa} = 5 \times 10^4 \text{ Pa} \)<br>
+                  \( V_1 = 75 \times 10^4 \text{ cm}^3 = 0.75 \text{ m}^3 \)<br>
+                  \( W = 22.5 \text{ kJ} = 22500 \text{ J} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = 0.75 + \dfrac{22500}{50000} = 0.75 + 0.45 = 1.2 \text{ m}^3 \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌកើនឡើងដល់ \( V_2 = 1.2 \text{ m}^3 \) (ឬ \( 1.2 \times 10^6 \text{ cm}^3 \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">07</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ធុងមួយមានមាឌ
+            <span class="given">\(50 \text{ dm}^3\)</span> មានផ្ទុកឧស្ម័នពេញ ។
+            ហើយឧស្ម័ននោះត្រូវបានគេបង្រួមមាឌឱ្យតូចជាងមុនពីរដង តាមលំនាំអ៊ីសូបារ ។
+            បើគេដឹងថាកម្មន្តដែលឧស្ម័ននោះរងក្នុងពេលមានបម្រែបម្រួលមាឌស្មើ
+            <span class="given">\(3.125 \text{ kJ}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័ន ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសម្ពាធនៃឧស្ម័ន (\(P\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P = \dfrac{|W|}{|\Delta V|} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">
+                  \( V_1 = 50 \text{ dm}^3 = 0.05 \text{ m}^3 \)<br>
+                  \( V_2 = \dfrac{V_1}{2} = 25 \text{ dm}^3 = 0.025 \text{ m}^3 \)<br>
+                  \( |\Delta V| = V_1 - V_2 = 0.05 - 0.025 = 0.025 \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( P = \dfrac{|W|}{V_1 - V_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( |W| = 3.125 \text{ kJ} = 3125 \text{ J} \)<br>
+                  \( V_1 - V_2 = 0.025 \text{ m}^3 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( P = \dfrac{3125}{0.025} = 125000 \text{ Pa} = 125 \text{ kPa} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សម្ពាធនៃឧស្ម័នគឺ \( P = 125 \text{ kPa} \) (ឬ \( 1.25 \times 10^5 \text{ Pa} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">08</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ពីស្តុងក្នុងស៊ីឡាំងមួយមានមុខកាត់
+            <span class="given">\(0.01 \text{ m}^2\)</span> ក្រោមសម្ពាធថេរ
+            <span class="given">\(7.5 \times 10^5 \text{ Pa}\)</span> ។
+            ពីស្តុងផ្លាស់ទីបានប្រវែង
+            <span class="given">\(0.04 \text{ m}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាកម្មន្តដែលបំពេញដោយពីស្តុង ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តដែលបំពេញដោយពីស្តុង (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \cdot \Delta V \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( \Delta V = S \cdot d \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = P \cdot S \cdot d \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 7.5 \times 10^5 \text{ Pa} \)<br>
+                  \( S = 0.01 \text{ m}^2 \)<br>
+                  \( d = 0.04 \text{ m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 7.5 \times 10^5 \times 0.01 \times 0.04 = 300 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបំពេញដោយពីស្តុងគឺ \( W = 300 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">09</div>
+          <span class="ex-title">លំហាត់អនុវត្ត០៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ចំហាយបានផ្លាស់ទីចូលក្នុងស៊ីឡាំងមួយដោយរក្សាសម្ពាធថេរ
+            និងបានធ្វើកម្មន្តឱ្យពីស្តុង
+            <span class="given">\(0.84 \text{ J}\)</span> ។
+            ពីស្តុងមានអង្កត់ផ្ចិត
+            <span class="given">\(1.6 \text{ cm}\)</span> និងផ្លាស់ទីបាន
+            <span class="given">\(2.1 \text{ cm}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាសម្ពាធថេរនោះ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសម្ពាធថេរនោះ (\(P\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P = \dfrac{W}{\Delta V} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">
+                  \( \Delta V = S \cdot h = \pi R^2 h = \pi \left(\dfrac{d}{2}\right)^2 h \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( P = \dfrac{W}{\pi \left(\dfrac{d}{2}\right)^2 h} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( W = 0.84 \text{ J} \)<br>
+                  \( d = 1.6 \text{ cm} = 1.6 \times 10^{-2} \text{ m} \Rightarrow R = 0.8 \text{ cm} = 8 \times 10^{-3} \text{ m} \)<br>
+                  \( h = 2.1 \text{ cm} = 2.1 \times 10^{-2} \text{ m} \)<br>
+                  \( \pi \approx 3.1416 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( \Delta V = 3.1416 \times (8 \times 10^{-3})^2 \times (2.1 \times 10^{-2}) \approx 4.222 \times 10^{-6} \text{ m}^3 \)<br>
+                  \( P = \dfrac{0.84}{4.222 \times 10^{-6}} \approx 1.99 \times 10^5 \text{ Pa} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សម្ពាធថេរនោះគឺ \( P \approx 1.99 \times 10^5 \text{ Pa} \) (ឬ \( 2 \times 10^5 \text{ Pa} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">10</div>
+          <span class="ex-title">លំហាត់អនុវត្ត១០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងម៉ាស៊ីនមួយចំហាយឧស្ម័នបានផ្លាស់ទីចូលក្នុងស៊ីឡាំងមួយដោយរក្សាសម្ពាធថេរ
+            ។ ឧស្ម័ននេះបានរុញច្រានពីស្តុងបង្កើតបានជាកម្មន្ត
+            <span class="given">\(2.826 \text{ J}\)</span> ។
+            ពីស្តុងមានអង្កត់ផ្ចិត
+            <span class="given">\(2 \text{ cm}\)</span> ផ្លាស់ទីបាន
+            <span class="given">\(4 \text{ cm}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាសម្ពាធនៃឧស្ម័នក្នុងម៉ាស៊ីននោះ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសម្ពាធនៃឧស្ម័នក្នុងម៉ាស៊ីន (\(P\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( P = \dfrac{W}{\Delta V} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">
+                  \( \Delta V = S \cdot h = \pi R^2 h = \pi \left(\dfrac{d}{2}\right)^2 h \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( P = \dfrac{W}{\pi \left(\dfrac{d}{2}\right)^2 h} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( W = 2.826 \text{ J} \)<br>
+                  \( d = 2 \text{ cm} = 2 \times 10^{-2} \text{ m} \Rightarrow R = 1 \text{ cm} = 10^{-2} \text{ m} \)<br>
+                  \( h = 4 \text{ cm} = 4 \times 10^{-2} \text{ m} \)<br>
+                  \( \pi \approx 3.14 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( \Delta V = 3.14 \times (10^{-2})^2 \times (4 \times 10^{-2}) = 1.256 \times 10^{-5} \text{ m}^3 \)<br>
+                  \( P = \dfrac{2.826}{1.256 \times 10^{-5}} = 2.25 \times 10^5 \text{ Pa} = 225 \text{ kPa} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សម្ពាធនៃឧស្ម័នក្នុងម៉ាស៊ីនគឺ \( P = 2.25 \times 10^5 \text{ Pa} \) (ឬ \( 225 \text{ kPa} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៦១–៧០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៦១–៧០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 61 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">61</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦១</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នា
+          <span class="given">\(l_1 = l_2 = 15\text{ m}\)</span> ស្របគ្នា
+          \(O_1\) និង \(O_2\) ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\( 40\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 15\text{ A}\)</span>។ គេឱ្យ \(\mu_0 = 4\pi
+          \times 10^{-7}\text{ SI}\)។<br />
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង។
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\)
+              ដែលត្រង់ចំណុចខ្សែចម្លងត្រង់ទី ៣ (\(l_3\))
+              មានចរន្តឆ្លងកាត់រងកម្លាំងម៉ាញេទិចផ្គួបស្មើ សូន្យ ឬមានលំនឹង។</span
+            >
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F_1 = F_2 = F = 2 \times 10^{-7} \dfrac{I_1 \cdot I_2 \cdot l}{d} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( I_1 = 5 \text{ A} \)<br />
+                  \( I_2 = 15 \text{ A} \)<br />
+                  \( l = 15 \text{ m} \)<br />
+                  \( d = 40 \text{ cm} = 0.4 \text{ m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( F = 2 \times 10^{-7} \times \dfrac{5 \times 15 \times 15}{0.4} = 5.625 \times 10^{-4} \text{ N} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គំនូសបំព្រួញ:</span>
+                <span class="sol-math">
+                  ចរន្តអគ្គិសនីទាំងពីរមានទិសដៅដូចគ្នា នាំឱ្យខ្សែចម្លងទាំងពីរមាន <strong>កម្លាំងម៉ាញេទិចឆក់គ្នាទៅវិញទៅមក</strong> (\(\vec{F}_1\) និង \(\vec{F}_2\) មានទិសដៅបែររកគ្នាទៅវិញទៅមក)។
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ តម្លៃកម្លាំងម៉ាញេទិចគឺ \( F = 5.625 \times 10^{-4} \text{ N} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលខ្សែចម្លងទី ៣ មានលំនឹង</div>
+              <div class="sol-step">
+                <span class="sol-label">ពន្យល់ :</span>
+                <span class="sol-math">
+                  ដើម្បីឱ្យខ្សែចម្លងត្រង់ទី ៣ រងកម្លាំងម៉ាញេទិចផ្គួបស្មើសូន្យ នោះវាត្រូវស្ថិតនៅចន្លោះ \(O_1\) និង \(O_2\) (ព្រោះចរន្តទាំងពីរមានទិសដៅដូចគ្នា)។<br />
+                  តាង \(x\) ជាចម្ងាយពី \(O_1\) ទៅខ្សែទី ៣ នាំឱ្យចម្ងាយពីខ្សែទី ៣ ទៅ \(O_2\) គឺ \(d - x = 0.4 - x\)។
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">លក្ខខណ្ឌ :</span>
+                <span class="sol-math">\( F_{13} = F_{23} \implies 2 \times 10^{-7} \dfrac{I_1 \cdot I_3 \cdot l_3}{x} = 2 \times 10^{-7} \dfrac{I_2 \cdot I_3 \cdot l_3}{d - x} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">សម្រួលបាន :</span>
+                <span class="sol-math">
+                  \( \dfrac{I_1}{x} = \dfrac{I_2}{d - x} \implies \dfrac{5}{x} = \dfrac{15}{0.4 - x} \)<br />
+                  \( \implies \dfrac{1}{x} = \dfrac{3}{0.4 - x} \implies 0.4 - x = 3x \implies 4x = 0.4 \implies x = 0.1 \text{ m} = 10 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ទីតាំងខ្សែចម្លងទី ៣ គឺស្ថិតនៅចន្លោះខ្សែទាំងពីរ និងចម្ងាយ \( 10 \text{ cm} \) ពី \(O_1\) (ឬ \( 30 \text{ cm} \) ពី \(O_2\))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 62 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">62</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦២</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នាស្របគ្នា \(O_1\) និង \(O_2\)
+          ចម្ងាយពីគ្នា <span class="given">\(d = 20\text{ cm}\)</span>។
+          ខ្សែចម្លងទាំង ២ ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅផ្ទុយគ្នា
+          និងមានតម្លៃរៀងគ្នា <span class="given">\( 30\text{ A}\)</span> និង
+          <span class="given">\( 10\text{ A}\)</span>។ ដែល \(M\) ស្ថិតនៅលើ
+          \((O_1O_2)\) ចម្ងាយ <span class="given">\( 20\text{ cm}\)</span> ពី
+          \(O_1\) និង <span class="given">\( 10\text{ cm}\)</span> ពី \(O_2\)។
+          គេឱ្យ \(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span>គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\)​ ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B_M = |B_1 - B_2| \) (ព្រោះ \(M\) ស្ថិតនៅក្រៅប្លង់ចន្លោះខ្សែទាំងពីរ ចរន្តផ្ទុយគ្នា ដែនម៉ាញេទិចមានទិសដៅផ្ទុយគ្នា)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដែននីមួយៗ :</span>
+                <span class="sol-math">
+                  \( B_1 = 2 \times 10^{-7} \dfrac{I_1}{d_1} \)<br />
+                  \( B_2 = 2 \times 10^{-7} \dfrac{I_2}{d_2} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( I_1 = 30 \text{ A} , d_1 = 20 \text{ cm} = 0.2 \text{ m} \)<br />
+                  \( I_2 = 10 \text{ A} , d_2 = 10 \text{ cm} = 0.1 \text{ m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គណនា :</span>
+                <span class="sol-math">
+                  \( B_1 = 2 \times 10^{-7} \times \dfrac{30}{0.2} = 3 \times 10^{-5} \text{ T} \)<br />
+                  \( B_2 = 2 \times 10^{-7} \times \dfrac{10}{0.1} = 2 \times 10^{-5} \text{ T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( B_M = |3 \times 10^{-5} - 2 \times 10^{-5}| = 1 \times 10^{-5} \text{ T} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ តម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\) គឺ \( B_M = 1 \times 10^{-5} \text{ T} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 63 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">63</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៣</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នាស្របគ្នា \(O_1\) និង \(O_2\)
+          ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\(d = 20\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\(I_1 = 10\text{ A}\)</span> និង
+          <span class="given">\(I_2 = 15\text{ A}\)</span>។ ដែល \(M\) ស្ថិតនៅលើ
+          \((O_1O_2)\) ចម្ងាយ
+          <span class="given">\(d_1 = 20\text{ cm}\)</span> ពី \(O_1\) និង
+          <span class="given">\(d_2 = 10\text{ cm}\)</span> ពី \(O_2\)។ គេឱ្យ
+          \(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span>គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\)</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( B_M = B_1 + B_2 \) (ដោយចរន្តទិសដៅដូចគ្នា ហើយ \(M\) ស្ថិតនៅក្រៅចន្លោះខ្សែចម្លងទាំងពីរ នាំឱ្យដែនទាំងពីរមានទិសដៅដូចគ្នា)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដែននីមួយៗ :</span>
+                <span class="sol-math">
+                  \( B_1 = 2 \times 10^{-7} \dfrac{I_1}{d_1} \)<br />
+                  \( B_2 = 2 \times 10^{-7} \dfrac{I_2}{d_2} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( I_1 = 10 \text{ A} , d_1 = 20 \text{ cm} = 0.2 \text{ m} \)<br />
+                  \( I_2 = 15 \text{ A} , d_2 = 10 \text{ cm} = 0.1 \text{ m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គណនា :</span>
+                <span class="sol-math">
+                  \( B_1 = 2 \times 10^{-7} \times \dfrac{10}{0.2} = 10^{-5} \text{ T} \)<br />
+                  \( B_2 = 2 \times 10^{-7} \times \dfrac{15}{0.1} = 3 \times 10^{-5} \text{ T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( B_M = 10^{-5} + 3 \times 10^{-5} = 4 \times 10^{-5} \text{ T} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ តម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(M\) គឺ \( B_M = 4 \times 10^{-5} \text{ T} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 64 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">64</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៤</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នា
+          <span class="given">\(l_1 = l_2 = 20\text{ cm}\)</span> ស្របគ្នា
+          \(O_1\) និង \(O_2\) ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\(40\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 15\text{ A}\)</span>។ គេឱ្យ \(\mu_0 = 4\pi
+          \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង។
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលត្រង់ចំណុច \(M\)
+              រងដែនម៉ាញេទិចផ្គួបស្មើសូន្យ។</span
+            >
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F = 2 \times 10^{-7} \dfrac{I_1 \cdot I_2 \cdot l}{d} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( I_1 = 5 \text{ A} \)<br />
+                  \( I_2 = 15 \text{ A} \)<br />
+                  \( l = 20 \text{ cm} = 0.2 \text{ m} \)<br />
+                  \( d = 40 \text{ cm} = 0.4 \text{ m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( F = 2 \times 10^{-7} \times \dfrac{5 \times 15 \times 0.2}{0.4} = 7.5 \times 10^{-6} \text{ N} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គំនូសបំព្រួញ:</span>
+                <span class="sol-math">ដោយចរន្តទាំងពីរមានទិសដៅដូចគ្នា នាំឱ្យខ្សែទាំងពីររងកម្លាំងម៉ាញេទិច <strong>ឆក់គ្នា</strong> (កម្លាំងបែរចូលគ្នា)។</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្លាំងម៉ាញេទិចនីមួយៗរងគឺ \( F = 7.5 \times 10^{-6} \text{ N} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលរងដែនម៉ាញេទិចផ្គួបស្មើសូន្យ</div>
+              <div class="sol-step">
+                <span class="sol-label">ពន្យល់ :</span>
+                <span class="sol-math">
+                  ដោយចរន្តទាំងពីរមានទិសដៅដូចគ្នា ដែនម៉ាញេទិចផ្គួបអាចស្មើសូន្យបាន លុះត្រាតែ \(M\) ស្ថិតនៅចន្លោះ \(O_1\) និង \(O_2\)។<br />
+                  តាង \(x\) ជាចម្ងាយពី \(O_1\) ទៅ \(M\) នាំឱ្យចម្ងាយពី \(M\) ទៅ \(O_2\) គឺ \(d - x = 0.4 - x\)។
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">លក្ខខណ្ឌ :</span>
+                <span class="sol-math">\( B_1 = B_2 \implies 2 \times 10^{-7} \dfrac{I_1}{x} = 2 \times 10^{-7} \dfrac{I_2}{0.4 - x} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">សម្រួលបាន :</span>
+                <span class="sol-math">
+                  \( \dfrac{5}{x} = \dfrac{15}{0.4 - x} \implies \dfrac{1}{x} = \dfrac{3}{0.4 - x} \)<br />
+                  \( \implies 0.4 - x = 3x \implies 4x = 0.4 \implies x = 0.1 \text{ m} = 10 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំណុច \(M\) ស្ថិតនៅលើអង្កត់ \([O_1O_2]\) ចម្ងាយ \( 10 \text{ cm} \) ពី \(O_1\) (ឬ \( 30 \text{ cm} \) ពី \(O_2\))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 65 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">65</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៥</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នាស្របគ្នា \(O_1\) និង \(O_2\)
+          ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\( 20\text{ cm}\)</span> ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅផ្ទុយគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 15\text{ A}\)</span>។ គេឱ្យ \(\mu_0 = 4\pi
+          \times 10^{-7}\text{ SI}\)។
+          <div class="ex-find">
+            <span
+              >កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលត្រង់ចំណុច \(M\)
+              រងដែនម៉ាញេទិចផ្គួបស្មើសូន្យ។</span
+            >
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលរងដែនម៉ាញេទិចផ្គួបស្មើសូន្យ</div>
+              <div class="sol-step">
+                <span class="sol-label">ពន្យល់ :</span>
+                <span class="sol-math">
+                  ដោយចរន្តទាំងពីរមានទិសដៅផ្ទុយគ្នា ដែនម៉ាញេទិចផ្គួបស្មើសូន្យនៅខាងក្រៅចន្លោះខ្សែទាំងពីរ និងនៅជិតខ្សែចម្លងដែលមានចរន្តតូចជាង (\(I_1 = 5 \text{ A}\))។<br />
+                  តាង \(x\) ជាចម្ងាយពី \(M\) ទៅ \(O_1\) (ខាងក្រៅ) នាំឱ្យចម្ងាយពី \(M\) ទៅ \(O_2\) គឺ \(d + x = 0.2 + x\)។
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">លក្ខខណ្ឌ :</span>
+                <span class="sol-math">\( B_1 = B_2 \implies 2 \times 10^{-7} \dfrac{I_1}{x} = 2 \times 10^{-7} \dfrac{I_2}{d + x} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">សម្រួលបាន :</span>
+                <span class="sol-math">
+                  \( \dfrac{5}{x} = \dfrac{15}{0.2 + x} \implies \dfrac{1}{x} = \dfrac{3}{0.2 + x} \)<br />
+                  \( \implies 0.2 + x = 3x \implies 2x = 0.2 \implies x = 0.1 \text{ m} = 10 \text{ cm} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំណុច \(M\) ស្ថិតនៅលើបន្ទាត់ \((O_1O_2)\) ខាងក្រៅអង្កត់ \([O_1O_2]\) ខាង \(O_1\) ចម្ងាយ \( 10 \text{ cm} \) ពី \(O_1\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 66 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">66</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៦</div>
+        </div>
+        <div class="ex-body">
+          ភាគល្អិតផ្ទុកបន្ទុកអគ្គិសនី
+          <span class="given">\(q = 1.6 \times 10^{-19}\text{ C}\)</span>
+          មួយផ្លាស់ទីដោយល្បឿន
+          <span class="given">\(v = 10^5\text{ m/s}\)</span>
+          ក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) (<span class="given"
+            >\(B = 0.01\text{ T}\)</span
+          >)។ ចូរគណនាកម្លាំងម៉ាញេទិច ៖
+
+          <div class="ex-find"><span>ក. ករណី \(\alpha = 0^\circ\)</span></div>
+          <div class="ex-find"><span>ខ. ករណី \(\alpha = 45^\circ\)</span></div>
+          <div class="ex-find"><span>គ. ករណី \(\alpha = 60^\circ\)</span></div>
+          <div class="ex-find"><span>ឃ. ករណី \(\alpha = 90^\circ\)</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្លាំងម៉ាញេទិច (កម្លាំងឡូរិន) លើភាគល្អិត</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F = |q| \cdot v \cdot B \sin\alpha \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( q = 1.6 \times 10^{-19} \text{ C} \)<br />
+                  \( v = 10^5 \text{ m/s} \)<br />
+                  \( B = 0.01 \text{ T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ក. ចំពោះ :</span>
+                <span class="sol-math">
+                  \( \alpha = 0^\circ \implies \sin 0^\circ = 0 \)<br />
+                  \( \implies F_a = 0 \text{ N} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ខ. ចំពោះ :</span>
+                <span class="sol-math">
+                  \( \alpha = 45^\circ \implies \sin 45^\circ \approx 0.707 \)<br />
+                  \( \implies F_b = 1.6 \times 10^{-19} \times 10^5 \times 0.01 \times 0.707 \approx 1.13 \times 10^{-16} \text{ N} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គ. ចំពោះ :</span>
+                <span class="sol-math">
+                  \( \alpha = 60^\circ \implies \sin 60^\circ \approx 0.866 \)<br />
+                  \( \implies F_c = 1.6 \times 10^{-19} \times 10^5 \times 0.01 \times 0.866 \approx 1.39 \times 10^{-16} \text{ N} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ឃ. ចំពោះ :</span>
+                <span class="sol-math">
+                  \( \alpha = 90^\circ \implies \sin 90^\circ = 1 \)<br />
+                  \( \implies F_d = 1.6 \times 10^{-19} \times 10^5 \times 0.01 \times 1 = 1.6 \times 10^{-16} \text{ N} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្លាំងម៉ាញេទិចតាមករណីគឺ៖ \(F_a = 0 \text{ N}\) , \(F_b \approx 1.13 \times 10^{-16} \text{ N}\) , \(F_c \approx 1.39 \times 10^{-16} \text{ N}\) , \(F_d = 1.6 \times 10^{-16} \text{ N}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 67 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">67</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៧</div>
+        </div>
+        <div class="ex-body">
+          យន្តហោះមួយដែលផ្ទុកបន្ទុកអគ្គិសនី
+          <span class="given">\( 150\text{ C}\)</span> ហើយហោះដោយល្បឿន
+          <span class="given">\( 250\text{ m/s}\)</span>
+          កែងនឹងដែនម៉ាញេទិចនៃផែនដីដែលមានតម្លៃ
+          <span class="given">\( 5 \times 10^{-5}\text{ T}\)</span>។
+          <div class="ex-find"><span>គណនាកម្លាំងដែលមានអំពើលើយន្តហោះ</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្លាំងដែលមានអំពើលើយន្តហោះ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F = |q| \cdot v \cdot B \sin\theta \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( q = 150 \text{ C} \)<br />
+                  \( v = 250 \text{ m/s} \)<br />
+                  \( B = 5 \times 10^{-5} \text{ T} \)<br />
+                  \( \theta = 90^\circ \) (ដោយហោះកែងនឹងដែនម៉ាញេទិច) នាំឱ្យ \(\sin 90^\circ = 1\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( F = 150 \times 250 \times 5 \times 10^{-5} \times 1 = 1.875 \text{ N} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្លាំងដែលមានអំពើលើយន្តហោះគឺ \( F = 1.875 \text{ N} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 68 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">68</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៨</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងផ្លាស់ទីដោយល្បឿន \(\vec{v}\) តម្លៃ
+          <span class="given">\( 4 \times 10^6\text{ m/s}\)</span>
+          ចូលក្នុងដែនដែលមានទិសដៅកែងនឹងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\)
+          <span class="given">\( 2\text{ mT}\)</span>។ (បន្ទុកប្រូតុង
+          <span class="given">\(q = 1.6 \times 10^{-19}\text{ C}\)</span>)
+          <div class="ex-find"><span>គណនាកម្លាំងដែលមានអំពើលើប្រូតុង</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្លាំងដែលមានអំពើលើប្រូតុង</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F = |q| \cdot v \cdot B \sin\theta \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( q = 1.6 \times 10^{-19} \text{ C} \)<br />
+                  \( v = 4 \times 10^6 \text{ m/s} \)<br />
+                  \( B = 2 \text{ mT} = 2 \times 10^{-3} \text{ T} \)<br />
+                  \( \theta = 90^\circ \) (ដោយល្បឿនកែងនឹងដែនម៉ាញេទិច) នាំឱ្យ \(\sin 90^\circ = 1\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( F = 1.6 \times 10^{-19} \times 4 \times 10^6 \times 2 \times 10^{-3} \times 1 = 1.28 \times 10^{-15} \text{ N} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្លាំងដែលមានអំពើលើប្រូតុងគឺ \( F = 1.28 \times 10^{-15} \text{ N} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 69 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">69</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦៩</div>
+        </div>
+        <div class="ex-body">
+          ប្រូតុងមួយផ្លាស់ទីដោយល្បឿន \(\vec{v}\) មានតម្លៃ
+          <span class="given">\( 4 \times 10^6\text{ m/s}\)</span>
+          ក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន \(\vec{B}\) ដែលមានតម្លៃ
+          <span class="given">\( 1.70\text{ T}\)</span>
+          ពេលនេះវារងនូវកម្លាំងម៉ាញេទិច \(\vec{F}_m\) មានតម្លៃ
+          <span class="given">\( 7.61 \times 10^{-13}\text{ N}\)</span>​។ គេឱ្យ
+          \(\sin 45^\circ = 0.707\)។
+          <div class="ex-find">
+            <span
+              >គណនាមុំផ្គុំរវាងល្បឿនរបស់ប្រូតុង និងដែនម៉ាញេទិចឯកសណ្ឋាន។</span
+            >
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមុំផ្គុំរវាងល្បឿនរបស់ប្រូតុង និងដែនម៉ាញេទិចឯកសណ្ឋាន</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F_m = |q| \cdot v \cdot B \sin\theta \implies \sin\theta = \dfrac{F_m}{|q| \cdot v \cdot B} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( F_m = 7.61 \times 10^{-13} \text{ N} \)<br />
+                  \( q = 1.6 \times 10^{-19} \text{ C} \)<br />
+                  \( v = 4 \times 10^6 \text{ m/s} \)<br />
+                  \( B = 1.70 \text{ T} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( \sin\theta = \dfrac{7.61 \times 10^{-13}}{1.6 \times 10^{-19} \times 4 \times 10^6 \times 1.70} \)<br />
+                  \( \sin\theta = \dfrac{7.61 \times 10^{-13}}{1.088 \times 10^{-12}} \approx 0.70 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ទាញរកមុំ :</span>
+                <span class="sol-math">ដោយ \(\sin 45^\circ = 0.707 \approx 0.70\) នាំឱ្យ \(\theta \approx 45^\circ\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មុំផ្គុំរវាងល្បឿន និងដែនម៉ាញេទិចគឺ \(\theta \approx 45^\circ\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 70 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">70</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៧០</div>
+        </div>
+        <div class="ex-body">
+          អេឡិចត្រុងមួយមានល្បឿន \(\vec{v}\) បានផ្លាស់ទីចូលក្នុងដែនម៉ាញេទិច
+          \(\vec{B}\) ដែលកែងនឹងល្បឿនរបស់វា។
+          <div class="ex-find">
+            <span
+              >ក. ចូរធ្វើគំនូសបំព្រួញលើរូប \(\vec{v}, \vec{B}\) និងកម្លាំង
+              \(\vec{F}_m\)។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. គណនាកម្លាំង \(F_m\) ចំពោះ
+              <span class="given">\(v = 2 \times 10^5\text{ m/s}\)</span> ,
+              <span class="given">\(B = 0.2\text{ T}\)</span>។ (បន្ទុកអេឡិចត្រុង
+              <span class="given">\(q = -1.6 \times 10^{-19}\text{ C}\)</span
+              >)</span
+            >
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. ធ្វើគំនូសបំព្រួញលើរូប \(\vec{v}, \vec{B}\) និងកម្លាំង \(\vec{F}_m\)</div>
+              <div class="sol-step">
+                <span class="sol-label">ទិសដៅវ៉ិចទ័រ :</span>
+                <span class="sol-math">
+                  - ឧបមាថា វ៉ិចទ័រល្បឿន \(\vec{v}\) មានទិសដៅទៅស្តាំ។<br />
+                  - វ៉ិចទ័រដែនម៉ាញេទិច \(\vec{B}\) មានទិសដៅកែងចូលក្នុងប្លង់ក្រដាស (និមិត្តសញ្ញា \(\otimes\))។<br />
+                  - តាមវិធានដៃស្តាំ សម្រាប់បន្ទុកវិជ្ជមាន វ៉ិចទ័រផលគុណខ្វែង \(\vec{v} \times \vec{B}\) បង្ហាញទៅលើ។<br />
+                  - ដោយសារតែអេឡិចត្រុងមានបន្ទុកអវិជ្ជមាន (\(q = -1.6 \times 10^{-19} \text{ C} < 0\)) នាំឱ្យកម្លាំងម៉ាញេទិច \(\vec{F}_m = q(\vec{v} \times \vec{B})\) មានទិសដៅចុះក្រោម (ផ្ទុយពី \(\vec{v} \times \vec{B}\))។
+                </span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 20px;">ខ. គណនាកម្លាំង \(F_m\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( F_m = |q| \cdot v \cdot B \sin\theta \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( q = -1.6 \times 10^{-19} \text{ C} \implies |q| = 1.6 \times 10^{-19} \text{ C} \)<br />
+                  \( v = 2 \times 10^5 \text{ m/s} \)<br />
+                  \( B = 0.2 \text{ T} \)<br />
+                  \( \theta = 90^\circ \implies \sin 90^\circ = 1 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( F_m = 1.6 \times 10^{-19} \times 2 \times 10^5 \times 0.2 \times 1 = 6.4 \times 10^{-15} \text{ N} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្លាំងម៉ាញេទិចមានអំពើលើអេឡិចត្រុងគឺ \( F_m = 6.4 \times 10^{-15} \text{ N} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

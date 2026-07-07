@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ច្បាប់ទី១ទែម៉ូឌីណាមិច | Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <style>
+      :root {
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
+        --red-border: #dc2626;
+        --orange: #f97316;
+        --green: #16a34a;
+        --red-sub: #b91c1c;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.9;
+      }
+      header {
+        background: linear-gradient(135deg, #1e1b4b, var(--phys-dark));
+        color: white;
+        padding: 60px 20px 50px;
+        text-align: center;
+        border-bottom: 5px solid var(--phys-main);
+        position: relative;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .subject-tag {
+        display: inline-block;
+        background: rgba(79, 70, 229, 0.25);
+        border: 1px solid var(--phys-main);
+        padding: 5px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .container {
+        max-width: 780px;
+        margin: 36px auto 60px;
+        padding: 0 20px;
+      }
+      .section-label {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 36px 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-label::before {
+        content: "◆";
+        font-size: 0.75rem;
+        color: var(--orange);
+      }
+      .formula-card {
+        border: 2px solid var(--red-border);
+        border-radius: 12px;
+        padding: 22px 28px 26px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.07);
+        margin-bottom: 24px;
+      }
+      .badge {
+        display: inline-block;
+        background: var(--green);
+        color: white;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 3px 14px;
+        border-radius: 6px;
+        margin-bottom: 16px;
+      }
+      .fbox {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 5px 14px;
+        background: #f8fafc;
+        flex-wrap: wrap;
+        font-weight: 600;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+      .var-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 10px 0 4px;
+      }
+      .var-list li {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 0.96rem;
+        padding: 4px 0;
+      }
+      .var-sym {
+        min-width: 50px;
+        font-style: italic;
+        color: var(--phys-dark);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .var-colon {
+        color: #64748b;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      .bullet-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 8px 0;
+      }
+      .bullet-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.96rem;
+        padding: 5px 0;
+      }
+      .bullet {
+        color: var(--phys-main);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .red-sub {
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--red-sub);
+        margin: 18px 0 10px;
+      }
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.96rem;
+        overflow-x: auto;
+      }
+      .prose {
+        font-size: 0.96rem;
+        margin: 8px 0;
+        line-height: 1.8;
+      }
+      .system-diagram {
+        max-width: 100%;
+        height: auto;
+        margin: 15px 0;
+        border-radius: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .table-wrapper {
+        margin: 16px 0 8px;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.93rem;
+        background: white;
+      }
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #e2e8f0;
+        text-align: left;
+      }
+      th {
+        background: #f1f5f9;
+        font-weight: 700;
+        color: var(--phys-dark);
+      }
+      .nav-links {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 40px;
+      }
+      .nav-btn {
+        text-decoration: none;
+        color: var(--phys-main);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+      }
+      .nav-btn.prev:hover {
+        background: var(--phys-light);
+        transform: translateX(-5px);
+      }
+      .nav-btn.next:hover {
+        background: var(--phys-light);
+        transform: translateX(5px);
+      }
+      .nav-btn.home:hover {
+        background: var(--phys-light);
+        transform: translateY(-3px);
+      }
+      /* New helper classes */
+      .where-label {
+        font-weight: 700;
+        margin: 15px 0 5px;
+        color: var(--phys-dark);
+      }
+      .var-block {
+        margin: 10px 0 20px 20px;
+      }
+      .var-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 5px;
+        align-items: baseline;
+      }
+      .title-line {
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .note {
+        font-style: italic;
+        color: #64748b;
+        margin: 15px 0;
+        font-size: 0.9rem;
+      }
+      .bullet-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 10px 0;
+        font-size: 0.96rem;
+      }
+      .math-note {
+        color: #64748b;
+        font-size: 0.85rem;
+        margin-left: 10px;
+      }
+      .section-letter {
+        background: var(--orange);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        margin-right: 8px;
+      }
+      .section-title {
+        font-weight: 700;
+      }
+      .section-sub {
+        color: #64748b;
+        font-size: 0.9rem;
+        margin-left: 8px;
+      }
+      .body-line {
+        margin: 10px 0;
+      }
+      .formula-box {
+        display: inline-block;
+        border: 2px solid var(--phys-main);
+        padding: 5px 15px;
+        border-radius: 8px;
+        background: var(--phys-light);
+        font-weight: 700;
+        margin-left: 10px;
+      }
+      .derive-line {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+        font-weight: 600;
+        color: var(--phys-dark);
+      }
+      .arrow-sym {
+        color: var(--orange);
+      }
+      .bullet-red {
+        color: var(--red-border);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .sign-pos {
+        color: var(--green);
+        font-weight: 700;
+      }
+      .sign-neg {
+        color: var(--red-border);
+        font-weight: 700;
+      }
+      .sign-section-label {
+        font-weight: 700;
+        margin: 20px 0 10px;
+        color: var(--red-border);
+        text-decoration: underline;
+      }
+      .fbox-highlight {
+        display: inline-block;
+        border: 2px solid var(--red-border);
+        padding: 8px 20px;
+        border-radius: 8px;
+        background: #fff1f2;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+    </style>
+      <link rel="stylesheet" href="http://localhost:8000/assets/professional.css">
+    <!-- Main JS & Auth Guard -->
+    <script src="http://localhost:8000/assets/main.js"></script>
+    <script>
+      StudyNest.authGuard();
+    </script>
+  </head>
+  <body>
+    <header>
+      <span class="subject-tag">រូបវិទ្យា ថ្នាក់ទី ១២ • ជំពូកទី ១</span>
+      <h1>មេរៀនទី ២ ៖ ច្បាប់ទី១ទែម៉ូឌីណាមិច</h1>
+    </header>
+
+    <div class="container">
+      <p class="section-label">១. ប្រព័ន្ធទែម៉ូឌីណាមិច</p>
+      <div class="formula-card">
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">●</span>
+            <p>
+              <strong>ប្រព័ន្ធ ៖</strong> ជាវត្ថុឬជាសំណុំវត្ថុដែលលើកយកមកសិក្សា
+              (ឧទាហរណ៍ ៖ ឧស្ម័នក្នុងស៊ីឡាំង)។ វត្ថុដទៃទៀតក្រៅពីប្រព័ន្ធ គេហៅថា
+              <strong>មជ្ឈដ្ឋានខាងក្រៅ</strong>។
+            </p>
+          </li>
+          <li>
+            <span class="bullet">●</span>
+            <p>
+              <strong>បម្លែងទែម៉ូឌីណាមិច ៖</strong> ជាបម្រែបម្រួលភាពនៃឧស្ម័ន
+              (មាឌ សម្ពាធ ឬសីតុណ្ហភាព) ពីភាពដើមទៅភាពស្រេច។
+            </p>
+          </li>
+        </ul>
+        <img
+          src="images/system.png"
+          alt="ប្រព័ន្ធទែម៉ូឌីណាមិច"
+          class="system-diagram"
+        />
+        <p class="red-sub">ប្រភេទនៃបម្លែង ៖</p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">●</span>
+            <p>
+              <strong>បម្លែងបិទ ៖</strong>
+              ជាបម្លែងដែលមានភាពស្រេចត្រឡប់មកដូចភាពដើមវិញ (ខ្សែបិទជិត)។
+            </p>
+          </li>
+          <li>
+            <span class="bullet">●</span>
+            <p>
+              <strong>បម្លែងចំហ ៖</strong> ជាបម្លែងដែលមានភាពស្រេចខុសពីភាពដើម។
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label">២. កម្មន្ត (Work)</p>
+      <div class="formula-card">
+        <p class="title-line">
+          <strong>កម្មន្ត</strong> ជាផលគុណរវាងកម្លាំង \( F \) ជាមួយបម្លាស់ទី \(
+          \Delta x \) ។
+        </p>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>គេសរសេរ :</span>
+          <span class="fbox">\( W = F \cdot \Delta x \)</span>
+        </div>
+
+        <p class="where-label">ដែល​ :</p>
+
+        <div class="var-block">
+          <div class="var-row">
+            <span class="var-sym">W</span>
+            <span class="var-colon">:</span>
+            <span>ជាកម្មន្ត គិតជា (J)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">F</span>
+            <span class="var-colon">:</span>
+            <span>ជាកម្លាំង គិតជា (N)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">\(\Delta x\)</span>
+            <span class="var-colon">:</span>
+            <span>ជាបម្លាស់ទី គិតជា (m)</span>
+          </div>
+        </div>
+
+        <p class="note">
+          ឧបមាថា គេមានស៊ីឡាំងមួយមានផ្ទុកម៉ូលេគុលឧស្ម័ន និងពីស្តុងមួយអាចចល័តបាន
+          (ដូចរូប)។
+        </p>
+        <img
+          src="images/image-1.png"
+          alt="ឧស្ម័នក្នុងស៊ីឡាំង"
+          class="system-diagram"
+        />
+        <p class="note">
+          នៅពេលដែលម៉ូលេគុលឧស្ម័នផ្លាស់ប្ដូរភាពធ្វើឱ្យវាប្រែប្រួលមាឌ
+          ដែលធ្វើឱ្យពីស្តុងចល័តក្រោមឥទ្ធិពលនៃកម្លាំង \( F \) វាផ្លាស់ទីបានប្រវែង
+          \( \Delta x \) ។
+        </p>
+
+        <div class="bullet-item">
+          <span class="bullet">●</span>
+          <span>កម្មន្តដែលបានបំពេញដោយឧស្ម័នក្នុងផ្នែកតូចនៃមាឌគឺ :</span>
+        </div>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>គេសរសេរ :</span>
+          <span class="fbox"
+            >\( W = F \cdot \Delta x = P \cdot A \cdot \Delta x = P \cdot \Delta
+            V \)</span
+          >
+          <span class="math-note"
+            >( មាឌ \( \Delta V = A \cdot \Delta x \) )</span
+          >
+        </div>
+
+        <div class="bullet-item">
+          <span class="bullet">●</span>
+          <span
+            >កម្មន្តសរុបជាផ្ទៃក្រឡាក្រោមខ្សែក្រាបពី \( V_1 \rightarrow V_2 \) គឺ
+            :</span
+          >
+        </div>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>គេសរសេរ :</span>
+          <span class="fbox">\( W = P \cdot \Delta V = P(V_2 - V_1) \)</span>
+        </div>
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ក.</span>
+          <span class="section-title">លំនាំអុីសូករ</span>
+          <span class="section-sub">(មាឌថេរ \( V = \text{constant} \))</span>
+        </div>
+
+        <p class="body-line">លំនាំអុីសូករ ជាលំនាំមួយដែលមានមាឌថេរ។</p>
+
+        <div class="formula-row">
+          <span>កម្មន្តក្នុងលំនាំអុីសូករគឺ :</span>
+          <span class="formula-box">\( W = 0 \)</span>
+        </div>
+        <img
+          src="images/image-2.png"
+          alt="លំនាំអុីសូករ"
+          class="system-diagram"
+        />
+
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">ខ.</span>
+          <span class="section-title">លំនាំអុីសូបារ</span>
+          <span class="section-sub">(ករណីសម្ពាធថេរ)</span>
+        </div>
+        <img
+          src="images/image-3.png"
+          alt="លំនាំអុីសូបារ"
+          class="system-diagram"
+        />
+
+        <p class="prose">
+          តាមក្រាប \( (P - V) \) ដូចរូបគឺជាលំនាំអុីសូបារ ដែលមានសម្ពាធថេរ \( P_1
+          = P_2 = P \) ។
+        </p>
+
+        <p class="prose">
+          យើងឃើញថាផ្ទៃក្រឡាក្រោមខ្សែក្រាបពី \( V_1 \rightarrow V_2 \)
+          គឺមានរាងជាចតុកោណកែង។
+        </p>
+
+        <p class="prose">ដូចនេះកម្មន្តក្នុងលំនាំអុីសូបារគឺ ៖</p>
+
+        <div class="formula-row" style="margin-top: 12px">
+          <span>កម្មន្ត :</span>
+          <span class="fbox">\( W = P(V_2 - V_1) = P \cdot \Delta V \)</span>
+        </div>
+
+        <p class="where-label">ដែល ៖</p>
+        <div class="var-block">
+          <div class="var-row">
+            <span class="var-sym">P</span>
+            <span class="var-colon">:</span>
+            <span>ជាសម្ពាធ គិតជា (Pa) ឬ (N/m²)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">V_1</span>
+            <span class="var-colon">:</span>
+            <span>ជាមាឌដើម គិតជា (m³)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">V_2</span>
+            <span class="var-colon">:</span>
+            <span>ជាមាឌស្រេច គិតជា (m³)</span>
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <div class="section-label" style="margin-top: 28px">
+          <span class="section-letter">គ.</span>
+          <span class="section-title">លំនាំអុីសូទែម</span>
+          <span class="section-sub">(សីតុណ្ហភាពថេរ \( T_1 = T_2 = T \))</span>
+        </div>
+
+        <p class="prose">
+          តាមក្រាប \( (P - V) \) នៃលំនាំអុីសូទែម (សីតុណ្ហភាពថេរ)
+          យើងឃើញថានៅពេលសម្ពាធប្រែប្រួលពី \( P_1 \rightarrow P_2 \)
+          នោះមាឌក៏ប្រែប្រួលពី \( V_1 \rightarrow V_2 \) ដែរ។
+        </p>
+
+        <img
+          src="images/image-4.png"
+          alt="លំនាំអុីសូទែម"
+          class="system-diagram"
+        />
+
+        <p class="prose">កម្មន្តក្នុងលំនាំអុីសូទែមគឺ ៖</p>
+
+        <div class="formula-row" style="margin-top: 12px">
+          <span class="fbox">
+            \( W = nRT \ln\left(\frac{V_2}{V_1}\right) = Nk_B T
+            \ln\left(\frac{V_2}{V_1}\right) = nRT
+            \ln\left(\frac{P_1}{P_2}\right) \)
+          </span>
+        </div>
+
+        <p class="where-label">ដែល ៖</p>
+        <div class="var-block">
+          <div class="var-row">
+            <span class="var-sym">n</span>
+            <span class="var-colon">:</span>
+            <span>ជាចំនួនម៉ូល គិតជា (mol)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">R</span>
+            <span class="var-colon">:</span>
+            <span
+              >ជាថេរឧស្ម័នសកល (\( R = 8.31 \, \text{J/mol} \cdot \text{K}
+              \))</span
+            >
+          </div>
+          <div class="var-row">
+            <span class="var-sym">T</span>
+            <span class="var-colon">:</span>
+            <span>ជាសីតុណ្ហភាពដាច់ខាត គិតជា (K)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">V_1</span>
+            <span class="var-colon">:</span>
+            <span>ជាមាឌដើម គិតជា (m³)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">V_2</span>
+            <span class="var-colon">:</span>
+            <span>ជាមាឌស្រេច គិតជា (m³)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">P_1</span>
+            <span class="var-colon">:</span>
+            <span>ជាសម្ពាធដើម គិតជា (Pa)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym"> P_2</span>
+            <span class="var-colon">:</span>
+            <span>ជាសម្ពាធស្រេច គិតជា (Pa)</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-label">៣. ច្បាប់ទី១ នៃទែម៉ូឌីណាមិច</p>
+      <div class="formula-card">
+        <div class="badge">គោលការណ៍រក្សាថាមពល</div>
+        <p class="title-line">
+          <strong>ច្បាប់ទី១ នៃទែម៉ូឌីណាមិច</strong>
+          ពោលថាកម្ដៅស្រូបដោយប្រព័ន្ធស្មើនឹងផលបូកកម្មន្តដែលធ្វើដោយប្រព័ន្ធ
+          និងការប្រែប្រួលថាមពលក្នុងនៃប្រព័ន្ធ។
+        </p>
+
+        <div class="formula-row" style="margin-top: 12px">
+          <span>គេសរសេរ :</span>
+          <span class="fbox">\( Q = W + \Delta U \)</span>
+        </div>
+
+        <div class="derive-line">
+          <span class="arrow-sym">⟹</span> \( \Delta U = Q - W \)
+        </div>
+        <div class="derive-line">
+          <span class="arrow-sym">⟹</span> \( W = Q - \Delta U \)
+        </div>
+
+        <div class="where-label">ដែល :</div>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">Q</span>
+            <span class="var-colon">:</span>
+            <span>បរិមាណកម្ដៅដែលប្ដូរជាមួយមជ្ឈដ្ឋានខាងក្រៅ គិតជា (J)</span>
+          </li>
+          <li>
+            <span class="var-sym">W</span>
+            <span class="var-colon">:</span>
+            <span>កម្មន្តដែលប្រព័ន្ធធ្វើ គិតជា (J)</span>
+          </li>
+          <li>
+            <span class="var-sym">\(\Delta U\)</span>
+            <span class="var-colon">:</span>
+            <span>ការប្រែប្រួលនៃថាមពលក្នុង គិតជា (J)</span>
+          </li>
+        </ul>
+
+        <div class="sign-section-label">ចំណាំអំពីសញ្ញា :</div>
+
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet-red">●</span>
+            <p>
+              កាលណាប្រព័ន្ធស្រូបឬទទួលកម្ដៅ​នោះ ៖ \( Q > 0 \) (សញ្ញា
+              <span class="sign-pos">+</span>)
+            </p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>
+              កាលណាប្រព័ន្ធបញ្ចេញឬបំភាយកម្ដៅនោះ ៖ \( Q < 0 \) (សញ្ញា
+              <span class="sign-neg">-</span>)
+            </p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>កាលណាប្រព័ន្ធរងនូវបម្លែងលំនាំអាដ្យាបាទិចនោះ ៖ \( Q = 0 \)</p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>
+              កាលណាប្រែប្រួលថាមពលក្នុងកើនឡើងនោះ ៖ \( \Delta U > 0 \) (សញ្ញា
+              <span class="sign-pos">+</span>)
+            </p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>
+              កាលណាប្រែប្រួលថាមពលក្នុងថយចុះនោះ ៖ \( \Delta U < 0 \) (សញ្ញា
+              <span class="sign-neg">-</span>)
+            </p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>កាលណាប្រព័ន្ធរងនូវបម្លែងលំនាំអុីសូទែមនោះ ៖ \( \Delta U = 0 \)</p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>
+              កាលណាប្រព័ន្ធធ្វើកម្មន្តឬបំពេញកម្មន្តឬបញ្ចេញកម្មន្តនោះ​ ៖ \( W > 0
+              \) (សញ្ញា
+              <span class="sign-pos">+</span>)
+            </p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>
+              កាលណាប្រព័ន្ធទទួលរងកម្មន្តឬទទួលកម្មន្តធ្វើលើប្រព័ន្ធ​នោះ ៖ \( W <
+              0 \) (សញ្ញា
+              <span class="sign-neg">-</span>)
+            </p>
+          </li>
+          <li>
+            <span class="bullet-red">●</span>
+            <p>កាលណាប្រព័ន្ធរងនូវបម្លែងលំនាំអុីសូករនោះ ៖ \( W = 0 \)</p>
+          </li>
+        </ul>
+
+        <p class="red-sub">លំនាំអាដ្យាបាទិច (Adiabatic Process) ៖</p>
+        <p class="prose">
+          ជាលំនាំមួយដែលគ្មានការប្តូរកម្ដៅជាមួយមជ្ឈដ្ឋានខាងក្រៅ (\( Q = 0 \))។
+        </p>
+        <p class="prose">
+          តាមច្បាប់ទី១ ៖ \( Q = \Delta U + W \) ដោយ \( Q = 0 \) នាំឱ្យ ៖
+        </p>
+        <div style="margin: 14px 0">
+          <div class="fbox-highlight">\( \Delta U = -W \)</div>
+        </div>
+      </div>
+
+      <p class="section-label">៤. ថាមពលក្នុងនៃឧស្ម័នបរិសុទ្ធ</p>
+      <div class="formula-card">
+        <p class="prose">
+          <strong>ថាមពលក្នុងនៃឧស្ម័នបរិសុទ្ធ</strong>
+          ជាថាមពលស៊ីនេទិចសរុបនៃឧស្ម័ន។
+        </p>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( U = \frac{3}{2} nRT \)</span>
+          <span class="math-note"
+            >(ចំពោះឧស្ម័នម៉ូណូអាតូម មានដូចជា He ; Ne ; Kr ; Ar ... )</span
+          >
+        </div>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>ឬ :</span>
+          <span class="fbox">\( U = \frac{5}{2} nRT \)</span>
+          <span class="math-note"
+            >(ចំពោះឧស្ម័នឌីអាតូម មានដូចជា O₂ ; N₂ ; H₂ ... )
+          </span>
+        </div>
+
+        <div class="where-label">ដែល :</div>
+        <div class="var-block">
+          <div class="var-row">
+            <span class="var-sym">U</span>
+            <span class="var-colon">:</span>
+            <span>ជាថាមពលក្នុង គិតជា (J)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">n</span>
+            <span class="var-colon">:</span>
+            <span>ជាចំនួនម៉ូល គិតជា (mol)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">T</span>
+            <span class="var-colon">:</span>
+            <span>សីតុណ្ហភាពដាច់ខាត គិតជា (K)</span>
+          </div>
+          <div class="var-row">
+            <span class="var-sym">R</span>
+            <span class="var-colon">:</span>
+            <span
+              >ថេរឧស្ម័នសកល (\( R = 8.31 \, \text{J/mol} \cdot \text{K}
+              \))</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="sign-section-label"
+          style="color: var(--red-sub); margin-top: 18px"
+        >
+          + បម្រែប្រួលថាមពលក្នុងនៃឧស្ម័នពេលមានប្រែប្រួលសីតុណ្ហភាព
+        </div>
+
+        <div class="formula-row" style="margin-top: 12px">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( \Delta U = \frac{3}{2} nR\Delta T \)</span>
+        </div>
+
+        <div class="where-label">តែ :</div>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym" style="min-width: 90px"
+              >\(\Delta U = U_f - U_i\)</span
+            ><span class="var-colon">ឬ</span
+            ><span>\(\Delta U = U_2 - U_1\)</span>
+          </li>
+          <li>
+            <span class="var-sym" style="min-width: 90px"
+              >\(\Delta T = T_f - T_i\)</span
+            ><span class="var-colon">ឬ</span
+            ><span>\(\Delta T = T_2 - T_1\)</span>
+          </li>
+        </ul>
+
+        <div class="where-label">ដែល :</div>
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">\(\Delta U\)</span
+            ><span class="var-colon">:</span
+            ><span>ជាប្រែប្រួលថាមពលក្នុង គិតជា <strong>(J)</strong></span>
+          </li>
+          <li>
+            <span class="var-sym">\(\Delta T\)</span
+            ><span class="var-colon">:</span
+            ><span
+              >ជាប្រែប្រួលសីតុណ្ហភាពដាច់ខាត គិតជា <strong>(K)</strong></span
+            >
+          </li>
+          <li>
+            <span class="var-sym">\(T_i\)</span><span class="var-colon">:</span
+            ><span>ជាសីតុណ្ហភាពដើម</span>
+          </li>
+          <li>
+            <span class="var-sym">\(T_f\)</span><span class="var-colon">:</span
+            ><span>ជាសីតុណ្ហភាពស្រេច</span>
+          </li>
+          <li>
+            <span class="var-sym">\(U_i\)</span><span class="var-colon">:</span
+            ><span>ជាថាមពលក្នុងដើម</span>
+          </li>
+          <li>
+            <span class="var-sym">\(U_f\)</span><span class="var-colon">:</span
+            ><span>ជាថាមពលក្នុងស្រេច</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label">៥. ករណីបម្លែងបិទ - គោលការណ៍សមមូល</p>
+      <div class="formula-card">
+        <p class="prose">
+          ពំនោល គោលការណ៍សមមូលកាលណា ប្រព័ន្ធមួយទទួលបម្លែងបិទ (ធ្វើមួយសុិច)​
+          ដោយប្តូរតែ កម្មន្ត និងកម្តៅជាមួយមជ្ឈដ្ឋានខាងក្រៅ ។
+        </p>
+        <div class="formula-row" style="margin-top: 12px">
+          <span>ប្រែប្រួលថាមពលក្នុងសរុបគឺ :</span>
+          <span class="fbox">\(\Delta U = 0\)</span>
+        </div>
+        <img
+          src="images/image-5.png"
+          alt="លំនាំអុីសូទែម"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label">៦. លំនាំអុីសូករ</p>
+      <div class="formula-card">
+         <p class="prose">
+      <strong>លំនាំអ៊ីសូករ</strong> ជាលំនាំដែលមានមាឌនៃប្រព័ន្ធក្នុងបម្លែងទែម៉ូឌីណាមិចមានតម្លៃថេរ ។
+    </p>
+ 
+    <p class="prose" style="margin-top: 10px;">
+      អនុវត្តតាមច្បាប់ទី១ នៃថែម៉ូឌីណាមិច គឺ <em>Q = W + ΔU</em>
+    </p>
+
+ 
+    <ul class="bullet-list">
+      <li>
+        <span class="bullet-red">●</span>
+        <span>ដោយ <em>V</em> មានថេរ នាំឲ្យ <strong>W = 0</strong> 
+      </li>
+    </ul>
+ 
+    <p class="prose" style="margin-top: 10px;">យេីងបាន :</p>
+ 
+    <div style="margin: 10px 0 14px;">
+      <div class="fbox-highlight">Q = ΔU</div>
+    </div>
+
+     
+ 
+  </div>
+  <div class="formula-card" style="border-color: var(--phys-main);">
+ 
+    <div class="section-label" style="color: var(--phys-main);">ករណីពិសេសចំពោះ ច្បាប់ទីមួយទែម៉ូឌីណាមិច</div>
+ 
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th style="background: linear-gradient(135deg,#1e1b4b,var(--phys-dark)); color:white; text-align:center;">លំនាំ</th>
+            <th style="background: linear-gradient(135deg,#1e1b4b,var(--phys-dark)); color:white; text-align:center;">លក្ខណៈបស់លំនាំ</th>
+            <th style="background: linear-gradient(135deg,#1e1b4b,var(--phys-dark)); color:white; text-align:center;">លទ្ធផល</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700; color:var(--phys-dark); text-align:center;">អាដ្យាបាទិច</td>
+            <td style="text-align:center; font-style:italic;">Q = 0</td>
+            <td style="text-align:center; font-style:italic; color:var(--red-sub); font-weight:700;">ΔU = −W</td>
+          </tr>
+          <tr style="background:#f8fafc;">
+            <td style="font-weight:700; color:var(--phys-dark); text-align:center;">អ៊ីសូករ</td>
+            <td style="text-align:center; font-style:italic;">W = 0</td>
+            <td style="text-align:center; font-style:italic; color:var(--red-sub); font-weight:700;">ΔU = Q</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700; color:var(--phys-dark); text-align:center;">អ៊ីសូទែមឬបម្លែងបិទ</td>
+            <td style="text-align:center; font-style:italic;">ΔU = 0</td>
+            <td style="text-align:center; font-style:italic; color:var(--red-sub); font-weight:700;">Q = W</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </body>
+</html>

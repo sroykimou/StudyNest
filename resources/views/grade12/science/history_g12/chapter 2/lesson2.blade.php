@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>មេរៀនទី២៖ របបសង្គមរាស្ត្រនិយម (១៩៥៥-១៩៧០) | StudyNest</title>
+
+    <!-- Fonts & Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Siemreap&family=Bokor&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
+
+    <style>
+      :root {
+        --primary: #f59e0b;
+        --primary-dark: #d97706;
+        --primary-light: #fbbf24;
+        --primary-glow: rgba(245, 158, 11, 0.45);
+        --accent: #fbbf24;
+        --accent-dark: #d97706;
+        --accent-glow: rgba(251, 191, 36, 0.35);
+      }
+
+      body {
+        display: block;
+        overflow-y: auto;
+        padding: 40px 20px;
+        background:
+          radial-gradient(ellipse at 25% 35%, #451a03 0%, transparent 55%),
+          radial-gradient(ellipse at 75% 65%, #0f172a 0%, transparent 55%),
+          linear-gradient(135deg, #1e1b4b 0%, #0f172a 50%, #451a03 100%);
+        color: #f0f4ff;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+      }
+
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 10px 20px;
+        border-radius: 50px;
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--glass-border);
+        transition: 0.3s;
+        margin-bottom: 24px;
+      }
+
+      .back-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border-color: var(--primary);
+      }
+
+      .lesson-header {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 40px;
+        margin-bottom: 24px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .lesson-header h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        color: #fff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .lesson-header p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 40px 0 20px;
+      }
+
+      .section-label h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: var(--primary-light);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .section-label::after {
+        content: "";
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), transparent);
+        flex: 1;
+        border-radius: 2px;
+      }
+
+      .card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 32px;
+        margin-bottom: 24px;
+        color: white;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 
+          0 0 30px rgba(245, 158, 11, 0.15),
+          0 20px 40px rgba(0, 0, 0, 0.4);
+        border-color: var(--primary);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: var(--primary);
+        opacity: 0.15;
+        transition: 0.3s;
+      }
+
+      .card:hover::before {
+        opacity: 1;
+        background: var(--primary);
+      }
+
+      .question-box {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 15px;
+      }
+
+      .q-badge {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        color: white;
+        min-width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px var(--primary-glow);
+      }
+
+      .question-text {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #fff;
+        line-height: 1.5;
+      }
+
+      .answer-box {
+        color: #e0e7ff;
+        font-size: 1.05rem;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 5px;
+        margin: 15px 0;
+      }
+
+      li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 12px;
+      }
+
+      li::before {
+        content: "\f061";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--primary);
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+
+      li:hover::before {
+        transform: translateX(4px);
+      }
+
+      .sub-header {
+        display: block;
+        margin-top: 25px;
+        font-weight: 700;
+        color: var(--primary-light);
+        font-size: 1.15rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin: 20px 0 10px;
+      }
+
+      .positive {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+      
+      .negative {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+
+      footer {
+        text-align: center;
+        padding: 60px 20px;
+        background: transparent;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
+        position: relative;
+        z-index: 10;
+      }
+
+      .study-logo {
+        font-family: "Bokor", cursive;
+        font-size: 1.8rem;
+        color: var(--primary-light);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 20px 10px;
+        }
+        .lesson-header {
+          padding: 30px 15px;
+        }
+        .lesson-header h1 {
+          font-size: 1.8rem;
+        }
+        .card {
+          padding: 25px;
+        }
+        .question-text {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+      <header>
+        <a href="../history_g12" class="back-btn">
+          <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+        </a>
+        <div class="lesson-header">
+          <h1>មេរៀនទី២ ៖ របបសង្គមរាស្ត្រនិយម</h1>
+          <p>(១៩៥៥-១៩៧០) — ការកសាងជាតិ និងនយោបាយអព្យាក្រឹត</p>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- Vocabulary Section -->
+        <div class="section-label">
+          <h3><i class="fas fa-book-open"></i> ពន្យល់ពាក្យគន្លឹះ</h3>
+        </div>
+        <div class="card">
+          <div class="answer-box">
+            <ul>
+              <li><strong>ឯកតោភាគៈ៖</strong> តែម្ខាង ភាគតែមួយ ឬបក្សពួកតែមួយ។</li>
+              <li>
+                <strong>វិទ្ធង្សនា៖</strong>
+                អំពើបះបោរដើម្បីផ្ដួលរលំរបបគ្រប់គ្រងណាមួយ។
+              </li>
+              <li>
+                <strong>រាជានុសិទ្ធិ៖</strong> អំណាច
+                ឬសិទ្ធិសម្រេចជ្រើសតាំងព្រះរាជា។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section-label">
+          <h3>
+            <i class="fas fa-landmark"></i> ១. ការលេចឡើងនៃរបបសង្គមរាស្ត្រនិយម
+          </h3>
+        </div>
+
+        <!-- Q1 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">១</div>
+            <div class="question-text">
+              តើហេតុអ្វីបានជាមានការលេចឡើងនៃរបបសង្គមរាស្ត្រនិយម?
+            </div>
+          </div>
+          <div class="answer-box">
+            ការលេចឡើងនៃរបបសង្គមរាស្ត្រនិយម ដោយសារ៖
+            <ul>
+              <li>ការទទួលបានឯករាជ្យពីបារាំងនៅឆ្នាំ ១៩៥៣។</li>
+              <li>ការបែកបាក់ផ្ទៃក្នុង និងគ្មានឯកភាពជាតិក្រោយឯករាជ្យ។</li>
+              <li>
+                សម្តេចព្រះនរោត្តម សីហនុ ចង់បង្រួបបង្រួមជាតិជុំវិញព្រះមហាក្សត្រ។
+              </li>
+              <li>
+                รដ្ឋធម្មនុញ្ញឆ្នាំ ១៩៤៧ បានបញ្ញត្តិគ្រងអំណាចនៃព្រះមហាក្សត្រ។
+              </li>
+              <li>
+                សម្តេចព្រះនរោត្តម សីហនុ
+                បានចុះចេញពីរាជបល្ល័ង្កដើម្បីបង្កើតអង្គការនយោបាយ (៣ មីនា ១៩៥៥)។
+              </li>
+              <li>
+                សម្តេចព្រះនរោត្តម សីហនុ បង្កើតអង្គការសង្គមរាស្ត្រនិយម (២៣ មីនា
+                ១៩៥៥)។
+              </li>
+              <li>ការជឿជាក់ និងការគាំទ្រពីមហាជនគ្រប់មជ្ឈដ្ឋាន។</li>
+              <li>
+                ដោយឆ្លងកាត់ការបោះឆ្នោត
+                អង្គការសង្គមរាស្ត្រនិយមទទួលបានសំឡេងឆ្នោតគាំទ្រជាង ៨៣%។
+              </li>
+              <li>
+                អង្គការសង្គមរាស្ត្រនិយមបានបង្កើតរដ្ឋាភិបាលជាឯកតោភាគី
+                គឺរដ្ឋាភិបាលសង្គមរាស្ត្រនិយម។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">២</div>
+            <div class="question-text">
+              តើហេតុអ្វីបានជាសម្តេចព្រះនរោត្តម សីហនុ
+              បង្កើតអង្គការនយោបាយសង្គមរាស្ត្រនិយម?
+            </div>
+          </div>
+          <div class="answer-box">
+            សម្តេចព្រះនរោត្តម សីហនុ បង្កើតអង្គការនេះ ព្រោះ៖
+            <ul>
+              <li>រៀបចំសង្គមកម្ពុជាថ្មីក្រោយអាណានិគមបារាំង។</li>
+              <li>រៀបចំសេដ្ឋកិច្ចឱ្យរីកចម្រើន។</li>
+              <li>កសាងហេដ្ឋារចនាសម្ព័ន្ធរូបវន្ត។</li>
+              <li>បង្កើតសមាជជាតិ។</li>
+              <li>បំបាត់អំពើពុករលួយ។</li>
+              <li>ធ្វើឱ្យវិស័យវប្បធម៌រីកចម្រើន។</li>
+              <li>អភិវឌ្ឍជាតិឱ្យដូចពួកអារ្យប្រទេស។</li>
+              <li>ដើម្បីបង្រួបបង្រួមជាតិ និងដង្ហែតាមព្រះមហាក្សត្រ។</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៣</div>
+            <div class="question-text">
+              តើការជឿជាក់លើអង្គការនយោបាយសង្គមរាស្ត្រនិយម បណ្តាលមកពីកត្តាអ្វីខ្លះ?
+            </div>
+          </div>
+          <div class="answer-box">
+            ការជឿជាក់នេះ បណ្តាលមកពីកត្តាដូចជា៖
+            <ul>
+              <li>ប្រជាប្រិយភាពប្រធាន គឺសម្តេចព្រះនរោត្តម សីហនុ ជាមេដឹកនាំ។</li>
+              <li>
+                ភាពរឹងមាំនៃរចនាសម្ព័ន្ធដឹកនាំតាំងពីថ្នាក់មូលដ្ឋាន គឺមហាជនគាំទ្រ។
+              </li>
+              <li>
+                ក្បាលម៉ាស៊ីនដឹកនាំមានសម្តេចព្រះនរោត្តម សីហនុ និងឥស្សរជនខេមរាធំៗ។
+              </li>
+              <li>
+                វិស័យហិរញ្ញវត្ថុ មានការគាំទ្រផ្នែកហិរញ្ញវត្ថុពីគ្រប់មជ្ឈដ្ឋាន។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section-label">
+          <h3><i class="fas fa-users-rays"></i> ២. សមាជជាតិ</h3>
+        </div>
+
+        <!-- Q4 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៤</div>
+            <div class="question-text">
+              តើសមាជជាតិគឺជាអ្វី? បង្កើតឡើងដោយនរណា? នៅថ្ងៃ ខែ ឆ្នាំណា?
+            </div>
+          </div>
+          <div class="answer-box">
+            <ul>
+              <li>
+                <strong>សមាជជាតិ៖</strong> គឺជាស្ថាប័នរដ្ឋ
+                កាលជាវេទិកានៃលទ្ធិប្រជាធិបតេយ្យដែលតម្រូវឱ្យប្រជាជនគ្រប់ស្រទាប់វណ្ណៈ
+                និងអ្នកនយោបាយគ្រប់និន្នាការចូលរួមពិភាក្សា បញ្ចេញមតិយោបល់។
+              </li>
+              <li>
+                សមាជជាតិបង្កើតឡើង និងដឹកនាំដោយសម្តេចព្រះនរោត្តម សីហនុ នៅថ្ងៃទី ១៣
+                ខែមិថុនា ឆ្នាំ១៩៥៥ (១៩៥៥)។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៥</div>
+            <div class="question-text">តើសមាជជាតិសម្រេចបានសមិទ្ធផលអ្វីខ្លះ?</div>
+          </div>
+          <div class="answer-box">
+            សមាជជាតិសម្រេចបានសមិទ្ធផល ដូចជា៖
+            <ul>
+              <li>ការប្រឆាំងនឹងអំពើពុករលួយ។</li>
+              <li>ការកំណត់ភាសាខ្មែរជាភាសាផ្លូវការ។</li>
+              <li>ការកែលម្អសកម្មភាពរដ្ឋបាល។</li>
+              <li>ការដាក់ទណ្ឌកម្មមន្ត្រីរាជការណាដែលអសកម្ម។</li>
+              <li>ស្ត្រីមានសិទ្ធិបោះឆ្នោត (៦ មករា ១៩៥៨)។</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៦</div>
+            <div class="question-text">តើសមាជជាតិមានសារៈសំខាន់ដូចម្តេចខ្លះ?</div>
+          </div>
+          <div class="answer-box">
+            សម្តេចព្រះនរោត្តម សីហនុ បង្កើតសមាជជាតិ ព្រោះ៖
+            <ul>
+              <li>
+                ស្វែងយល់ពីការលំបាក និងតម្រូវការរបស់ប្រជារាស្ត្រដើម្បីដោះស្រាយ។
+              </li>
+              <li>
+                ដឹងពីមន្ត្រីពុករលួយ បក្សពួកនិយម តាមរយៈបណ្តឹងរបស់ប្រជារាស្ត្រ។
+              </li>
+              <li>
+                ស្វែងយល់ពីមន្ត្រីដែលចង់ក្បត់ និងមន្ត្រីដែលស្មោះត្រង់
+                ហើយអប់រំកែលម្អ។
+              </li>
+              <li>
+                បើកវេទិកាតម្លាភាពដែលអាចបើកចំហបញ្ហារួម ដើម្បីដោះស្រាយទាំងអស់គ្នា។
+              </li>
+              <li>
+                អាចអភិវឌ្ឍជាតិឱ្យឆាប់រីកចម្រើន ព្រោះតំណាងរាស្ត្រ មន្ត្រី
+                និងប្រជារាស្ត្រយល់ចិត្តទុកចិត្ត និងរួមសាមគ្គីកសាងជាតិ។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section-label">
+          <h3><i class="fas fa-shield-halved"></i> ៣. នយោបាយអព្យាក្រឹត</h3>
+        </div>
+
+        <!-- Q7 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៧</div>
+            <div class="question-text">
+              តើហេតុអ្វីបានជាសម្តេចព្រះនរោត្តម សីហនុ ប្រកាន់យកនយោបាយអព្យាក្រឹត?
+            </div>
+          </div>
+          <div class="answer-box">
+            សម្តេចព្រះនរោត្តម សីហនុ ប្រកាន់យកនយោបាយអព្យាក្រឹត ព្រោះ៖
+            <ul>
+              <li>
+                ជាការកំណត់នៅក្នុងសេចក្តីសម្រេចចិត្តនៃសន្និសីទក្រុងសឺណែវឆ្នាំ ១៩៥៤
+                ដែលជាការទាមទាររបស់ចិន និងសហភាពសូវៀត
+                ដើម្បីបញ្ចៀសមិនឱ្យសហរដ្ឋអាមេរិកសាងមូលដ្ឋានទ័ពនៅក្នុងប្រទេសកម្ពុជា។
+              </li>
+              <li>
+                កម្ពុជាចង់រួមរស់ដោយសន្តិភាពជាមួយបណ្តាប្រទេសនានាលើពិភពលោក
+                ជាពិសេសប្រទេសជិតខាង។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៨</div>
+            <div class="question-text">
+              តើការប្រកាន់យកនយោបាយអព្យាក្រឹត ទទួលបានលទ្ធផលដូចម្តេច?
+            </div>
+          </div>
+          <div class="answer-box">
+            <div class="status-pill positive">
+              <i class="fas fa-check-circle"></i> លទ្ធផលវិជ្ជមាន
+            </div>
+            <ul>
+              <li>
+                ធ្វើឱ្យកិត្តិយសកម្ពុជាល្បីសុះសាយក្នុងតំបន់
+                និងត្រូវបានពង្រឹងបន្ថែមទៀត។
+              </li>
+              <li>ធ្វើឱ្យប្រជាជនកម្ពុជារស់នៅដោយសុខសន្តិភាពរយៈពេល ១៥ ឆ្នាំ។</li>
+            </ul>
+            <div class="status-pill negative">
+              <i class="fas fa-times-circle"></i> លទ្ធផលអវិជ្ជមាន
+            </div>
+            <ul>
+              <li>
+                នយោបាយអព្យាក្រឹតកម្ពុជាបានចុះខ្សោយក្នុងដំណាក់កាលនៃសង្គ្រាមត្រជាក់
+                រវាងប្រទេសមហាអំណាចទាំងពីរ
+                ដែលជ្រោលច្រានមិនទុកឱ្យប្រទេសកម្ពុជាមានសន្តិភាពតាមផ្លូវអព្យាក្រឹត្យរបស់ខ្លួនឡើយ។
+              </li>
+              <li>
+                សកម្មភាពនយោបាយរបស់សហរដ្ឋអាមេរិក និងវៀតណាមខាងត្បូង
+                មានទិសដៅប្រឆាំងនឹងនយោបាយអព្យាក្រឹតរបស់សម្តេចព្រះនរោត្តម សីហនុ។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section-label">
+          <h3><i class="fas fa-crown"></i> ៤. ការឡើងកាន់អំណាចជាប្រមុខរដ្ឋ</h3>
+        </div>
+
+        <!-- Q9 -->
+        <div class="card">
+          <div class="question-box">
+            <div class="q-badge">៩</div>
+            <div class="question-text">
+              តើហេតុអ្វីបានជាមានការតែងតាំងសម្តេចព្រះនរោត្តម សីហនុ
+              ជាព្រះប្រមុខរដ្ឋ?
+            </div>
+          </div>
+          <div class="answer-box">
+            มีការតែងតាំងសម្តេចព្រះនរោត្តម សីហនុ ជាព្រះប្រមុខរដ្ឋ ព្រោះ៖
+            <ul>
+              <li>
+                ក្រោយពីព្រះបាទនរោត្តម សុរាម្រិត ចូលទិវង្គត
+                ពុំមានស្តេចសោយរាជ្យបន្ត។
+              </li>
+              <li>ព្រះអង្គជាវរជនដ៏ឆ្នើមក្នុងការទាមទារឯករាជ្យជូនប្រទេសជាតិ។</li>
+              <li>ប្រជាជនគាំទ្រកម្មវិធីនយោបាយសង្គមរាស្ត្រនិយម និងសម្តេចសីហនុ។</li>
+              <li>
+                មានការស្នើពីប្រជាជន ឱ្យព្រះអង្គឡើងកាន់តំណែងជាព្រះប្រមុខរដ្ឋ។
+              </li>
+              <li>
+                សម្តេចព្រះនរោត្តម សីហនុ បានចូលកាន់អំណាចជាព្រះប្រមុខរដ្ឋនៅថ្ងៃទី ២០
+                មិថុនា ឆ្នាំ ១៩៦០។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section-label">
+          <h3><i class="fas fa-chart-line"></i> ៥. សមិទ្ធផលសង្គមរាស្ត្រនិយម</h3>
+        </div>
+
+        <!-- Q10 -->
+        <div class="card">
+          <span class="sub-header">៥.១. វិស័យកសិកម្ម</span>
+          <div class="question-box">
+            <div class="q-badge">១០</div>
+            <div class="question-text">
+              តើរាជរដ្ឋាភិបាលសង្គមរាស្ត្រនិយម
+              បានយកចិត្តទុកដាក់លើវិស័យកសិកម្មដូចម្តេចខ្លះ?
+            </div>
+          </div>
+          <div class="answer-box">
+            រាជរដ្ឋាភិបាលបានយកចិត្តទុកដាក់លើវិស័យកសិកម្មដូចជា៖
+            <ul>
+              <li>ការពង្រីកផ្ទៃដីកសិកម្ម។</li>
+              <li>ការជ្រើសរើសពូជ។</li>
+              <li>ការប្រើប្រាស់ជី។</li>
+              <li>ការអនុវត្តនយោបាយទឹក។</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="card">
+          <span class="sub-header">៥.២. វិស័យគមនាគមន៍</span>
+          <div class="question-box">
+            <div class="q-badge">១១</div>
+            <div class="question-text">
+              តើវិស័យគមនាគមន៍សម័យសង្គមរាស្ត្រនិយម មានការរីកចម្រើនដូចម្តេចខ្លះ?
+            </div>
+          </div>
+          <div class="answer-box">
+            វិស័យគមនាគមន៍មានការរីកចម្រើនដូចជា៖
+            <ul>
+              <li>ពង្រីកកំពង់ផែនៅភ្នំពេញ (១៩៥៥)។</li>
+              <li>កសាងកំពង់ផែនៅក្រុងព្រះសីហនុ (១៩៥៥) និងពង្រីកបន្ថែម (១៩៦៤)។</li>
+              <li>
+                កសាងផ្លូវជាតិលេខ៤ ពីភ្នំពេញ ទៅក្រុងព្រះសីហនុប្រវែង ២២៦ គីឡូម៉ែត្រ
+                (១៩៥៦)។
+              </li>
+              <li>ពង្រីកអាកាសយានដ្ឋានអន្តរជាតិពោធិ៍ចិនតុង (១៩៥៨)។</li>
+              <li>កសាងអាកាសយានដ្ឋានអន្តរជាតិក្នុងខេត្តសៀមរាប (១៩NT៩ - ១៩៥៩)។</li>
+              <li>
+                កសាងផ្លូវរថភ្លើងខ្សែទី ២ ភ្ជាប់ពីភ្នំពេញទៅក្រុងព្រះសីហនុប្រវែង ២៧០
+                គីឡូម៉ែត្រ (១៩៦០)។
+              </li>
+              <li>កសាងស្ពានជ្រោយចង្វារឆ្លងទន្លេសាប (១៩៦០)។</li>
+              <li>
+                ពង្រីកទំនាក់ទំនងអន្តរជាតិដោយភ្ជាប់ខ្សែទូរសព្ទជាមួយក្រុងតូក្យូ
+                សាន់ហ្វ្រាន់ស៊ីស្កូ និងអូសាកា... (១៩៦១)។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="card">
+          <span class="sub-header">៥.៣. វិស័យពាណិជ្ជកម្ម និងឧស្សាហកម្ម</span>
+          <div class="question-box">
+            <div class="q-badge">១២</div>
+            <div class="question-text">
+              តើនៅសម័យសង្គមរាស្ត្រនិយម មានក្រុមហ៊ុនពាណិជ្ជកម្ម
+              និងរោងចក្រសំខាន់ៗអ្វីខ្លះ?
+            </div>
+          </div>
+          <div class="answer-box">
+            <span class="sub-header">◦ វិស័យពាណិជ្ជកម្ម</span>
+            <ul>
+              <li>
+                ក្រុមហ៊ុនពាណិជ្ជកម្មធំៗរបស់បារាំង សហរដ្ឋអាមេរិក អង់គ្លេស និងជប៉ុន
+                បានវិនិយោគទុននៅកម្ពុជា។
+              </li>
+              <li>
+                ក្រុមហ៊ុនអាហរ័ណ នីហរ័ណ (សូណិចស៊ីម) បង្កើតឡើងដោយរាជរដ្ឋាភិបាល។
+              </li>
+              <li>
+                ក្រុមហ៊ុន ២ ទៀត ដែលមាននាទីបម្រើឱ្យក្រុមហ៊ុនសូណិចស៊ីម គឺ៖
+                <ul>
+                  <li>ក្រុមហ៊ុនខ្មែរសម្រាប់ការទិញផលិតផលកសិកម្ម (សូរ៉ាផាត)។</li>
+                  <li>
+                    ក្រុមហ៊ុនជាតិសម្រាប់ការចែករំលែកទំនិញនាំចូល (សូណាប់ព្រីម)។
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <span class="sub-header">◦ វិស័យឧស្សាហកម្ម</span>
+            <ul>
+              <li>រោងចក្រវាយនភណ្ឌ (កំពង់ចាម)។</li>
+              <li>រោងចក្រក្ដារបន្ទះ និងរោងចក្រកែវ (កណ្តាល)។</li>
+              <li>រោងចក្រក្រដាស (ក្រចេះ)។</li>
+              <li>រោងចក្រស៊ីម៉ងត៍ចក្រីទីង (កំពត)។</li>
+              <li>រោងចក្របាវក្រចៅ (បាត់ដំបង)។</li>
+              <li>រោងចក្រស្ករស (កំពង់ស្ពឺ)។</li>
+              <li>
+                រោងចក្រដំឡើងត្រាក់ទ័រ ចម្រាញ់ប្រេងកាត និងស្រាបៀរ (ព្រះសីហនុ)។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="card">
+          <span class="sub-header">៥.៤. វិស័យវប្បធម៌</span>
+          <div class="question-box">
+            <div class="q-badge">១៣</div>
+            <div class="question-text">
+              តើវិស័យវប្បធម៌សម័យសង្គមរាស្ត្រនិយម មានការរីកចម្រើនដូចម្តេចខ្លះ?
+            </div>
+          </div>
+          <div class="answer-box">
+            វិស័យវប្បធម៌មានការរីកចម្រើនដូចជា៖
+            <ul>
+              <li>បង្កើតសាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ។</li>
+              <li>
+                បណ្ដុះបណ្ដាល និងពង្រីកសមត្ថភាពបុគ្គលិកសិក្សាគ្រប់ភូមិសិក្សា។
+              </li>
+              <li>
+                ពង្រីកមធ្យមសិក្សា ឧត្តមសិក្សា
+                ជាពិសេសការសិក្សាបច្ចេកទេសឱ្យកាន់តែប្រសើរ។
+              </li>
+              <li>
+                បញ្ជូននិស្សិតទៅសិក្សានៅបរទេស និងទទួលនិស្សិតបរទេសមក រៀនក្នុងប្រទេស។
+              </li>
+              <li>
+                វិស័យកីឡា មានគ្រូបង្ហាត់មកពីបរទេស
+                និងការកសាងពហុកីឡដ្ឋានជាតិអូឡាំពិក។
+              </li>
+              <li>
+                ព្រះពុទ្ធសាសនាត្រូវបានយកចិត្តទុកដាក់ ដោយបង្កើតពុទ្ធិកបឋមសិក្សា
+                រហូតដល់ពុទ្ធិកមហាវទ្យាល័យ។
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="card">
+          <span class="sub-header">៥.៥. វិស័យសង្គមកិច្ច</span>
+          <div class="question-box">
+            <div class="q-badge">១៤</div>
+            <div class="question-text">
+              តើវិស័យសង្គមកិច្ចសម័យសង្គមរាស្ត្រនិយម មានការអភិវឌ្ឍដូចម្តេចខ្លះ?
+            </div>
+          </div>
+          <div class="answer-box">
+            វិស័យសង្គមកិច្ចមានការអភិវឌ្ឍគួរឱ្យកត់សម្គាល់ ដូចជា៖
+            <ul>
+              <li>កសាងមន្ទីរពេទ្យគ្រប់ខេត្តក្រុង។</li>
+              <li>ការរក្សាអនាម័យតាមលំនៅឋាន។</li>
+              <li>ការចាក់ថ្នាំបង្ការ។</li>
+              <li>សង់ផ្ទះឱ្យប្រជារាស្ត្រ។</li>
+              <li>ជីកអណ្ដូងទឹក ស្រះ និងប្រឡាយ។</li>
+              <li>បង្កើតមជ្ឈមណ្ឌលអប់រំស្ត្រី។</li>
+              <li>ផ្តល់សិទ្ធិឱ្យស្ត្រីឈរឈ្មោះបោះឆ្នោត និងមានសិទ្ធិបោះឆ្នោត។</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <span class="study-logo">StudyNest</span>
+        <p>&copy; 2024 រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ StudyNest</p>
+        <div
+          style="
+            margin-top: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+          "
+        >
+          <i class="fab fa-facebook" style="color: #1877f2"></i>
+          <i class="fab fa-telegram" style="color: #0088cc"></i>
+          <i class="fab fa-youtube" style="color: #ff0000"></i>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Script initialization -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.authGuard();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        StudyNest.initBackground();
+      });
+    </script>
+  </body>
+</html>

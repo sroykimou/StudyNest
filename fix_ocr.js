@@ -108,7 +108,7 @@ chapters.forEach(chapter => {
             const fullPath = path.join(dir, entry.name);
             if (entry.isDirectory()) {
                 processDir(fullPath);
-            } else if (entry.isFile() && entry.name.endsWith('.html')) {
+            } else if (entry.isFile() && entry.name.endsWith('.php')) {
                 console.log(`Processing ${fullPath}...`);
                 const content = fs.readFileSync(fullPath, 'utf8');
                 const newContent = applyFixes(content);

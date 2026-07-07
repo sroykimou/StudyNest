@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = __dirname + '/';
 
-const template = fs.readFileSync(path + 'kanit-1.html', 'utf-8');
+const template = fs.readFileSync(path + 'kanit-1.php', 'utf-8');
 
 function buildHtml(examNumber, titleNum, sectionsHtml) {
   let html = template.replace(/<title>.*?<\/title>/, `<title>វិញ្ញាសា គណិតវិទ្យា ${titleNum} | StudyNest</title>`);
@@ -220,4 +220,4 @@ const exam15Sections = `<!-- Section I -->
         </div>
       </section>`;
 
-fs.writeFileSync(path + 'kanit-15.html', buildHtml(15, '១៥', exam15Sections));
+fs.writeFileSync(path + 'kanit-15.php', buildHtml(15, '១៥', exam15Sections));

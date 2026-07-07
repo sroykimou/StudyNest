@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៣១–៤០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="http://localhost:8000/assets/professional.css">
+    <!-- Main JS & Auth Guard -->
+    <script src="http://localhost:8000/assets/main.js"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="lesson 1_home" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a>
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ទ្រឹស្តីបទសុីនេទិចនៃឧស្ម័ន</div>
+        <h1>លំហាត់<em>អនុវត្ត</em> ៣១–៤០</h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 31 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">31</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            អាតូមអេល្យូមមួយមានម៉ាសម៉ូលេគុល
+            <span class="given">\( M = 4 \times 10^{-3} \) kg/mol</span>
+            នៅសីតុណ្ហភាព <span class="given">20°C</span>។
+          </p>
+          <p>គេឲ្យ \( R = 8.31 \) J/mol·K ។</p>
+          <div class="ex-find">
+            <span>គណនាឫសការេនៃការេល្បឿនមធ្យមរបស់អាតូមអេល្យូម ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាឫសការេនៃការេល្បឿនមធ្យម (\(v_{\text{rms}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3RT}{M}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)<br>
+                  \( T = 20 + 273 = 293 \text{ K} \)<br>
+                  \( M = 4 \times 10^{-3} \text{ kg/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3 \times 8.31 \times 293}{4 \times 10^{-3}}} \approx 1351.34 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ឫសការេនៃការេល្បឿនមធ្យមគឺ \( v_{\text{rms}} \approx 1351.34 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 32 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">32</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានម៉ូលេគុលឧស្ម័នអាសូតមួយ នៅសីតុណ្ហភាព
+            <span class="given">27°C</span>។
+          </p>
+          <p>គេឲ្យ \( M_{N_2} = 28 \) g/mol ; \(\sqrt{26.71} = 5.17\) ។</p>
+          <div class="ex-find"><span>គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអាសូត។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអាសូត (\(v_{\text{rms}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3RT}{M}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)<br>
+                  \( T = 27 + 273 = 300 \text{ K} \)<br>
+                  \( M = 28 \text{ g/mol} = 28 \times 10^{-3} \text{ kg/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( v_{\text{rms}} = \sqrt{\dfrac{3 \times 8.31 \times 300}{28 \times 10^{-3}}} = \sqrt{267107.14} \text{ m/s} \)<br>
+                  \( v_{\text{rms}} = 100 \times \sqrt{26.71} = 100 \times 5.17 = 517 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនប្រសិទ្ធនៃម៉ូលេគុលអាសូតគឺ \( v_{\text{rms}} = 517 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 33 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">33</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុកស៊ីសែនស្មើ
+            <span class="given"> 331 m/s</span> នៅសីតុណ្ហភាពមួយ។
+          </p>
+          <p>គេឲ្យ \( M_{H_2} = 2 \) g/mol និង \( M_{O_2} = 32 \) g/mol ។</p>
+
+          <div class="ex-find">
+            <span>គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន នៅសីតុណ្ហភាពដដែល។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន (\(v_{H_2}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{v_{H_2}}{v_{O_2}} = \sqrt{\dfrac{M_{O_2}}{M_{H_2}}} \Rightarrow v_{H_2} = v_{O_2} \times \sqrt{\dfrac{M_{O_2}}{M_{H_2}}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( v_{O_2} = 331 \text{ m/s} \)<br>
+                  \( M_{O_2} = 32 \text{ g/mol} \)<br>
+                  \( M_{H_2} = 2 \text{ g/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v_{H_2} = 331 \times \sqrt{\dfrac{32}{2}} = 331 \times 4 = 1324 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនប្រសិទ្ធនៃឧស្ម័នអ៊ីដ្រូសែនគឺ \( v_{H_2} = 1324 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 34 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">34</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ូលេគុលឧស្ម័នអុីដ្រូសែនមួយ នៅសីតុណ្ហភាព
+            <span class="given">373.15 K</span> ។
+          </p>
+          <p>គេឲ្យ \( M_{H_2} = 2.016\times 10^{-3} \) Kg/mol ។</p>
+          <div class="ex-find">
+            <span>គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអុីដ្រូសែន (\(v_{\text{rms}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3RT}{M}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)<br>
+                  \( T = 373.15 \text{ K} \)<br>
+                  \( M = 2.016 \times 10^{-3} \text{ kg/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3 \times 8.31 \times 373.15}{2.016 \times 10^{-3}}} \approx 2148.07 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនប្រសិទ្ធគឺ \( v_{\text{rms}} \approx 2148.07 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 35 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">35</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. គណនាសីតុណ្ហភាពនៃម៉ូលេគុលអុីដ្រូសែនគិតជា (°C)។
+            បើគេដឹងថាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលអុីដ្រូសែនស្មើ
+            <span class="given">\( v = 1933.78 \) m/s</span
+            >និងម៉ាសម៉ូលអុីដ្រូសែន
+            <span class="given">\( M = 2 \times 10^{-3} \) kg/mol</span>។
+          </p>
+          <p>ខ. គណនាតម្លៃថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលឧស្ម័ននីមួយៗ ។</p>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាសីតុណ្ហភាពនៃម៉ូលេគុលអុីដ្រូសែនគិតជា (\(^\circ\text{C}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( T = \dfrac{M v^2}{3R} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( v = 1933.78 \text{ m/s} \)<br>
+                  \( M = 2 \times 10^{-3} \text{ kg/mol} \)<br>
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( T = \dfrac{2 \times 10^{-3} \times (1933.78)^2}{3 \times 8.31} \approx 300 \text{ K} \)<br>
+                  នាំឲ្យ \( t = T - 273 = 300 - 273 = 27^\circ\text{C} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សីតុណ្ហភាពគឺ \( t = 27^\circ\text{C} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលនីមួយៗ (\(K_{\text{av}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( K_{\text{av}} = \dfrac{3}{2} k_B T \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( k_B = 1.38 \times 10^{-23} \text{ J/K} \)<br>
+                  \( T = 300 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( K_{\text{av}} = 1.5 \times 1.38 \times 10^{-23} \times 300 = 6.21 \times 10^{-21} \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលសុីនេទិចមធ្យមគឺ \( K_{\text{av}} = 6.21 \times 10^{-21} \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 36 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">36</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នបរិសុទ្ធមួយមានម៉ាសម៉ូលេគុលនីមួយៗ
+            <span class="given"> \(m_0 = 8 \times 10^{-26} \)kg</span>
+            នៅសីតុណ្ហភាព <span class="given">57°C</span>។
+          </p>
+          <p>គេឲ្យ​ \( k_B = 1.38 \times 10^{-23} \) J/K ។</p>
+          <div class="ex-find">
+            <span>គណនាឫសការេនៃការេល្បឿនមធ្យម \( v_{\text{rms}} \)។</span>
+          </div>
+          <div class="ex-find">
+            <span>គណនាតម្លៃថាមពលសុីនេទិចមធ្យម \( K_{\text{av}} \)។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាឫសការេនៃការេល្បឿនមធ្យម (\(v_{\text{rms}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3 k_B T}{m_0}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( k_B = 1.38 \times 10^{-23} \text{ J/K} \)<br>
+                  \( T = 57 + 273 = 330 \text{ K} \)<br>
+                  \( m_0 = 8 \times 10^{-26} \text{ kg} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3 \times 1.38 \times 10^{-23} \times 330}{8 \times 10^{-26}}} \approx 413.25 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនប្រសិទ្ធគឺ \( v_{\text{rms}} \approx 413.25 \text{ m/s} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាតម្លៃថាមពលសុីនេទិចមធ្យម (\(K_{\text{av}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( K_{\text{av}} = \dfrac{3}{2} k_B T \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( k_B = 1.38 \times 10^{-23} \text{ J/K} \)<br>
+                  \( T = 330 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( K_{\text{av}} = 1.5 \times 1.38 \times 10^{-23} \times 330 \approx 6.83 \times 10^{-21} \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលសុីនេទិចមធ្យមគឺ \( K_{\text{av}} \approx 6.83 \times 10^{-21} \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 37 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">37</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលអុកស៊ីសែននៅសីតុណ្ហភាព
+            <span class="given">127°C</span> ។ ម៉ាសម៉ូលអុកស៊ីសែន \( M_{O_2} = 32
+            \) g/mol និង \( R = 8.31 \) J/mol·K។
+          </p>
+          <p>
+            ខ. គណនាតម្លៃថាមពលសុីនេទិចមធ្យមរបស់ម៉ូលេគុលអុកស៊ីសែននីមួយៗ
+            នៅសីតុណ្ហភាព <span class="given">127°C</span> ។ គេឲ្យ \( k_B = 1.38
+            \times 10^{-23} \) J/K ។
+          </p>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលអុកស៊ីសែន (\(v_{\text{rms}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3RT}{M}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)<br>
+                  \( T = 127 + 273 = 400 \text{ K} \)<br>
+                  \( M = 32 \text{ g/mol} = 32 \times 10^{-3} \text{ kg/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3 \times 8.31 \times 400}{32 \times 10^{-3}}} \approx 558.23 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនប្រសិទ្ធគឺ \( v_{\text{rms}} \approx 558.23 \text{ m/s} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាតម្លៃថាមពលសុីនេទិចមធ្យម (\(K_{\text{av}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( K_{\text{av}} = \dfrac{3}{2} k_B T \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( k_B = 1.38 \times 10^{-23} \text{ J/K} \)<br>
+                  \( T = 400 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( K_{\text{av}} = 1.5 \times 1.38 \times 10^{-23} \times 400 = 8.28 \times 10^{-21} \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលសុីនេទិចមធ្យមគឺ \( K_{\text{av}} = 8.28 \times 10^{-21} \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 38 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">38</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. រកចំនួនអាតូមឧស្ម័នអេល្យូមក្នុងបាឡុងមួយដែលមានកាំ
+            <span class="given">30 cm</span> នៅសីតុណ្ហភាព
+            <span class="given">20°C</span> និងសម្ពាធ
+            <span class="given">1 atm</span> ។
+          </p>
+
+          <p>ខ.​ គណនាតម្លៃថាមពលសសុីនេទិចរបស់អាតូមឧស្ម័ននីមួយៗ ។</p>
+          <p>គ.​ គណនាល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័នអេល្យូម ។</p>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. រកចំនួនអាតូមឧស្ម័នអេល្យូម (\(N\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( N = \dfrac{PV}{k_B T} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( V = \dfrac{4}{3} \pi r^3 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( N = \dfrac{4 \pi r^3 P}{3 k_B T} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( r = 30 \text{ cm} = 0.3 \text{ m} \)<br>
+                  \( P = 1 \text{ atm} = 1.013 \times 10^5 \text{ Pa} \)<br>
+                  \( T = 20 + 273 = 293 \text{ K} \)<br>
+                  \( k_B = 1.38 \times 10^{-23} \text{ J/K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( V = \dfrac{4}{3} \times 3.14 \times 0.3^3 \approx 0.113 \text{ m}^3 \)<br>
+                  \( N = \dfrac{1.013 \times 10^5 \times 0.113}{1.38 \times 10^{-23} \times 293} \approx 2.83 \times 10^{24} \text{ អាតូម} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនអាតូមអេល្យូមគឺ \( N \approx 2.83 \times 10^{24} \text{ អាតូម} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាថាមពលសុីនេទិចរបស់អាតូមនីមួយៗ (\(K_{\text{av}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( K_{\text{av}} = \dfrac{3}{2} k_B T \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( k_B = 1.38 \times 10^{-23} \text{ J/K} \)<br>
+                  \( T = 293 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( K_{\text{av}} = 1.5 \times 1.38 \times 10^{-23} \times 293 \approx 6.06 \times 10^{-21} \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលសុីនេទិចគឺ \( K_{\text{av}} \approx 6.06 \times 10^{-21} \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គ. គណនាល្បឿនប្រសិទ្ធនៃឧស្ម័នអេល្យូម (\(v_{\text{rms}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3RT}{M}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)<br>
+                  \( T = 293 \text{ K} \)<br>
+                  \( M = 4 \text{ g/mol} = 4 \times 10^{-3} \text{ kg/mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( v_{\text{rms}} = \sqrt{\dfrac{3 \times 8.31 \times 293}{4 \times 10^{-3}}} \approx 1351.34 \text{ m/s} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ល្បឿនប្រសិទ្ធគឺ \( v_{\text{rms}} \approx 1351.34 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 39 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">39</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៣៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            នៅក្នុងធុងមួយមានមាឌ<span class="given">​ 2 L</span>
+            មានឧស្ម័នដែលមានម៉ាស <span class="given">50​ mg</span> និងសម្ពាធ​
+            <span class="given">100 Pa</span> ម៉ាសរបស់ម៉ូលេគុលនៃឧស្ម័ននីមួយៗគឺ
+            <span class="given">\( m_0 = 8 \times 10^{-26} \) kg</span> ។
+          </p>
+          <p>គេឲ្យ \( k_B = 1.38 \times 10^{-23} \) J/K ។</p>
+          <div class="ex-find"><span>ក. រកចំនួនម៉ូលេគុលនៃឧស្ម័ននេះ។</span></div>
+          <div class="ex-find">
+            <span>ខ. រកតម្លៃថាមពលសុីនេទិចរបស់ម៉ូលេគុលនៃឧស្ម័ននីមួយៗ ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. រកចំនួនម៉ូលេគុលនៃឧស្ម័ន (\(N\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( N = \dfrac{m}{m_0} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( m = 50 \text{ mg} = 5 \times 10^{-5} \text{ kg} \)<br>
+                  \( m_0 = 8 \times 10^{-26} \text{ kg} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( N = \dfrac{5 \times 10^{-5}}{8 \times 10^{-26}} = 6.25 \times 10^{20} \text{ ម៉ូលេគុល} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលេគុលគឺ \( N = 6.25 \times 10^{20} \text{ ម៉ូលេគុល} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. រកតម្លៃថាមពលសុីនេទិចរបស់ម៉ូលេគុលនីមួយៗ (\(K_{\text{av}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( K_{\text{av}} = \dfrac{3PV}{2N} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 100 \text{ Pa} \)<br>
+                  \( V = 2 \text{ L} = 2 \times 10^{-3} \text{ m}^3 \)<br>
+                  \( N = 6.25 \times 10^{20} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( K_{\text{av}} = \dfrac{3 \times 100 \times 2 \times 10^{-3}}{2 \times 6.25 \times 10^{20}} = 4.8 \times 10^{-22} \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលសុីនេទិចមធ្យមគឺ \( K_{\text{av}} = 4.8 \times 10^{-22} \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 40 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">40</div>
+          <span class="ex-title">លំហាត់អនុវត្ត ៤០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេយកបំពង់ឧស្ម័នកាបូនិចមានចំណុះ
+            <span class="given">20 L</span> ក្រោមសម្ពាធ
+            <span class="given">20 atm</span> នៅសីតុណ្ហភាព
+            <span class="given">20°C</span>
+            ទៅដាក់ក្នុងថង់ប្លាស្ទិចមួយដែលអាចប្រែប្រួលមាឌបាន។ គណនាមាឌរបស់ថង់
+            បើឧស្ម័នក្នុងថង់មានសម្ពាធ
+            <span class="given">5 atm</span> និងសីតុណ្ហភាព
+            <span class="given">6°C</span> ។
+          </p>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាមាឌរបស់ថង់ (\(V_2\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{P_1 V_1}{T_1} = \dfrac{P_2 V_2}{T_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( V_2 = \dfrac{P_1 V_1 T_2}{P_2 T_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P_1 = 20 \text{ atm} \)<br>
+                  \( V_1 = 20 \text{ L} \)<br>
+                  \( T_1 = 20 + 273 = 293 \text{ K} \)<br>
+                  \( P_2 = 5 \text{ atm} \)<br>
+                  \( T_2 = 6 + 273 = 279 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( V_2 = \dfrac{20 \times 20 \times 279}{5 \times 293} \approx 76.18 \text{ L} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ មាឌរបស់ថង់ប្លាស្ទិចគឺ \( V_2 \approx 76.18 \text{ L} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

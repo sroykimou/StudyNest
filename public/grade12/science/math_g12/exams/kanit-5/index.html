@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>វិញ្ញាសា គណិតវិទ្យា ០៥ | StudyNest</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js" async></script>
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --accent: #74ebd5;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --orange: #f97316;
+            --blue: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Kantumruy Pro", sans-serif;
+            background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+            color: var(--text-dark);
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: var(--bg-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .exam-meta {
+            display: flex;
+            justify-content: space-between;
+            background: #f8fafc;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid #e2e8f0;
+        }
+
+        .question-section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.5s ease-out both;
+            border-bottom: 1px dashed #e2e8f0;
+            padding-bottom: 30px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            display: inline-block;
+            background: var(--bg-dark);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .question-content {
+            padding-left: 10px;
+        }
+
+        .sub-question {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .formula-box {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary);
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+
+        .toggle-btn {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            margin-top: 15px;
+            margin-left: 10px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+        .toggle-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .solution-content {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 4px solid #10b981;
+        }
+        
+        .solution-title {
+            color: #059669;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .solution-body {
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+
+        .solution-body p {
+            margin-bottom: 8px;
+        }
+
+        .nav-footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .print-btn {
+            background: var(--bg-dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #1e293b;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 10mm;
+                border: none;
+            }
+            .container::before {
+                display: none;
+            }
+            .nav-footer, .print-btn, .toggle-btn {
+                display: none !important;
+            }
+            .solution-content {
+                display: block !important;
+                border: 1px solid #cbd5e1 !important;
+                background: #f8fafc !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .question-section {
+                border-bottom: 1px solid #ccc !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 25px;
+            }
+            .exam-meta {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>វិញ្ញាសា គណិតវិទ្យា (វិទ្យាសាស្ត្រពិត) ០៥</h1>
+            <p>សម្រាប់ការត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+        </header>
+
+        <div class="exam-meta">
+            <span><i class="far fa-clock"></i> រយៈពេល៖ ១៥០ នាទី</span>
+            <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ១២៥ ពិន្ទុ</span>
+        </div>
+
+        <!-- Section I -->
+        <section class="question-section" style="animation-delay: 0.1s;">
+            <h2>លំហាត់ I (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គណនាលីមីតខាងក្រោម៖</p>
+                <div class="sub-question">
+                    <p>ក) $\lim_{x \to 1} \frac{\sqrt[3]{2-x} - \sqrt[3]{x}}{1-x}$</p>
+                    <p>ខ) $\lim_{x \to 0} \frac{1 + x^2 - \cos 4x}{3x^2}$</p>
+                    <p>គ) $\lim_{x \to 0} \frac{e^{3x} + e^{5x} - 2}{4x}$</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p><strong>ក) គណនាលីមីត $\lim_{x \to 1} \frac{\sqrt[3]{2-x} - \sqrt[3]{x}}{1-x}$</strong></p>
+                    <p>មានរាងមិនកំណត់ $\frac{0}{0}$</p>
+                    <p>គុណនឹងកន្សោមបំបាត់ឫសគូប៖</p>
+                    <p>$= \lim_{x \to 1} \frac{(\sqrt[3]{2-x} - \sqrt[3]{x})[(\sqrt[3]{2-x})^2 + \sqrt[3]{2-x}\cdot\sqrt[3]{x} + (\sqrt[3]{x})^2]}{(1-x)[(\sqrt[3]{2-x})^2 + \sqrt[3]{2-x}\cdot\sqrt[3]{x} + (\sqrt[3]{x})^2]}$</p>
+                    <p>$= \lim_{x \to 1} \frac{(\sqrt[3]{2-x})^3 - (\sqrt[3]{x})^3}{(1-x)[(\sqrt[3]{2-x})^2 + \sqrt[3]{2-x}\cdot\sqrt[3]{x} + (\sqrt[3]{x})^2]}$</p>
+                    <p>$= \lim_{x \to 1} \frac{(2-x) - x}{(1-x)[...]} = \lim_{x \to 1} \frac{2(1-x)}{(1-x)[(\sqrt[3]{2-x})^2 + \sqrt[3]{2-x}\cdot\sqrt[3]{x} + (\sqrt[3]{x})^2]}$</p>
+                    <p>$= \frac{2}{1 + 1 + 1} = \frac{2}{3}$</p>
+                    <div class="formula-box">ដូចនេះ $\lim_{x \to 1} \frac{\sqrt[3]{2-x} - \sqrt[3]{x}}{1-x} = \frac{2}{3}$</div>
+
+                    <p><strong>ខ) គណនាលីមីត $\lim_{x \to 0} \frac{1 + x^2 - \cos 4x}{3x^2}$</strong></p>
+                    <p>មានរាងមិនកំណត់ $\frac{0}{0}$</p>
+                    <p>$= \lim_{x \to 0} \left( \frac{x^2}{3x^2} + \frac{1 - \cos 4x}{3x^2} \right) = \lim_{x \to 0} \left( \frac{1}{3} + \frac{2\sin^2 2x}{3x^2} \right)$</p>
+                    <p>$= \lim_{x \to 0} \left[ \frac{1}{3} + \left( \frac{\sin 2x}{2x} \right)^2 \times \frac{4 \times 2}{3} \right]$</p>
+                    <p>$= \frac{1}{3} + (1)^2 \times \frac{8}{3} = \frac{9}{3} = 3$</p>
+                    <div class="formula-box">ដូចនេះ $\lim_{x \to 0} \frac{1 + x^2 - \cos 4x}{3x^2} = 3$</div>
+
+                    <p><strong>គ) គណនាលីមីត $\lim_{x \to 0} \frac{e^{3x} + e^{5x} - 2}{4x}$</strong></p>
+                    <p>មានរាងមិនកំណត់ $\frac{0}{0}$</p>
+                    <p>$= \lim_{x \to 0} \frac{(e^{3x} - 1) + (e^{5x} - 1)}{4x}$</p>
+                    <p>$= \lim_{x \to 0} \left( \frac{e^{3x} - 1}{4x} + \frac{e^{5x} - 1}{4x} \right) = \frac{3}{4} + \frac{5}{4} = \frac{8}{4} = 2$</p>
+                    <div class="formula-box">ដូចនេះ $\lim_{x \to 0} \frac{e^{3x} + e^{5x} - 2}{4x} = 2$</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II -->
+        <section class="question-section" style="animation-delay: 0.2s;">
+            <h2>លំហាត់ II (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គេឱ្យចំនួនកុំផ្លិច $z = \sqrt{2+\sqrt{2}} + i\sqrt{2-\sqrt{2}}$ ។</p>
+                <div class="sub-question">
+                    <p>ក) ចូរសរសេរ $z^2$ ជាទម្រង់ពីជគណិត។</p>
+                    <p>ខ) ចូរសរសេរ $z^2$ និង $z$ ជាទម្រង់ត្រីកោណមាត្រ។</p>
+                    <p>គ) ទាញរកតម្លៃប្រាកដនៃ $\cos \frac{\pi}{8}$ និង $\sin \frac{\pi}{8}$ ។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p><strong>ក) សរសេរ $z^2$ ជាទម្រង់ពីជគណិត៖</strong></p>
+                    <p>$z^2 = (\sqrt{2+\sqrt{2}} + i\sqrt{2-\sqrt{2}})^2$</p>
+                    <p>$= (\sqrt{2+\sqrt{2}})^2 + 2i\sqrt{2+\sqrt{2}}\sqrt{2-\sqrt{2}} + (i\sqrt{2-\sqrt{2}})^2$</p>
+                    <p>$= 2+\sqrt{2} + 2i\sqrt{(2+\sqrt{2})(2-\sqrt{2})} - (2-\sqrt{2})$</p>
+                    <p>$= 2\sqrt{2} + 2i\sqrt{4-2} = 2\sqrt{2} + 2i\sqrt{2}$</p>
+                    <div class="formula-box">ដូចនេះ $z^2 = 2\sqrt{2} + 2i\sqrt{2}$</div>
+
+                    <p><strong>ខ) សរសេរ $z^2$ និង $z$ ជាទម្រង់ត្រីកោណមាត្រ៖</strong></p>
+                    <p>$z^2 = 2\sqrt{2} + 2i\sqrt{2} = 4(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}) = 4(\cos \frac{\pi}{4} + i\sin \frac{\pi}{4})$</p>
+                    <p>ដោយ $z^2 = 4[\cos(\frac{\pi}{4} + 2k\pi) + i\sin(\frac{\pi}{4} + 2k\pi)]$</p>
+                    <p>នាំឱ្យ $z_k = 2\left( \cos \frac{\pi + 8k\pi}{8} + i\sin \frac{\pi + 8k\pi}{8} \right)$ ដែល $k = 0, 1$</p>
+                    <ul>
+                        <li>បើ $k=0 \Rightarrow z_0 = 2\left( \cos \frac{\pi}{8} + i\sin \frac{\pi}{8} \right)$</li>
+                        <li>បើ $k=1 \Rightarrow z_1 = 2\left( \cos \frac{9\pi}{8} + i\sin \frac{9\pi}{8} \right)$ (មិនយក ព្រោះ $z$ មានផ្នែកពិតនិងនិម្មិតវិជ្ជមាន)</li>
+                    </ul>
+                    <div class="formula-box">ដូចនេះ $z^2 = 4\left( \cos \frac{\pi}{4} + i\sin \frac{\pi}{4} \right)$ និង $z = 2\left( \cos \frac{\pi}{8} + i\sin \frac{\pi}{8} \right)$</div>
+
+                    <p><strong>គ) ទាញរកតម្លៃប្រាកដនៃ $\cos \frac{\pi}{8}$ និង $\sin \frac{\pi}{8}$៖</strong></p>
+                    <p>ដោយ $z = \sqrt{2+\sqrt{2}} + i\sqrt{2-\sqrt{2}}$ និង $z = 2\left( \cos \frac{\pi}{8} + i\sin \frac{\pi}{8} \right)$</p>
+                    <p>ផ្ទឹមផ្នែកពិត និងនិម្មិត យើងបាន៖</p>
+                    <p>$2\cos \frac{\pi}{8} = \sqrt{2+\sqrt{2}} \Rightarrow \cos \frac{\pi}{8} = \frac{\sqrt{2+\sqrt{2}}}{2}$</p>
+                    <p>$2\sin \frac{\pi}{8} = \sqrt{2-\sqrt{2}} \Rightarrow \sin \frac{\pi}{8} = \frac{\sqrt{2-\sqrt{2}}}{2}$</p>
+                    <div class="formula-box">ដូចនេះ $\cos \frac{\pi}{8} = \frac{\sqrt{2+\sqrt{2}}}{2}$ និង $\sin \frac{\pi}{8} = \frac{\sqrt{2-\sqrt{2}}}{2}$</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III -->
+        <section class="question-section" style="animation-delay: 0.3s;">
+            <h2>លំហាត់ III (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <div class="sub-question">
+                    <p>១) គេឱ្យអនុគមន៍ $f(x) = \frac{1}{x^2-1}$ ចំពោះគ្រប់ $x \neq \pm 1$ ។</p>
+                    <p>ក) កំណត់ $A, B$ ដើម្បីឱ្យ $f(x) = \frac{A}{x-1} + \frac{B}{x+1}$ ។</p>
+                    <p>ខ) គណនា $I = \int_2^5 f(x) dx$ ។</p>
+                    <p>២) គេឱ្យសមីការឌីផេរ៉ង់ស្យែល $(E): 2y'' - 3y' + y = 8$ ។</p>
+                    <p>ក) កំណត់ចំនួនពិត $k$ ដើម្បីឱ្យ $y_1 = k$ ជាចម្លើយនៃ $(E)$ ។</p>
+                    <p>ខ) ដោះស្រាយរក $y_2$ ដែលជាចម្លើយនៃ $(F): 2y'' - 3y' + y = 0$ ។</p>
+                    <p>គ) ទាញរកចម្លើយទូទៅនៃ $(E)$ ។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p><strong>១) ក) កំណត់ $A, B$៖</strong></p>
+                    <p>យើងមាន $\frac{1}{x^2-1} = \frac{A(x+1) + B(x-1)}{(x-1)(x+1)} = \frac{(A+B)x + (A-B)}{x^2-1}$</p>
+                    <p>ផ្ទឹមមេគុណ យើងបាន $\begin{cases} A+B = 0 \\ A-B = 1 \end{cases} \Rightarrow 2A = 1 \Rightarrow A = \frac{1}{2}, B = -\frac{1}{2}$</p>
+                    <div class="formula-box">ដូចនេះ $A = \frac{1}{2}, B = -\frac{1}{2}$</div>
+
+                    <p><strong>១) ខ) គណនា $I = \int_2^5 f(x) dx$៖</strong></p>
+                    <p>$I = \int_2^5 \left( \frac{1/2}{x-1} - \frac{1/2}{x+1} \right) dx = \frac{1}{2} \left[ \ln|x-1| - \ln|x+1| \right]_2^5$</p>
+                    <p>$= \frac{1}{2} \left[ \ln \frac{x-1}{x+1} \right]_2^5 = \frac{1}{2} \left( \ln \frac{4}{6} - \ln \frac{1}{3} \right) = \frac{1}{2} \left( \ln \frac{2}{3} - \ln \frac{1}{3} \right) = \frac{1}{2} \ln 2$</p>
+                    <div class="formula-box">ដូចនេះ $I = \frac{1}{2} \ln 2$</div>
+
+                    <p><strong>២) ក) កំណត់ចំនួនពិត $k$៖</strong></p>
+                    <p>$y_1 = k$ ជាចំនួនថេរ នាំឱ្យ $y_1' = 0, y_1'' = 0$</p>
+                    <p>ជំនួសចូល $(E)$: $2(0) - 3(0) + k = 8 \Rightarrow k = 8$</p>
+                    <div class="formula-box">ដូចនេះ $k = 8$</div>
+
+                    <p><strong>២) ខ) ដោះស្រាយ $(F): 2y'' - 3y' + y = 0$៖</strong></p>
+                    <p>សមីការសម្គាល់៖ $2\lambda^2 - 3\lambda + 1 = 0 \Rightarrow \lambda_1 = 1, \lambda_2 = \frac{1}{2}$</p>
+                    <div class="formula-box">ដូចនេះ ចម្លើយនៃ $(F)$ គឺ $y_2 = Ae^x + Be^{\frac{1}{2}x}$ ដែល $A, B \in \mathbb{R}$</div>
+
+                    <p><strong>២) គ) ទាញរកចម្លើយទូទៅនៃ $(E)$៖</strong></p>
+                    <p>ចម្លើយទូទៅនៃ $(E)$ គឺ $y = y_2 + y_1$</p>
+                    <div class="formula-box">ដូចនេះ $y = Ae^x + Be^{\frac{1}{2}x} + 8$ ដែល $A, B \in \mathbb{R}$</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV -->
+        <section class="question-section" style="animation-delay: 0.4s;">
+            <h2>លំហាត់ IV (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>ប្ដីប្រពន្ធមួយគូមានបំណងយកកូនពីរនាក់។ ដោយសង្កេតថាលទ្ធភាពដែលអាចមានកូនប្រុស ឬកូនស្រីមានប្រូបាបស្មើគ្នា។ រកប្រូបាបនៃព្រឹត្តិការណ៍៖</p>
+                <div class="sub-question">
+                    <p>ក) A: បានកូនប្រុសទាំងពីរនាក់</p>
+                    <p>ខ) B: បានកូនស្រីនៅលើកទីមួយ</p>
+                    <p>គ) C: បានកូនទាំងពីរមានភេទខុសគ្នា</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p>តាង B ជាកូនប្រុស និង G ជាកូនស្រី។ ករណីអាចកើតមានទាំងអស់គឺ៖</p>
+                    <p>$S = \{(B,B), (B,G), (G,B), (G,G)\} \Rightarrow n(S) = 4$</p>
+
+                    <p><strong>ក) A: បានកូនប្រុសទាំងពីរនាក់</strong></p>
+                    <p>$A = \{(B,B)\} \Rightarrow n(A) = 1$</p>
+                    <p>$P(A) = \frac{1}{4}$</p>
+                    <div class="formula-box">ដូចនេះ $P(A) = \frac{1}{4}$</div>
+
+                    <p><strong>ខ) B: បានកូនស្រីនៅលើកទីមួយ</strong></p>
+                    <p>$B = \{(G,B), (G,G)\} \Rightarrow n(B) = 2$</p>
+                    <p>$P(B) = \frac{2}{4} = \frac{1}{2}$</p>
+                    <div class="formula-box">ដូចនេះ $P(B) = \frac{1}{2}$</div>
+
+                    <p><strong>គ) C: បានកូនទាំងពីរមានភេទខុសគ្នា</strong></p>
+                    <p>$C = \{(B,G), (G,B)\} \Rightarrow n(C) = 2$</p>
+                    <p>$P(C) = \frac{2}{4} = \frac{1}{2}$</p>
+                    <div class="formula-box">ដូចនេះ $P(C) = \frac{1}{2}$</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section V -->
+        <section class="question-section" style="animation-delay: 0.5s;">
+            <h2>លំហាត់ V (១៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>គេឱ្យសមីការអេលីប $(E): 16x^2 + 25y^2 - 32x - 50y - 359 = 0$ ។</p>
+                <div class="sub-question">
+                    <p>ក) រកសមីការស្តង់ដាអេលីប រួចទាញរកកូអរដោនេផ្ចិត កំពូល និងកំណុំរបស់វា។</p>
+                    <p>ខ) ផ្ទៀងផ្ទាត់ថា $\forall \theta \in \mathbb{R}$ ចំណុច $M(1+5\cos\theta, 1+4\sin\theta)$ ស្ថិតនៅលើអេលីប $(E)$ ។</p>
+                    <p>គ) ស្រាយថាបន្ទាត់ប៉ះ $(E)$ ត្រង់ $M$ មានមេគុណប្រាប់ទិស $k = -\frac{4}{5}\cot\theta$ ។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p><strong>ក) រកសមីការស្តង់ដាអេលីប និងរកកូអរដោនេ៖</strong></p>
+                    <p>$(E): 16(x^2 - 2x) + 25(y^2 - 2y) = 359$</p>
+                    <p>$16(x - 1)^2 - 16 + 25(y - 1)^2 - 25 = 359$</p>
+                    <p>$16(x - 1)^2 + 25(y - 1)^2 = 400$</p>
+                    <p>ចែកនឹង $400$ យើងបាន៖ $\frac{(x-1)^2}{25} + \frac{(y-1)^2}{16} = 1$</p>
+                    <div class="formula-box">ដូចនេះ សមីការស្តង់ដាគឺ $\frac{(x-1)^2}{25} + \frac{(y-1)^2}{16} = 1$</div>
+                    <p>តាមសមីការមានរាង $\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1$ នាំឱ្យ $h=1, k=1, a=5, b=4$</p>
+                    <p>$c = \sqrt{a^2 - b^2} = \sqrt{25 - 16} = 3$</p>
+                    <ul>
+                        <li><strong>ផ្ចិត៖</strong> $I(h, k) \Rightarrow I(1, 1)$</li>
+                        <li><strong>កំណុំ៖</strong> $F_{1,2}(h \pm c, k) \Rightarrow F_1(-2, 1), F_2(4, 1)$</li>
+                        <li><strong>កំពូល៖</strong> $V_{1,2}(h \pm a, k) \Rightarrow V_1(-4, 1), V_2(6, 1)$</li>
+                    </ul>
+
+                    <p><strong>ខ) ផ្ទៀងផ្ទាត់ចំណុច $M$៖</strong></p>
+                    <p>យកកូអរដោនេ $M(1+5\cos\theta, 1+4\sin\theta)$ ទៅជួសក្នុងសមីការស្តង់ដា៖</p>
+                    <p>$\frac{(1+5\cos\theta - 1)^2}{25} + \frac{(1+4\sin\theta - 1)^2}{16} = \frac{25\cos^2\theta}{25} + \frac{16\sin^2\theta}{16} = \cos^2\theta + \sin^2\theta = 1$ ពិតជានិច្ច $\forall \theta$ ។</p>
+                    <div class="formula-box">ដូចនេះ ចំណុច $M$ ស្ថិតនៅលើអេលីប $(E)$ ជានិច្ច។</div>
+
+                    <p><strong>គ) ស្រាយថាបន្ទាត់ប៉ះត្រង់ $M$ មាន $k = -\frac{4}{5}\cot\theta$៖</strong></p>
+                    <p>មេគុណប្រាប់ទិសបន្ទាត់ប៉ះគឺ $k = y'(x_M)$</p>
+                    <p>ធ្វើដេរីវេ $(E)$ ធៀបនឹង $x$: $32x + 50yy' - 32 - 50y' = 0$</p>
+                    <p>$y'(50y - 50) = 32 - 32x \Rightarrow y' = \frac{-32(x-1)}{50(y-1)} = -\frac{16(x-1)}{25(y-1)}$</p>
+                    <p>ត្រង់ $M$: $y' = -\frac{16(1+5\cos\theta - 1)}{25(1+4\sin\theta - 1)} = -\frac{16(5\cos\theta)}{25(4\sin\theta)} = -\frac{80\cos\theta}{100\sin\theta} = -\frac{4}{5}\cot\theta$</p>
+                    <div class="formula-box">ដូចនេះ បន្ទាត់ប៉ះត្រង់ $M$ មានមេគុណប្រាប់ទិស $k = -\frac{4}{5}\cot\theta$ ពិត។</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section VI -->
+        <section class="question-section" style="animation-delay: 0.6s;">
+            <h2>លំហាត់ VI (២៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>ក្នុងតម្រុយអរតូណរម៉ាល់មានទិសដៅវិជ្ជមាន $(O, \vec{i}, \vec{j}, \vec{k})$ គេឱ្យសមីការប្លង់ $(P): x + 2y + 2z - 4 = 0$ និងចំណុច $I(1, 2, 4)$ ។</p>
+                <div class="sub-question">
+                    <p>ក) កំណត់សមីការប៉ារ៉ាម៉ែត្រនៃបន្ទាត់ $(L)$ ដែលកាត់តាម $I$ ហើយកែងនឹង $(P)$ ត្រង់ $J$ ។ រกกូអរដោនេ $J$ ។</p>
+                    <p>ខ) កំណត់សមីការស៊្វែរ $(S)$ ដែលមានផ្ចិត $I$ ហើយប៉ះទៅនឹងប្លង់ $(P)$ ។</p>
+                    <p>គ) ប្លង់ $(P)$ កាត់អ័ក្ស $(ox), (oy), (oz)$ រៀងគ្នាត្រង់ $A, B, C$ ។ រกกូអរដោនេនៃចំណុច $A, B, C$ និង $\vec{n} = \vec{AB} \times \vec{AC}$ ។</p>
+                    <p>ឃ) គណនាក្រឡាផ្ទៃត្រីកោណ $ABC$ និងមាឌចតុមូល $IABC$ ។</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p><strong>ក) សមីការប៉ារ៉ាម៉ែត្រនៃ $(L)$ និងកូអរដោនេ $J$៖</strong></p>
+                    <p>បន្ទាត់ $(L) \perp (P)$ នាំឱ្យ $(L)$ មានវ៉ិចទ័រប្រាប់ទិស $\vec{u} = \vec{n}_P = (1, 2, 2)$</p>
+                    <p>បន្ទាត់ $(L)$ កាត់តាម $I(1, 2, 4)$ មានសមីការប៉ារ៉ាម៉ែត្រ៖</p>
+                    <div class="formula-box">$(L): \begin{cases} x = 1 + t \\ y = 2 + 2t \\ z = 4 + 2t \end{cases} \quad (t \in \mathbb{R})$</div>
+                    <p>រក $J = (L) \cap (P)$ ដោយជួសកូអរដោនេ $(L)$ ចូល $(P)$៖</p>
+                    <p>$(1+t) + 2(2+2t) + 2(4+2t) - 4 = 0 \Rightarrow 1+t+4+4t+8+4t-4 = 0 \Rightarrow 9t + 9 = 0 \Rightarrow t = -1$</p>
+                    <p>ជួស $t = -1$ ចូលសមីការ $(L)$ យើងបាន $x = 0, y = 0, z = 2$</p>
+                    <div class="formula-box">ដូចនេះ កូអរដោនេ $J(0, 0, 2)$</div>
+
+                    <p><strong>ខ) កំណត់សមីការស៊្វែរ $(S)$៖</strong></p>
+                    <p>ស៊្វែរ $(S)$ ប៉ះប្លង់ $(P)$ ត្រង់ $J$ នាំឱ្យកាំ $R = IJ$</p>
+                    <p>$R = \sqrt{(0-1)^2 + (0-2)^2 + (2-4)^2} = \sqrt{1 + 4 + 4} = 3$</p>
+                    <div class="formula-box">សមីការស៊្វែរ $(S): (x-1)^2 + (y-2)^2 + (z-4)^2 = 9$</div>
+
+                    <p><strong>គ) រกกូអរដោនេ $A, B, C$ និងគណនា $\vec{n}$៖</strong></p>
+                    <p>$(P) \cap (ox) \Rightarrow y=0, z=0 \Rightarrow x - 4 = 0 \Rightarrow A(4,0,0)$</p>
+                    <p>$(P) \cap (oy) \Rightarrow x=0, z=0 \Rightarrow 2y - 4 = 0 \Rightarrow B(0,2,0)$</p>
+                    <p>$(P) \cap (oz) \Rightarrow x=0, y=0 \Rightarrow 2z - 4 = 0 \Rightarrow C(0,0,2)$</p>
+                    <p>$\vec{AB} = (0-4, 2-0, 0-0) = (-4, 2, 0)$ និង $\vec{AC} = (0-4, 0-0, 2-0) = (-4, 0, 2)$</p>
+                    <p>$\vec{n} = \vec{AB} \times \vec{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ -4 & 2 & 0 \\ -4 & 0 & 2 \end{vmatrix} = (4-0)\vec{i} - (-8-0)\vec{j} + (0-(-8))\vec{k} = 4\vec{i} + 8\vec{j} + 8\vec{k}$</p>
+                    <div class="formula-box">ដូចនេះ $A(4,0,0), B(0,2,0), C(0,0,2)$ និង $\vec{n} = (4, 8, 8)$</div>
+
+                    <p><strong>ឃ) គណនាក្រឡាផ្ទៃ និងមាឌ៖</strong></p>
+                    <p>ក្រឡាផ្ទៃ $S_{ABC} = \frac{1}{2}|\vec{n}| = \frac{1}{2}\sqrt{4^2 + 8^2 + 8^2} = \frac{1}{2}\sqrt{16 + 64 + 64} = \frac{1}{2}\sqrt{144} = 6$ ឯកតាផ្ទៃ</p>
+                    <p>មាឌ $V_{IABC} = \frac{1}{6}|(\vec{AB} \times \vec{AC}) \cdot \vec{AI}|$</p>
+                    <p>ដោយ $\vec{AB} \times \vec{AC} = (4, 8, 8)$ និង $\vec{AI} = (1-4, 2-0, 4-0) = (-3, 2, 4)$</p>
+                    <p>នោះ $(\vec{AB} \times \vec{AC}) \cdot \vec{AI} = (4)(-3) + (8)(2) + (8)(4) = -12 + 16 + 32 = 36$</p>
+                    <p>នាំឱ្យ $V_{IABC} = \frac{1}{6} \times 36 = 6$</p>
+                    <div class="formula-box">ដូចនេះ $S_{ABC} = 6$ ឯកតាផ្ទៃ និង $V_{IABC} = 6$ ឯកតាមាឌ</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section VII -->
+        <section class="question-section" style="animation-delay: 0.7s; border-bottom: none;">
+            <h2>លំហាត់ VII (២៥ ពិន្ទុ)</h2>
+            <div class="question-content">
+                <p>$f$ ជាអនុគមន៍កំណត់ដោយ $f(x) = \frac{x}{2} - \ln\left(\frac{x-1}{x}\right)$ និងមានក្រាប $(C)$ ។</p>
+                <div class="sub-question">
+                    <p>ក) រកដែនកំណត់នៃ $f$ ។ គណនាលីមីតចុងដែនកំណត់ រួចទាញរកអាស៊ីមតូតនៃ $(C)$ ។</p>
+                    <p>ខ) បង្ហាញថាបន្ទាត់ $(d): y = \frac{x}{2}$ ជាអាស៊ីមតូតទ្រេតនៃក្រាប $(C)$ ។</p>
+                    <p>គ) គណនា $f'(x)$ សង់តារាងអថេរភាពនៃ $f$ ។</p>
+                    <p>ឃ) សង់ក្រាប $(C)$ និងអាស៊ីមតូតរបស់វាក្នុងតម្រុយតែមួយ។ (គេឱ្យ $\ln 2 = 0.7$)</p>
+                </div>
+            </div>
+
+            <button class="toggle-btn" onclick="toggleSolution(this)"><i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ</button>
+            <div class="solution-content" style="display: none;">
+                <h3 class="solution-title"><i class="fas fa-check-circle"></i> ដំណោះស្រាយ</h3>
+                <div class="solution-body">
+                    <p><strong>ក) រកដែនកំណត់ លីមីត និងអាស៊ីមតូត៖</strong></p>
+                    <p>អនុគមន៍មានន័យកាលណា $\frac{x-1}{x} > 0 \Rightarrow x \in (-\infty, 0) \cup (1, +\infty)$</p>
+                    <div class="formula-box">ដែនកំណត់ $D_f = (-\infty, 0) \cup (1, +\infty)$</div>
+                    <p>លីមីត៖</p>
+                    <p>$\lim_{x \to \pm\infty} f(x) = \lim_{x \to \pm\infty} \left[\frac{x}{2} - \ln\left(\frac{x-1}{x}\right)\right] = \pm\infty$ [$\because \lim_{x \to \pm\infty} \ln\left(\frac{x-1}{x}\right) = \ln 1 = 0$]</p>
+                    <p>$\lim_{x \to 0^-} f(x) = 0 - (+\infty) = -\infty$ [$\because \lim_{x \to 0^-} \ln\left(\frac{x-1}{x}\right) = \ln(\frac{-1}{0^-}) = \ln(+\infty) = +\infty$]</p>
+                    <p>$\lim_{x \to 1^+} f(x) = \frac{1}{2} - (-\infty) = +\infty$ [$\because \lim_{x \to 1^+} \ln\left(\frac{x-1}{x}\right) = \ln(\frac{0^+}{1}) = \ln 0^+ = -\infty$]</p>
+                    <div class="formula-box">តាមរយៈលីមីតខាងលើ បន្ទាត់ $x=0$ និង $x=1$ ជាអាស៊ីមតូតឈរ។</div>
+
+                    <p><strong>ខ) បង្ហាញថា $(d): y = \frac{x}{2}$ ជាអាស៊ីមតូតទ្រេត៖</strong></p>
+                    <p>ពិនិត្យ $\lim_{x \to \pm\infty} [y_C - y_d] = \lim_{x \to \pm\infty} \left[ -\ln\left(\frac{x-1}{x}\right) \right] = 0$ [$\because$ គណនាដូចខាងលើ]</p>
+                    <div class="formula-box">ដូចនេះ បន្ទាត់ $(d): y = \frac{x}{2}$ ជាអាស៊ីមតូតទ្រេតនៃ $(C)$ នៅ $\pm\infty$។</div>
+
+                    <p><strong>គ) គណនា $f'(x)$ និងសង់តារាងអថេរភាព៖</strong></p>
+                    <p>$f'(x) = [\frac{x}{2} - \ln\left(\frac{x-1}{x}\right)]' = \frac{1}{2} - \frac{(\frac{x-1}{x})'}{\frac{x-1}{x}} = \frac{1}{2} - \frac{x}{x-1} \cdot \frac{x-(x-1)}{x^2} = \frac{1}{2} - \frac{1}{x(x-1)}$</p>
+                    <p>$= \frac{x(x-1)-2}{2x(x-1)} = \frac{x^2 - x - 2}{2x(x-1)}$</p>
+                    <p>ដោយ $2x(x-1) > 0$ ចំពោះគ្រប់ $x \in D_f$ នាំឱ្យ $f'(x)$ មានសញ្ញាដូចភាគយក $x^2 - x - 2$</p>
+                    <p>យក $f'(x) = 0 \Rightarrow x^2 - x - 2 = 0 \Rightarrow x_1 = -1, x_2 = 2$ [$\because a-b+c=0$]</p>
+                    <p>ដោយ $f'(x)$ ប្តូរសញ្ញាត្រង់ $x=-1$ និង $x=2$ យើងបានតម្លៃបរមាធៀបនៃ $f$ ដូចខាងក្រោម៖</p>
+                    <p>$f(-1) = -\frac{1}{2} - \ln 2 \approx -0.5 - 0.7 = -1.2$</p>
+                    <p>$f(2) = 1 - \ln \frac{1}{2} = 1 + \ln 2 \approx 1 + 0.7 = 1.7$</p>
+                    <p>តារាងអថេរភាព $f$៖</p>
+                    <div style="margin: 20px 0; overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; text-align: center; border: 1px solid #cbd5e1;">
+                          <tr style="background: #f1f5f9;">
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$x$</th>
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$-\infty$</th>
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$-1$</th>
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$0$</th>
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$1$</th>
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$2$</th>
+                            <th style="border: 1px solid #cbd5e1; padding: 10px;">$+\infty$</th>
+                          </tr>
+                          <tr>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$f'(x)$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$+$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$0$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$-$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$-$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$0$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$+$</td>
+                          </tr>
+                          <tr>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$f(x)$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$-\infty \nearrow$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$-1.2$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$\searrow -\infty$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$+\infty \searrow$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$1.7$</td>
+                            <td style="border: 1px solid #cbd5e1; padding: 10px;">$\nearrow +\infty$</td>
+                          </tr>
+                        </table>
+                    </div>
+
+                    <p><strong>ឃ) សង់ក្រាប $(C)$៖</strong></p>
+                    <div style="text-align: center; margin: 30px 0;">
+                        <svg viewBox="-100 -100 600 600" width="100%" style="max-width: 500px; background: white; font-family: serif;">
+                            <defs>
+                                <style>
+                                    .grid-line { stroke: #ccc; stroke-width: 0.5; stroke-dasharray: 2, 2; }
+                                    .axis-line { stroke: black; stroke-width: 1; fill: black; }
+                                    .graph-path { stroke: black; stroke-width: 1.5; fill: none; }
+                                    .graph-asymptote { stroke: #333; stroke-width: 1.2; stroke-dasharray: 4,4; fill: none; }
+                                    .graph-label { font-size: 14px; font-style: italic; }
+                                    .math-text { font-size: 13px; }
+                                </style>
+                            </defs>
+                            <g class="grid-line">
+                                <line x1="-50" y1="0" x2="450" y2="0" />
+                                <line x1="-50" y1="50" x2="450" y2="50" />
+                                <line x1="-50" y1="100" x2="450" y2="100" />
+                                <line x1="-50" y1="150" x2="450" y2="150" />
+                                <line x1="-50" y1="200" x2="450" y2="200" />
+                                <line x1="-50" y1="250" x2="450" y2="250" />
+                                <line x1="-50" y1="300" x2="450" y2="300" />
+                                <line x1="-50" y1="350" x2="450" y2="350" />
+                                <line x1="-50" y1="400" x2="450" y2="400" />
+                                <line x1="-50" y1="450" x2="450" y2="450" />
+
+                                <line x1="0" y1="-50" x2="0" y2="450" />
+                                <line x1="50" y1="-50" x2="50" y2="450" />
+                                <line x1="100" y1="-50" x2="100" y2="450" />
+                                <line x1="150" y1="-50" x2="150" y2="450" />
+                                <line x1="200" y1="-50" x2="200" y2="450" />
+                                <line x1="250" y1="-50" x2="250" y2="450" />
+                                <line x1="300" y1="-50" x2="300" y2="450" />
+                                <line x1="350" y1="-50" x2="350" y2="450" />
+                                <line x1="400" y1="-50" x2="400" y2="450" />
+                            </g>
+                            
+                            <!-- Axes -->
+                            <!-- Origin at 200, 200 (scale 50px = 1 unit) -->
+                            <g class="axis-line">
+                                <line x1="-50" y1="200" x2="450" y2="200" />
+                                <polygon points="450,200 442,196 442,204" />
+                                <line x1="200" y1="450" x2="200" y2="-50" />
+                                <polygon points="200,-50 196,-42 204,-42" />
+                            </g>
+                            
+                            <text x="460" y="205" class="graph-label">x</text>
+                            <text x="185" y="-60" class="graph-label">y</text>
+                            <text x="185" y="215" class="graph-label">0</text>
+                            <text x="245" y="215" class="graph-label">1</text>
+                            <text x="295" y="215" class="graph-label">2</text>
+                            
+                            <!-- Asymptote x = 0 is the Y-axis -->
+                            <!-- Asymptote x = 1 -->
+                            <line x1="250" y1="-50" x2="250" y2="450" class="graph-asymptote" />
+                            
+                            <!-- Asymptote y = x/2 -->
+                            <line x1="0" y1="250" x2="400" y2="150" class="graph-asymptote" />
+                            <text x="350" y="140" class="math-text">y = x/2</text>
+
+                            <!-- Branch 1: x in (-infty, 0) -->
+                            <path class="graph-path" d="M 0,255 Q 100,225 150,260 T 195,450" />
+                            
+                            <!-- Branch 2: x in (1, +infty) -->
+                            <path class="graph-path" d="M 255,-50 Q 260,115 300,115 T 450,135" />
+                            
+                            <!-- Extrema -->
+                            <circle cx="150" cy="260" r="3" fill="black" />
+                            <text x="100" y="275" class="math-text">(-1, -1.2)</text>
+                            <circle cx="300" cy="115" r="3" fill="black" />
+                            <text x="310" y="110" class="math-text">(2, 1.7)</text>
+                        </svg>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">ក្រាបនៃអនុគមន៍ $f(x)$</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="nav-footer">
+            <a href="../../../..//" class="back-btn">
+                <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅទំព័រដើម
+            </a>
+            
+        </footer>
+    </div>
+
+    <script>
+        function toggleSolution(btn) {
+            const content = btn.nextElementSibling;
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ដំណោះស្រាយ';
+            } else {
+                content.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ';
+            }
+        }
+    </script>
+<script src="http://localhost:8000/assets/main.js"></script>
+<script>StudyNest.authGuard(); StudyNest.checkAccess(6);</script>
+</body>
+</html>

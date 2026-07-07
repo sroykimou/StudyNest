@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៥១–៦០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr; /* Explicit columns to fix text wrapping under icon */
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-top: 16px;
+        margin-bottom: 8px;
+        font-size: 1rem;
+        border-bottom: 2px solid #eff6ff;
+        padding-bottom: 6px;
+      }
+      .sol-title:first-child {
+        margin-top: 0;
+      }
+      .sol-step {
+        margin-bottom: 12px;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 4px;
+      }
+      .sol-math {
+        background: #f8fafc;
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: 1px solid #f1f5f9;
+        margin: 6px 0;
+        overflow-x: auto;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+      .sol-block ul {
+        margin-left: 20px;
+        margin-bottom: 10px;
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៥១–៦០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 51 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">51</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥១</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ពីរដាក់ស្របគ្នាមានប្រវែង
+          <span class="given">\( 2\text{ m}\)</span> ដូចគ្នា ហើយស្ថិតនៅចម្ងាយ
+          <span class="given">\( 3\text{ mm}\)</span>
+          ឆ្លងកាត់ដោយចរន្តមានទិសដៅផ្ទុយគ្នាដែល
+          <span class="given">\(I_1 = I_2 = 8\text{ A}\)</span>។
+          <div class="ex-find">
+            <span>គណនាកម្លាំងច្រានគ្នា រវាងខ្សែចម្លងទាំងពីរ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្លាំងច្រានគ្នារវាងខ្សែចម្លងទាំងពីរ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តកម្លាំងអន្តរកម្មម៉ាញេទិចរវាងខ្សែចម្លងស្របគ្នាពីរ៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2 \cdot l}{d}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I_1 = I_2 = 8\text{ A}\)</li>
+                  <li>\(l = 2\text{ m}\)</li>
+                  <li>\(d = 3\text{ mm} = 3 \times 10^{-3}\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{8 \cdot 8 \cdot 2}{3 \times 10^{-3}} = \frac{256}{3} \times 10^{-4}\text{ N} \approx 8.53 \times 10^{-3}\text{ N} = 8.53\text{ mN}\)
+                </div>
+                <div class="sol-label">ពន្យល់ពីទិសដៅ៖</div>
+                <div class="sol-math">
+                  ដោយសារចរន្តអគ្គិសនីឆ្លងកាត់ខ្សែចម្លងទាំងពីរមានទិសដៅផ្ទុយគ្នា នាំឱ្យកម្លាំងម៉ាញេទិចរវាងខ្សែទាំងពីរជា <strong>កម្លាំងច្រានគ្នា</strong>។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងច្រានគ្នារវាងខ្សែទាំងពីរគឺ \(F \approx 8.53\text{ mN}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 52 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">52</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥២</div>
+        </div>
+        <div class="ex-body">
+          គេមានខ្សែចម្លងពីរស្របគ្នាដែលឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\( 8\text{ A}\)</span> និង
+          <span class="given">\( 16\text{ A}\)</span> លើកំណាត់ខ្សែប្រវែង
+          <span class="given">\( 4\text{ m}\)</span> និងរងនូវកម្លាំង
+          <span class="given">\( 0.8\text{ N}\)</span>។
+          <div class="ex-find">
+            <span>គណនាចម្ងាយរវាងខ្សែចម្លងទាំងពីរ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចម្ងាយរវាងខ្សែចម្លងទាំងពីរ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តកម្លាំងអន្តរកម្មម៉ាញេទិច៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2 \cdot l}{d} \implies d = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2 \cdot l}{F}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I_1 = 8\text{ A}\)</li>
+                  <li>\(I_2 = 16\text{ A}\)</li>
+                  <li>\(l = 4\text{ m}\)</li>
+                  <li>\(F = 0.8\text{ N}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(d = 2 \times 10^{-7} \cdot \frac{8 \cdot 16 \cdot 4}{0.8} = 2 \times 10^{-7} \cdot 640 = 1.28 \times 10^{-4}\text{ m} = 0.128\text{ mm}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ចម្ងាយរវាងខ្សែចម្លងទាំងពីរគឺ \(d = 0.128\text{ mm}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 53 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">53</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៣</div>
+        </div>
+        <div class="ex-body">
+          គណនាកម្លាំងក្នុងមួយខ្នាតប្រវែង ចំពោះខ្សែចម្លងពីរដាក់ស្របគ្នា
+          ហើយឆ្លងកាត់ដោយចរន្តដូចរូប។
+          <img
+            src="images/image-2.png"
+            alt="ដ្យាក្រាមខ្សែចម្លង"
+            class="system-diagram"
+          />
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្លាំងក្នុងមួយខ្នាតប្រវែង \(\frac{F}{l}\)</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តកម្លាំងក្នុងមួយឯកតាប្រវែង៖</div>
+                <div class="sol-math">
+                  \(\frac{F}{l} = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2}{a}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបដ្យាក្រាមយើងមាន៖</div>
+                <ul>
+                  <li>\(I_1 = 25\text{ A}\) (ទិសដៅឡើងលើ)</li>
+                  <li>\(I_2 = 25\text{ A}\) (ទិសដៅចុះក្រោម)</li>
+                  <li>ចម្ងាយរវាងខ្សែទាំងពីរ \(a = 25\text{ cm} = 0.25\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(\frac{F}{l} = 2 \times 10^{-7} \cdot \frac{25 \cdot 25}{0.25} = 2 \times 10^{-7} \cdot 2500 = 5 \times 10^{-4}\text{ N/m}\)
+                </div>
+                <div class="sol-label">ពន្យល់លក្ខណៈកម្លាំង៖</div>
+                <div class="sol-math">
+                  ដោយសារចរន្តអគ្គិសនីមានទិសដៅផ្ទុយគ្នា នាំឱ្យកម្លាំងក្នុងមួយឯកតាប្រវែងរវាងខ្សែទាំងពីរជា <strong>កម្លាំងច្រានចេញពីគ្នា</strong>។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងក្នុងមួយឯកតាប្រវែងគឺ \(\frac{F}{l} = 5 \times 10^{-4}\text{ N/m}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 54 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">54</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៤</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ពីរ មានប្រវែងស្មើគ្នា ដាក់ស្របគ្នា \(l_1\) និង \(l_2\)
+          ស្ថិតនៅចម្ងាយពីគ្នា <span class="given">\( 20\text{ cm}\)</span>។
+          ខ្សែចម្លងទាំងពីរឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសផ្ទុយគ្នា
+          និងមានតម្លៃរៀងគ្នាគឺ <span class="given">\( 5\text{ A}\)</span> និង
+          <span class="given">\( 10\text{ A}\)</span>។ គេឱ្យ
+          <span class="given"
+            >\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</span
+          >
+          , <span class="given">\(l = l_1 = l_2 = 20\text{ cm}\)</span>។<br />
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(O\)​ ដែលស្ថិតចម្ងាយ
+              <span class="given">\(5\text{ cm}\)</span> ពី \(l_1\) លើអង្កត់ភ្ជាប់ខ្សែទាំងពីរ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង និងគំនូសបំព្រួញ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2 \cdot l}{d}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I_1 = 5\text{ A}\) , \(I_2 = 10\text{ A}\)</li>
+                  <li>\(l = 20\text{ cm} = 0.2\text{ m}\)</li>
+                  <li>ចម្ងាយរវាងខ្សែ \(d = 20\text{ cm} = 0.2\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{5 \cdot 10 \cdot 0.2}{0.2} = 10^{-5}\text{ N}\)
+                </div>
+                <div class="sol-label">គំនូសបំព្រួញ និងលក្ខណៈកម្លាំង៖</div>
+                <div class="sol-math">
+                  ដោយសារចរន្តអគ្គិសនីមានទិសដៅផ្ទុយគ្នា នាំឱ្យខ្សែនីមួយៗរងកម្លាំងម៉ាញេទិចជា <strong>កម្លាំងច្រានគ្នា</strong> (វ៉ិចទ័រកម្លាំង \(\vec{F}_{12}\) និង \(\vec{F}_{21}\) មានទិសផ្ទុយគ្នា បែរចេញពីខ្សែទាំងពីរ)។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងម៉ាញេទិចដែលខ្សែនីមួយៗរងគឺ \(F = 10^{-5}\text{ N}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនាតម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(O\) ដែលស្ថិតចម្ងាយ \(5\text{ cm}\) ពី \(l_1\) លើអង្កត់ភ្ជាប់</div>
+              <div class="sol-step">
+                <div class="sol-label">ពន្យល់៖</div>
+                <ul>
+                  <li>ចំណុច \(O\) ស្ថិតនៅលើអង្កត់ភ្ជាប់ចន្លោះខ្សែទាំងពីរ នាំឱ្យចម្ងាយពី \(O\) ទៅ \(l_1\) គឺ \(d_1 = 5\text{ cm} = 0.05\text{ m}\)។</li>
+                  <li>នាំឱ្យចម្ងាយពី \(O\) ទៅ \(l_2\) គឺ \(d_2 = d - d_1 = 20 - 5 = 15\text{ cm} = 0.15\text{ m}\)។</li>
+                  <li>ដោយចរន្តទាំងពីរផ្ទុយគ្នា នោះដែនម៉ាញេទិច \(\vec{B}_1\) និង \(\vec{B}_2\) ត្រង់ \(O\) បង្កើតដោយខ្សែទាំងពីរមានទិសដៅដូចគ្នា នាំឱ្យ៖
+                    <div class="sol-math">
+                      \(B_O = B_1 + B_2\)
+                    </div>
+                  </li>
+                </ul>
+                <div class="sol-label">គណនាដែនម៉ាញេទិចនីមួយៗ៖</div>
+                <div class="sol-math">
+                  \(B_1 = 2 \times 10^{-7} \cdot \frac{I_1}{d_1} = 2 \times 10^{-7} \cdot \frac{5}{0.05} = 2 \times 10^{-5}\text{ T}\)
+                </div>
+                <div class="sol-math">
+                  \(B_2 = 2 \times 10^{-7} \cdot \frac{I_2}{d_2} = 2 \times 10^{-7} \cdot \frac{10}{0.15} \approx 1.33 \times 10^{-5}\text{ T}\)
+                </div>
+                <div class="sol-label">គណនាដែនផ្គួប៖</div>
+                <div class="sol-math">
+                  \(B_O = 2 \times 10^{-5} + 1.33 \times 10^{-5} = 3.33 \times 10^{-5}\text{ T}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ តម្លៃដែនម៉ាញេទិចផ្គួបត្រង់ \(O\) គឺ \(B_O \approx 3.33 \times 10^{-5}\text{ T}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 55 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">55</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៥</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងពីរមានប្រវែង
+          <span class="given">\( 1.15\text{ m}\)</span>
+          ត្រូវបានពន្លិចចូលទៅក្នុងអាងប្រេងមួយដោយធ្វើយ៉ាងណាឱ្យខ្សែចម្លងទាំងពីរស្របគ្នាហើយស្ថិតនៅចម្ងាយពីគ្នា
+          <span class="given">\(2.3\text{ cm}\)</span>
+          ខ្សែចម្លងទាំងពីរត្រូវបានឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានអាំងតង់ស៊ីតេស្មើគ្នា
+          <span class="given">\( 225\text{ A}\)</span>
+          ដែលបង្កើតឱ្យមានកម្លាំងទាញរវាងគ្នាដែលមានអាំងតង់ស៊ីតេ
+          <span class="given">\( 0.51\text{ N}\)</span>។ គេឱ្យ
+          <span class="given"
+            >\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</span
+          >។
+          <div class="ex-find">
+            <span>គណនាជ្រាបម៉ាញេទិចធៀប របស់ប្រេង។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាជ្រាបម៉ាញេទិចធៀបរបស់ប្រេង \(\mu_r\)</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តកម្លាំងម៉ាញេទិចក្នុងមជ្ឈដ្ឋានដែលមានជ្រាបម៉ាញេទិចធៀប \(\mu_r\)៖</div>
+                <div class="sol-math">
+                  \(F = \mu_r \cdot \left(2 \times 10^{-7} \cdot \frac{I^2 \cdot l}{d}\right) \implies \mu_r = \frac{F \cdot d}{2 \times 10^{-7} \cdot I^2 \cdot l}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(F = 0.51\text{ N}\)</li>
+                  <li>\(d = 2.3\text{ cm} = 2.3 \times 10^{-2}\text{ m}\)</li>
+                  <li>\(I = 225\text{ A}\)</li>
+                  <li>\(l = 1.15\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(\mu_r = \frac{0.51 \cdot (2.3 \times 10^{-2})}{2 \times 10^{-7} \cdot 225^2 \cdot 1.15}\)
+                </div>
+                <div class="sol-math">
+                  \(\mu_r = \frac{0.01173}{2 \times 10^{-7} \cdot 50625 \cdot 1.15} = \frac{0.01173}{1.164375 \times 10^{-2}} \approx 1.007 \approx 1.01\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ជ្រាបម៉ាញេទិចធៀបរបស់ប្រេងគឺ \(\mu_r \approx 1.01\) (ឬ \(\mu_r \approx 1\))
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 56 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">56</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៦​ (2018)</div>
+        </div>
+        <div class="ex-body">
+          <img
+            src="images/image-3.png"
+            alt="ដ្យាក្រាមខ្សែចម្លង"
+            class="system-diagram"
+          />
+          ខ្សែចម្លងវែងពីរស្របគ្នានៅចម្ងាយ
+          <span class="given">\( 10\text{ cm}\)</span> ពីគ្នា
+          ហើយឆ្លងកាត់ដោយចរន្ត <span class="given">\( 6\text{ A}\)</span> និង
+          <span class="given">\( 4\text{ A}\)</span>។ ជ្រាបម៉ាញេទិចនៃខ្យល់
+          ឬសុញ្ញាកាស
+          <span class="given"
+            >\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</span
+          >។ គណនាវ៉ិចទ័រកម្លាំងដែលមានអំពើលើខ្សែចម្លង \(D\) ប្រវែង
+          <span class="given">\( 1\text{ m}\)</span> (ដូចរូប) ប្រសិនបើ៖<br />
+
+          <div class="ex-find">
+            <span>ក. ចរន្តឆ្លងកាត់ខ្សែចម្លងមានទិសដៅស្របគ្នា។</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. ចរន្តឆ្លងកាត់ខ្សែចម្លងមានទិសដៅផ្ទុយគ្នា។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. ចរន្តឆ្លងកាត់ខ្សែចម្លងមានទិសដៅស្របគ្នា</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តកម្លាំងម៉ាញេទិច៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I_C \cdot I_D \cdot l}{d}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I_C = 6\text{ A}\) , \(I_D = 4\text{ A}\)</li>
+                  <li>\(l = 1\text{ m}\)</li>
+                  <li>ចម្ងាយរវាងខ្សែ \(d = 10\text{ cm} = 0.1\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{6 \cdot 4 \cdot 1}{0.1} = 4.8 \times 10^{-5}\text{ N}\)
+                </div>
+                <div class="sol-label">លក្ខណៈវ៉ិចទ័រកម្លាំង \(\vec{F}\) លើខ្សែ \(D\)៖</div>
+                <ul>
+                  <li><strong>ចំណុចចាប់៖</strong> លើខ្សែចម្លង \(D\)</li>
+                  <li><strong>ទិស៖</strong> ស្របនឹងប្លង់កាត់កែងនឹងខ្សែទាំងពីរ (កាត់ខ្សែទាំងពីរ)</li>
+                  <li><strong>ទិសដៅ៖</strong> បែរឆ្ពោះទៅរកខ្សែ \(C\) (ព្រោះចរន្តស្របគ្នា កម្លាំងជាកម្លាំងឆក់គ្នា)</li>
+                  <li><strong>តម្លៃ៖</strong> \(F = 4.8 \times 10^{-5}\text{ N}\)</li>
+                </ul>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងម៉ាញេទិចរងដោយខ្សែ D គឺ \(F = 4.8 \times 10^{-5}\text{ N}\) (ជាកម្លាំងឆក់ទាញរកគ្នា)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. ចរន្តឆ្លងកាត់ខ្សែចម្លងមានទិសដៅផ្ទុយគ្នា</div>
+              <div class="sol-step">
+                <div class="sol-label">លក្ខណៈកម្លាំង និងតម្លៃ៖</div>
+                <ul>
+                  <li>តម្លៃកម្លាំងគឺស្មើនឹងករណី ក ដែរ គឺ៖ \(F = 4.8 \times 10^{-5}\text{ N}\)</li>
+                  <li><strong>ទិសដៅ៖</strong> បែរចេញផ្ទុយពីខ្សែ \(C\) (ព្រោះចរន្តផ្ទុយគ្នា កម្លាំងជាកម្លាំងច្រានគ្នា)</li>
+                </ul>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងម៉ាញេទិចរងដោយខ្សែ D គឺ \(F = 4.8 \times 10^{-5}\text{ N}\) (ជាកម្លាំងច្រានគ្នា)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 57 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">57</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៧</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងពីរមានប្រវែងស្មើគ្នា
+          និងឆ្លងកាត់ដោយចរន្តដែលមានអាំងតង់ស៊ីតេ
+          <span class="given">\( 20\text{ A}\)</span> ដូចគ្នា
+          និងមានទិសដៅដូចគ្នាស្ថិតនៅចម្ងាយ
+          <span class="given">\( 10\text{ cm}\)</span> ពីគ្នា
+          ហើយវារងនូវកម្លាំងអេឡិចត្រូម៉ាញេទិច
+          <span class="given">\( 4 \times 10^{-4}\text{ N}\)</span>។
+
+          <div class="ex-find">
+            <span>ក. តើកម្លាំងនេះជាកម្លាំងច្រានចេញ ឬទាញចូល?</span>
+          </div>
+          <div class="ex-find"><span>ខ. គណនាប្រវែងខ្សែចម្លងនីមួយៗ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. តើកម្លាំងនេះជាកម្លាំងច្រានចេញ ឬទាញចូល?</div>
+              <div class="sol-step">
+                <div class="sol-label">ពន្យល់៖</div>
+                <div class="sol-math">
+                  ដោយសារតែចរន្តអគ្គិសនីរត់ឆ្លងកាត់ខ្សែចម្លងទាំងពីរមាន <strong>ទិសដៅដូចគ្នា</strong> នាំឱ្យកម្លាំងអេឡិចត្រូម៉ាញេទិចដែលកើតមានរវាងគ្នាជា <strong>កម្លាំងទាញចូលគ្នា (ឆក់គ្នា)</strong>។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងនេះជាកម្លាំងទាញចូលគ្នា (ឆក់គ្នា)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនាប្រវែងខ្សែចម្លងនីមួយៗ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I^2 \cdot l}{d} \implies l = \frac{F \cdot d}{2 \times 10^{-7} \cdot I^2}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I = 20\text{ A}\)</li>
+                  <li>\(d = 10\text{ cm} = 0.1\text{ m}\)</li>
+                  <li>\(F = 4 \times 10^{-4}\text{ N}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(l = \frac{(4 \times 10^{-4}) \cdot 0.1}{2 \times 10^{-7} \cdot 20^2} = \frac{4 \times 10^{-5}}{2 \times 10^{-7} \cdot 400} = \frac{4 \times 10^{-5}}{8 \times 10^{-5}} = 0.5\text{ m} = 50\text{ cm}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ប្រវែងខ្សែចម្លងនីមួយៗគឺ \(l = 0.5\text{ m} = 50\text{ cm}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 58 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">58</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៨</div>
+        </div>
+        <div class="ex-body">
+          <img
+            src="images/image-4.png"
+            alt="ខ្សែចម្លងត្រង់"
+            class="system-diagram"
+          />
+          ខ្សែចម្លងពីរមានប្រវែងស្មើគ្នា \(l_1 = l_2\) នៅនឹងស្របគ្នា
+          ហើយស្ថិតនៅចម្ងាយ
+          <span class="given">\( 0.6\text{ m}\)</span>
+          ឆ្លងកាត់ដោយចរន្តដែលមានទិសដៅដូចរូប (
+          <span class="given">\(I_1 = 6\text{ A}\)</span> ,
+          <span class="given">\(I_2 = 9\text{ A}\)</span> )។
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាអាំងឌុចស្យុងម៉ាញេទិចផ្គួប ត្រង់ចំណុច \(O\) (\(O_1O = O_2O
+              = d/2\)) ដែលបង្កើតដោយ \(l_1\) និង \(l_2\)
+              ព្រមទាំងគូសរូបបញ្ជាក់។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. ត្រង់ចំណុច \(O\) គេដាក់ខ្សែចម្លងត្រង់ដែលមានប្រវែង \(l =
+              2\text{ m}\) ស្របនឹងខ្សែ \(l_1\) និង \(l_2\)
+              និងឆ្លងកាត់ដោយចរន្តដែលមានអាំងតង់ស៊ីតេ \(I = 10\text{ A}\)
+              ដែលមានទិសដៅដូចរូប។ ខ្សែចម្លងអាចចល័តបាន។ គណនាកម្លាំងផ្គួបដែលចរន្ត
+              \(I_1\) និង \(I_2\) 有អំពើលើខ្សែ \(l\)
+              ព្រមទាំងគូសរូបបញ្ជាក់។</span>
+          </div>
+          <div class="ex-find">
+            <span>គ. តាមករណីនេះតើវាកម្រើកទៅខាងណា?</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាអាំងឌុចស្យុងម៉ាញេទិចផ្គួបត្រង់ចំណុច \(O\)</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តដែនម៉ាញេទិចបង្កើតដោយខ្សែចម្លងត្រង់វែង៖</div>
+                <div class="sol-math">
+                  \(B = 2 \times 10^{-7} \cdot \frac{I}{r}\)
+                </div>
+                <div class="sol-label">ចម្ងាយពី \(O_1\) និង \(O_2\) ទៅចំណុចផ្ចិត \(O\) គឺ៖</div>
+                <div class="sol-math">
+                  \(r = \frac{d}{2} = \frac{0.6\text{ m}}{2} = 0.3\text{ m}\)
+                </div>
+                <div class="sol-label">ដែនបង្កដោយ \(I_1\) និង \(I_2\) ត្រង់ \(O\)៖</div>
+                <ul>
+                  <li>តាមវិធានដៃស្តាំ ដែនម៉ាញេទិច \(\vec{B}_1\) (ចរន្តចុះក្រោម) ត្រង់ \(O\) មានទិសដៅកែងចង្អុលចេញពីប្លង់ក្រដាស (\(\odot\))។
+                    <div class="sol-math">
+                      \(B_1 = 2 \times 10^{-7} \cdot \frac{6}{0.3} = 4 \times 10^{-6}\text{ T}\)
+                    </div>
+                  </li>
+                  <li>តាមវិធានដៃស្តាំ ដែនម៉ាញេទិច \(\vec{B}_2\) (ចរន្តឡើងលើ) ត្រង់ \(O\) មានទិសដៅកែងចង្អុលចេញពីប្លង់ក្រដាសដែរ (\(\odot\))។
+                    <div class="sol-math">
+                      \(B_2 = 2 \times 10^{-7} \cdot \frac{9}{0.3} = 6 \times 10^{-6}\text{ T}\)
+                    </div>
+                  </li>
+                </ul>
+                <div class="sol-label">គណនាដែនផ្គួប \(\vec{B}_O = \vec{B}_1 + \vec{B}_2\)៖</div>
+                <div class="sol-math">
+                  \(B_O = B_1 + B_2 = 4 \times 10^{-6} + 6 \times 10^{-6} = 10 \times 10^{-6}\text{ T} = 10^{-5}\text{ T}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ដែនម៉ាញេទិចផ្គួបត្រង់ \(O\) គឺ \(B_O = 10^{-5}\text{ T}\) (មានទិសកែងចង្អុលចេញក្រៅប្លង់)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនាកម្លាំងផ្គួបដែលចរន្ត \(I_1\) និង \(I_2\) មានអំពើលើខ្សែ \(l\)</div>
+              <div class="sol-step">
+                <div class="sol-label">វិធីទី ១៖ គណនាតាមរូបមន្តកម្លាំងឡាប្លាស៖</div>
+                <div class="sol-math">
+                  \(F_O = I \cdot l \cdot B_O \sin\theta\)
+                </div>
+                <div class="sol-label">ដោយសារខ្សែស្របគ្នា នោះ \(\theta = 90^\circ \implies \sin 90^\circ = 1\)៖</div>
+                <div class="sol-math">
+                  \(F_O = 10\text{ A} \cdot 2\text{ m} \cdot 10^{-5}\text{ T} \cdot 1 = 2 \times 10^{-4}\text{ N}\)
+                </div>
+                <div class="sol-label">វិធីទី ២៖ គណនាតាមកម្លាំងអន្តរកម្ម៖</div>
+                <ul>
+                  <li>កម្លាំងទាញ \(\vec{F}_1\) រវាងខ្សែ \(l_1\) (ចុះក្រោម) និង \(l\) (ចុះក្រោម) មានទិសដៅបែរទៅឆ្វេង (ស្របគ្នា ឆក់គ្នា)៖
+                    <div class="sol-math">
+                      \(F_1 = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I \cdot l}{d/2} = 2 \times 10^{-7} \cdot \frac{6 \cdot 10 \cdot 2}{0.3} = 8 \times 10^{-5}\text{ N}\)
+                    </div>
+                  </li>
+                  <li>កម្លាំងច្រាន \(\vec{F}_2\) រវាងខ្សែ \(l_2\) (ឡើងលើ) និង \(l\) (ចុះក្រោម) មានទិសដៅបែរទៅឆ្វេងដែរ (ផ្ទុយគ្នា ច្រានគ្នា)៖
+                    <div class="sol-math">
+                      \(F_2 = 2 \times 10^{-7} \cdot \frac{I_2 \cdot I \cdot l}{d/2} = 2 \times 10^{-7} \cdot \frac{9 \cdot 10 \cdot 2}{0.3} = 1.2 \times 10^{-4}\text{ N}\)
+                    </div>
+                  </li>
+                </ul>
+                <div class="sol-label">គណនាកម្លាំងផ្គួប \(F_O = F_1 + F_2\)៖</div>
+                <div class="sol-math">
+                  \(F_O = 8 \times 10^{-5}\text{ N} + 12 \times 10^{-5}\text{ N} = 2 \times 10^{-4}\text{ N}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងម៉ាញេទិចផ្គួបមានតម្លៃគឺ \(F_O = 2 \times 10^{-4}\text{ N}\)
+                </div>
+              </div>
+
+              <div class="sol-title">គ. តាមករណីនេះតើវាកម្រើកទៅខាងណា?</div>
+              <div class="sol-step">
+                <div class="sol-label">ពន្យល់៖</div>
+                <div class="sol-math">
+                  ដោយសារកម្លាំងផ្គួប \(\vec{F}_O\) មានទិសដៅបែរទៅខាងឆ្វេង (កម្លាំងទាំងពីរ \(F_1\) និង \(F_2\) នាំខ្សែ \(l\) ទៅឆ្វេងដូចគ្នា) ដូចនេះ <strong>ខ្សែចម្លង \(l\) នឹងកម្រើក (រំកិល) ទៅខាងឆ្វេង</strong> (បែររកខ្សែ \(l_1\))។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ខ្សែចម្លង \(l\) នឹងកម្រើកទៅខាងឆ្វេង
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 59 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">59</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៥៩</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នា
+          <span class="given">\(l_1 = l_2 = 4\text{ m}\)</span> ស្របគ្នា \(O_1\)
+          និង \(O_2\) ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\( 16\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅដូចគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 2\text{ A}\)</span> និង
+          <span class="given">\( 6\text{ A}\)</span>។ គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង។
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\)
+              ដែលត្រង់ចំណុចខ្សែចម្លងត្រង់ទី ៣ (\(l_3\))
+              មានចរន្តឆ្លងកាត់រងកម្លាំងម៉ាញេទិចផ្គួបស្មើ សូន្យ ឬមានលំនឹង។</span
+            >
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង និងគំនូសបំព្រួញ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2 \cdot l}{d}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I_1 = 2\text{ A}\) , \(I_2 = 6\text{ A}\)</li>
+                  <li>\(l = 4\text{ m}\)</li>
+                  <li>\(d = 16\text{ cm} = 0.16\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{2 \cdot 6 \cdot 4}{0.16} = 2 \times 10^{-7} \cdot 300 = 6 \times 10^{-5}\text{ N}\)
+                </div>
+                <div class="sol-label">លក្ខណៈកម្លាំង៖</div>
+                <div class="sol-math">
+                  ដោយសារចរន្តទាំងពីរមានទិសដៅដូចគ្នា នាំឱ្យកម្លាំងរវាងខ្សែទាំងពីរជា <strong>កម្លាំងឆក់គ្នា (ទាញចូលគ្នា)</strong>។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងម៉ាញេទិចរងដោយខ្សែនីមួយៗគឺ \(F = 6 \times 10^{-5}\text{ N}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលខ្សែចម្លងត្រង់ទី ៣ មានលំនឹង</div>
+              <div class="sol-step">
+                <div class="sol-label">ពន្យល់៖</div>
+                <ul>
+                  <li>ដើម្បីឱ្យខ្សែចម្លងទី ៣ ស្ថិតក្នុងស្ថានភាពលំនឹង (កម្លាំងផ្គួបស្មើសូន្យ) លុះត្រាតែកម្លាំងទាំងពីរមានទិសដៅផ្ទុយគ្នា និងតម្លៃស្មើគ្នា។</li>
+                  <li>ដោយចរន្ត \(I_1\) និង \(I_2\) មានទិសដៅដូចគ្នា នោះចំណុច \(M\) ត្រូវស្ថិតនៅចន្លោះខ្សែទាំងពីរ។</li>
+                  <li>តាង \(x\) ជាចម្ងាយពី \(O_1\) ទៅ \(M\) នាំឱ្យចម្ងាយពី \(M\) ទៅ \(O_2\) គឺ \(d - x = 0.16 - x\)។</li>
+                </ul>
+                <div class="sol-label">តាមលក្ខខណ្ឌស្មើគ្នានៃកម្លាំង៖</div>
+                <div class="sol-math">
+                  \(F_{13} = F_{23} \implies 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_3 \cdot l_3}{x} = 2 \times 10^{-7} \cdot \frac{I_2 \cdot I_3 \cdot l_3}{0.16 - x}\)
+                </div>
+                <div class="sol-label">សម្រួលរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(\frac{I_1}{x} = \frac{I_2}{0.16 - x} \implies \frac{2}{x} = \frac{6}{0.16 - x} \implies \frac{1}{x} = \frac{3}{0.16 - x}\)
+                </div>
+                <div class="sol-label">ទាញរក \(x\)៖</div>
+                <div class="sol-math">
+                  \(0.16 - x = 3x \implies 4x = 0.16 \implies x = 0.04\text{ m} = 4\text{ cm}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ខ្សែចម្លងទី ៣ ត្រូវដាក់ចន្លោះខ្សែទាំងពីរ និងស្ថិតនៅចម្ងាយ \(4\text{ cm}\) ពីខ្សែចម្លងទី ១ (ឬ \(12\text{ cm}\) ពីខ្សែចម្លងទី ២)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 60 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">60</div>
+          <div class="ex-title">លំហាត់អនុវត្ត ៦០</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ ២ មានប្រវែងស្មើគ្នា
+          <span class="given">\(l_1 = l_2 = 15\text{ m}\)</span> ស្របគ្នា
+          \(O_1\) និង \(O_2\) ស្ថិតចម្ងាយពីគ្នា
+          <span class="given">\( 20\text{ cm}\)</span>។ ខ្សែចម្លងទាំង ២
+          ឆ្លងកាត់ដោយចរន្តអគ្គិសនីដែលមានទិសដៅផ្ទុយគ្នា និងមានតម្លៃរៀងគ្នា
+          <span class="given">\( 4\text{ A}\)</span> និង
+          <span class="given">\( 6\text{ A}\)</span>។ គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង។
+              រួចធ្វើគំនូសបំព្រួញ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\)
+              ដែលត្រង់ចំណុចខ្សែចម្លងត្រង់ទី ៣ (\(l_3\))
+              មានចរន្តឆ្លងកាត់រងកម្លាំងម៉ាញេទិចផ្គួបស្មើ សូន្យ ឬមានលំនឹង។</span
+            >
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាតម្លៃកម្លាំងម៉ាញេទិចដែលខ្សែចម្លងនីមួយៗរង និងគំនូសបំព្រួញ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{I_1 \cdot I_2 \cdot l}{d}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(I_1 = 4\text{ A}\) , \(I_2 = 6\text{ A}\)</li>
+                  <li>\(l = 15\text{ m}\)</li>
+                  <li>\(d = 20\text{ cm} = 0.2\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(F = 2 \times 10^{-7} \cdot \frac{4 \cdot 6 \cdot 15}{0.2} = 2 \times 10^{-7} \cdot 1800 = 3.6 \times 10^{-4}\text{ N}\)
+                </div>
+                <div class="sol-label">លក្ខណៈកម្លាំង៖</div>
+                <div class="sol-math">
+                  ដោយសារចរន្តទាំងពីរមានទិសដៅផ្ទុយគ្នា នាំឱ្យកម្លាំងរវាងខ្សែទាំងពីរជា <strong>កម្លាំងច្រានគ្នា (ច្រានចេញក្រៅ)</strong>។
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ កម្លាំងម៉ាញេទិចរងដោយខ្សែនីមួយៗគឺ \(F = 3.6 \times 10^{-4}\text{ N}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. កំណត់ទីតាំងចំណុច \(M\) លើ \((O_1O_2)\) ដែលខ្សែចម្លងត្រង់ទី ៣ មានលំនឹង</div>
+              <div class="sol-step">
+                <div class="sol-label">ពន្យល់៖</div>
+                <ul>
+                  <li>ដោយចរន្តទាំងពីរមានទិសដៅផ្ទុយគ្នា កម្លាំងផ្គួបអាចស្មើសូន្យបាន លុះត្រាតែចំណុច \(M\) ស្ថិតនៅខាងក្រៅចន្លោះខ្សែទាំងពីរ និងស្ថិតនៅជិតខ្សែចម្លងដែលមានតម្លៃចរន្តតូចជាង (\(I_1 = 4\text{ A}\))។</li>
+                  <li>តាង \(x\) ជាចម្ងាយពី \(O_1\) ទៅ \(M\) (ខាងក្រៅអង្កត់ \([O_1O_2]\) ខាង \(O_1\)) នាំឱ្យចម្ងាយពី \(M\) ទៅ \(O_2\) គឺ \(d + x = 0.2 + x\)។</li>
+                </ul>
+                <div class="sol-label">តាមលក្ខខណ្ឌលំនឹង៖</div>
+                <div class="sol-math">
+                  \(F_{13} = F_{23} \implies \frac{I_1}{x} = \frac{I_2}{d + x}\)
+                </div>
+                <div class="sol-label">ជំនួសលេខ៖</div>
+                <div class="sol-math">
+                  \(\frac{4}{x} = \frac{6}{0.2 + x} \implies \frac{2}{x} = \frac{3}{0.2 + x}\)
+                </div>
+                <div class="sol-label">ទាញរក \(x\)៖</div>
+                <div class="sol-math">
+                  \(2(0.2 + x) = 3x \implies 0.4 + 2x = 3x \implies x = 0.4\text{ m} = 40\text{ cm}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ខ្សែចម្លងទី ៣ ត្រូវដាក់នៅលើបន្ទាត់ \((O_1O_2)\) ខាងក្រៅអង្កត់ \([O_1O_2]\) ខាងខ្សែទី ១ ចម្ងាយ \(40\text{ cm}\) ពីខ្សែចម្លងទី ១ (ឬ \(60\text{ cm}\) ពីខ្សែចម្លងទី ២)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

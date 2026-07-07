@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ១–១០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand { font-family: "DM Serif Display", serif; color: white; font-size: 1.45rem; }
+      .nav-brand span { color: var(--accent); }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 55%, #1e40af 100%);
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 { font-family: "DM Serif Display", serif; font-size: 2.8rem; line-height: 1.2; }
+
+      .container { max-width: 860px; margin: 0 auto; padding: 52px 24px 110px; }
+
+      .section-head { display: flex; align-items: center; gap: 16px; margin: 60px 0 32px; }
+      .section-head h2 { font-size: 0.98rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
+      .section-head-line { flex: 1; height: 1px; background: var(--border); }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover { transform: translateY(-8px); box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16); }
+      .ex-card:nth-child(3n + 2) { border-left-color: var(--accent2); }
+      .ex-card:nth-child(3n) { border-left-color: var(--accent); }
+
+      .ex-head { padding: 20px 28px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; background: #f8fbff; }
+      .ex-badge { width: 44px; height: 44px; background: var(--blue); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+      .ex-card:nth-child(3n + 2) .ex-badge { background: var(--accent2); }
+      .ex-card:nth-child(3n) .ex-badge { background: var(--accent); }
+
+      .ex-title { font-size: 1.12rem; font-weight: 700; color: var(--dark); }
+      .ex-body { padding: 28px; font-size: 1.03rem; }
+
+      .given { background: #dbeafe; color: #1e40af; font-weight: 700; padding: 3px 9px; border-radius: 6px; }
+      .ex-card:nth-child(3n + 2) .given { background: #d1fae5; color: #065f46; }
+      .ex-card:nth-child(3n) .given { background: #fef3c7; color: #92400e; }
+
+      .ex-find { margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border); font-weight: 600; color: var(--muted); display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8; }
+      .ex-find::before { content: "➤"; color: var(--blue); font-size: 1.1rem;         display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 { font-size: 2.3rem; }
+        .container { padding: 40px 16px; }
+        .ex-head, .ex-body { padding: 20px; }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="lesson 1_home" style="color: rgba(78, 81, 224, 0.993); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a>
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ១–១០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+      
+      <!-- Exercise 01 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">01</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០១</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយស្ថិតក្នុងខ្យល់ឆ្លងកាត់ដោយចរន្តអគ្គិសនី <span class="given">\(I = 1\text{ A}\)</span>។ បើចម្ងាយពីខ្សែចម្លងទៅចំណុច \(M\) គឺ <span class="given">\(d = 100\text{ cm}\)</span>។ គេឱ្យ <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</span>។
+          <div class="ex-find"><span>គណនាដែនម៉ាញេទិច ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាដែនម៉ាញេទិចត្រង់ចំណុច \(M\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \dfrac{I}{d}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 1\text{ A}\)<br>
+                  \(d = 100\text{ cm} = 1\text{ m}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \times \dfrac{1}{1} = 2 \times 10^{-7}\text{ T}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ដែនម៉ាញេទិចគឺ \(B = 2 \times 10^{-7}\text{ T}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 02 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">02</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០២</div>
+        </div>
+        <div class="ex-body">
+          គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ចំណុចមួយចម្ងាយ <span class="given">\(d = 1\text{ m}\)</span> ពីខ្សែចម្លងត្រង់ ហើយឆ្លងកាត់ដោយចរន្ត <span class="given">\(I = 2\text{ A}\)</span>។
+          <div class="ex-find"><span>គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិច។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិច</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \dfrac{I}{d}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 2\text{ A}\)<br>
+                  \(d = 1\text{ m}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \times \dfrac{2}{1} = 4 \times 10^{-7}\text{ T}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចគឺ \(B = 4 \times 10^{-7}\text{ T}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 03 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">03</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៣</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់ឈរមួយឆ្លងកាត់ដោយចរន្ត <span class="given">\(I = 2.5\text{ A}\)</span>។ 
+          <div class="ex-find"><span>គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចត្រង់ចំណុចមួយដែលស្ថិតនៅចម្ងាយ <span class="given">\(d = 10\text{ cm}\)</span> ពីខ្សែចម្លង។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិច</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \dfrac{I}{d}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 2.5\text{ A}\)<br>
+                  \(d = 10\text{ cm} = 0.1\text{ m}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \times \dfrac{2.5}{0.1} = 5 \times 10^{-6}\text{ T}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចគឺ \(B = 5 \times 10^{-6}\text{ T}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 04 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">04</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៤</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយស្ថិតក្នុងខ្យល់ ឆ្លងកាត់ដោយចរន្ត \(I\)។ \(M\) ជាចំណុចមួយដែលស្ថិតនៅចម្ងាយ <span class="given">\(d = 20\text{ cm}\)</span> ពីខ្សែចម្លង ហើយមានដែនម៉ាញេទិច <span class="given">\(B = 8 \times 10^{-5}\text{ T}\)</span>។ 
+          <div class="ex-find"><span>គណនាអាំងតង់ស៊ីតេចរន្តឆ្លងកាត់ខ្សែចម្លង។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអាំងតង់ស៊ីតេចរន្ត \(I\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \dfrac{I}{d} \implies I = \dfrac{B \cdot d}{2 \times 10^{-7}}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(B = 8 \times 10^{-5}\text{ T}\)<br>
+                  \(d = 20\text{ cm} = 0.2\text{ m}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(I = \dfrac{8 \times 10^{-5} \times 0.2}{2 \times 10^{-7}} = 80\text{ A}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ អាំងតង់ស៊ីតេចរន្តឆ្លងកាត់ខ្សែចម្លងគឺ \(I = 80\text{ A}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 05 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">05</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៥</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយស្ថិតក្នុងខ្យល់ឆ្លងកាត់ដោយចរន្ត <span class="given">\(I = 5\text{ A}\)</span>។ \(M\) ជាចំណុចមួយដែលស្ថិតនៅចម្ងាយ \(d\) ពីខ្សែចម្លង ហើយមានដែនម៉ាញេទិច <span class="given">\(B = 2 \times 10^{-5}\text{ T}\)</span>។ 
+          <div class="ex-find"><span>គណនាចម្ងាយដែលខ្សែចម្លងត្រូវដាក់ពីចំណុច \(M\)។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចម្ងាយ \(d\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2 \times 10^{-7} \dfrac{I}{d} \implies d = 2 \times 10^{-7} \dfrac{I}{B}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 5\text{ A}\)<br>
+                  \(B = 2 \times 10^{-5}\text{ T}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(d = 2 \times 10^{-7} \times \dfrac{5}{2 \times 10^{-5}} = 0.05\text{ m} = 5\text{ cm}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចម្ងាយពីខ្សែចម្លងទៅចំណុច \(M\) គឺ \(d = 0.05\text{ m} = 5\text{ cm}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 06 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">06</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៦</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយឆ្លងកាត់ដោយចរន្ត \(I\)។ \(M\) ជាចំណុចមួយដែលស្ថិតនៅចម្ងាយ <span class="given">\(d_M = 40\text{ cm}\)</span> ពីខ្សែចម្លង។ ជ្រាបម៉ាញេទិចរបស់មជ្ឈដ្ឋានខ្យល់ <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+          
+          <div class="ex-find"><span>ក. គណនាតម្លៃចរន្ត \(I\) ឆ្លងកាត់ខ្សែចម្លង បើដែនម៉ាញេទិចត្រង់ \(M\) គឺ <span class="given">\(B_M = 16\text{ \(\mu\)T}\)</span>។</span></div>
+          <div class="ex-find"><span>ខ. គណនាតម្លៃដែនម៉ាញេទិចត្រង់ចំណុច \(N\) មានចម្ងាយពីរដងតូចជាងមុនពីខ្សែចម្លង។ រួចគូសវ៉ិចទ័រដែនម៉ាញេទិចត្រង់ចំណុច \(M\) និង \(N\)។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាតម្លៃចរន្ត \(I\) ឆ្លងកាត់ខ្សែចម្លង</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B_M = 2 \times 10^{-7} \dfrac{I}{d_M} \implies I = \dfrac{B_M \cdot d_M}{2 \times 10^{-7}}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(d_M = 40\text{ cm} = 0.4\text{ m}\)<br>
+                  \(B_M = 16\text{ \(\mu\)T} = 16 \times 10^{-6}\text{ T}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(I = \dfrac{16 \times 10^{-6} \times 0.4}{2 \times 10^{-7}} = 32\text{ A}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ តម្លៃចរន្តគឺ \(I = 32\text{ A}\)
+              </div>
+
+              <div class="sol-title" style="margin-top: 15px;">ខ. គណនាតម្លៃដែនម៉ាញេទិចត្រង់ចំណុច \(N\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B_N = 2 \times 10^{-7} \dfrac{I}{d_N}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(d_N = \dfrac{d_M}{2} = 20\text{ cm} = 0.2\text{ m}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \(B_N = 2 \times 10^{-7} \times \dfrac{32}{0.2} = 32 \times 10^{-6}\text{ T} = 32\text{ \(\mu\)T}\)<br>
+                  (ឬតាមទំនាក់ទំនងសមាមាត្រច្រាស៖ \(d_N = \dfrac{d_M}{2} \implies B_N = 2 \cdot B_M = 2 \times 16\text{ \(\mu\)T} = 32\text{ \(\mu\)T}\))
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ដែនម៉ាញេទិចត្រង់ \(N\) គឺ \(B_N = 32\text{ \(\mu\)T}\)<br>
+                <span style="font-weight: normal; font-size: 0.9rem; color: var(--muted);">*សម្គាល់៖ វ៉ិចទ័រ \(\vec{B}_M\) និង \(\vec{B}_N\) មានទិសដៅស្របតាមច្បាប់ដៃស្តាំ (ទិសដៅមេដៃតាមទិសដៅចរន្ត ម្រាមដៃបួនចង្អុលបង្ហាញទិសដៅដែនម៉ាញេទិច) ដោយវ៉ិចទ័រ \(\vec{B}_N\) មានប្រវែងពីរដងនៃ \(\vec{B}_M\)។</span>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 07 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">07</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៧</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងត្រង់មួយស្ថិតក្នុងមជ្ឈដ្ឋានឌីអគ្គិសនីឆ្លងកាត់ដោយចរន្ត <span class="given">\(I = 20\text{ A}\)</span>។ \(M\) ជាចំណុចមួយដែលស្ថិតនៅចម្ងាយ <span class="given">\(d = 30\text{ cm}\)</span> ពីខ្សែចម្លង។ ចំពោះមជ្ឈដ្ឋានខ្យល់ <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span> និងជ្រាបម៉ាញេទិចធៀបនៃមជ្ឈដ្ឋាន <span class="given">\(\mu_r = 200\)</span>។ 
+          <div class="ex-find"><span>គណនាតម្លៃដែនម៉ាញេទិចត្រង់ចំណុច \(M\)។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃដែនម៉ាញេទិចត្រង់ចំណុច \(M\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = \mu_r \cdot B_0 = \mu_r \cdot \left(2 \times 10^{-7} \dfrac{I}{d}\right)\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 20\text{ A}\)<br>
+                  \(d = 30\text{ cm} = 0.3\text{ m}\)<br>
+                  \(\mu_r = 200\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(B = 200 \times \left(2 \times 10^{-7} \times \dfrac{20}{0.3}\right) = 200 \times \left(1.33 \times 10^{-5}\right) \approx 2.67 \times 10^{-3}\text{ T}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ដែនម៉ាញេទិចត្រង់ចំណុច \(M\) គឺ \(B \approx 2.67 \times 10^{-3}\text{ T}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 08 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">08</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៨</div>
+        </div>
+        <div class="ex-body">
+          សៀគ្វីវង់មួយស្ថិតក្នុងសុញ្ញាកាស មានផ្ចិត \(O\) កាំ <span class="given">\(R = 6.28\text{ cm}\)</span> ហើយឆ្លងកាត់ដោយអាំងតង់ស៊ីតេចរន្ត <span class="given">\(I = 2\text{ A}\)</span>។ យក <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</span>។
+          <div class="ex-find"><span>គណនាតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិត \(O\) បង្កើតដោយសៀគ្វីវង់។</span> </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិត \(O\)</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2\pi \times 10^{-7} \dfrac{I}{R}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 2\text{ A}\)<br>
+                  \(R = 6.28\text{ cm} \approx 2\pi\text{ cm} = 2\pi \times 10^{-2}\text{ m}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(B = 2\pi \times 10^{-7} \times \dfrac{2}{2\pi \times 10^{-2}} = 2 \times 10^{-5}\text{ T}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ដែនម៉ាញេទិចត្រង់ផ្ចិត \(O\) គឺ \(B = 2 \times 10^{-5}\text{ T}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 09 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">09</div>
+          <div class="ex-title">លំហាត់អនុវត្ត០៩</div>
+        </div>
+        <div class="ex-body">
+          សៀគ្វីវង់មួយស្ថិតក្នុងមជ្ឈដ្ឋានខ្យល់ មានផ្ចិត \(O\) មានកាំ \(R\) ហើយចរន្តឆ្លងកាត់សៀគ្វីវង់នេះមានតម្លៃ <span class="given">\(I = 5\text{ A}\)</span> និងមានតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិត \(O\) គឺ <span class="given">\(B = 60\text{ \(\mu\)T}\)</span>។ 
+          <div class="ex-find"><span>គណនាកាំនៃរង្វង់ខ្សែ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកាំ \(R\) នៃរង្វង់ខ្សែ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2\pi \times 10^{-7} \dfrac{I}{R} \implies R = 2\pi \times 10^{-7} \dfrac{I}{B}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 5\text{ A}\)<br>
+                  \(B = 60\text{ \(\mu\)T} = 60 \times 10^{-6}\text{ T} = 6 \times 10^{-5}\text{ T}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(R = 2\pi \times 10^{-7} \times \dfrac{5}{6 \times 10^{-5}} = \dfrac{5\pi}{3} \times 10^{-2}\text{ m} \approx 5.24 \times 10^{-2}\text{ m} = 5.24\text{ cm}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កាំនៃរង្វង់ខ្សែគឺ \(R \approx 5.24\text{ cm}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 10 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">10</div>
+          <div class="ex-title">លំហាត់អនុវត្ត១០</div>
+        </div>
+        <div class="ex-body">
+          សៀគ្វីវង់មួយស្ថិតក្នុងមជ្ឈដ្ឋានខ្យល់ មានផ្ចិត \(O\) កាំ \(R\) ហើយឆ្លងកាត់ដោយអាំងតង់ស៊ីតេចរន្ត <span class="given">\(I = 5\text{ A}\)</span> និងមានតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិត \(O\) គឺ <span class="given">\(B = 25 \times 10^{-5}\text{ T}\)</span>។ 
+          <div class="ex-find"><span>គណនាកាំនៃរង្វង់ខ្សែចម្លង ។</span></div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកាំ \(R\) នៃរង្វង់ខ្សែចម្លង</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\(B = 2\pi \times 10^{-7} \dfrac{I}{R} \implies R = 2\pi \times 10^{-7} \dfrac{I}{B}\)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \(I = 5\text{ A}\)<br>
+                  \(B = 25 \times 10^{-5}\text{ T}\)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\(R = 2\pi \times 10^{-7} \times \dfrac{5}{25 \times 10^{-5}} = \dfrac{2\pi}{5} \times 10^{-2}\text{ m} \approx 1.26 \times 10^{-2}\text{ m} = 1.26\text{ cm}\)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កាំនៃរង្វង់ខ្សែគឺ \(R \approx 1.26\text{ cm}\)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ដែន និងកម្លាំងម៉ាញេទិច | Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <style>
+      :root {
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
+        --red-border: #dc2626;
+        --orange: #f97316;
+        --green: #16a34a;
+        --red-sub: #b91c1c;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.9;
+      }
+      header {
+        background: linear-gradient(135deg, #1e1b4b, var(--phys-dark));
+        color: white;
+        padding: 60px 20px 50px;
+        text-align: center;
+        border-bottom: 5px solid var(--phys-main);
+        position: relative;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .subject-tag {
+        display: inline-block;
+        background: rgba(79, 70, 229, 0.25);
+        border: 1px solid var(--phys-main);
+        padding: 5px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .container {
+        max-width: 780px;
+        margin: 36px auto 60px;
+        padding: 0 20px;
+      }
+      .section-label {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 36px 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-label::before {
+        content: "◆";
+        font-size: 0.75rem;
+        color: var(--orange);
+      }
+      .formula-card {
+        border: 2px solid var(--red-border);
+        border-radius: 12px;
+        padding: 22px 28px 26px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.07);
+      }
+      .formula-card + .formula-card {
+        margin-top: 24px;
+      }
+      .fbox {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 5px 14px;
+        background: #f8fafc;
+        flex-wrap: wrap;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+      .bullet-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 8px 0;
+      }
+      .bullet-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.96rem;
+        padding: 7px 0;
+      }
+      .bullet {
+        color: var(--phys-main);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .red-sub {
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--red-sub);
+        margin: 18px 0 10px;
+      }
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.96rem;
+      }
+      .system-diagram {
+        max-width: 100%;
+        height: auto;
+        margin: 15px 0;
+        border-radius: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .nav-links {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .nav-btn {
+        text-decoration: none;
+        color: var(--phys-main);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+      }
+      .nav-btn:hover {
+        background: var(--phys-light);
+        transform: translateY(-2px);
+      }
+    </style>
+      <link rel="stylesheet" href="http://localhost:8000/assets/professional.css">
+    <!-- Main JS & Auth Guard -->
+    <script src="http://localhost:8000/assets/main.js"></script>
+    <script>
+      StudyNest.authGuard();
+    </script>
+  </head>
+  <body>
+    <header>
+      <span class="subject-tag">រូបវិទ្យា ថ្នាក់ទី ១២ • ជំពូកទី ៣</span>
+      <h1>មេរៀនទី ១៖ ដែន និងកម្លាំងម៉ាញេទិច</h1>
+    </header>
+
+    <div class="container">
+      <p class="section-label" id="sec1">១. មេដែក និងដែនម៉ាញេទិច</p>
+      <div class="formula-card">
+        <p class="red-sub">ក. មេដែក</p>
+        <p>
+          មេដែក គឺជាអង្គធាតុដែលអាចឆក់ដែក និងសារធាតុដែកបាន ។ លក្ខណៈឆក់ទាញ
+          ឬស្រូបដែកនេះហៅថា <strong>លក្ខណៈម៉ាញេទិច</strong> ។
+        </p>
+        <p>+ មេដែកមានពីរយ៉ាងគឺ :</p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">-</span>
+            <span
+              >មេដែកធម្មជាតិដែលមានស្រាប់ក្នុងធម្មជាតិ ដូចជាសំណាកអុកស៊ីតម៉ាញេទិច
+              \( (Fe_3O_4) \) ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">-</span>
+            <span
+              >មេដែកសិប្បនិមិត្ត ជាមេដែកដែលមនុស្សបង្កើតឡើងដោយយករបារដែកថែប ឬ
+              ម្ជុលដែកថែបដែលបានបន្ស៊ីឲ្យក្លាយជាមេដែក ។</span
+            >
+          </li>
+        </ul>
+        <img
+          src="images/image-1.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          + មេដែកឆក់ខ្លាំងត្រង់ផ្នែកខាងចុងទាំងពីររបស់វា ។ គេហៅចុងទាំងពីរនេះថា
+          <strong>ប៉ូលនៃមេដែក</strong> ។
+        </p>
+        <p>
+          + មេដែកដែលគេនិយមប្រើមាន៖ ម្ជុលមេដែក របារមេដែក និងមេដែករាង U
+          ឬរាងក្រចកសេះ ។
+        </p>
+        <img
+          src="images/image-2.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>+ មេដែកមានប៉ូលពីរ គឺ ប៉ូលជើង (N) North និង ប៉ូលត្បូង (S) South :</p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">-</span>
+            <span>ប៉ូលត្បូង (S) South សម្គាល់ខ្សែដែនម៉ាញេទិចរត់ចូល ។</span>
+          </li>
+          <li>
+            <span class="bullet">-</span>
+            <span>ប៉ូលជើង (N) North សម្គាល់ខ្សែដែនម៉ាញេទិចរត់ចេញ ។</span>
+          </li>
+        </ul>
+        <p>
+          + ប៉ូលនៃមេដែកមិនផ្លាស់ប្តូរទេ ប៉ូលណាដែលចង្អុលទៅជើង គឺទៅជើងជានិច្ច ។
+        </p>
+        <p>
+          + អន្តរកម្មរវាងប៉ូលទាំងពីរនៃមេដែកគឺ ប៉ូលពីរមានឈ្មោះដូចគ្នាច្រានគ្នាចេញ
+          ហើយប៉ូលពីរមានឈ្មោះផ្ទុយគ្នាទាញគ្នាចូល ។
+        </p>
+        <p>
+          + អន្តរកម្មរវាងប៉ូលនៃមេដែកហៅថាអន្តរកម្មម៉ាញេទិច ។
+          អន្តរកម្មនេះបង្កើតបានកម្លាំងហៅថា <strong>កម្លាំងម៉ាញេទិច</strong> ។
+        </p>
+        <p>+ មេដែកឆក់តែសារធាតុដែកទេ វាមិនឆក់ទង់ដែង មាស ស័ង្កសីឡើយ ។</p>
+        <p>
+          + ដែកថែបអាចបន្ស៊ីធ្វើជាមេដែក ដោយយកវាទៅដាក់ក្នុងដែនម៉ាញេទិច ។
+          មេដែកនេះហៅថា <strong>មេដែកអចិន្ត្រៃយ៍</strong> ។
+        </p>
+        <p>
+          + ដែកសុទ្ធក៏អាចបន្ស៊ីជាមេដែកបាន តែវាមិនអាចឆក់រហូតទេ គេហៅថា
+          មេដែកអនាចិន្ត្រៃយ៍ ។
+        </p>
+        <img
+          src="images/image-3.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+
+        <p class="red-sub">ខ. សញ្ញាណដែនម៉ាញេទិច</p>
+        <img
+          src="images/image-4.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >លំហជុំវិញរបារមេដែក ដែលក្នុងនោះម្ជុលមេដែករងនូវកម្លាំងម៉ាញេទិច
+              ហៅថាដែនម៉ាញេទិចនៃមេដែក ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >លំហជុំវិញខ្សែចម្លងដែលឆ្លងកាត់ដោយចរន្តអគ្គិសនី ហៅថា
+              ដែនម៉ាញេទិចនៃចរន្តអគ្គិសនី ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >លំហជុំវិញផែនដីក៏មានដែនម៉ាញេទិចមួយដែរ ហៅថាដែនម៉ាញេទិចនៃផែនដី
+              ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >ត្រង់ចំណុចនីមួយៗនៃដែនម៉ាញេទិច
+              សម្គាល់ដោយវ៉ិចទ័រអាំងឌុចស្យុងម៉ាញេទិច \( \vec{B} \) ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >វ៉ិចទ័រ \( \vec{B} \) ត្រង់ចំណុចណាមួយត្រូវបានតាងទៅតាមអ័ក្ស \(
+              (sn) \) របស់ម្ជុលមេដែកព្យួរនៅត្រង់ចំណុចនោះ ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span>ខ្សែដែនម៉ាញេទិចនៃមេដែកមានទិសដៅចេញពីប៉ូលជើងទៅប៉ូលត្បូង ។</span>
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >នៅចន្លោះមេដែករាង U មានដែនម៉ាញេទិចមួយ ហៅថាដែនម៉ាញេទិចឯកសណ្ឋាន
+              ។</span
+            >
+          </li>
+        </ul>
+
+        <p class="red-sub">គ. ខ្សែដែនម៉ាញេទិច</p>
+        <img
+          src="images/image-5.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          ខ្សែដែនម៉ាញេទិច ជាខ្សែដែលប៉ះនឹងវ៉ិចទ័រអាំងឌុចស្យុងម៉ាញេទិច \( \vec{B}
+          \) នៅគ្រប់ចំណុចនីមួយៗរបស់វា ។ ខ្សែដែនម៉ាញេទិចមានច្រើនរាប់មិនអស់ ។
+          សំណុំនៃខ្សែដែនម៉ាញេទិច ហៅថា <strong>ស្ប៊ិចម៉ាញេទិច</strong> ។
+        </p>
+        <img
+          src="images/image-6.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label" id="sec2">២. ដែនម៉ាញេទិចនៃផែនដី</p>
+      <div class="formula-card">
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >ផែនដីចាត់ទុកជាមេដែកមួយយ៉ាងធំ ដែលមានប៉ូលពីរ គឺប៉ូលជើង (N)
+              និងប៉ូលត្បូង (S) ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >វ៉ិចទ័រអាំងឌុចស្យុងម៉ាញេទិចផែនដីត្រូវបានតាងដោយម្ជុលមេដែកព្យួរត្រង់ចំណុចណាមួយនៃផែនដី
+              ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >ប្លង់ឈរដែលក្នុងនោះមានវ៉ិចទ័រ \( \vec{B} \) ឬមានម្ជុលមេដែក
+              ហៅថាមេរីឌីយាងម៉ាញេទិច ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >ដែនម៉ាញេទិច \( \vec{B} \) នៃផែនដីអាចបំបែកតាមអ័ក្សដេក
+              និងអ័ក្សឈរ៖</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >\( \vec{B}_o \)： ជាដែនម៉ាញេទិចផ្គុំដេកនៃផែនដីមានតម្លៃប្រហែល \(
+              B_o = 2\times 10^{-5} \) T ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >\( \vec{B}_V \)： ជាដែនម៉ាញេទិចផ្គុំឈរនៃផែនដី
+              ដែលមានតម្លៃប្រែប្រួលទៅតាមទីតាំងភូមិសាស្ត្រ ។</span
+            >
+          </li>
+        </ul>
+        <img
+          src="images/image-7.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label" id="sec3">៣. ដែនម៉ាញេទិចនៃចរន្តអគ្គិសនី</p>
+      <div class="formula-card">
+        <p class="red-sub">ក. ដែនម៉ាញេទិចនៃចរន្តត្រង់</p>
+        <img
+          src="images/image-8.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >លំហជុំវិញខ្សែចម្លងត្រង់
+              ដែលឆ្លងកាត់ដោយចរន្តអគ្គិសនីមានដែនម៉ាញេទិចមួយ ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span>ស្ប៊ិចម៉ាញេទិចមានរាងជារង្វង់ដែលមានផ្ចិតនៅលើខ្សែ ។</span>
+          </li>
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >វ៉ិចទ័រអាំងឌុចស្យុងម៉ាញេទិចត្រង់ចំណុចមួយជាវ៉ិចទ័រ ដែលមាន៖</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- ចំណុចចាប់: ស្ថិតនៅត្រង់ចំណុចណាមួយដែលមានចម្ងាយ \( d \)
+              ពីខ្សែចម្លង ។</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span>- ទិស: កែងនឹងប្លង់ (ខ្សែចម្លង-ចំណុច) ។</span>
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- ទិសដៅ: កំណត់តាមវិធានដៃស្ដាំ
+              (ដៃស្តាំក្តោបខ្សែយ៉ាងណាឲ្យមេដៃកន្ធែកចង្អុលទិសដៅចរន្ត
+              ហើយម្រាមទាំងបួនក្ដោបតាមទិសដៅខ្សែដែនម៉ាញេទិច) ។</span
+            >
+          </li>
+        </ul>
+        <div class="formula-row">
+          <span>មានរូបមន្ត :</span>
+          <span class="fbox">\( B = \frac{\mu_0 I}{2\pi d} \)</span>
+        </div>
+        <p>
+          ដែល៖<br />
+          \( B \)： ជាអាំងឌុចស្យុងម៉ាញេទិច គិតជា (T) (តេស្លា)<br />
+          \( d \)： ជាចម្ងាយពីខ្សែចម្លងទៅចំណុចសិក្សា គិតជា (m)<br />
+          \( I \)： ជាអាំងតង់ស៊ីតេចរន្តអគ្គិសនី គិតជា (A)<br />
+          \( \mu_0 \)： ជាជម្រាបម៉ាញេទិចនៃខ្យល់ ឬសុញ្ញាកាស \( \mu_0 = 4\pi\times
+          10^{-7} \) T.m/A
+        </p>
+        <div class="formula-row">
+          <span>បើគេគិតជម្រាបម៉ាញេទិចធៀប \( \mu_r \)：</span>
+          <span class="fbox">\( B = \mu_r \mu_0 \frac{I}{2\pi d} \)</span>
+        </div>
+
+        <p class="red-sub">ខ. ដែនម៉ាញេទិចនៃចរន្តវង់</p>
+        <p><strong>+ ករណីវង់មួយស្ពៀ</strong> (ក្នុងខ្យល់ ឬសុញ្ញាកាស)</p>
+        <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( B = \frac{\mu_0 I}{2R} \)</span>
+        </div>
+        <img
+          src="images/image-9.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+
+        <p><strong>+ នៅក្នុងមជ្ឈដ្ឋានដែលមាន \( \mu_r \)</strong></p>
+        <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( B = \mu_r \mu_0 \frac{I}{2R} \)</span>
+        </div>
+
+        <p><strong>+ ករណីវង់ \( N \) ស្ពៀ</strong> (បូប៊ីនសំប៉ែត)</p>
+        <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( B = \frac{\mu_0 NI}{2R} \)</span>
+        </div>
+        <img
+          src="images/image-10.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          ដែល ៖<br />
+          \( N \)： ជាចំនួនស្ពៀ ឬ ចំនួនជុំ<br />
+          \( R \)： ជាកាំរង្វង់នៃស្ពៀ គិតជា (m)<br />
+          \( I \)： ជាអាំងតង់ស៊ីតេចរន្តអគ្គិសនី គិតជា (A)
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >លក្ខណៈនៃវ៉ិចទ័រដែនម៉ាញេទិចដែលបង្កើតដោយចរន្តវង់ត្រង់ផ្ចិត \( O \)
+              ៖</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- <strong>ចំណុចចាប់:</strong> ស្ថិតនៅត្រង់ផ្ចិត \( O \) នៃបូប៊ីន
+              ។</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span>- <strong>ទិស:</strong> កែងនឹងប្លង់នៃខ្សែចម្លងវង់ ។</span>
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- <strong>ទិសដៅ:</strong> កំណត់តាមវិធានដៃស្តាំ
+              (បាតដៃស្ដាំក្ដោបលើវង់ស្ពៀ ដោយម្រាមទាំងបួនតាមទិសដៅនៃចរន្ត
+              មេដៃកន្ធែកបង្ហាញពីទិសដៅដែនម៉ាញេទិច) ។</span
+            >
+          </li>
+        </ul>
+        <img
+          src="images/image-11.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+
+        <p class="red-sub">គ. ដែនម៉ាញេទិចនៃសូលេណូអ៊ីត</p>
+        <img
+          src="images/image-12.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          <strong>សូលេណូអ៊ីត</strong> គឺជាបូប៊ីនវែងដែលមានប្រវែងធំជាង ឬស្មើនឹង
+          ៥ដងនៃកាំរបស់វា (\( l \ge 5R \)) ។ វាធ្វើពីខ្សែចម្លងលាបវ៉ែនី (អ៊ីសូឡង់)
+          រុំលើស៊ីឡាំងវែងមួយឲ្យស្ពៀកៀកជាប់ៗគ្នា ។
+        </p>
+        <img
+          src="images/image-13.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">+</span>
+            <span
+              >វ៉ិចទ័រអាំងឌុចស្យុងម៉ាញេទិច \( \vec{B} \)
+              ភាគខាងក្នុងសូលេណូអ៊ីត៖</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >-
+              <strong>ចំណុចចាប់:</strong>
+              ស្ថិតនៅត្រង់ចំណុចណាមួយលើអ័ក្សសូលេណូអ៊ីត ។</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span>- <strong>ទិស:</strong> ស្របនឹងអ័ក្សសូលេណូអ៊ីត ។</span>
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- <strong>ទិសដៅ:</strong> តាមវិធានដៃស្តាំ
+              (ម្រាមទាំងបួនតាមទិសដៅចរន្ត មេដៃកន្ធែកចង្អុលទិសដៅ \( \vec{B} \))
+              ។</span
+            >
+          </li>
+        </ul>
+        <div class="formula-row">
+          <span>តម្លៃអាំងឌុចស្យុងម៉ាញេទិច :</span>
+          <span class="fbox">\( B = \mu_0 \frac{NI}{l} = \mu_0 nI \)</span>
+        </div>
+        <p>ដែល \( n = \frac{N}{l} \) ជាចំនួនស្ពៀក្នុងមួយម៉ែត្រ ។</p>
+        <img
+          src="images/image-14.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+
+        <div class="formula-row">
+          <span>+ ចំនួនស្រទាប់ \( x \) :</span>
+          <span class="fbox"
+            >\( x = \frac{N}{N_0} = \frac{Nd}{l} = \frac{Bd}{\mu_0 I} \)</span
+          >
+        </div>
+        <div class="formula-row">
+          <span>+ បើមិនគិតកម្រាស់អ៊ីសូឡង់ :</span>
+          <span class="fbox"
+            >\( n = \frac{N}{l} = \frac{1}{d} \implies N = \frac{l}{d} \)</span
+          >
+          <span>នោះ \( l' = \pi D N = \pi D \frac{l}{d} \)</span>
+        </div>
+        <img
+          src="images/image-15.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          ដែល៖<br />
+          \( B \)： អាំងឌុចស្យុងម៉ាញេទិច (T)<br />
+          \( D \)： អង្កត់ផ្ចិតសូលេណូអ៊ីត (m)<br />
+          \( l' \)： ប្រវែងខ្សែចម្លងសរុប (m)<br />
+          \( e \)： កម្រាស់អ៊ីសូឡង់ (m)<br />
+          \( x \)： ចំនួនស្រទាប់<br />
+          \( d \)： អង្កត់ផ្ចិតខ្សែចម្លង (m)<br />
+          \( l \)： ប្រវែងសូលេណូអ៊ីត (m)<br />
+          \( N \)： ចំនួនស្ពៀសរុប
+        </p>
+
+        <p class="red-sub">ឃ. បូប៊ីនហ៊ឹមហ៊ុល (Helmholtz)</p>
+        <img
+          src="images/image-16.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          <strong>បូប៊ីនហ៊ឹមហ៊ុល</strong> ជាបូប៊ីនសំប៉ែតពីរមានអ័ក្សរួមគ្នា
+          មានរាងជារង្វង់ដែលមានកាំ \( R \) ស្ថិតនៅចម្ងាយពីគ្នា \( L = R \)
+          និងឆ្លងកាត់ដោយចរន្តដូចគ្នា ។
+          នៅចន្លោះបូប៊ីនទាំងពីរមានដែនម៉ាញេទិចឯកសណ្ឋាន ។
+        </p>
+        <div class="formula-row">
+          <span>អាំងតង់ស៊ីតេដែនម៉ាញេទិច :</span>
+          <span class="fbox">\( B \approx 0.71 \mu_0 \frac{NI}{R} \)</span>
+        </div>
+
+        <p class="red-sub">+ របៀបគណនាដែនម៉ាញេទិចផ្គួប</p>
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">1.</span>
+            <span
+              >ករណី \( \vec{B}_1 \uparrow\uparrow \vec{B}_2 \implies B = B_1 +
+              B_2 \)</span
+            >
+          </li>
+          <li>
+            <img
+              src="images/image-17.png"
+              alt="Electromagnetism Diagram"
+              class="system-diagram"
+              style="width: 200px"
+            />
+          </li>
+          <li>
+            <span class="bullet">2.</span>
+            <span
+              >ករណី \( \vec{B}_1 \uparrow\downarrow \vec{B}_2 \implies B = |B_1
+              - B_2| \)</span
+            >
+          </li>
+          <li>
+            <img
+              src="images/image-18.png"
+              alt="Electromagnetism Diagram"
+              class="system-diagram"
+              style="width: 200px"
+            />
+          </li>
+          <li>
+            <span class="bullet">3.</span>
+            <span
+              >ករណី \( \vec{B}_1 \perp \vec{B}_2 \implies B = \sqrt{B_1^2 +
+              B_2^2} \)</span
+            >
+          </li>
+          <li>
+            <img
+              src="images/image-19.png"
+              alt="Electromagnetism Diagram"
+              class="system-diagram"
+              style="width: 200px"
+            />
+          </li>
+          <li>
+            <span class="bullet">4.</span>
+            <span
+              >ករណី \( (\vec{B}_1, \vec{B}_2) = \theta \implies B = \sqrt{B_1^2
+              + B_2^2 + 2B_1 B_2 \cos \theta} \)</span
+            >
+          </li>
+          <li>
+            <img
+              src="images/image-20.png"
+              alt="Electromagnetism Diagram"
+              class="system-diagram"
+              style="width: 200px"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec4">
+        ៤. កម្លាំងអេឡិចត្រូម៉ាញេទិច (កម្លាំងឡាប្លាស)
+      </p>
+      <div class="formula-card">
+        <p>
+          <strong>កម្លាំងអេឡិចត្រូម៉ាញេទិច (កម្លាំងឡាប្លាស)</strong>
+          ជាកម្លាំងដែលកើតឡើងនៅពេលដែលគេយកខ្សែចម្លងដាក់ក្នុងដែនម៉ាញេទិចរួចឲ្យចរន្តអគ្គិសនីឆ្លងកាត់ខ្សែចម្លងនោះ
+          ។
+        </p>
+        <img
+          src="images/image-21.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-22.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">+</span>
+            <span>លក្ខណៈសម្គាល់កម្លាំងឡាប្លាស៖</span>
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >-
+              <strong>ចំណុចចាប់:</strong>
+              ស្ថិតនៅត្រង់ចំណុចកណ្តាលនៃផ្នែកខ្សែចម្លងដែលស្ថិតក្នុងដែន ។</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- <strong>ទិស:</strong> កែងនឹងប្លង់កំណត់ដោយ \( \vec{B} \) និង \(
+              I \) ។</span
+            >
+          </li>
+          <li style="padding-left: 20px">
+            <span
+              >- <strong>ទិសដៅ:</strong> តាមវិធានដៃស្ដាំ (ម្រាមទាំងបួនតាមចរន្ត
+              \( I \) ក្ដោបតាមដែន \( \vec{B} \) មេដៃចង្អុលទិសដៅ \( \vec{F} \))
+              ។</span
+            >
+          </li>
+        </ul>
+        <div class="formula-row">
+          <span>រូបមន្តអាំងតង់ស៊ីតេ :</span>
+          <span class="fbox">\( F = I B l \sin \theta \)</span>
+        </div>
+        <p>
+          ដែល៖<br />
+          \( F \)： កម្លាំងឡាប្លាស (N)<br />
+          \( I \)： អាំងតង់ស៊ីតេចរន្ត (A)<br />
+          \( l \)： ប្រវែងខ្សែចម្លងក្នុងដែន (m)<br />
+          \( \theta \)： មុំរវាងខ្សែចម្លង និងដែនម៉ាញេទិច
+        </p>
+        <img
+          src="images/image-23.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label" id="sec5">៥. អំពើទៅវិញទៅមករវាងចរន្តត្រង់ពីរ</p>
+      <div class="formula-card">
+        <p class="red-sub">ក. ពិសោធន៍</p>
+        <img
+          src="images/image-24.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <ul class="bullet-list">
+          <li>
+            <span class="bullet">•</span>
+            <span
+              >ចរន្តពីរមានទិសដៅដូចគ្នា៖ ខ្សែចម្លងទាំងពីរ<strong
+                >ទាញគ្នាចូល (Attract)</strong
+              >
+              ។</span
+            >
+          </li>
+          <li>
+            <span class="bullet">•</span>
+            <span
+              >ចរន្តពីរមានទិសដៅផ្ទុយគ្នា៖ ខ្សែចម្លងទាំងពីរ<strong
+                >ច្រានគ្នាដេញ (Repel)</strong
+              >
+              ។</span
+            >
+          </li>
+        </ul>
+        <p class="red-sub">ខ. គណនាកម្លាំងដែលមានអំពើលើមួយភាគនៃខ្សែរ</p>
+        <div class="formula-row">
+          <img
+            src="images/image-25.png"
+            alt="Electromagnetism Diagram"
+            class="system-diagram"
+            style="width: 220px"
+          />
+        </div>
+        <p>
+          + ខ្សែចម្លងត្រង់ឆ្លងកាត់ដោយចរន្តអគ្គិសនី វាបង្កើតបានជាដែនម៉ាញេទិចមួយ ។
+        </p>
+        <p>
+          + ខ្សែចម្លងត្រង់ពីរ ដែលឆ្លងកាត់ដោយចរន្តអគ្គិសនីមានអំពើលើគ្នាទៅវិញទៅមក។
+        </p>
+        <p>
+          + បើចរន្តមានទិសដៅដូចគ្នា វាទាញគ្នាចូល តែបើចរន្តមានទិសដៅផ្ទុយគ្នា
+          វាច្រានគ្នាចេញ ។
+        </p>
+        <p>
+          ឧបមាថាខ្សែចម្លងវែងl ត្រង់ពីរស្របគ្នាស្ថិតនៅចម្ងាយពីគ្នា a
+          ហើយឆ្លងកាត់ដោយចរន្តរៀងគ្នា I_1 និង I_2
+          នោះកម្លាំងដែលខ្សែចម្លងទាំងពីរមានអំពើលើគ្នាគឺ ៖
+        </p>
+        <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox"
+            >\( F = F_{12} = F_{21} = \frac{\mu_0 I_1 I_2 l}{2\pi a} \)</span
+          >
+        </div>
+        <p>
+          ដែល៖<br />
+          \( F \)： ជាកម្លាំងអន្តរកម្មរបស់ខ្សែចម្លង គិតជា (N)<br />
+          \( I_1 \)： ជាអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ខ្សែចម្លងទី១ គិតជា (A)<br />
+          \( I_2 \)： ជាអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ខ្សែចម្លងទី២ គិតជា (A)<br />
+          \( a \)： ជាចម្ងាយរវាងខ្សែចម្លងទី១ និងខ្សែចម្លងទី២ គិតជា (m)<br />
+          \( l \)： ជាប្រវែងខ្សែចម្លងត្រង់ គិតជា (m)
+        </p>
+        <img
+          src="images/image-26.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label" id="sec6">៦. គោលការណ៍ស៊ុមវិល</p>
+      <div class="formula-card">
+        <p>
+          ស៊ុមមួយឆ្លងកាត់ដោយចរន្តអគ្គិសនីហើយស្ថិតក្នុងដែនម៉ាញេទិចឯកសណ្ឋានវាធ្វើចលនាវិល
+          ។
+        </p>
+        <p>+ លក្ខណៈនេះត្រូវបានគេយកទៅអនុវត្តក្នុងម៉ូទ័រអគ្គិសនី ។</p>
+        <img
+          src="images/image-27.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+      </div>
+      <p class="section-label" id="sec7">
+        ៧. ចលនាផង់ផ្ទុកបន្ទុកអគ្គិសនីក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន
+      </p>
+      <div class="formula-card">
+        <p class="red-sub">ក. កម្លាំងម៉ាញេទិច</p>
+        <p>
+          ផង់ផ្ទុកបន្ទុកអគ្គិសនី \( q \) ធ្វើចលនាក្នុងដែនម៉ាញេទិច \( \vec{B} \)
+          ផ្លាស់ទីដោយល្បឿន \( \vec{v} \) នោះ វារងនូវកម្លាំងម៉ាញេទិចកំណត់ដោយ៖
+        </p>
+        <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( \vec{F}_m = q(\vec{v} \times \vec{B}) \)</span>
+        </div>
+        <p>
+          ដែល ៖ \( (\vec{v} \times \vec{B}) \) ជាផលគុណវ៉ិចទ័ររវាង \( \vec{v} \)
+          និង \( \vec{B} \)
+        </p>
+        <img
+          src="images/image-28.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>+ បើ \( v = 0 \) នោះកម្លាំងម៉ាញេទិចលើផង់ស្មើសូន្យ \( F_m = 0 \)</p>
+        <p>+ ដោយកម្លាំងជាទំហំវ៉ិចទ័រ ដូចនេះវាមានលក្ខណៈបួនគឺ ៖</p>
+        <img
+          src="images/image-29.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <ul class="bullet-list">
+          <li>
+            <span>- <strong>ចំណុចចាប់នៃកម្លាំង :</strong> ស្ថិតនៅលើផង់</span>
+          </li>
+          <li>
+            <span
+              >- <strong>ទិសនៃកម្លាំង :</strong> កែងនឹងប្លង់កំណត់ដោយវ៉ិចទ័រល្បឿន
+              \( \vec{v} \) របស់ផង់ និងដែនម៉ាញេទិច \( \vec{B} \)</span
+            >
+          </li>
+          <li>
+            <span
+              >- <strong>ទិសដៅនៃកម្លាំង :</strong> កំណត់ដោយវិធានដៃស្ដាំ
+              (ម្រាមទាំងបួននៃដៃស្ដាំ លាត្រង់តាមវ៉ិចទ័រ \( \vec{v} \)
+              រួចក្ដោបទៅតាមវ៉ិចទ័រ \( \vec{B} \) នោះមេដៃកន្ធែកចង្អុលទិសដៅនៃ \(
+              \vec{F}_m \))</span
+            >
+          </li>
+          <li>
+            <span
+              >- <strong>អាំងតង់ស៊ីតេកម្លាំង :</strong>
+              <span class="fbox">\( F_m = |q|vB\sin\alpha \)</span></span
+            >
+          </li>
+        </ul>
+        <p>
+          ដែល ៖<br />
+          \( F_m \)： ជាកម្លាំងម៉ាញេទិច (N)<br />
+          \( q \)： ជាបន្ទុកអគ្គិសនី (C)<br />
+          \( v \)： ជាល្បឿន (m/s)<br />
+          \( B \)： ជាដែនម៉ាញេទិច (T)<br />
+          \( \alpha \)： ជាមុំរវាង \( \vec{v} \) និង \( \vec{B} \)
+        </p>
+        <img
+          src="images/image-30.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-31.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-32.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label" id="sec8">
+        ៨. លំងាកនៃផង់ផ្ទុកអគ្គិសនីដោយដែនម៉ាញេទិចឯកសណ្ឋាន
+      </p>
+      <div class="formula-card">
+        <p class="red-sub">ក. កាំនៃគន្លង</p>
+        <p>
+          ផង់ផ្ទុកបន្ទុកអគ្គិសនី \( q > 0 \) ធ្វើចលនាចូលក្នុងដែនម៉ាញេទិចឯកសណ្ឋាន
+          \( \vec{B} \) ដោយល្បឿន \( \vec{v}_0 \) កែងនឹង \( \vec{B} \) ។
+          ផង់រងនូវកម្លាំងម៉ាញេទិច \( F_m = |q|vB \) ដែលដើរតួជាកម្លាំងចូលផ្ចិត \(
+          F_N = \frac{mv^2}{R} \) ។
+        </p>
+        <div class="formula-row">
+          <span>កាំនៃគន្លង :</span>
+          <span class="fbox">\( R = \frac{mv}{|q|B} \)</span>
+        </div>
+        <img
+          src="images/image-33.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <img
+          src="images/image-34.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+
+        <p class="red-sub">ខ. ខួបរង្វិលរបស់ផង់</p>
+        <ul class="bullet-list">
+          <li>
+            <span>- ល្បឿនមុំ ៖ \( \omega = \frac{v}{R} \)</span>
+          </li>
+          <li>
+            <span
+              >- ខួបរង្វិល ៖ \( T = \frac{2\pi R}{v} = \frac{2\pi m}{|q|B}
+              \)</span
+            >
+          </li>
+          <li>
+            <span>- ប្រេកង់ ៖ \( f = \frac{1}{T} = \frac{|q|B}{2\pi m} \)</span>
+          </li>
+        </ul>
+        <img
+          src="images/image-35.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+
+        <p class="red-sub">គ. មុំលំងាកដេផ្លិចស្យុងម៉ាញេទិច</p>
+        <ul class="bullet-list">
+          <li>
+            <span
+              >- លំងាក ៖ \( \alpha = \frac{l}{R} = \frac{|q|Bl}{mv} \)
+              (rad)</span
+            >
+          </li>
+          <li>
+            <span
+              >- ដេផ្លិចស្យុង ៖ \( Z = D \tan\alpha \approx D\alpha \) (បើ \(
+              \alpha \) តូច)</span
+            >
+          </li>
+        </ul>
+        <div class="formula-row">
+          <span>ដូចនេះ :</span>
+          <span class="fbox">\( Z = \frac{Dl|q|B}{mv} \)</span>
+        </div>
+
+        <p class="red-sub">ឃ. ស្ប៉ិចក្រាប</p>
+        <img
+          src="images/image-36.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          ស្ប៉ិចក្រាបអាចឲ្យគេញែកផង់ផ្ទុកបន្ទុកអគ្គិសនីដែលមានបន្ទុកធៀបម៉ាស \(
+          \frac{|q|}{m} \) ខុសៗគ្នា ។
+        </p>
+        <div class="formula-row">
+          <span>គេបាន៖</span>
+          <span class="fbox">\( \frac{|q|}{m} = \frac{2V}{B^2 R^2} \)</span>
+        </div>
+        <img
+          src="images/image-37.png"
+          alt="Electromagnetism Diagram"
+          class="system-diagram"
+        />
+        <p>
+          ដែល ៖<br />
+          \( m \)： ម៉ាសរបស់ផង់ (kg)<br />
+          \( v \)： ល្បឿនរបស់ផង់ (m/s)<br />
+          \( q \)： បន្ទុកអគ្គិសនី (C)<br />
+          \( B \)： ដែនម៉ាញេទិច (T)<br />
+          \( V \)： តង់ស្យុងអគ្គិសនី (V)<br />
+          \( D \)： ចម្ងាយពីលំងាកទៅអេក្រង់ (m)<br />
+          \( Z \)： ឌីផ្លិចស្យុងម៉ាញេទិច (m)<br />
+          \( T \)： ខួប (s)<br />
+          \( f \)： ប្រេកង់ (Hz)<br />
+          \( \omega \)： ល្បឿនមុំ (rad/s)
+        </p>
+      </div>
+
+      <div class="nav-links">
+        <a href="../../../physics_g12" class="nav-btn">
+          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅមេរៀន
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

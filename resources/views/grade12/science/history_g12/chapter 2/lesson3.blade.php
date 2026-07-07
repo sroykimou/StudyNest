@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>មេរៀនទី៣៖ សាធារណរដ្ឋខ្មែរ (១៩៧០-១៩៧៥) | StudyNest</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Siemreap&family=Bokor&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Reference Shared Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+
+    <style>
+        :root {
+            /* Override accent for History — amber/gold */
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.35);
+        }
+
+        body {
+            display: block;
+            overflow-y: auto;
+            padding: 40px 20px;
+            background:
+                radial-gradient(ellipse at 25% 35%, #1e1b4b 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 65%, #451a03 0%, transparent 55%),
+                linear-gradient(135deg, #0f172a 0%, #020617 50%, #1c1917 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            color: white;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── Back button ── */
+        .back-btn-fixed {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 100;
+        }
+
+        .back-btn-fixed a {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .back-btn-fixed a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* ── Section Dividers ── */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 48px 0 24px;
+        }
+
+        .section-label h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: white;
+            font-weight: 700;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label h3 i {
+            color: var(--accent);
+        }
+
+        .section-label::after {
+            content: "";
+            height: 2px;
+            background: linear-gradient(to right, var(--accent), transparent);
+            flex: 1;
+            border-radius: 2px;
+        }
+
+        /* ── Glassmorphism Cards ── */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 24px;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3), 
+                0 0 25px var(--accent-glow);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 6px; height: 100%;
+            background: var(--accent);
+            opacity: 0;
+            transition: 0.3s;
+            border-radius: 6px 0 0 6px;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .question-box {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .q-badge {
+            background: var(--accent);
+            color: #0f172a;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .question-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .answer-box {
+            color: #e2e8f0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ── Lists & Bullet points ── */
+        ul {
+            list-style: none;
+            padding-left: 5px;
+            margin: 15px 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: #e2e8f0;
+        }
+
+        li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .study-logo {
+            font-family: "Bokor", cursive;
+            font-size: 1.6rem;
+            color: white;
+            text-shadow: 0 0 10px var(--accent-glow);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .back-btn-fixed {
+                position: static;
+                margin-bottom: 24px;
+                display: inline-block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .card { padding: 24px; }
+            .question-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="back-btn-fixed anim">
+        <a href="../history_g12">
+            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+        </a>
+    </div>
+
+    <div class="container">
+        <header class="anim">
+            <h1 class="anim-1">មេរៀនទី៣ ៖ សាធារណរដ្ឋខ្មែរ</h1>
+            <p class="anim-2">(១៩៧០-១៩៧៥) — សម័យកាលនៃសង្គ្រាមស៊ីវិល និងការផ្លាស់ប្តូររបបនយោបាយ</p>
+        </header>
+
+        <main class="main-content">
+          
+          <!-- Vocabulary Section -->
+          <div class="section-label anim-2">
+            <h3><i class="fas fa-book-open"></i> ពន្យល់ពាក្យគន្លឹះ</h3>
+          </div>
+          <div class="card anim-3">
+            <div class="answer-box">
+              <ul>
+                <li><strong>រដ្ឋប្រហារ៖</strong> ការប្រើកម្លាំងបាយដើម្បីផ្លាស់ប្តូរអំណាច ឬរបបនយោបាយ។</li>
+                <li><strong>អតិផរណា៖</strong> ការឡើងថ្លៃទំនិញជាបន្តបន្ទាប់ និងការធ្លាក់ចុះតម្លៃនៃទឹកប្រាក់។</li>
+                <li><strong>សង្គ្រាមស៊ីវិល៖</strong> សង្គ្រាមដែលកើតឡើងរវាងប្រជាជនក្នុងប្រទេសតែមួយ។</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Section 1 -->
+          <div class="section-label anim-3">
+            <h3><i class="fas fa-history"></i> ១. ការចាប់ផ្តើមនៃរបប</h3>
+          </div>
+
+          <div class="card anim-4">
+            <div class="question-box">
+              <div class="q-badge">១</div>
+              <div class="question-text">តើរបបសាធារណរដ្ឋខ្មែរចាប់ផ្តើម និងបញ្ចប់នៅពេលណា? ហើយដឹកនាំដោយនរណា?</div>
+            </div>
+            <div class="answer-box">
+              របបសាធារណរដ្ឋខ្មែរចាប់ផ្តើមពីថ្ងៃទី <strong>០៩ តុលា ១៩៧០</strong> និងបញ្ចប់នៅថ្ងៃទី <strong>១៧ មេសា ១៩៧៥</strong>។ របបនេះដឹកនាំដោយលោកសេនាប្រមុខ <strong>លន់ នល់</strong> និងព្រះអង្គម្ចាស់ <strong>ស៊ីសុវត្ថិ សិរីមតៈ</strong>។
+            </div>
+          </div>
+
+          <div class="card anim-5">
+            <div class="question-box">
+              <div class="q-badge">២</div>
+              <div class="question-text">តើព្រឹត្តិការណ៍អ្វីដែលជាបុព្វហេតុនាំឱ្យកើតមានរបបសាធារណរដ្ឋខ្មែរ?</div>
+            </div>
+            <div class="answer-box">
+              គឺព្រឹត្តិការណ៍ <strong>រដ្ឋប្រហារថ្ងៃទី ១៨ មីនា ១៩៧០</strong> ដែលបានទម្លាក់សម្តេចព្រះនរោត្តម សីហនុ ចេញពីតំណែងព្រះប្រមុខរដ្ឋ ខណៈដែលព្រះអង្គកំពុងបំពេញទស្សនកិច្ចនៅក្រៅប្រទេស។
+            </div>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="section-label anim-4">
+            <h3><i class="fas fa-chart-line"></i> ២. វិបត្តិសេដ្ឋកិច្ច និងមូលហេតុរដ្ឋប្រហារ</h3>
+          </div>
+
+          <div class="card anim-5">
+            <div class="question-box">
+              <div class="q-badge">៣</div>
+              <div class="question-text">រៀបរាប់ពីស្ថានភាពសេដ្ឋកិច្ចកម្ពុជាមុនព្រឹត្តិការណ៍ ១៨ មីនា ១៩៧០។</div>
+            </div>
+            <div class="answer-box">
+              ស្ថានភាពសេដ្ឋកិច្ចមានការធ្លាក់ចុះយ៉ាងខ្លាំងដោយសារ៖
+              <ul>
+                <li>ការផ្តាច់ជំនួយពីសហរដ្ឋអាមេរិកនៅឆ្នាំ ១៩៦៣។</li>
+                <li>នយោបាយជាតូបនីយកម្មលើវិស័យធនាគារ និងពាណិជ្ជកម្មក្រៅប្រទេស។</li>
+                <li>អំពើពុករលួយក្នុងជួរមន្ត្រីរាជការ និងការរត់ពន្ធស្រូវទៅឱ្យកងទ័ពវៀតកុង។</li>
+                <li>កង្វះបច្ចេកទេស និងការគ្រប់គ្រងសហគ្រាសរដ្ឋមិនបានល្អ។</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card anim-6">
+            <div class="question-box">
+              <div class="q-badge">៤</div>
+              <div class="question-text">តើមូលហេតុអ្វីខ្លះដែលនាំឱ្យមានរដ្ឋប្រហារ ១៨ មីនា ១៩៧០?</div>
+            </div>
+            <div class="answer-box">
+              មូលហេតុសំខាន់ៗមានដូចជា៖
+              <ul>
+                <li><strong>បញ្ហាវត្តមានកងទ័ពវៀតណាមកុម្មុយនីស្ត៖</strong> មានកងទ័ពវៀតកុង និងវៀតណាមខាងជើងបោះជម្រកលើទឹកដីខ្មែរ។</li>
+                <li><strong>វិបត្តិសេដ្ឋកិច្ច៖</strong> ការធ្លាក់ចុះនៃចំណូលជាតិ និងអតិផរណា។</li>
+                <li><strong>វិបត្តិនយោបាយ៖</strong> ជម្លោះរវាងអ្នកនិយមសេរី និងអ្នកនិយមសម្តេចសីហនុ。</li>
+                <li><strong>ឥទ្ធិពលសង្រ្គាមត្រជាក់៖</strong> ការជ្រៀតជ្រែកមនោគមវិជ្ជាសេរី (អាមេរិក) និងកុម្មុយនីស្ត។</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="section-label anim-5">
+            <h3><i class="fas fa-fist-raised"></i> ៣. ចលនាតស៊ូ និងការដួលរលំ</h3>
+          </div>
+
+          <div class="card anim-6">
+            <div class="question-box">
+              <div class="q-badge">៥</div>
+              <div class="question-text">តើចលនាតស៊ូប្រឆាំងនឹងរបបសាធារណរដ្ឋខ្មែរមានឈ្មោះអ្វីខ្លះ?</div>
+            </div>
+            <div class="answer-box">
+              ចលនាតស៊ូសំខាន់ៗរួមមាន៖
+              <ul>
+                <li><strong>រណសិរ្សរួបរួមជាតិកម្ពុជា (រ.រ.ជ.ក):</strong> បង្កើតឡើងដោយសម្តេចសីហនុនៅទីក្រុងប៉េកាំង។</li>
+                <li><strong>រាជរដ្ឋាភិបាលរួបរួមជាតិកម្ពុជា (រ.រ.ជ.ក):</strong> ជាមន្ត្រីតស៊ូក្នុងព្រៃ (ខ្មែរក្រហម) និងមន្ត្រីស្មោះត្រង់នឹងសម្តេចសីហនុ។</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card anim-7">
+            <div class="question-box">
+              <div class="q-badge">៦</div>
+              <div class="question-text">តើកត្តាអ្វីខ្លះដែលនាំឱ្យរបបសាធារណរដ្ឋខ្មែរដួលរលំនៅឆ្នាំ ១៩៧៥?</div>
+            </div>
+            <div class="answer-box">
+              កត្តាដែលនាំឱ្យដួលរលំរួមមាន៖
+              <ul>
+                <li><strong>អំពើពុករលួយ៖</strong> ក្នុងជួរកងទ័ព និងរដ្ឋាភិបាល (បញ្ជីខ្មោចកងទ័ព ការលក់អាវុធឱ្យសត្រូវ)។</li>
+                <li><strong>វិបត្តិសេដ្ឋកិច្ចធ្ងន់ធ្ងរ៖</strong> ទំនិញឡើងថ្លៃ កង្វះស្បៀងអាហារ និងការធ្លាក់ចុះតម្លៃប្រាក់រៀល។</li>
+                <li><strong>ការកាត់ផ្តាច់ជំនួយពីអាមេរិក៖</strong> សភាអាមេរិកបានបញ្ឈប់ការទម្លាក់គ្រាប់បែក និងកាត់បន្ថយជំនួយ。</li>
+                <li><strong>ភាពខ្លាំងរបស់ខ្មែរក្រហម៖</strong> ការឡោមព័ទ្ធទីក្រុងភ្នំពេញ និងការកាត់ផ្តាច់ផ្លូវដឹកជញ្ជូនស្បៀង។</li>
+              </ul>
+            </div>
+          </div>
+
+        </main>
+
+        <footer>
+            <span class="study-logo">StudyNest</span>
+            <p>&copy; 2024 រក្សាសិទ្ធិគ្រប់យ៉ាងដោយ StudyNest</p>
+        </footer>
+    </div>
+
+    <!-- Script references -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.authGuard();
+    </script>
+    <script>
+        // Initialize background
+        StudyNest.initBackground();
+    </script>
+</body>
+</html>

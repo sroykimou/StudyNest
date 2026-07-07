@@ -100,7 +100,7 @@ for chapter in chapters:
 
     for root, dirs, files in os.walk(chapter_path):
         for filename in files:
-            if filename.endswith(".html"):
+            if filename.endswith(".php"):
                 filepath = os.path.join(root, filename)
                 print(f"Processing {filepath}...")
                 with open(filepath, 'r', encoding='utf-8') as f:

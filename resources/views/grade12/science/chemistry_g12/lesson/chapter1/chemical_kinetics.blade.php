@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>មេរៀនទី ១៖ ល្បឿនប្រតិកម្មគីមី | StudyNest</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;700&family=Siemreap&family=Bokor&family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- KaTeX -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body)"
+    ></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
+
+    <style>
+      :root {
+        --accent-color: #10b981;
+        --accent-glow: rgba(16, 185, 129, 0.35);
+      }
+
+      body {
+        display: block;
+        overflow-y: auto;
+        padding: 40px 20px;
+        color: white;
+      }
+
+      header {
+        text-align: center;
+        padding: 40px 20px 20px;
+        position: relative;
+        z-index: 10;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header h1 {
+        margin: 10px 0 0;
+        font-size: 2.6rem;
+        font-family: var(--font-brand);
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      header p {
+        margin: 10px 0 0;
+        font-weight: 400;
+        color: var(--text-muted);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 20px auto 60px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 32px;
+        margin-bottom: 24px;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3), 0 0 40px rgba(16, 185, 129, 0.05);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4), 0 0 50px var(--accent-glow);
+        border-color: var(--accent-color);
+      }
+
+      h2 {
+        font-family: var(--font-brand);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 12px;
+        letter-spacing: 0.5px;
+      }
+
+      h2 i {
+        color: var(--accent-color);
+        text-shadow: 0 0 10px var(--accent-glow);
+      }
+
+      .formula-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px 0;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #fff;
+        box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.05);
+      }
+
+      .graph-wrapper {
+        background: rgba(15, 23, 42, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: 400px;
+      }
+
+      .practice-box {
+        border-left: 5px solid var(--accent-color);
+        background: rgba(16, 185, 129, 0.05);
+        padding: 25px;
+        border-radius: 0 12px 12px 0;
+        margin: 20px 0;
+        border-top: 1px solid rgba(16, 185, 129, 0.1);
+        border-right: 1px solid rgba(16, 185, 129, 0.1);
+        border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+      }
+
+      .practice-title {
+        font-weight: bold;
+        color: #34d399;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .solution-btn {
+        background: transparent;
+        border: 1.5px solid var(--accent-color);
+        color: var(--accent-color);
+        padding: 8px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "Siemreap", sans-serif;
+        font-size: 14px;
+        margin-top: 15px;
+        transition: all 0.2s ease;
+        font-weight: 600;
+        box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+      }
+
+      .solution-btn:hover {
+        background: var(--accent-color);
+        color: #0f172a;
+        box-shadow: 0 0 20px var(--accent-glow);
+        transform: translateY(-1px);
+      }
+
+      .solution-content {
+        display: none;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.2);
+        color: var(--text-muted);
+      }
+
+      .back-link {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 8px 15px;
+        border-radius: 50px;
+        transition: 0.2s;
+        backdrop-filter: blur(10px);
+      }
+      .back-link:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(-5px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: rgba(15, 23, 42, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      th,
+      td {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 15px;
+        text-align: left;
+      }
+
+      th {
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font-weight: 600;
+      }
+
+      td {
+        color: var(--text-muted);
+      }
+
+      .badge {
+        background: rgba(16, 185, 129, 0.15);
+        color: #34d399;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        font-weight: bold;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          padding: 40px 15px;
+        }
+        header h1 {
+          font-size: 1.6rem;
+        }
+        .container {
+          margin-top: 10px;
+        }
+        .graph-wrapper {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Animation Containers -->
+    <div id="drops" class="drops"></div>
+    <div id="particles" class="particles"></div>
+
+    <header>
+      <a href="../../chemistry_g12" class="back-link">
+        <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+      </a>
+      <h1>មេរៀនទី ១៖ ល្បឿនប្រតិកម្មគីមី</h1>
+      <p>ជំពូក ១៖ ស៊ីនេទិចគីមី &bull; StudyNest Chemistry</p>
+    </header>
+
+    <div class="container">
+      <!-- Intro -->
+      <div class="card">
+        <h2><i class="fas fa-info-circle"></i> ១. និយមន័យល្បឿនប្រតិកម្ម</h2>
+        <p>
+          ល្បឿនប្រតិកម្មគីមី គឺជាបម្រែបម្រួលកំហាប់អង្គធាតុប្រតិករ
+          ឬអង្គធាតុកកកើតក្នុងមួយឯកតារយៈពេល។
+        </p>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+          "
+        >
+          <div class="formula-box">
+            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 8px">
+              ល្បឿនកំណ (Formation)
+            </div>
+            \[ V = \frac{\Delta [P]}{\Delta t} \]
+          </div>
+          <div class="formula-box">
+            <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); margin-bottom: 8px">
+              ល្បឿនបំបាត់ (Disappearance)
+            </div>
+            \[ V = -\frac{\Delta [R]}{\Delta t} \]
+          </div>
+        </div>
+      </div>
+
+      <!-- Average Formation -->
+      <div class="card">
+        <h2>
+          <i class="fas fa-chart-line"></i> ១.១ ល្បឿនមធ្យមកំណអង្គធាតុកកកើត
+        </h2>
+        <p>
+          <strong>និយមន័យ៖</strong> ល្បឿនមធ្យមកំណ (P) ចន្លោះពេល \(t_1\) និង
+          \(t_2\) គឺជាផលធៀបរវាងបម្រែបម្រួលកំហាប់ និងបម្រែបម្រួលរយៈពេល។
+        </p>
+
+        <div class="formula-box">
+          \[ V_m(P)_{t_1, t_2} = \frac{[P]_2 - [P]_1}{t_2 - t_1} \]
+        </div>
+
+        <div class="graph-wrapper">
+          <canvas id="chartFormation"></canvas>
+        </div>
+
+        <div class="practice-box">
+          <div class="practice-title">
+            <span class="badge">ប្រតិបត្តិ ១</span> ការគណនាល្បឿន \(I_2\)
+          </div>
+          <p>
+            គណនាល្បឿនមធ្យមកំណ \(I_2\) ចន្លោះពេល \(t_1 = 15s\) និង \(t_2 = 35s\)។
+          </p>
+          <button class="solution-btn" onclick="toggleSol('sol1')">
+            បង្ហាញចម្លើយ
+          </button>
+          <div id="sol1" class="solution-content">
+            <p>
+              តាមក្រាប៖ \(t_1 = 15s \to [I_2]_1 = 5.5 \times 10^{-2} M\), \(t_2
+              = 35s \to [I_2]_2 = 8.0 \times 10^{-2} M\)
+            </p>
+            <p>
+              \[ V_m(I_2) = \frac{(8.0 - 5.5) \times 10^{-2}}{35 - 15} = 1.25
+              \times 10^{-3} \text{ mol}\cdot\text{L}^{-1}\cdot\text{s}^{-1} \]
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instantaneous Rate -->
+      <div class="card">
+        <h2><i class="fas fa-stopwatch"></i> ១.២ ល្បឿនខណៈកំណ</h2>
+        <p>
+          <strong>និយមន័យ៖</strong> ល្បឿនខណៈគឺជាលីមីតនៃល្បឿនមធ្យម កាលណា \(\Delta
+          t\) ខិតទៅរកសូន្យ។
+        </p>
+
+        <div class="formula-box">\[ V(P)_t = \frac{d[P]}{dt} \]</div>
+
+        <div class="practice-box">
+          <div class="practice-title">
+            <span class="badge">ប្រតិបត្តិ ២</span> ល្បឿនខណៈត្រង់ \(t = 20s\)
+          </div>
+          <p>តាមរយៈក្រាប ចូរគណនាល្បឿនខណៈកំណ \(I_2\) ត្រង់ខណៈ \(t = 20s\)។</p>
+          <button class="solution-btn" onclick="toggleSol('sol2')">
+            បង្ហាញចម្លើយ
+          </button>
+          <div id="sol2" class="solution-content">
+            <p>គូសបន្ទាត់ប៉ះត្រង់ \(t = 20s\) រួចរកមេគុណប្រាប់ទិស៖</p>
+            <p>
+              \[ V(I_2)_{20s} = \frac{10\times 10^{-2} - 4\times 10^{-2}}{45 -
+              5} = 1.5 \times 10^{-3} \text{
+              mol}\cdot\text{L}^{-1}\cdot\text{s}^{-1} \]
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disappearance -->
+      <div class="card">
+        <h2>
+          <i class="fas fa-minus-circle"></i> ២. ល្បឿនបំបាត់អង្គធាតុប្រតិករ
+        </h2>
+        <div class="graph-wrapper">
+          <canvas id="chartDisappearance"></canvas>
+        </div>
+
+        <div class="practice-box">
+          <div class="practice-title">
+            <span class="badge">ប្រតិបត្តិ ៣</span> ល្បឿនបំបាត់ \(I^-\)
+          </div>
+          <p>គណនាល្បឿនមធ្យមបំបាត់ \(I^-\) ចន្លោះពេល \(t = 10s\) ដល់ \(35s\)។</p>
+          <button class="solution-btn" onclick="toggleSol('sol3')">
+            បង្ហាញចម្លើយ
+          </button>
+          <div id="sol3" class="solution-content">
+            <p>
+              \[ V_m(I^-) = -\frac{(1.5 - 4) \times 10^{-3}}{35 - 10} = 1 \times
+              10^{-4} \text{ mol}\cdot\text{L}^{-1}\cdot\text{s}^{-1} \]
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Table -->
+      <div class="card">
+        <h2><i class="fas fa-table"></i> សេចក្តីសង្ខេប</h2>
+        <div style="overflow-x: auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>ប្រភេទល្បឿន</th>
+                <th>អង្គធាតុកកកើត (P)</th>
+                <th>អង្គធាតុប្រតិករ (R)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ល្បឿនមធ្យម</strong></td>
+                <td>\( V_m = \frac{\Delta [P]}{\Delta t} \)</td>
+                <td>\( V_m = -\frac{\Delta [R]}{\Delta t} \)</td>
+              </tr>
+              <tr>
+                <td><strong>ល្បឿនខណៈ</strong></td>
+                <td>\( V = \frac{d [P]}{dt} \)</td>
+                <td>\( V = -\frac{d [R]}{dt} \)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Lesson Exercises -->
+      <div class="card">
+        <h2><i class="fas fa-book-open"></i> លំហាត់បញ្ចប់មេរៀន</h2>
+        <div class="practice-box">
+          <p>
+            <strong>លំហាត់ ១៖</strong> គេមានសមីការ៖ \(ClO^- + 2I^- + 2H^+ \to
+            I_2 + Cl^- + H_2O\)
+          </p>
+          <p>សរសេរទំនាក់ទំនងរវាងល្បឿនបាត់បង់ \(I^-\) និងល្បឿនកំណ \(I_2\)។</p>
+          <button class="solution-btn" onclick="toggleSol('sol_ex1')">
+            បង្ហាញចម្លើយ
+          </button>
+          <div id="sol_ex1" class="solution-content">
+            <p>
+              តាមមេគុណស្តូគីយូម៉ែត្រ៖ \( \frac{V(I^-)}{2} = \frac{V(I_2)}{1}
+              \Rightarrow V(I^-) = 2 V(I_2) \)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>ចេះគឺជាប់ &bull; StudyNest Chemistry 2026</footer>
+
+    <!-- Global Javascript Framework -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.authGuard();
+    </script>
+
+    <script>
+      function toggleSol(id) {
+        const el = document.getElementById(id);
+        const btn = event.target;
+        if (el.style.display === "block") {
+          el.style.display = "none";
+          btn.innerText = "បង្ហាញចម្លើយ";
+        } else {
+          el.style.display = "block";
+          btn.innerText = "លាក់ចម្លើយ";
+        }
+      }
+
+      function initCharts() {
+        Chart.defaults.font.family = "Kantumruy Pro";
+        Chart.defaults.color = "#94a3b8";
+
+        // Chart 1: Formation
+        new Chart(document.getElementById("chartFormation").getContext("2d"), {
+          type: "line",
+          data: {
+            labels: [0, 10, 20, 30, 40, 50, 60],
+            datasets: [
+              {
+                label: "[I2] (x10^-2 mol/L)",
+                data: [0, 4, 6.5, 7.8, 8.5, 8.8, 9],
+                borderColor: "#10b981",
+                backgroundColor: "rgba(16, 185, 129, 0.1)",
+                borderWidth: 3,
+                pointRadius: 5,
+                pointBackgroundColor: "#10b981",
+                tension: 0.4,
+                fill: true,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  color: "#e2e8f0"
+                }
+              }
+            },
+            scales: {
+              y: {
+                grid: { color: "rgba(255, 255, 255, 0.08)" },
+                ticks: { color: "#94a3b8" },
+                title: { display: true, text: "Concentration", color: "#e2e8f0" },
+              },
+              x: {
+                grid: { color: "rgba(255, 255, 255, 0.08)" },
+                ticks: { color: "#94a3b8" },
+                title: { display: true, text: "Time (s)", color: "#e2e8f0" },
+              },
+            },
+          },
+        });
+
+        // Chart 2: Disappearance
+        new Chart(
+          document.getElementById("chartDisappearance").getContext("2d"),
+          {
+            type: "line",
+            data: {
+              labels: [0, 10, 20, 30, 40, 50, 60],
+              datasets: [
+                {
+                  label: "[I-] (x10^-3 M)",
+                  data: [9, 4, 2.5, 1.8, 1.3, 1.1, 1],
+                  borderColor: "#ef4444",
+                  backgroundColor: "rgba(239, 68, 68, 0.1)",
+                  borderWidth: 3,
+                  pointRadius: 5,
+                  pointBackgroundColor: "#ef4444",
+                  tension: 0.4,
+                  fill: true,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  labels: {
+                    color: "#e2e8f0"
+                  }
+                }
+              },
+              scales: {
+                y: {
+                  grid: { color: "rgba(255, 255, 255, 0.08)" },
+                  ticks: { color: "#94a3b8" },
+                  title: { display: true, text: "Concentration", color: "#e2e8f0" },
+                },
+                x: {
+                  grid: { color: "rgba(255, 255, 255, 0.08)" },
+                  ticks: { color: "#94a3b8" },
+                  title: { display: true, text: "Time (s)", color: "#e2e8f0" },
+                },
+              },
+            },
+          },
+        );
+      }
+
+      window.onload = function() {
+        initCharts();
+        if (window.StudyNest && typeof window.StudyNest.initBackground === 'function') {
+          StudyNest.initBackground();
+        }
+      };
+    </script>
+  </body>
+</html>

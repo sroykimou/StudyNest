@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Center | StudyNest</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="http://localhost:8000/assets/style.css">
+    <style>
+        .pay-card {
+            max-width: 440px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .plan-info {
+            background: rgba(79, 70, 229, 0.15);
+            padding: 24px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(79, 70, 229, 0.3);
+        }
+
+        .plan-info h2 {
+            margin: 0;
+            font-size: 13px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .plan-info .price {
+            font-family: "Rajdhani";
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            margin-top: 8px;
+            line-height: 1;
+        }
+
+        .qr-container {
+            width: 100%;
+            max-width: 260px;
+            background: white;
+            margin: 0 auto 24px;
+            padding: 16px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .qr-container:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .instruction {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+            padding: 0 8px;
+        }
+
+        .instruction b {
+            color: var(--text-primary);
+        }
+
+        /* Unlock Code Section */
+        .unlock-section {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .unlock-section h3 {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .code-input-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .code-input {
+            flex: 1;
+            background: var(--input-bg);
+            border: 1.5px solid var(--input-border);
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: white;
+            font-family: "Rajdhani";
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 2px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .code-input:focus {
+            border-color: var(--accent);
+            background: rgba(116, 235, 213, 0.05);
+        }
+
+        .btn-unlock {
+            width: 52px;
+            background: var(--accent);
+            border: none;
+            border-radius: 12px;
+            color: #0f172a;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-unlock:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
+    <main class="card pay-card anim">
+        <div class="plan-info anim-1">
+            <h2 id="planName">គម្រោងសិក្សា</h2>
+            <div class="price" id="planPrice">$0.00</div>
+        </div>
+
+        <div class="qr-container anim-2">
+            <img src="" id="qrImage" alt="ABA KHQR">
+        </div>
+
+        <p class="instruction anim-3">
+            សូមរក្សារូបភាព <b>ABA KHQR</b> នេះ រួចចូលទៅកាន់កម្មវិធី <b>ABA Mobile</b> ដើម្បីស្កេនបង់ប្រាក់។ បន្ទាប់ពីបង់រួច សូមចុចប៊ូតុងខាងក្រោមដើម្បីផ្ញើវិក្កយបត្រ។
+        </p>
+
+        <a href="https://t.me/kimou_15" target="_blank" style="text-decoration: none;" class="sn-btn anim-4">
+            <span class="btn-text"><i class="fab fa-telegram-plane"></i> ផ្ញើវិក្កយបត្រទៅតេឡេក្រាម</span>
+        </a>
+
+        <div class="unlock-section anim-5">
+            <h3>បើកគម្រោងដោយប្រើលេខកូដ</h3>
+            <div class="code-input-group">
+                <input type="text" id="unlockCode" class="code-input" placeholder="កូដសម្ងាត់" maxlength="10">
+                <button onclick="verifyUnlockCode()" class="btn-unlock">
+                    <i class="fas fa-key"></i>
+                </button>
+            </div>
+            <p id="unlockMsg" style="font-size: 11px; margin-top: 10px; min-height: 15px;"></p>
+        </div>
+
+        <div onclick="goBack()" class="back-link anim-6">
+            <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅទំព័រដើមវិញ
+        </div>
+    </main>
+
+    <script src="http://localhost:8000/assets/main.js"></script>
+    <script>
+        // Initialize background animations
+        StudyNest.initBackground();
+
+        const currentUser = StudyNest.getUser();
+        if (!currentUser) {
+            window.location.href = "/login";
+        }
+
+        // WARNING: Move these to a server-side backend for production use
+        const MY_SHORT_SECRET = "77"; 
+        const SECRET_SALT = "STUDYNEST_PRIME_2024_@#!"; // Must match admin_panel.php
+
+        async function hashString(str) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+        }
+
+        async function verifyUnlockCode() {
+            const input = document.getElementById("unlockCode").value.trim().toUpperCase();
+            const msg = document.getElementById("unlockMsg");
+            
+            if (!input) {
+                msg.textContent = "សូមបញ្ចូលលេខកូដ!";
+                msg.style.color = "var(--warning)";
+                return;
+            }
+
+            const name = currentUser.toUpperCase().replace(/\s/g, "");
+            const namePart = name.substring(0, 3);
+            
+            let detectedLevel = 0;
+            
+            // Try both level 3 and 6
+            for (let level of [3, 6]) {
+                const rawString = name + level + MY_SHORT_SECRET + SECRET_SALT;
+                const fullHash = await hashString(rawString);
+                const hashPart = fullHash.substring(0, 4).toUpperCase();
+                const expectedCode = namePart + level + hashPart;
+                
+                if (input === expectedCode) {
+                    detectedLevel = level;
+                    break;
+                }
+            }
+
+            if (detectedLevel > 0) {
+                const expiryTime = Date.now() + (30 * 24 * 60 * 60 * 1000);
+                localStorage.setItem("userLevel_" + currentUser, detectedLevel);
+                localStorage.setItem("userLevelExpiry_" + currentUser, expiryTime);
+
+                msg.textContent = "ជោគជ័យ! បើកគម្រោង ៣០ ថ្ងៃ...";
+                msg.style.color = "var(--success)";
+                
+                setTimeout(() => {
+                    goBack();
+                }, 1500);
+            } else {
+                msg.textContent = "លេខកូដមិនត្រឹមត្រូវ!";
+                msg.style.color = "var(--danger)";
+            }
+        }
+
+        function goBack() {
+            if (!currentUser) {
+                window.location.href = "/login";
+                return;
+            }
+            const userDataStr = localStorage.getItem("user_" + currentUser);
+            let branch = "science";
+            if (userDataStr) {
+                try {
+                    const userData = JSON.parse(userDataStr);
+                    branch = userData.branch || "science";
+                } catch(e) {}
+            }
+            window.location.href = `${branch}/${branch}_home.php`;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const reqLevel = urlParams.get("p");
+
+        const planNameElem = document.getElementById("planName");
+        const planPriceElem = document.getElementById("planPrice");
+        const qrImageElem = document.getElementById("qrImage");
+
+        if (reqLevel === "3") {
+            planNameElem.textContent = "គម្រោងលំហាត់ (Exercise Plan)";
+            planPriceElem.textContent = "$3.00";
+            qrImageElem.src = "../assets/images/qr_3usd.jpg";
+        } else if (reqLevel === "6") {
+            planNameElem.textContent = "គម្រោង Bacii (Bacii Plan)";
+            planPriceElem.textContent = "$6.00";
+            qrImageElem.src = "../assets/images/qr_6usd.jpg";
+        } else {
+            goBack();
+        }
+    </script>
+</body>
+</html>

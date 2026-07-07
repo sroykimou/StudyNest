@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const baseDir = __dirname;
-const templatePath = path.join(baseDir, 'kanit-1.html');
+const templatePath = path.join(baseDir, 'kanit-1.php');
 
 const template = fs.readFileSync(templatePath, 'utf-8');
 
@@ -562,5 +562,5 @@ const exam9Sections = `<!-- Section I -->
       </section>
 `;
 
-fs.writeFileSync(path.join(baseDir, 'kanit-8.html'), buildHtml(8, '០៨', exam8Sections));
-fs.writeFileSync(path.join(baseDir, 'kanit-9.html'), buildHtml(9, '០៩', exam9Sections));
+fs.writeFileSync(path.join(baseDir, 'kanit-8.php'), buildHtml(8, '០៨', exam8Sections));
+fs.writeFileSync(path.join(baseDir, 'kanit-9.php'), buildHtml(9, '០៩', exam9Sections));

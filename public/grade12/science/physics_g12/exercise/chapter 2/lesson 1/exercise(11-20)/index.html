@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ១១–២០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="http://localhost:8000/assets/professional.css">
+    <!-- Main JS & Auth Guard -->
+    <script src="http://localhost:8000/assets/main.js"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ គោលការណ៏តម្រួតនៃរលក និងរលកជញ្រ្ចុាំ</div>
+        <h1>លំហាត់<em>អនុវត្ត ១១–២០</em></h1>
+        <p>លំហាត់កម្រិតមធ្យម៖ ការជ្រៀតជ្រែករលក ផលសងផាស និងអាំងតង់ស៊ីតេ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 11 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">11</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១១</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            បម្លាស់ទីនៃរលកមួយឱ្យដោយសមីការ \( y = 0.20 \sin(0.20x + 0.20t) \) គិតជា \( (\text{m}) \) ។
+          </p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុតនៃរលក ចំនួនរលក ជំហានរលក ខួបនៃរលក និងល្បឿនដំណាលរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ចំនួនរលក ជំហានរលក ខួប និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">សមីការទូទៅនៃរលក៖ \( y = A \sin(kx + \omega t) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  ធៀបនឹងសមីការដែលឲ្យ៖ \( y = 0.20 \sin(0.20x + 0.20t) \) គេទាញបាន៖<br />
+                  - អំព្លីទុត៖ \( A = 0.20 \text{ m} \)<br />
+                  - ចំនួនរលក៖ \( k = 0.20 \text{ rad/m} \)<br />
+                  - ពុលសាស្យុង៖ \( \omega = 0.20 \text{ rad/s} \)<br />
+                  - ជំហានរលក៖ \( \lambda = \dfrac{2\pi}{k} = \dfrac{2\pi}{0.20} = 10\pi \text{ m} \approx 31.42 \text{ m} \)<br />
+                  - ខួបនៃរលក៖ \( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{0.20} = 10\pi \text{ s} \approx 31.42 \text{ s} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{\omega}{k} = \dfrac{0.20}{0.20} = 1 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 0.20 \text{ m} \), 
+                \( k = 0.20 \text{ rad/m} \), 
+                \( \lambda \approx 31.42 \text{ m} \), 
+                \( T \approx 31.42 \text{ s} \), 
+                \( v = 1 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">12</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១២</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            បម្លាស់ទីនៃរលកមួយឱ្យដោយសមីការ \( y = 0.50 \sin(0.40x - 0.40t) \) គិតជា \( (\text{m}) \) ។
+            (2022)
+          </p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុតនៃរលក ចំនួនរលក ខួបនៃរលក និងល្បឿនដំណាលរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ចំនួនរលក ខួប និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">ធៀបនឹងសមីការទូទៅ៖ \( y = A \sin(kx - \omega t) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  តាមសមីការដែលឲ្យ៖ \( y = 0.50 \sin(0.40x - 0.40t) \) គេបាន៖<br />
+                  - អំព្លីទុត៖ \( A = 0.50 \text{ m} \)<br />
+                  - ចំនួនរលក៖ \( k = 0.40 \text{ rad/m} \)<br />
+                  - ពុលសាស្យុង៖ \( \omega = 0.40 \text{ rad/s} \)<br />
+                  - ខួបនៃរលក៖ \( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{0.40} = 5\pi \text{ s} \approx 15.71 \text{ s} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{\omega}{k} = \dfrac{0.40}{0.40} = 1 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 0.50 \text{ m} \), 
+                \( k = 0.40 \text{ rad/m} \), 
+                \( T \approx 15.71 \text{ s} \), 
+                \( v = 1 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">13</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៣</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            បម្លាស់ទីនៃរលកមួយឱ្យដោយសមីការ \( y = 0.30 \sin(0.20x - 0.20t) \) គិតជា \( (\text{m}) \) ។
+            (2019)
+          </p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុតនៃរលក ចំនួនរលក ជំហានរលក ខួបនៃរលក និងល្បឿនដំណាលរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ចំនួនរលក ជំហានរលក ខួប និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">ធៀបនឹងសមីការទូទៅ៖ \( y = A \sin(kx - \omega t) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  តាមសមីការដែលឲ្យ៖ \( y = 0.30 \sin(0.20x - 0.20t) \) គេបាន៖<br />
+                  - អំព្លីទុត៖ \( A = 0.30 \text{ m} \)<br />
+                  - ចំនួនរលក៖ \( k = 0.20 \text{ rad/m} \)<br />
+                  - ពុលសាស្យុង៖ \( \omega = 0.20 \text{ rad/s} \)<br />
+                  - ជំហានរលក៖ \( \lambda = \dfrac{2\pi}{k} = \dfrac{2\pi}{0.20} = 10\pi \text{ m} \approx 31.42 \text{ m} \)<br />
+                  - ខួបនៃរលក៖ \( T = \dfrac{2\pi}{\omega} = \dfrac{2\pi}{0.20} = 10\pi \text{ s} \approx 31.42 \text{ s} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{\omega}{k} = \dfrac{0.20}{0.20} = 1 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 0.30 \text{ m} \), 
+                \( k = 0.20 \text{ rad/m} \), 
+                \( \lambda \approx 31.42 \text{ m} \), 
+                \( T \approx 31.42 \text{ s} \), 
+                \( v = 1 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">14</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៤</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            រលកមួយត្រូវបានឱ្យដោយសមីការ \( y = 0.02 \sin(kx - \omega t) \) ដែល \( k = 2.11 \text{ rad/m} \), 
+            \( \omega = 3.62 \text{ rad/s} \), \( x, y \) គិតជា \( (\text{m}) \) និង \( t \) គិតជា \( (\text{s}) \) ។
+          </p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលនៃរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  - អំព្លីទុត៖ \( A = 0.02 \text{ m} \)<br />
+                  - ជំហានរលក៖ \( \lambda = \dfrac{2\pi}{k} \)<br />
+                  - ប្រេកង់៖ \( f = \dfrac{\omega}{2\pi} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{\omega}{k} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( k = 2.11 \text{ rad/m} \)<br />
+                  \( \omega = 3.62 \text{ rad/s} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  - ជំហានរលក៖ \( \lambda = \dfrac{2 \times 3.1416}{2.11} \approx 2.98 \text{ m} \)<br />
+                  - ប្រេកង់៖ \( f = \dfrac{3.62}{2 \times 3.1416} \approx 0.58 \text{ Hz} \)<br />
+                  - ល្បឿន៖ \( v = \dfrac{3.62}{2.11} \approx 1.72 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 0.02 \text{ m} \), 
+                \( \lambda \approx 2.98 \text{ m} \), 
+                \( f \approx 0.58 \text{ Hz} \), 
+                \( v \approx 1.72 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">15</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៥</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>គេមានសមីការ \( y = 0.60 \sin 2\pi \left( \frac{x}{55} - \frac{t}{0.05} \right) \) គិតជា \( (\text{m}) \) ។</p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលនៃរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">ធៀបនឹងសមីការទូទៅ៖ \( y = A \sin 2\pi \left( \dfrac{x}{\lambda} - \dfrac{t}{T} \right) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  តាមសមីការដែលឲ្យ៖ \( y = 0.60 \sin 2\pi \left( \dfrac{x}{55} - \dfrac{t}{0.05} \right) \) គេទាញបាន៖<br />
+                  - អំព្លីទុត៖ \( A = 0.60 \text{ m} \)<br />
+                  - ជំហានរលក៖ \( \lambda = 55 \text{ m} \)<br />
+                  - ខួប៖ \( T = 0.05 \text{ s} \)<br />
+                  - ប្រេកង់៖ \( f = \dfrac{1}{T} = \dfrac{1}{0.05} = 20 \text{ Hz} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{\lambda}{T} = \dfrac{55}{0.05} = 1100 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 0.60 \text{ m} \), 
+                \( \lambda = 55 \text{ m} \), 
+                \( f = 20 \text{ Hz} \), 
+                \( v = 1100 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 16 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">16</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៦</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>គេមានសមីការ \( y = 9 \sin 30\pi \left( \frac{x}{240} - t \right) \) គិតជា \( (\text{m}) \) ។</p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលនៃរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  ធៀបនឹងសមីការទូទៅ៖ \( y = A \sin(kx - \omega t) \)<br />
+                  នាំឲ្យ៖ \( \lambda = \dfrac{2\pi}{k} \), \( f = \dfrac{\omega}{2\pi} \), \( v = \dfrac{\omega}{k} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  ពន្លាតសមីការ៖ \( y = 9 \sin\left(\dfrac{30\pi}{240}x - 30\pi t\right) = 9 \sin\left(\dfrac{\pi}{8}x - 30\pi t\right) \)<br />
+                  គេបាន៖<br />
+                  - អំព្លីទុត៖ \( A = 9 \text{ m} \)<br />
+                  - ចំនួនរលក៖ \( k = \dfrac{\pi}{8} \text{ rad/m} \)<br />
+                  - ពុលសាស្យុង៖ \( \omega = 30\pi \text{ rad/s} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  - ជំហានរលក៖ \( \lambda = \dfrac{2\pi}{\pi/8} = 16 \text{ m} \)<br />
+                  - ប្រេកង់៖ \( f = \dfrac{30\pi}{2\pi} = 15 \text{ Hz} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{30\pi}{\pi/8} = 240 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 9 \text{ m} \), 
+                \( \lambda = 16 \text{ m} \), 
+                \( f = 15 \text{ Hz} \), 
+                \( v = 240 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 17 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">17</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៧</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>គេមានសមីការ \( y = 8 \sin 8\pi \left( t + \frac{x}{16} \right) \) គិតជា \( (\text{m}) \) ។</p>
+          <div class="ex-find">
+            <span>គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលនៃរលក ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាអំព្លីទុត ជំហានរលក ប្រេកង់ និងល្បឿនដំណាលរលក</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  ធៀបនឹងសមីការទូទៅ៖ \( y = A \sin(\omega t + kx) \)<br />
+                  នាំឲ្យ៖ \( \lambda = \dfrac{2\pi}{k} \), \( f = \dfrac{\omega}{2\pi} \), \( v = \dfrac{\omega}{k} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  ពន្លាតសមីការ៖ \( y = 8 \sin\left(8\pi t + \dfrac{\pi}{2}x\right) \)<br />
+                  គេបាន៖<br />
+                  - អំព្លីទុត៖ \( A = 8 \text{ m} \)<br />
+                  - ពុលសាស្យុង៖ \( \omega = 8\pi \text{ rad/s} \)<br />
+                  - ចំនួនរលក៖ \( k = \dfrac{\pi}{2} \text{ rad/m} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  - ជំហានរលក៖ \( \lambda = \dfrac{2\pi}{\pi/2} = 4 \text{ m} \)<br />
+                  - ប្រេកង់៖ \( f = \dfrac{8\pi}{2\pi} = 4 \text{ Hz} \)<br />
+                  - ល្បឿនដំណាលរលក៖ \( v = \dfrac{8\pi}{\pi/2} = 16 \text{ m/s} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ 
+                \( A = 8 \text{ m} \), 
+                \( \lambda = 4 \text{ m} \), 
+                \( f = 4 \text{ Hz} \), 
+                \( v = 16 \text{ m/s} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 18 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">18</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៨</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការ៖ \( y_1 = 4 \sin\left(10\pi t + \frac{\pi}{4}\right) \text{ (cm)} \) និង 
+            \( y_2 = 4 \sin\left(10\pi t - \frac{\pi}{4}\right) \text{ (cm)} \) ។
+          </p>
+          <div class="ex-find">
+            <span>ចូរសរសេរសមីការតម្រួតនៃលំយោលពីរដែលមានទិសដៅ និងប្រេកង់ដូចគ្នា ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">សរសេរសមីការតម្រួតនៃលំយោលទាំងពីរ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  \( y = y_1 + y_2 \)<br />
+                  រូបមន្តត្រីកោណមាត្រ៖ \( \sin a + \sin b = 2 \sin\left(\dfrac{a+b}{2}\right) \cos\left(\dfrac{a-b}{2}\right) \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( y_1 = 4 \sin\left(10\pi t + \dfrac{\pi}{4}\right) \)<br />
+                  \( y_2 = 4 \sin\left(10\pi t - \dfrac{\pi}{4}\right) \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( y = 4 \left[ \sin\left(10\pi t + \dfrac{\pi}{4}\right) + \sin\left(10\pi t - \dfrac{\pi}{4}\right) \right] \)<br />
+                  \( y = 4 \left[ 2 \sin\left(\dfrac{10\pi t + \frac{\pi}{4} + 10\pi t - \frac{\pi}{4}}{2}\right) \cos\left(\dfrac{10\pi t + \frac{\pi}{4} - \left(10\pi t - \frac{\pi}{4}\right)}{2}\right) \right] \)<br />
+                  \( y = 8 \sin(10\pi t) \cos\left(\dfrac{\pi}{4}\right) \)<br />
+                  ដោយ \( \cos\left(\dfrac{\pi}{4}\right) = \dfrac{\sqrt{2}}{2} \)<br />
+                  \( y = 8 \cdot \dfrac{\sqrt{2}}{2} \sin(10\pi t) = 4\sqrt{2} \sin(10\pi t) \text{ (cm)} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 4\sqrt{2} \sin(10\pi t) \text{ (cm)} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 19 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">19</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ១៩</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការ៖ \( y_1 = 6 \sin\left(4\pi t + \frac{\pi}{3}\right) \text{ (cm)} \) និង 
+            \( y_2 = 6 \sin\left(4\pi t - \frac{\pi}{3}\right) \text{ (cm)} \) ។
+          </p>
+          <div class="ex-find">
+            <span>ចូរសរសេរសមីការតម្រួតនៃលំយោលពីរដែលមានទិសដៅ និងប្រេកង់ដូចគ្នា ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">សរសេរសមីការតម្រួតនៃលំយោលទាំងពីរ</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">
+                  \( y = y_1 + y_2 \)<br />
+                  រូបមន្តត្រីកោណមាត្រ៖ \( \sin a + \sin b = 2 \sin\left(\dfrac{a+b}{2}\right) \cos\left(\dfrac{a-b}{2}\right) \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( y_1 = 6 \sin\left(4\pi t + \dfrac{\pi}{3}\right) \)<br />
+                  \( y_2 = 6 \sin\left(4\pi t - \dfrac{\pi}{3}\right) \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( y = 6 \left[ \sin\left(4\pi t + \dfrac{\pi}{3}\right) + \sin\left(4\pi t - \dfrac{\pi}{3}\right) \right] \)<br />
+                  \( y = 6 \left[ 2 \sin\left(\dfrac{4\pi t + \frac{\pi}{3} + 4\pi t - \frac{\pi}{3}}{2}\right) \cos\left(\dfrac{4\pi t + \frac{\pi}{3} - \left(4\pi t - \frac{\pi}{3}\right)}{2}\right) \right] \)<br />
+                  \( y = 12 \sin(4\pi t) \cos\left(\dfrac{\pi}{3}\right) \)<br />
+                  ដោយ \( \cos\left(\dfrac{\pi}{3}\right) = 0.5 \)<br />
+                  \( y = 12 \cdot 0.5 \sin(4\pi t) = 6 \sin(4\pi t) \text{ (cm)} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 6 \sin(4\pi t) \text{ (cm)} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 20 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-num">
+            <div class="ex-badge">20</div>
+            <span class="ex-title">លំហាត់អនុវត្ត ២០</span>
+          </div>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានសមីការរលកពីរ \( y_1 = 4 \sin\left(5\pi t + \frac{\pi}{4}\right) \text{ (cm)} \) ; 
+            \( y_2 = 3 \sin\left(5\pi t + \frac{\pi}{4}\right) \text{ (cm)} \) ។
+          </p>
+          <div class="ex-find">
+            <span>ក. កំណត់អំព្លីទុត ពុលសាស្យុង ផាសដើមនៃរលកនីមួយៗ ។</span>
+          </div>
+          <div class="ex-find"><span>ខ. គណនាផលសងផាសនៃរលក ។</span></div>
+          <div class="ex-find"><span>គ. គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត ។</span></div>
+          <div class="ex-find">
+            <span>ឃ. សរសេរសមីការរលកតម្រួត ។ រួចធ្វើសំណង់ប្រេណែលនៃរលកទាំង ២ ។</span>
+          </div>
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ដំណោះស្រាយលំហាត់២០</div>
+              
+              <div class="sol-step">
+                <span class="sol-label">ក. </span>
+                <span class="sol-math">
+                  <strong>កំណត់អំព្លីទុត ពុលសាស្យុង និងផាសដើមនៃរលកនីមួយៗ៖</strong><br />
+                  ធៀបនឹងសមីការទូទៅ៖ \( y = A \sin(\omega t + \phi) \)<br />
+                  - រលកទី១៖ \( y_1 = 4 \sin\left(5\pi t + \dfrac{\pi}{4}\right) \text{ (cm)} \)<br />
+                  នាំឲ្យ៖ អំព្លីទុត \( A_1 = 4 \text{ cm} \), ពុលសាស្យុង \( \omega_1 = 5\pi \text{ rad/s} \), ផាសដើម \( \phi_1 = \dfrac{\pi}{4} \text{ rad} \)<br />
+                  - រលកទី២៖ \( y_2 = 3 \sin\left(5\pi t + \dfrac{\pi}{4}\right) \text{ (cm)} \)<br />
+                  នាំឲ្យ៖ អំព្លីទុត \( A_2 = 3 \text{ cm} \), ពុលសាស្យុង \( \omega_2 = 5\pi \text{ rad/s} \), ផាសដើម \( \phi_2 = \dfrac{\pi}{4} \text{ rad} \)
+                </span>
+              </div>
+
+              <div class="sol-step">
+                <span class="sol-label">ខ. </span>
+                <span class="sol-math">
+                  <strong>គណនាផលសងផាសនៃរលក៖</strong><br />
+                  តាមរូបមន្ត៖ \( \Delta \phi = \phi_1 - \phi_2 \)<br />
+                  គេបាន៖ \( \Delta \phi = \dfrac{\pi}{4} - \dfrac{\pi}{4} = 0 \text{ rad} \)<br />
+                  (រលកទាំងពីរស្របផាសគ្នា)
+                </span>
+              </div>
+
+              <div class="sol-step">
+                <span class="sol-label">គ. </span>
+                <span class="sol-math">
+                  <strong>គណនាអំព្លីទុត ខួប និងផាសនៃរលកតម្រួត៖</strong><br />
+                  - <strong>អំព្លីទុតរលកតម្រួត៖</strong> ដោយរលកទាំងពីរស្របផាសគ្នា (\( \Delta\phi = 0 \)) គេបាន៖<br />
+                  \( A = A_1 + A_2 = 4 + 3 = 7 \text{ cm} \)<br />
+                  - <strong>ខួបនៃរលកតម្រួត៖</strong> តាមរូបមន្ត \( T = \dfrac{2\pi}{\omega} \)<br />
+                  ដោយ \( \omega = 5\pi \text{ rad/s} \) គេបាន \( T = \dfrac{2\pi}{5\pi} = 0.4 \text{ s} \)<br />
+                  - <strong>ផាសដើមនៃរលកតម្រួត៖</strong> \( \phi = \phi_1 = \phi_2 = \dfrac{\pi}{4} \text{ rad} \)
+                </span>
+              </div>
+
+              <div class="sol-step">
+                <span class="sol-label">ឃ. </span>
+                <span class="sol-math">
+                  <strong>សរសេរសមីការរលកតម្រួត និងធ្វើសំណង់ប្រេណែល៖</strong><br />
+                  - <strong>សមីការរលកតម្រួត៖</strong> \( y = A \sin(\omega t + \phi) \)<br />
+                  គេបាន៖ \( y = 7 \sin\left(5\pi t + \dfrac{\pi}{4}\right) \text{ (cm)} \)<br />
+                  - <strong>សំណង់ប្រេណែល (Fresnel Diagram)៖</strong><br />
+                  សង់អ័ក្សគោល \( Ox \)។ វ៉ិចទ័រអំព្លីទុត \( \vec{A}_1 \) និង \( \vec{A}_2 \) មានផាសដើមស្មើគ្នា \( \phi = \dfrac{\pi}{4} \) (\( 45^\circ \)) ដូចនេះ៖<br />
+                  1. គូរវ៉ិចទ័រ \( \vec{A}_1 \) មានប្រវែង \( 4 \text{ cm} \) ផ្ដើមពីគល់តម្រុយ និងផ្ដេកជ្រុង \( 45^\circ \) ធៀបនឹងអ័ក្សគោល។<br />
+                  2. គូរវ៉ិចទ័រ \( \vec{A}_2 \) មានប្រវែង \( 3 \text{ cm} \) ស្រប និងមានទិសដៅដូចគ្នាទៅនឹង \( \vec{A}_1 \) (បន្តពីចុងនៃ \( \vec{A}_1 \))។<br />
+                  3. វ៉ិចទ័រលទ្ធផល \( \vec{A} = \vec{A}_1 + \vec{A}_2 \) មានគល់ត្រង់គល់តម្រុយ និងចុងត្រង់ចុងវ៉ិចទ័រទី២ ដោយមានប្រវែងសរុប \( 7 \text{ cm} \) និងមុំផ្ដេក \( 45^\circ \)។
+                </span>
+              </div>
+
+              <div class="sol-box">
+                ដូចនេះ៖ សមីការរលកតម្រួតគឺ \( y = 7 \sin\left(5\pi t + \dfrac{\pi}{4}\right) \text{ (cm)} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

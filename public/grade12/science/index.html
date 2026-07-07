@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Science Dashboard | StudyNest</title>
+    <meta
+      name="description"
+      content="កម្រងមេរៀនវិទ្យាសាស្ត្រពិត ថ្នាក់ទី១២ — StudyNest"
+    />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Main Style -->
+    <link rel="stylesheet" href="http://localhost:8000/assets/style.css" />
+    <link rel="stylesheet" href="http://localhost:8000/assets/dashboard-compact.css" />
+    <style>
+      :root {
+        --accent: #3b82f6;
+        --accent-glow: rgba(59, 130, 246, 0.3);
+      }
+
+      body {
+        display: flex;
+        min-height: 100vh;
+        overflow: hidden;
+        background: #0f172a;
+      }
+
+      /* Compact Profile Menu (Left) */
+      
+    </style>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Compact Left Menu -->
+    <div class="user-menu-wrapper anim">
+      <div class="top-profile-box" onclick="toggleUserMenu(event)">
+        <div class="top-avatar">
+          <img id="sidebarAvatar" src="" style="display: none" alt="User avatar" />
+          <span id="sidebarInitial">S</span>
+        </div>
+        <div class="top-profile-info">
+          <div class="top-profile-name" id="sidebarName">Student</div>
+          <div class="top-profile-level" id="userPlanLabel">Science Path</div>
+        </div>
+        <i
+          class="fas fa-chevron-down"
+          style="font-size: 10px; color: var(--text-muted); margin-left: 8px"
+        ></i>
+      </div>
+
+      <div class="user-dropdown" id="userDropdown">
+        <a href="#" class="dropdown-item active">
+          <i class="fas fa-home"></i> ទំព័រដើម
+        </a>
+        <a href="/grade12/profile" class="dropdown-item">
+          <i class="fas fa-user-circle"></i> ប្រវត្តិរូប
+        </a>
+        <a href="#" onclick="openPayModal()" class="dropdown-item">
+          <i class="fas fa-credit-card"></i> គម្រោងឥតគិតថ្លៃ
+        </a>
+
+        <div class="dropdown-divider"></div>
+
+        <div style="padding: 8px 16px">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-size: 11px;
+              margin-bottom: 8px;
+              color: var(--text-muted);
+              text-transform: uppercase;
+              font-weight: 700;
+            "
+          >
+            <span>ការសិក្សាសរុប</span>
+            <span id="sideProgressPercent">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="sideProgressBar"></div>
+          </div>
+        </div>
+
+        <div class="dropdown-divider"></div>
+
+        <a href="#" onclick="logout()" class="dropdown-item logout">
+          <i class="fas fa-sign-out-alt"></i> ចាកចេញ
+        </a>
+      </div>
+    </div>
+
+    <!-- Scrollable Main Area -->
+    <main class="main-content">
+      <header class="welcome-header anim">
+        <h1 id="welcomeText" class="anim-1">សួស្ដី! 👋</h1>
+        <p class="anim-2">កម្រងមេរៀនវិទ្យាសាស្ត្រពិត ថ្នាក់ទី១២</p>
+      </header>
+
+      <div class="dashboard-section-title anim-3">
+        <i class="fas fa-book"></i> មុខវិជ្ជាស្នូល
+      </div>
+
+      <div class="subject-grid">
+        <div
+          class="subject-card anim-3"
+          onclick="openOptions('គណិតវិទ្យា', 'math_g12')"
+        >
+          <div class="subject-icon-box"><i class="fas fa-calculator"></i></div>
+          <div>
+            <h3>គណិតវិទ្យា</h3>
+            <p>ពិជគណិត ធរណីមាត្រ និងវិភាគ... សម្រាប់សិស្សថ្នាក់ទី១២។</p>
+          </div>
+        </div>
+
+        <div
+          class="subject-card anim-4"
+          onclick="openOptions('រូបវិទ្យា', 'physics_g12')"
+        >
+          <div class="subject-icon-box"><i class="fas fa-atom"></i></div>
+          <div>
+            <h3>រូបវិទ្យា</h3>
+            <p>ទែម៉ូឌីណាមិច អគ្គិសនី និងរលក... រៀបចំសម្រាប់បាក់ឌុប។</p>
+          </div>
+        </div>
+
+        <div
+          class="subject-card anim-5"
+          onclick="openOptions('គីមីវិទ្យា', 'chemistry_g12')"
+        >
+          <div class="subject-icon-box"><i class="fas fa-flask"></i></div>
+          <div>
+            <h3>គីមីវិទ្យា</h3>
+            <p>គីមីសរីរាង្គ និងគីមីអសរីរាង្គ... សិក្សាជាមួយរូបមន្តថ្មីៗ។</p>
+          </div>
+        </div>
+
+        <div
+          class="subject-card anim-6"
+          onclick="openOptions('ជីវវិទ្យា', 'biology_g12')"
+        >
+          <div class="subject-icon-box"><i class="fas fa-dna"></i></div>
+          <div>
+            <h3>ជីវវិទ្យា</h3>
+            <p>សេនេទិច ភពផែនដី និងភាវរស់... មេរៀនសង្ខេបងាយយល់។</p>
+          </div>
+        </div>
+        <div
+          class="subject-card anim-5"
+          onclick="openOptions('ប្រវត្តិវិទ្យា', 'history_g12')"
+        >
+          <div class="subject-icon-box"><i class="fas fa-monument"></i></div>
+          <div>
+            <h3>ប្រវត្តិវិទ្យា</h3>
+            <p>សិក្សាពីព្រឹត្តិការណ៍សំខាន់ៗ និងប្រវត្តិសាស្ត្រខ្មែរ។</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Option Modal -->
+    <div class="modal" id="optionModal">
+      <div class="modal-content">
+        <h2
+          id="selectedSubject"
+          style="margin-bottom: 8px; font-size: 24px; color: white"
+        >
+          មុខវិជ្ជា
+        </h2>
+        <p
+          id="modalUserStatus"
+          style="
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 32px;
+            font-weight: 600;
+          "
+        >
+          កម្រិតសិក្សា: Full Free Plan
+        </p>
+
+        <div id="unlockedSection">
+          <button class="option-btn-modal" onclick="goToContent('lesson')">
+            <span
+              ><i
+                class="fas fa-book-open"
+                style="margin-right: 12px; color: var(--accent)"
+              ></i>
+              មេរៀន</span
+            >
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 12px; color: var(--text-muted)"
+            ></i>
+          </button>
+          
+          <!-- Exercise Button Unlocked -->
+          <button
+            class="option-btn-modal"
+            id="btn-exercise-unlocked"
+            onclick="goToContent('exercise')"
+            style="display: none"
+          >
+            <span id="exercise-label-unlocked"
+              ><i
+                class="fas fa-edit"
+                style="margin-right: 12px; color: var(--accent)"
+              ></i>
+              លំហាត់</span
+            >
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 12px; color: var(--text-muted)"
+            ></i>
+          </button>
+
+          <!-- Bacii Button Unlocked -->
+          <button
+            class="option-btn-modal"
+            id="btn-bacii-unlocked"
+            onclick="goToContent('bacii')"
+            style="display: none"
+          >
+            <span><i
+                class="fas fa-graduation-cap"
+                style="margin-right: 12px; color: var(--accent)"
+              ></i>
+              វិញ្ញាសាបាក់ឌុប</span>
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 12px; color: var(--text-muted)"
+            ></i>
+          </button>
+        </div>
+
+        <div id="lockedSection">
+          <!-- Exercise Button Locked -->
+          <button
+            class="option-btn-modal"
+            id="btn-exercise-locked"
+            onclick="goToPay(3)"
+            style="opacity: 0.6; display: none"
+          >
+            <span id="exercise-label-locked"
+              ><i class="fas fa-lock" style="margin-right: 12px"></i>
+              លំហាត់</span
+            >
+            <span
+              style="
+                font-size: 11px;
+                background: var(--accent);
+                color: #0f172a;
+                padding: 2px 8px;
+                border-radius: 10px;
+              "
+              >Free</span
+            >
+          </button>
+
+          <!-- Bacii Button Locked -->
+          <button
+            class="option-btn-modal"
+            id="btn-bacii-locked"
+            onclick="goToPay(6)"
+            style="opacity: 0.6; display: none"
+          >
+            <span><i class="fas fa-lock" style="margin-right: 12px"></i>
+              វិញ្ញាសាបាក់ឌុប</span>
+            <span
+              style="
+                font-size: 11px;
+                background: #a855f7;
+                color: white;
+                padding: 2px 8px;
+                border-radius: 10px;
+              "
+              >Free</span
+            >
+          </button>
+        </div>
+
+        <div class="modal-cancel" onclick="closeModal()">បោះបង់</div>
+      </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="payModal">
+      <div class="modal-content">
+        <h2 style="margin-bottom: 32px; font-size: 24px; color: white">
+          ជ្រើសរើសគម្រោងសិក្សា
+        </h2>
+        <button
+          class="option-btn-modal"
+          onclick="goToPay(3)"
+          style="border-color: var(--accent)"
+        >
+          <div style="text-align: left">
+            <div style="font-weight: 700">Free Exercise Plan</div>
+            <div
+              style="
+                font-size: 11px;
+                color: var(--text-muted);
+                font-weight: 400;
+              "
+            >
+              មេរៀន + លំហាត់ទាំងអស់
+            </div>
+          </div>
+          <span
+            style="
+              color: var(--accent);
+              font-weight: 700;
+              font-family: &quot;Rajdhani&quot;;
+              font-size: 20px;
+            "
+            >Free</span
+          >
+        </button>
+        <button
+          class="option-btn-modal"
+          onclick="goToPay(6)"
+          style="border-color: #a855f7"
+        >
+          <div style="text-align: left">
+            <div style="font-weight: 700">Full Free Plan</div>
+            <div
+              style="
+                font-size: 11px;
+                color: var(--text-muted);
+                font-weight: 400;
+              "
+            >
+              លំហាត់ + វិញ្ញាសាបាក់ឌុប
+            </div>
+          </div>
+          <span
+            style="
+              color: #a855f7;
+              font-weight: 700;
+              font-family: &quot;Rajdhani&quot;;
+              font-size: 20px;
+            "
+            >Free</span
+          >
+        </button>
+        <div class="modal-cancel" onclick="closePayModal()">បោះបង់</div>
+      </div>
+    </div>
+
+    <script src="http://localhost:8000/assets/main.js"></script>
+    <script>
+      // Protect page
+      StudyNest.authGuard();
+
+      // Initialize background
+      StudyNest.initBackground();
+
+      const currentUser = StudyNest.getUser();
+      let userLevel = StudyNest.getLevel();
+      let currentSubjectPath = "";
+
+      document.getElementById("sidebarName").textContent = currentUser;
+      document.getElementById("welcomeText").textContent =
+        `សួស្ដី, ${currentUser}! 👋`;
+
+      function updateSidebarAvatar() {
+        const savedImg = localStorage.getItem("profile_" + currentUser);
+        const sidebarImg = document.getElementById("sidebarAvatar");
+        const sidebarInitial = document.getElementById("sidebarInitial");
+        if (savedImg && savedImg.startsWith("data:image")) {
+          sidebarImg.src = savedImg;
+          sidebarImg.style.display = "block";
+          sidebarInitial.style.display = "none";
+        } else {
+          sidebarInitial.textContent = currentUser
+            .substring(0, 2)
+            .toUpperCase();
+          sidebarImg.style.display = "none";
+          sidebarInitial.style.display = "block";
+        }
+      }
+      updateSidebarAvatar();
+
+      function updateProgress() {
+        const completed =
+          JSON.parse(
+            localStorage.getItem("completed_lessons_" + currentUser),
+          ) || [];
+        const percent = Math.min(
+          Math.round((completed.length / 50) * 100),
+          100,
+        );
+        document.getElementById("sideProgressBar").style.width = percent + "%";
+        document.getElementById("sideProgressPercent").textContent =
+          percent + "%";
+      }
+      updateProgress();
+
+      function openPayModal() {
+        alert("គម្រោងទាំងអស់ឥឡូវនេះឥតគិតថ្លៃ!");
+      }
+      function closePayModal() {
+        document.getElementById("payModal").style.display = "none";
+      }
+
+      let currentSubjectDir = "";
+      function openOptions(subject, subjectDir) {
+        document.getElementById("selectedSubject").textContent = subject;
+        currentSubjectDir = subjectDir;
+        userLevel = StudyNest.getLevel();
+
+        const statusElem = document.getElementById("modalUserStatus");
+        if (userLevel >= 6)
+          statusElem.textContent = "កម្រិតសិក្សា: Full Free Plan";
+        else if (userLevel >= 3)
+          statusElem.textContent = "កម្រិតសិក្សា: Full Free Plan Exercise Plan";
+        else statusElem.textContent = "កម្រិតសិក្សា: Full Free Plan";
+
+        // Update labels based on subject
+        const isHistory = subject === "ប្រវត្តិវិទ្យា";
+        const labelText = isHistory ? "សំណួរ និង ចម្លើយ" : "លំហាត់";
+        const iconClass = isHistory ? "fas fa-question-circle" : "fas fa-edit";
+
+        document.getElementById("exercise-label-unlocked").innerHTML =
+          `<i class="${iconClass}" style="margin-right: 12px; color: var(--accent)"></i> ${labelText}`;
+        document.getElementById("exercise-label-locked").innerHTML =
+          `<i class="fas fa-lock" style="margin-right: 12px"></i> ${labelText}`;
+
+        // Exercise logic (Level 3)
+        document.getElementById("btn-exercise-unlocked").style.display =
+          userLevel >= 3 ? "flex" : "none";
+        document.getElementById("btn-exercise-locked").style.display =
+          userLevel < 3 ? "flex" : "none";
+
+        // Bacii logic (Level 6)
+        document.getElementById("btn-bacii-unlocked").style.display =
+          userLevel >= 6 ? "flex" : "none";
+        document.getElementById("btn-bacii-locked").style.display =
+          userLevel < 6 ? "flex" : "none";
+
+        document.getElementById("optionModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("optionModal").style.display = "none";
+      }
+
+      function goToContent(type) {
+        if (type === "lesson") {
+          window.location.href = `/grade12/science/${currentSubjectDir}/`;
+        } else if (type === "exercise") {
+          if (StudyNest.checkAccess(3)) {
+            if (currentSubjectDir === "physics_g12") {
+              window.location.href = `/grade12/science/physics_g12/exercise/physics_home`;
+            } else if (currentSubjectDir === "biology_g12") {
+              window.location.href = `/grade12/science/biology_g12/exercise/biology_home`;
+            } else if (currentSubjectDir === "chemistry_g12") {
+              window.location.href = `/grade12/science/chemistry_g12/exercise/chemistry_home`;
+            } else if (currentSubjectDir === "history_g12") {
+              alert("មាតិកាសំណួរ និង ចម្លើយ នឹងមកដល់ឆាប់ៗនេះ!");
+            } else {
+              alert("មាតិកាលំហាត់សម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
+            }
+          }
+        } else if (type === "bacii") {
+          if (StudyNest.checkAccess(6)) {
+            if (currentSubjectDir === "biology_g12") {
+              window.location.href = `/grade12/science/biology_g12/exams`;
+            } else if (currentSubjectDir === "math_g12") {
+              window.location.href = `/grade12/science/math_g12/#exam-list`;
+            } else {
+              alert("វិញ្ញាសាបាក់ឌុបសម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
+            }
+          }
+        }
+      }
+      function goToPay(level) {
+        alert("គម្រោងទាំងអស់ឥឡូវនេះឥតគិតថ្លៃ!");
+      }
+      function logout() {
+        StudyNest.logout();
+      }
+
+      function toggleUserMenu(e) {
+        e.stopPropagation();
+        document.getElementById("userDropdown").classList.toggle("show");
+      }
+
+      function closeDropdowns(e) {
+        if (!e.target.closest(".user-menu-wrapper")) {
+          document.getElementById("userDropdown").classList.remove("show");
+        }
+      }
+      document.addEventListener('click', closeDropdowns);
+    </script>
+  </body>
+</html>

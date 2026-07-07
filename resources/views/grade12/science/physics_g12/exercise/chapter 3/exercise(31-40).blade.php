@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ៣១–៤០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+      .ex-card:nth-child(3n + 2) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .ex-card:nth-child(3n + 2) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+      .ex-card:nth-child(3n + 2) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+        /* Solution Collapse Styles */
+        .ex-ans {
+          margin-top: 20px;
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          overflow: hidden;
+          background: #f8fafc;
+        }
+        .ex-ans summary {
+          padding: 14px 24px;
+          background: #f1f5f9;
+          font-weight: 700;
+          color: var(--navy);
+          cursor: pointer;
+          outline: none;
+          user-select: none;
+          transition: background 0.2s ease;
+        }
+        .ex-ans summary:hover {
+          background: #e2e8f0;
+        }
+        .ex-ans[open] summary {
+          border-bottom: 1px solid var(--border);
+          background: #e2e8f0;
+        }
+        .sol-block {
+          padding: 24px;
+          background: white;
+        }
+        .sol-title {
+          font-size: 1.05rem;
+          font-weight: 700;
+          color: var(--blue);
+          margin-top: 16px;
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          border-bottom: 2px solid #eff6ff;
+          padding-bottom: 8px;
+        }
+        .sol-title:first-child {
+          margin-top: 0;
+        }
+        .sol-step {
+          margin-bottom: 20px;
+        }
+        .sol-step:last-child {
+          margin-bottom: 0;
+        }
+        .sol-label {
+          font-weight: 600;
+          color: #334155;
+          margin-bottom: 6px;
+        }
+        .sol-math {
+          background: #f8fafc;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid #f1f5f9;
+          margin: 8px 0;
+          overflow-x: auto;
+        }
+        .sol-box {
+          background: #ecfdf5;
+          border: 1px solid #a7f3d0;
+          color: #065f46;
+          padding: 12px 20px;
+          border-radius: 8px;
+          font-weight: 700;
+          margin-top: 12px;
+          display: inline-block;
+        }
+        .sol-block ul {
+          margin-left: 20px;
+          margin-bottom: 10px;
+        }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 1_home"
+        style="
+          color: rgba(78, 81, 224, 0.993);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ដែន និងកម្លាំងម៉ាញេទិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ៣១–៤០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- Exercise 31 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">31</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣១</div>
+        </div>
+        <div class="ex-body">
+          ប៊ូប៊ីនវែងមួយរុំដោយខ្សែចម្លងដែលមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 1\text{ mm}\)</span> ជាស្ពៀជាប់ៗគ្នា។
+          ប៊ូប៊ីននេះស្ថិតក្នុងមជ្ឈដ្ឋានដែលមានជ្រាបម៉ាញេទិចធៀប
+          <span class="given">\(\mu_r = 200\)</span>
+          ហើយគេឱ្យចរន្តថេរឆ្លងកាត់ប៊ូប៊ីន
+          គេឃើញដែនម៉ាញេទិចកើតក្នុងប៊ូប៊ីនមានតម្លៃ
+          <span class="given">\(B = 1.57\text{ mT}\)</span>។
+          <div class="ex-find">
+            <span>គណនាតម្លៃចរន្តអគ្គិសនីដែលឆ្លងកាត់ប៊ូប៊ីន​។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃចរន្តអគ្គិសនីដែលឆ្លងកាត់ប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តដែនម៉ាញេទិចក្នុងប៊ូប៊ីន (សូឡេណូអុីត) មានស្នូល៖</div>
+                <div class="sol-math">
+                  \(B = \mu_r \cdot \mu_0 \cdot n \cdot I\)
+                </div>
+                <div class="sol-label">ដោយសារស្ពៀរុំជាប់ៗគ្នា នោះចំនួនស្ពៀក្នុងមួយឯកតាប្រវែងគឺ៖</div>
+                <div class="sol-math">
+                  \(n = \frac{1}{d}\)
+                </div>
+                <div class="sol-label">គេទាញបាន៖</div>
+                <div class="sol-math">
+                  \(B = \mu_r \cdot \mu_0 \cdot \frac{I}{d} \implies I = \frac{B \cdot d}{\mu_r \cdot \mu_0}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(B = 1.57\text{ mT} = 1.57 \times 10^{-3}\text{ T} \approx 0.5\pi \times 10^{-3}\text{ T}\)</li>
+                  <li>\(d = 1\text{ mm} = 10^{-3}\text{ m}\)</li>
+                  <li>\(\mu_r = 200\)</li>
+                  <li>\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ជំនួសលេខចូល៖</div>
+                <div class="sol-math">
+                  \(I = \frac{(0.5\pi \times 10^{-3}\text{ T}) \cdot (10^{-3}\text{ m})}{200 \cdot (4\pi \times 10^{-7}\text{ T}\cdot\text{m/A})}\)
+                </div>
+                <div class="sol-math">
+                  \(I = \frac{0.5\pi \times 10^{-6}}{800\pi \times 10^{-7}} = \frac{0.5}{80} = 0.00625\text{ A} = 6.25\text{ mA}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ចរន្តអគ្គិសនីឆ្លងកាត់ប៊ូប៊ីនគឺ \(I = 6.25\text{ mA}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 32 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">32</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣២</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 0.8\text{ mm}\)</span>
+          ស្រោបដោយអ៊ីសូឡង់មានកម្រាស់
+          <span class="given">\(e = 0.2\text{ mm}\)</span>។
+          គេយកទៅរុំជាស្ពៀជាប់ៗគ្នា ចំនួន ២ ស្រទាប់ បង្កើតជាសូឡេណូអុីតមួយ។
+          កាលណាគេឱ្យចរន្តអគ្គិសនីឆ្លងរត់ក្នុងស្ពៀ គេឃើញថាវាបង្កើតដែនម៉ាញេទិច
+          <span class="given">\(B = 6.28\text{ mT}\)</span> ក្នុងសូឡេណូអុីត។
+          <div class="ex-find">
+            <span>គណនាតម្លៃចរន្តអគ្គិសនីដែលឆ្លងកាត់ប៊ូប៊ីន​។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាតម្លៃចរន្តអគ្គិសនីដែលឆ្លងកាត់ប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តអាំងឌុចស្យុងម៉ាញេទិចនៃសូឡេណូអុីតរុំ \(N_{layer}\) ស្រទាប់៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot n \cdot I\)
+                </div>
+                <div class="sol-label">អង្កត់ផ្ចិតសរុបនៃខ្សែចម្លងដែលស្រោបដោយអ៊ីសូឡង់គឺ៖</div>
+                <div class="sol-math">
+                  \(d' = d + 2e\)
+                </div>
+                <div class="sol-label">ដោយសាររុំជាស្ពៀជាប់ៗគ្នា ចំនួន \(N_{layer} = 2\) ស្រទាប់ នាំឱ្យចំនួនស្ពៀក្នុងមួយឯកតាប្រវែងគឺ៖</div>
+                <div class="sol-math">
+                  \(n = N_{layer} \cdot \frac{1}{d'} = \frac{2}{d + 2e}\)
+                </div>
+                <div class="sol-label">គេទាញបានរូបមន្តចរន្ត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot \frac{2}{d + 2e} \cdot I \implies I = \frac{B(d + 2e)}{2\mu_0}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(d = 0.8\text{ mm} = 0.8 \times 10^{-3}\text{ m}\)</li>
+                  <li>\(e = 0.2\text{ mm} = 0.2 \times 10^{-3}\text{ m}\)</li>
+                  <li>\(d' = d + 2e = 0.8 + 2(0.2) = 1.2\text{ mm} = 1.2 \times 10^{-3}\text{ m}\)</li>
+                  <li>\(B = 6.28\text{ mT} \approx 2\pi \times 10^{-3}\text{ T}\)</li>
+                  <li>\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ជំនួសលេខចូល៖</div>
+                <div class="sol-math">
+                  \(I = \frac{(2\pi \times 10^{-3}) \cdot (1.2 \times 10^{-3})}{2 \cdot (4\pi \times 10^{-7})}\)
+                </div>
+                <div class="sol-math">
+                  \(I = \frac{2.4\pi \times 10^{-6}}{8\pi \times 10^{-7}} = 3\text{ A}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ចរន្តអគ្គិសនីដែលឆ្លងកាត់ប៊ូប៊ីនគឺ \(I = 3\text{ A}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 33 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">33</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៣</div>
+        </div>
+        <div class="ex-body">
+          ខ្សែចម្លងមួយមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 0.8\text{ mm}\)</span>
+          ស្រោបដោយអ៊ីសូឡង់មានកម្រាស់
+          <span class="given">\(e = 0.4\text{ mm}\)</span>។
+          គេយកទៅរុំជាស្ពៀជាប់ៗគ្នា ចំនួន ៤ ស្រទាប់ បង្កើតជាសូឡេណូអុីតមួយ។
+          កាលណាគេឱ្យចរន្តអគ្គិសនីឆ្លងរត់ក្នុងស្ពៀ គេឃើញថាវាបង្កើតដែនម៉ាញេទិច
+          <span class="given">\(B = 6.28\text{ mT}\)</span> ក្នុងសូឡេណូអុីត។
+          <div class="ex-find">
+            <span>គណនាចរន្តអគ្គិសនី \(I\) រត់ក្នុងស្ពៀ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាចរន្តអគ្គិសនី \(I\) រត់ក្នុងស្ពៀ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តអាំងឌុចស្យុងម៉ាញេទិចនៃសូឡេណូអុីត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot n \cdot I\)
+                </div>
+                <div class="sol-label">ដោយអង្កត់ផ្ចិតខ្សែចម្លងសរុបមានទាំងអ៊ីសូឡង់គឺ៖</div>
+                <div class="sol-math">
+                  \(d' = d + 2e = 0.8\text{ mm} + 2(0.4\text{ mm}) = 1.6\text{ mm} = 1.6 \times 10^{-3}\text{ m}\)
+                </div>
+                <div class="sol-label">ចំនួនស្ពៀក្នុងមួយឯកតាប្រវែងសម្រាប់រុំ \(N_{layer} = 4\) ស្រទាប់គឺ៖</div>
+                <div class="sol-math">
+                  \(n = 4 \cdot \frac{1}{d'} = \frac{4}{1.6 \times 10^{-3}} = 2500\text{ m}^{-1}\)
+                </div>
+                <div class="sol-label">គេទាញបានចរន្តអគ្គិសនី៖</div>
+                <div class="sol-math">
+                  \(I = \frac{B}{\mu_0 \cdot n}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(B = 6.28\text{ mT} \approx 2\pi \times 10^{-3}\text{ T}\)</li>
+                  <li>\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</li>
+                  <li>\(n = 2500\text{ m}^{-1}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(I = \frac{2\pi \times 10^{-3}}{4\pi \times 10^{-7} \cdot 2500} = \frac{2\pi \times 10^{-3}}{\pi \times 10^{-3}} = 2\text{ A}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ចរន្តអគ្គិសនីដែលរត់ក្នុងស្ពៀគឺ \(I = 2\text{ A}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 34 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">34</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៤</div>
+        </div>
+        <div class="ex-body">
+          ប៊ូប៊ីនវែងមួយធ្វើពីខ្សែចម្លងរុំជាស្ពៀជាប់ៗគ្នាយ៉ាងទៀងទាត់ចំនួន \(x\)
+          ស្រទាប់លើស៊ីឡាំងអ៊ីសូឡង់មួយ។ ខ្សែចម្លងដែលរុំមានអង្កត់ផ្ចិត
+          <span class="given">\(d = 1.256\text{ mm}\)</span> ឆ្លងកាត់ដោយចរន្ត
+          <span class="given">\(I = 500\text{ mA}\)</span>
+          គេបានអាំងតង់ស៊ីតេដែនម៉ាញេទិច
+          <span class="given">\(B = 6\text{ mT}\)</span>។
+
+          <div class="ex-find">
+            <span
+              >ក. ចូរគំនូសបំព្រួញប៊ូប៊ីនដាក់ទិសដៅចរន្តក្នុងស្ពៀ
+              សង់វ៉ិចទ័រដែនម៉ាញេទិចត្រង់ផ្ចិតប៊ូប៊ីន ដាក់ឈ្មោះមុខរបស់ប៊ូប៊ីន
+              គូសខ្សែដែនម៉ាញេទិច ដាក់ទិសដៅដែនខាងក្នុងនិងក្រៅប៊ូប៊ីន។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាចំនួនស្រទាប់ \(x\) នៃប៊ូប៊ីននេះ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គំនូសបំព្រួញប៊ូប៊ីននិងកំណត់លក្ខណៈផ្សេងៗ</div>
+              <div class="sol-step">
+                <div class="sol-label">ការកំណត់ទិសដៅនិងសង់វ៉ិចទ័រ៖</div>
+                <ul>
+                  <li><strong>ទិសដៅចរន្ត៖</strong> ឧបមាថាចរន្តរត់ឡើងលើនៅផ្នែកខាងមុខនៃស្ពៀ និងចុះក្រោមនៅផ្នែកខាងក្រោយ។</li>
+                  <li><strong>វ៉ិចទ័រដែនម៉ាញេទិច \(\vec{B}\)៖</strong> តាមវិធានដៃស្តាំ កាលណាក្ដាប់ម្រាមដៃទាំងបួនតាមទិសដៅចរន្ត នោះមេដៃចង្អុលបង្ហាញទិសដៅវ៉ិចទ័រដែនម៉ាញេទិច \(\vec{B}\) នៅខាងក្នុងប៊ូប៊ីន (ចង្អុលទៅឆ្វេង)។</li>
+                  <li><strong>មុខប៊ូប៊ីន៖</strong> 
+                    <ul>
+                      <li>ចុងដែនម៉ាញេទិច \(\vec{B}\) ចាកចេញជា <strong>មុខជើង (North - N)</strong> (នៅខាងឆ្វេង)។</li>
+                      <li>ចុងដែនម៉ាញេទិច \(\vec{B}\) ចូលជា <strong>មុខត្បូង (South - S)</strong> (នៅខាងស្តាំ)។</li>
+                    </ul>
+                  </li>
+                  <li><strong>ទិសដៅខ្សែដែន៖</strong> នៅខាងក្នុងប៊ូប៊ីន ខ្សែដែនមានទិសដៅពីត្បូង (S) ទៅជើង (N) ហើយនៅខាងក្រៅប៊ូប៊ីន មានទិសដៅពីជើង (N) ទៅត្បូង (S)។</li>
+                </ul>
+              </div>
+
+              <div class="sol-title">ខ. គណនាចំនួនស្រទាប់ \(x\) នៃប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot n \cdot I = \mu_0 \cdot \frac{x}{d} \cdot I\)
+                </div>
+                <div class="sol-label">ទាញរកចំនួនស្រទាប់ \(x\)៖</div>
+                <div class="sol-math">
+                  \(x = \frac{B \cdot d}{\mu_0 \cdot I}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(B = 6\text{ mT} = 6 \times 10^{-3}\text{ T}\)</li>
+                  <li>\(d = 1.256\text{ mm} = 1.256 \times 10^{-3}\text{ m} \approx 0.4\pi \times 10^{-3}\text{ m}\)</li>
+                  <li>\(I = 500\text{ mA} = 0.5\text{ A}\)</li>
+                  <li>\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ជំនួសលេខចូល៖</div>
+                <div class="sol-math">
+                  \(x = \frac{(6 \times 10^{-3}) \cdot (0.4\pi \times 10^{-3})}{(4\pi \times 10^{-7}) \cdot 0.5}\)
+                </div>
+                <div class="sol-math">
+                  \(x = \frac{2.4\pi \times 10^{-6}}{2\pi \times 10^{-7}} = 1.2 \times 10 = 12\text{ ស្រទាប់}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ចំនួនស្រទាប់នៃប៊ូប៊ីនគឺ \(x = 12\text{ ស្រទាប់}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 35 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">35</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៥</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយដាក់ក្នុងខ្យល់មានប្រវែង
+          <span class="given">\(2\text{ m}\)</span> មានអង្កត់ផ្ចិត
+          <span class="given">\( 10\text{ cm}\)</span>
+          រុំជាស្ពៀជាប់ៗគ្នាពីរជាន់ដោយខ្សែចម្លងដែលមានអង្កត់ផ្ចិត
+          <span class="given">\( 1\text{ mm}\)</span>( កម្រាស់អ៊ីសូឡង់អាចចោលបាន
+          ) ។ គេឱ្យចរន្តឆ្លងកាត់សូឡេណូអុីតនេះគឺ
+          <span class="given">\(I = 10\text{ A}\)</span>។​គេឲ្យ
+          <span class="given"
+            >\(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm}\)</span
+          >។
+
+          <div class="ex-find">
+            <span>ក. គណនាអាំងតង់ស៊ីតេដែនម៉ាញេទិចត្រង់ផ្ចិតសូលេណូអ៊ីតនេះ ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនារេស៊ីស្តង់របស់ខ្សែចម្លង ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាអាំងតង់ស៊ីតេដែនម៉ាញេទិចត្រង់ផ្ចិតសូលេណូអ៊ីត</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot n \cdot I = \mu_0 \cdot \frac{N}{L} \cdot I\)
+                </div>
+                <div class="sol-label">ដោយសូឡេណូអុីតរុំជាស្ពៀជាប់ៗគ្នា \(N_{layer} = 2\) ស្រទាប់ (ជាន់) នាំឱ្យ៖</div>
+                <div class="sol-math">
+                  \(N = N_{layer} \cdot N_1 = 2 \cdot \frac{L}{d}\)
+                </div>
+                <div class="sol-label">ចំនួនស្ពៀរក្នុងមួយឯកតាប្រវែងសរុបគឺ៖</div>
+                <div class="sol-math">
+                  \(n = \frac{N}{L} = \frac{2}{d}\)
+                </div>
+                <div class="sol-label">នាំឱ្យដែនម៉ាញេទិច៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot \frac{2}{d} \cdot I\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(\mu_0 = 4\pi \times 10^{-7}\text;{ T}\cdot\text{m/A}\)</li>
+                  <li>\(d = 1\text{ mm} = 10^{-3}\text{ m}\)</li>
+                  <li>\(I = 10\text{ A}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(B = (4\pi \times 10^{-7}) \cdot \frac{2}{10^{-3}} \cdot 10 = 8\pi \times 10^{-3}\text{ T} \approx 0.0251\text{ T} = 25.1\text{ mT}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ អាំងតង់ស៊ីតេដែនម៉ាញេទិចគឺ \(B = 8\pi \times 10^{-3}\text{ T} \approx 25.1\text{ mT}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនារេស៊ីស្តង់របស់ខ្សែចម្លង</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(R_{wire} = \rho \cdot \frac{L_{wire}}{S}\)
+                </div>
+                <div class="sol-label">រកប្រវែងខ្សែចម្លងសរុប \(L_{wire}\)៖</div>
+                <div class="sol-math">
+                  \(L_{wire} = N \cdot \pi D = \left(2 \cdot \frac{L}{d}\right) \cdot \pi D\)
+                </div>
+                <div class="sol-math">
+                  \(N = 2 \cdot \frac{2\text{ m}}{10^{-3}\text{ m}} = 4000\text{ ស្ពៀ}\)
+                </div>
+                <div class="sol-math">
+                  \(L_{wire} = 4000 \cdot \pi \cdot 0.1\text{ m} = 400\pi\text{ m}\)
+                </div>
+                <div class="sol-label">រកផ្ទៃមុខកាត់ខ្សែចម្លង \(S\) (កាំខ្សែចម្លង \(r = d/2 = 0.5\text{ mm} = 5 \times 10^{-4}\text{ m}\))៖</div>
+                <div class="sol-math">
+                  \(S = \pi r^2 = \pi (5 \times 10^{-4})^2 = 25\pi \times 10^{-8}\text{ m}^2\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនារេស៊ីស្តង់ \(R_{wire}\) ដោយស្គាល់ \(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm} = 1.6 \times 10^{-8}\text{ \(\Omega\)}\cdot\text{m}\)៖</div>
+                <div class="sol-math">
+                  \(R_{wire} = (1.6 \times 10^{-8}\text{ \(\Omega\)}\cdot\text{m}) \cdot \frac{400\pi\text{ m}}{25\pi \times 10^{-8}\text{ m}^2}\)
+                </div>
+                <div class="sol-math">
+                  \(R_{wire} = 1.6 \cdot \frac{400}{25} = 1.6 \cdot 16 = 25.6\text{ \(\Omega\)}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ រេស៊ីស្តង់របស់ខ្សែចម្លងគឺ \(R_{wire} = 25.6\text{ \(\Omega\)}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 36 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">36</div>
+          <div class="ex-title">សូឡេណូអុីតដាក់ក្នុងខ្យល់</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង
+          <span class="given">\( 50\text{ cm}\)</span> និងអង្កត់ផ្ចិត
+          <span class="given">\(2\text{ cm}\)</span> មានស្ពៀរចំនួន
+          <span class="given">\(N = 1000\)ស្ពៀ</span> រុំពីខ្សែរ​
+          ចម្លងដែលមានមុខកាត់
+          <span class="given">\( 1\text{ mm}^2\)</span>
+          មានរេសុីស្ទីវីតេ
+          <span class="given"
+            >\(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm}\)</span
+          >។
+
+          <div class="ex-find">
+            <span>ក. គណនារេស៊ីស្តង់នៃសូលេណូអ៊ីត ។</span>
+          </div>
+          <div class="ex-find">
+            <span
+              >ខ. គណនាអាំងឌុចស្យុងម៉ាញេទិចក្នុងសូលេណូអ៊ីត បើចរន្ត 10 A ឆ្លងកាត់
+              ។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>គ. គណនាផលសងប៉ូតង់ស្យែលរវាងគោលនៃសូលេណូអ៊ីត ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ឃ. គណនាបរិមាណកម្ដៅដែលភាយក្នុងសូលេណូអ៊ីតរយៈពេល 1h ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនារេស៊ីស្តង់នៃសូលេណូអ៊ីត</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(R = \rho \cdot \frac{L_{wire}}{S}\)
+                </div>
+                <div class="sol-label">ដោយប្រវែងខ្សែចម្លងសរុបគឺ៖</div>
+                <div class="sol-math">
+                  \(L_{wire} = N \cdot 2\pi R_{loop} = N \cdot \pi D_{loop}\)
+                </div>
+                <div class="sol-math">
+                  \(L_{wire} = 1000 \cdot \pi \cdot (0.02\text{ m}) = 20\pi\text{ m} \approx 62.83\text{ m}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm} = 1.6 \times 10^{-8}\text{ \(\Omega\)}\cdot\text{m}\)</li>
+                  <li>\(S = 1\text{ mm}^2 = 10^{-6}\text;{ m}^2\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ជំនួសលេខ៖</div>
+                <div class="sol-math">
+                  \(R = 1.6 \times 10^{-8} \cdot \frac{20\pi}{10^{-6}} = 0.32\pi\text{ \(\Omega\)} \approx 1.005\text{ \(\Omega\)}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ រេស៊ីស្តង់សូឡេណូអុីត�      <!-- Exercise 38 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">38</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៨</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយ (ប៊ូប៊ីនរាងស៊ីឡាំង) មានប្រវែង
+          <span class="given">\( 50\text{ cm}\)</span> និងមានអង្កត់ផ្ចិត
+          <span class="given">\( 10\text{ cm}\)</span>
+          ហើយរុំដោយខ្សែចម្លងជាស្ពៀជាប់ៗគ្នា ចំនួនមួយជាន់។
+          អ៊ីសូឡង់ដែលស្រោបខ្សែចម្លងមានកម្រាស់អាចចោលបាន ហើយអង្កត់ផ្ចិតខ្សែចម្លងគឺ
+          <span class="given">\( 1\text{ mm}\)</span>។ គេឱ្យចរន្តថេរដែលមានតម្លៃ
+          <span class="given">\( 8\text{ A}\)</span> ឆ្លងកាត់សូឡេណូអុីត។ គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>
+          រេស៊ីស្ទីវីតេនៃខ្សែចម្លងគឺ
+          <span class="given"
+            >\(\rho = 2.5\text{ \(\mu\)\(\Omega\)}\cdot\text{cm}\)</span
+          >។
+
+          <div class="ex-find">
+            <span
+              >ក.
+              ធ្វើគំនូសបំព្រួញទិសដៅចរន្តអគ្គិសនីក្នុងស្ពៀនិងទិសដៅដែនម៉ាញេទិច។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត។</span>
+          </div>
+          <div class="ex-find">
+            <span>គ. គណនារេស៊ីស្តង់នៃសូឡេណូអុីតនេះ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ឃ. គណនាតង់ស្យុងចុងសងខាងសូឡេណូអុីត។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គំនូសបំព្រួញទិសដៅចរន្តអគ្គិសនីក្នុងស្ពៀនិងទិសដៅដែនម៉ាញេទិច</div>
+              <div class="sol-step">
+                <div class="sol-label">ការកំណត់លក្ខណៈ៖</div>
+                <ul>
+                  <li><strong>ទិសដៅចរន្ត៖</strong> ឧបមាថាចរន្តរត់ឡើងលើនៅផ្នែកខាងមុខនៃស្ពៀ និងចុះក្រោមនៅផ្នែកខាងក្រោយ។</li>
+                  <li><strong>វ៉ិចទ័រដែនម៉ាញេទិច \(\vec{B}\)៖</strong> តាមវិធានដៃស្តាំ (ម្រាមដៃក្ដាប់តាមទិសចរន្ត មេដៃចង្អុលបង្ហាញទិស \(\vec{B}\)) នាំឱ្យវ៉ិចទ័រដែនម៉ាញេទិច \(\vec{B}\) ក្នុងសូឡេណូអុីតមានទិសស្របនឹងអ័ក្ស និងចង្អុលទៅឆ្វេង។</li>
+                </ul>
+              </div>
+
+              <div class="sol-title">ខ. គណនាតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot n \cdot I\)
+                </div>
+                <div class="sol-label">ដោយសារស្ពៀរុំជាប់ៗគ្នាចំនួនមួយជាន់៖</div>
+                <div class="sol-math">
+                  \(n = \frac{1}{d}\)
+                </div>
+                <div class="sol-label">គេទាញបាន៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot \frac{I}{d}\)
+                </div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយស្គាល់៖</div>
+                <ul>
+                  <li>\(\mu_0 = 4\pi \times 10^{-7}\text{ T}\cdot\text{m/A}\)</li>
+                  <li>\(I = 8\text{ A}\)</li>
+                  <li>\(d = 1\text{ mm} = 10^{-3}\text{ m}\)</li>
+                </ul>
+              </div>
+              <div class="sol-step">
+                <div class="sol-label">គណនា៖</div>
+                <div class="sol-math">
+                  \(B = 4\pi \times 10^{-7} \cdot \frac{8}{10^{-3}} = 3.2\pi \times 10^{-3}\text{ T} \approx 1.01 \times 10^{-2}\text{ T} = 10.1\text{ mT}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ តម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិតគឺ \(B \approx 10.1\text{ mT}\)
+                </div>
+              </div>
+
+              <div class="sol-title">គ. គណនារេស៊ីស្តង់នៃសូឡេណូអុីតនេះ</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(R = \rho \cdot \frac{L_{wire}}{S}\)
+                </div>
+                <div class="sol-label">ចំនួនស្ពៀសរុបគឺ៖</div>
+                <div class="sol-math">
+                  \(N = \frac{L}{d} = \frac{0.5\text{ m}}{10^{-3}\text{ m}} = 500\text{ ស្ពៀ}\)
+                </div>
+                <div class="sol-label">ប្រវែងខ្សែចម្លងសរុបគឺ៖</div>
+                <div class="sol-math">
+                  \(L_{wire} = N \cdot \pi D = 500 \cdot \pi \cdot 0.1\text{ m} = 50\pi\text{ m}\)
+                </div>
+                <div class="sol-label">ផ្ទៃមុខកាត់ខ្សែចម្លងគឺ៖</div>
+                <div class="sol-math">
+                  \(S = \pi r^2 = \pi \left(\frac{d}{2}\right)^2 = 0.25\pi \times 10^{-6}\text{ m}^2\)
+                </div>
+                <div class="sol-label">ដោយរេស៊ីស្ទីវីតេ \(\rho = 2.5\text{ \(\mu\)\(\Omega\)}\cdot\text{cm} = 2.5 \times 10^{-8}\text{ \(\Omega\)}\cdot\text{m}\)៖</div>
+                <div class="sol-math">
+                  \(R = 2.5 \times 10^{-8} \cdot \frac{50\pi}{0.25\pi \times 10^{-6}} = 2.5 \times 10^{-8} \cdot 2 \times 10^8 = 5\text{ \(\Omega\)}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ រេស៊ីស្តង់នៃសូឡេណូអុីតគឺ \(R = 5\text{ \(\Omega\)}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ឃ. គណនាតង់ស្យុងចុងសងខាងសូឡេណូអុីត</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមច្បាប់អូម៖</div>
+                <div class="sol-math">
+                  \(U = R \cdot I\)
+                </div>
+                <div class="sol-math">
+                  \(U = 5\text{ \(\Omega\)} \cdot 8\text{ A} = 40\text{ V}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ តង់ស្យុងចុងសងខាងសូឡេណូអុីតគឺ \(U = 40\text{ V}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 39 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">39</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៩</div>
+        </div>
+        <div class="ex-body">
+          ប៊ូប៊ីនរាងស៊ីឡាំងមួយមានអ័ក្សដេកមានប្រវែង
+          <span class="given">\( 50\text{ cm}\)</span> និងកាំនៃស្ពៀទាំងអស់
+          <span class="given">\( 4\text{ cm}\)</span>។
+          គេរុំប៊ូប៊ីនឱ្យបានជាស្ពៀជាប់ៗគ្នា ចំនួន ២ ជាន់
+          ដោយប្រើខ្សែទង់ដែងដែលមានអង្កត់ផ្ចិត
+          <span class="given">\( 0.8\text{ mm}\)</span>
+          ទង់ដែងនេះស្រោបដោយអ៊ីសូឡង់ដែលមានកម្រាស់
+          <span class="given">\( 0.1\text{ mm}\)</span>។
+          ប៊ូប៊ីននេះបានភ្ជាប់ទៅនឹងអាគុយមួយដែលមានកម្លាំងអគ្គិសនីចលករ
+          <span class="given">\( 25.6\text{ V}\)</span>
+          និងរេស៊ីស្តង់អាចចោលបាន
+          ហើយផ្ដល់ចរន្តទៅឱ្យប៊ូប៊ីនដែលតជាស៊េរីជាមួយរេស៊ីស្តង់ក្រៅ
+          <span class="given">\(R_{ext} = 120\text{ \(\Omega\)}\)</span>។<br />
+
+          <div class="ex-find">
+            <span
+              >ក. គណនារេស៊ីស្តង់នៃប៊ូប៊ីន។ គេឱ្យរេស៊ីស្ទីវីតេខ្សែចម្លង
+              <span class="given"
+                >\(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm}\)</span
+              ></span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ប៊ូប៊ីន។</span>
+          </div>
+          <div class="ex-find">
+            <span
+              >គ.
+              គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចដែលកើតមាននៅកណ្ដាលប៊ូប៊ីន។</span
+            >
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនារេស៊ីស្តង់នៃប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">អង្កត់ផ្ចិតសរុបនៃខ្សែទាំងអ៊ីសូឡង់៖</div>
+                <div class="sol-math">
+                  \(d' = d + 2e = 0.8 + 2(0.1) = 1.0\text{ mm} = 10^{-3}\text{ m}\)
+                </div>
+                <div class="sol-label">ចំនួនស្ពៀក្នុងមួយស្រទាប់៖</div>
+                <div class="sol-math">
+                  \(N_1 = \frac{L}{d'} = \frac{0.5}{10^{-3}} = 500\text{ ស្ពៀ}\)
+                </div>
+                <div class="sol-label">ចំនួនស្ពៀសរុប (២ ស្រទាប់)៖</div>
+                <div class="sol-math">
+                  \(N = 2 \cdot N_1 = 2 \cdot 500 = 1000\text{ ស្ពៀ}\)
+                </div>
+                <div class="sol-label">ប្រវែងខ្សែចម្លងសរុបគឺ៖</div>
+                <div class="sol-math">
+                  \(L_{wire} = N \cdot 2\pi R_{loop} = 1000 \cdot 2\pi \cdot 0.04\text{ m} = 80\pi\text{ m}\)
+                </div>
+                <div class="sol-label">ផ្ទៃមុខកាត់លោហៈខ្សែចម្លង (គិតតែអង្កត់ផ្ចិតទង់ដែង \(d = 0.8\text{ mm}\))៖</div>
+                <div class="sol-math">
+                  \(S = \pi \frac{d^2}{4} = \pi \frac{(0.8 \times 10^{-3})^2}{4} = 1.6\pi \times 10^{-7}\text{ m}^2\)
+                </div>
+                <div class="sol-label">ដោយរេស៊ីស្ទីវីតេ \(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm} = 1.6 \times 10^{-8}\text{ \(\Omega\)}\cdot\text{m}\) នាំឱ្យ៖</div>
+                <div class="sol-math">
+                  \(R_b = \rho \cdot \frac{L_{wire}}{S} = 1.6 \times 10^{-8} \cdot \frac{80\pi}{1.6\pi \times 10^{-7}} = 8\text{ \(\Omega\)}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ រេស៊ីស្តង់នៃប៊ូប៊ីនគឺ \(R_b = 8\text{ \(\Omega\)}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនាអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តចរន្តក្នុងសៀគ្វីស៊េរី៖</div>
+                <div class="sol-math">
+                  \(I = \frac{E}{R_b + R_{ext}}\)
+                </div>
+                <div class="sol-label">ជំនួសលេខ៖</div>
+                <div class="sol-math">
+                  \(I = \frac{25.6\text{ V}}{8\text{ \(\Omega\)} + 120\text{ \(\Omega\)}} = \frac{25.6}{128} = 0.2\text{ A}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ អាំងតង់ស៊ីតេចរន្តឆ្លងកាត់ប៊ូប៊ីនគឺ \(I = 0.2\text{ A}\)
+                </div>
+              </div>
+
+              <div class="sol-title">គ. គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចដែលកើតមាននៅកណ្ដាលប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot \frac{N \cdot I}{L}\)
+                </div>
+                <div class="sol-label">ជំនួសលេខ៖</div>
+                <div class="sol-math">
+                  \(B = (4\pi \times 10^{-7}) \cdot \frac{1000 \cdot 0.2}{0.5} = 1.6\pi \times 10^{-4}\text{ T} \approx 5.03 \times 10^{-4}\text{ T}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ អាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចគឺ \(B = 1.6\pi \times 10^{-4}\text{ T} \approx 5.03 \times 10^{-4}\text{ T}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 40 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">40</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៤០</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង \(l\) រុំដោយខ្សែចម្លងជាស្ពៀជាប់ៗគ្នា ២ ជាន់។
+          អង្កត់ផ្ចិតខ្សែចម្លង
+          <span class="given">\( \sqrt{3}\text{ mm}\)</span>
+          កម្រាស់ស្រោបអ៊ីសូឡង់អាចចោលបាន។អ័ក្ស \(\Delta\)
+          នៃសូឡេណូអុីតកែងនឹងដែនម៉ាញេទិចផ្ដេករបស់ផែនដី
+          <span class="given">\(B_h = 2 \times 10^{-5}\text{ T}\)</span>។
+          ម្ជុលមេដែក \(SN\) មួយចល័តជុំវិញអ័ក្សឈរ ហើយដាក់ត្រង់ផ្ចិតសូឡេណូអុីត។
+          ម្ជុលមេដែកស្ថិតក្នុងស្ថានភាពលំនឹងតាមទិសបង្កើតបានមុំ
+          <span class="given">\(\alpha = 30^\circ\)</span> នឹងអ័ក្ស
+          \(\Delta\)។គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃដែនម៉ាញេទិច \(B\) ជាអនុគមន៍នឹងចរន្ត \(I\)
+              ដែលរត់ក្នុងប៊ូប៊ីន។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាអាំងតង់ស៊ីតេចរន្ត \(I\)។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាតម្លៃដែនម៉ាញេទិច \(B\) ជាអនុគមន៍នឹងចរន្ត \(I\) ដែលរត់ក្នុងប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្តដែនម៉ាញេទិចសូឡេណូអុីត៖</div>
+                <div class="sol-math">
+                  \(B = \mu_0 \cdot n \cdot I\)
+                </div>
+                <div class="sol-label">ដោយរុំជាស្ពៀជាប់ៗគ្នា ចំនួន ២ ជាន់ នាំឱ្យ៖</div>
+                <div class="sol-math">
+                  \(n = 2 \cdot \frac{1}{d} = \frac{2}{\sqrt{3} \times 10^{-3}\text{ m}} = \frac{2000}{\sqrt{3}}\text{ m}^{-1}\)
+                </div>
+                <div class="sol-label">ជំនួសតម្លៃចូល៖</div>
+                <div class="sol-math">
+                  \(B = (4\pi \times 10^{-7}) \cdot \frac{2000}{\sqrt{3}} \cdot I = \frac{8\pi \times 10^{-4}}{\sqrt{3}} \cdot I\text{ (T)}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ដែនម៉ាញេទិច \(B = \frac{8\pi \times 10^{-4}}{\sqrt{3}} \cdot I\text{ (T)}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនាអាំងតង់ស៊ីតេចរន្ត \(I\)</div>
+              <div class="sol-step">
+                <div class="sol-label">ពន្យល់៖</div>
+                <ul>
+                  <li>អ័ក្សសូឡេណូអុីត \(\Delta\) កែងនឹងដែនម៉ាញេទិចផ្ដេករបស់ផែនដី \(\vec{B}_h\) នាំឱ្យវ៉ិចទ័រដែនម៉ាញេទិចរបស់សូឡេណូអុីត \(\vec{B}\) កែងនឹង \(\vec{B}_h\)។</li>
+                  <li>ម្ជុលមេដែកស្ថិតតាមទិសដៅនៃដែនម៉ាញេទិចផ្គួប \(\vec{B}_0 = \vec{B} + \vec{B}_h\)។</li>
+                  <li>មុំ \(\alpha = 30^\circ\) ជាមុំរវាងដែនផ្គួប នឹងអ័ក្ស \(\Delta\) (ទិសដៅនៃ \(\vec{B}\)) នាំឱ្យ៖
+                    <div class="sol-math">
+                      \(\tan\alpha = \frac{B_h}{B} \implies B = \frac{B_h}{\tan\alpha}\)
+                    </div>
+                  </li>
+                </ul>
+                <div class="sol-label">គណនា \(B\)៖</div>
+                <div class="sol-math">
+                  \(B = \frac{2 \times 10^{-5}\text{ T}}{\tan 30^\circ} = \frac{2 \times 10^{-5}}{1/\sqrt{3}} = 2\sqrt{3} \times 10^{-5}\text{ T}\)
+                </div>
+                <div class="sol-label">ទាញរកតម្លៃចរន្ត \(I\)៖</div>
+                <div class="sol-math">
+                  \(\frac{8\pi \times 10^{-4}}{\sqrt{3}} \cdot I = 2\sqrt{3} \times 10^{-5}\)
+                </div>
+                <div class="sol-math">
+                  \(I = \frac{2\sqrt{3} \times 10^{-5} \cdot \sqrt{3}}{8\pi \times 10^{-4}} = \frac{6 \times 10^{-5}}{8\pi \times 10^{-4}} = \frac{0.075}{\pi}\text{ A} \approx 0.0239\text{ A} = 23.9\text{ mA}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ អាំងតង់ស៊ីតេចរន្ត \(I = \frac{0.075}{\pi}\text{ A} \approx 23.9\text{ mA}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>ម្រាស់អាចចោលបាន។
+
+          <div class="ex-find"><span>ក. គណនាចំនួនស្ពៀដែលបានរុំ។</span></div>
+          <div class="ex-find"><span>ខ. គណនារេស៊ីស្តង់នៃប៊ូប៊ីន។</span></div>
+          <div class="ex-find">
+            <span
+              >គ. គេឱ្យចរន្តឆ្លងកាត់
+              <span class="given">\(I = 5\text{ A}\)</span> កាត់ប៊ូប៊ីននេះ។
+              បញ្ជាក់លក្ខណៈនៃដែនម៉ាញេទិចក្នុងប៊ូប៊ីន។</span
+            >
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាចំនួនស្ពៀដែលបានរុំ</div>
+              <div class="sol-step">
+                <div class="sol-label">ដោយសារខ្សែចម្លងរុំជាស្ពៀជាប់ៗគ្នាមានចំនួន \(N_{layer} = 2\) ជាន់ នាំឱ្យចំនួនស្ពៀសរុបគឺ៖</div>
+                <div class="sol-math">
+                  \(N = 2 \cdot N_1 = 2 \cdot \frac{L}{d}\)
+                </div>
+                <div class="sol-label">ដោយ៖</div>
+                <ul>
+                  <li>\(L = 50\text{ cm} = 0.5\text{ m}\)</li>
+                  <li>\(d = 1\text{ mm} = 10^{-3}\text{ m}\)</li>
+                </ul>
+                <div class="sol-math">
+                  \(N = 2 \cdot \frac{0.5}{10^{-3}} = 1000\text{ ស្ពៀ}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ ចំនួនស្ពៀសរុបគឺ \(N = 1000\text{ ស្ពៀ}\)
+                </div>
+              </div>
+
+              <div class="sol-title">ខ. គណនារេស៊ីស្តង់នៃប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">តាមរូបមន្ត៖</div>
+                <div class="sol-math">
+                  \(R_b = \rho \cdot \frac{L_{wire}}{S}\)
+                </div>
+                <div class="sol-label">ដោយ៖</div>
+                <ul>
+                  <li>\(L_{wire} = N \cdot \pi D = 1000 \cdot \pi \cdot 0.1\text{ m} = 100\pi\text{ m}\)</li>
+                  <li>\(S = \pi r^2 = \pi \left(\frac{d}{2}\right)^2 = \pi (0.5 \times 10^{-3}\text{ m})^2 = 25\pi \times 10^{-8}\text{ m}^2\)</li>
+                  <li>\(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm} = 1.6 \times 10^{-8}\text{ \(\Omega\)}\cdot\text{m}\)</li>
+                </ul>
+                <div class="sol-math">
+                  \(R_b = 1.6 \times 10^{-8} \cdot \frac{100\pi}{25\pi \times 10^{-8}} = 1.6 \cdot \frac{100}{25} = 6.4\text{ \(\Omega\)}\)
+                </div>
+                <div class="sol-box">
+                  ដូចនេះ៖ រេស៊ីស្តង់ប៊ូប៊ីនគឺ \(R_b = 6.4\text{ \(\Omega\)}\)
+                </div>
+              </div>
+
+              <div class="sol-title">គ. បញ្ជាក់លក្ខណៈនៃដែនម៉ាញេទិចក្នុងប៊ូប៊ីន</div>
+              <div class="sol-step">
+                <div class="sol-label">លក្ខណៈនៃដែនម៉ាញេទិចឯកសណ្ឋានក្នុងប៊ូប៊ីនរួមមាន៖</div>
+                <ul>
+                  <li><strong>ចំណុចចាប់៖</strong> ត្រង់ផ្ចិតប៊ូប៊ីន ឬគ្រប់ចំណុចនៅក្នុងប៊ូប៊ីន</li>
+                  <li><strong>ទិស៖</strong> ស្របនឹងអ័ក្សប៊ូប៊ីន</li>
+                  <li><strong>ទិសដៅ៖</strong> កំណត់តាមវិធានដៃស្តាំ</li>
+                  <li><strong>អាំងតង់ស៊ីតេ (តម្លៃ)៖</strong> 
+                    <div class="sol-math">
+                      \(B = \mu_0 \cdot \frac{N \cdot I}{L}\)
+                    </div>
+                    <div class="sol-math">
+                      \(B = (4\pi \times 10^{-7}) \cdot \frac{1000 \cdot 5}{0.5} = 4\pi \times 10^{-3}\text{ T} \approx 1.26 \times 10^{-2}\text{ T}\)
+                    </div>
+                  </li>
+                </ul>
+                <div class="sol-box">
+                  ដូចនេះ៖ ដែនម៉ាញេទិចក្នុងប៊ូប៊ីនមានតម្លៃ \(B = 4\pi \times 10^{-3}\text{ T} \approx 12.6\text{ mT}\)
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Exercise 38 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">38</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៨</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយ (ប៊ូប៊ីនរាងស៊ីឡាំង) មានប្រវែង
+          <span class="given">\( 50\text{ cm}\)</span> និងមានអង្កត់ផ្ចិត
+          <span class="given">\( 10\text{ cm}\)</span>
+          ហើយរុំដោយខ្សែចម្លងជាស្ពៀជាប់ៗគ្នា ចំនួនមួយជាន់។
+          អ៊ីសូឡង់ដែលស្រោបខ្សែចម្លងមានកម្រាស់អាចចោលបាន ហើយអង្កត់ផ្ចិតខ្សែចម្លងគឺ
+          <span class="given">\( 1\text{ mm}\)</span>។ គេឱ្យចរន្តថេរដែលមានតម្លៃ
+          <span class="given">\( 8\text{ A}\)</span> ឆ្លងកាត់សូឡេណូអុីត។ គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>
+          រេស៊ីស្ទីវីតេនៃខ្សែចម្លងគឺ
+          <span class="given"
+            >\(\rho = 2.5\text{ \(\mu\)\(\Omega\)}\cdot\text{cm}\)</span
+          >។
+
+          <div class="ex-find">
+            <span
+              >ក.
+              ធ្វើគំនូសបំព្រួញទិសដៅចរន្តអគ្គិសនីក្នុងស្ពៀនិងទិសដៅដែនម៉ាញេទិច។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាតម្លៃដែនម៉ាញេទិចត្រង់ផ្ចិតនៃសូឡេណូអុីត។</span>
+          </div>
+          <div class="ex-find">
+            <span>គ. គណនារេស៊ីស្តង់នៃសូឡេណូអុីតនេះ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ឃ. គណនាតង់ស្យុងចុងសងខាងសូឡេណូអុីត។</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 39 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">39</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៣៩</div>
+        </div>
+        <div class="ex-body">
+          ប៊ូប៊ីនរាងស៊ីឡាំងមួយមានអ័ក្សដេកមានប្រវែង
+          <span class="given">\( 50\text{ cm}\)</span> និងកាំនៃស្ពៀទាំងអស់
+          <span class="given">\( 4\text{ cm}\)</span>។
+          គេរុំប៊ូប៊ីនឱ្យបានជាស្ពៀជាប់ៗគ្នា ចំនួន ២ ជាន់
+          ដោយប្រើខ្សែទង់ដែងដែលមានអង្កត់ផ្ចិត
+          <span class="given">\( 0.8\text{ mm}\)</span>
+          ទង់ដែងនេះស្រោបដោយអ៊ីសូឡង់ដែលមានកម្រាស់
+          <span class="given">\( 0.1\text{ mm}\)</span>។
+          ប៊ូប៊ីននេះបានភ្ជាប់ទៅនឹងអាគុយមួយដែលមានកម្លាំងអគ្គិសនីចលករ
+          <span class="given">\( 25.6\text{ V}\)</span>
+          និងរេស៊ីស្តង់អាចចោលបាន
+          ហើយផ្ដល់ចរន្តទៅឱ្យប៊ូប៊ីនដែលតជាស៊េរីជាមួយរេស៊ីស្តង់ក្រៅ
+          <span class="given">\(R_{ext} = 120\text{ \(\Omega\)}\)</span>។<br />
+
+          <div class="ex-find">
+            <span
+              >ក. គណនារេស៊ីស្តង់នៃប៊ូប៊ីន។ គេឱ្យរេស៊ីស្ទីវីតេខ្សែចម្លង
+              <span class="given"
+                >\(\rho = 1.6\text{ \(\mu\)\(\Omega\)}\cdot\text{cm}\)</span
+              ></span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាអាំងតង់ស៊ីតេចរន្តដែលឆ្លងកាត់ប៊ូប៊ីន។</span>
+          </div>
+          <div class="ex-find">
+            <span
+              >គ.
+              គណនាអាំងតង់ស៊ីតេឌុចស្យុងម៉ាញេទិចដែលកើតមាននៅកណ្ដាលប៊ូប៊ីន។</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Exercise 40 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">40</div>
+          <div class="ex-title">លំហាត់អនុវត្ត៤០</div>
+        </div>
+        <div class="ex-body">
+          សូឡេណូអុីតមួយមានប្រវែង \(l\) រុំដោយខ្សែចម្លងជាស្ពៀជាប់ៗគ្នា ២ ជាន់។
+          អង្កត់ផ្ចិតខ្សែចម្លង
+          <span class="given">\( \sqrt{3}\text{ mm}\)</span>
+          កម្រាស់ស្រោបអ៊ីសូឡង់អាចចោលបាន។អ័ក្ស \(\Delta\)
+          នៃសូឡេណូអុីតកែងនឹងដែនម៉ាញេទិចផ្ដេករបស់ផែនដី
+          <span class="given">\(B_h = 2 \times 10^{-5}\text{ T}\)</span>។
+          ម្ជុលមេដែក \(SN\) មួយចល័តជុំវិញអ័ក្សឈរ ហើយដាក់ត្រង់ផ្ចិតសូឡេណូអុីត។
+          ម្ជុលមេដែកស្ថិតក្នុងស្ថានភាពលំនឹងតាមទិសបង្កើតបានមុំ
+          <span class="given">\(\alpha = 30^\circ\)</span> នឹងអ័ក្ស
+          \(\Delta\)។គេឱ្យ
+          <span class="given">\(\mu_0 = 4\pi \times 10^{-7}\text{ SI}\)</span>។
+
+          <div class="ex-find">
+            <span
+              >ក. គណនាតម្លៃដែនម៉ាញេទិច \(B\) ជាអនុគមន៍នឹងចរន្ត \(I\)
+              ដែលរត់ក្នុងប៊ូប៊ីន។</span
+            >
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាអាំងតង់ស៊ីតេចរន្ត \(I\)។</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

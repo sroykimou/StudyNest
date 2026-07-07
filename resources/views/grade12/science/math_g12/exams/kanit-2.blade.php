@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>វិញ្ញាសា គណិតវិទ្យា ០២ | StudyNest</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"
+      async
+    ></script>
+
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --accent: #74ebd5;
+        --bg-dark: #0f172a;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
+        --orange: #f97316;
+        --blue: #2563eb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Kantumruy Pro", sans-serif;
+        background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+        color: var(--text-dark);
+        line-height: 1.8;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+        color: var(--bg-dark);
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .header p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+      }
+
+      .exam-meta {
+        display: flex;
+        justify-content: space-between;
+        background: #f8fafc;
+        padding: 15px 25px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        color: var(--primary);
+        border: 1px solid #e2e8f0;
+      }
+
+      .question-section {
+        margin-bottom: 40px;
+        animation: fadeIn 0.5s ease-out both;
+        border-bottom: 1px dashed #e2e8f0;
+        padding-bottom: 30px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h2 {
+        display: inline-block;
+        background: var(--bg-dark);
+        color: white;
+        padding: 4px 16px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .question-content {
+        padding-left: 10px;
+      }
+
+      .sub-question {
+        margin-top: 10px;
+        padding-left: 20px;
+      }
+
+      .formula-box {
+        background: #f1f5f9;
+        padding: 15px;
+        border-radius: 12px;
+        margin: 15px 0;
+        border-left: 4px solid var(--primary);
+        font-size: 1.1rem;
+        overflow-x: auto;
+      }
+
+      .toggle-btn {
+        background: rgba(79, 70, 229, 0.1);
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 600;
+        margin-top: 15px;
+        margin-left: 10px;
+        transition: all 0.2s;
+        font-size: 0.95rem;
+      }
+      .toggle-btn:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .solution-content {
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 15px;
+        border-left: 4px solid #10b981;
+      }
+
+      .solution-title {
+        color: #059669;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+      }
+
+      .solution-body {
+        font-size: 1.05rem;
+        line-height: 2;
+      }
+
+      .solution-body p {
+        margin-bottom: 8px;
+      }
+
+      .nav-footer {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+      }
+
+      .back-btn {
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+      }
+
+      .back-btn:hover {
+        transform: translateX(-5px);
+      }
+
+      .print-btn {
+        background: var(--bg-dark);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+      }
+
+      .print-btn:hover {
+        background: #1e293b;
+      }
+
+      @media print {
+        body {
+          background: white !important;
+          color: black !important;
+          padding: 0;
+        }
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .container {
+          box-shadow: none;
+          max-width: 100%;
+          padding: 10mm;
+          border: none;
+        }
+        .container::before {
+          display: none;
+        }
+        .nav-footer,
+        .print-btn,
+        .toggle-btn {
+          display: none !important;
+        }
+        .solution-content {
+          display: block !important;
+          border: 1px solid #cbd5e1 !important;
+          background: #f8fafc !important;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        .question-section {
+          border-bottom: 1px solid #ccc !important;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 25px;
+        }
+        .exam-meta {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>វិញ្ញាសា គណិតវិទ្យា (វិទ្យាសាស្ត្រពិត) ០២</h1>
+        <p>សម្រាប់ការត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </header>
+
+      <div class="exam-meta">
+        <span><i class="far fa-clock"></i> រយៈពេល៖ ១៥០ នាទី</span>
+        <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ១២៥ ពិន្ទុ</span>
+      </div>
+
+      <!-- Section I -->
+      <section class="question-section" style="animation-delay: 0.1s">
+        <h2>លំហាត់ I (១៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <p>
+            គេឱ្យចំនួនកុំផ្លិច $z_1 = \frac{2\left(\cos\frac{\pi}{12} +
+            i\sin\frac{\pi}{12}\right)^2}{1+i\sqrt{3}}$ និង $z_2 = (1-i)x +
+            (1-y)(1+i)$ ។
+          </p>
+          <div class="sub-question">
+            <p>ក. សរសេរ $z_1$ ជាទម្រង់ត្រីកោណមាត្រ រួចជាទម្រង់ពីជគណិត។</p>
+            <p>
+              ខ. កំណត់ចំនួនពិត $x$, $y$ ដើម្បីបាន $2\bar{z}_1 - (z_2 + y - 1) =
+              0$ ។
+            </p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p>
+              <strong
+                >ក. សរសេរ $z_1$ ជាទម្រង់ត្រីកោណមាត្រ រួចជាទម្រង់ពីជគណិត៖</strong
+              >
+            </p>
+            <p>
+              យើងមាន $z_1 = \frac{2\left(\cos\frac{\pi}{12} +
+              i\sin\frac{\pi}{12}\right)^2}{1+i\sqrt{3}}$
+            </p>
+            <p>
+              $z_1 = \frac{2\left(\cos\frac{2\pi}{12} +
+              i\sin\frac{2\pi}{12}\right)}{2\left(\frac{1}{2} +
+              i\frac{\sqrt{3}}{2}\right)} = \frac{\cos\frac{\pi}{6} +
+              i\sin\frac{\pi}{6}}{\cos\frac{\pi}{3} + i\sin\frac{\pi}{3}}$
+            </p>
+            <p>
+              $z_1 = \cos\left(\frac{\pi}{6} - \frac{\pi}{3}\right) +
+              i\sin\left(\frac{\pi}{6} - \frac{\pi}{3}\right) =
+              \cos\left(-\frac{\pi}{6}\right) +
+              i\sin\left(-\frac{\pi}{6}\right)$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ ទម្រង់ត្រីកោណមាត្រគឺ $z_1 = \cos\left(-\frac{\pi}{6}\right)
+              + i\sin\left(-\frac{\pi}{6}\right)$
+            </div>
+            <p>ទម្រង់ពីជគណិត៖ $z_1 = \frac{\sqrt{3}}{2} - \frac{1}{2}i$</p>
+            <div class="formula-box">
+              ដូចនេះ ទម្រង់ពីជគណិតគឺ $z_1 = \frac{\sqrt{3}}{2} - \frac{1}{2}i$
+            </div>
+            <p><strong>ខ. កំណត់ចំនួនពិត $x$, $y$៖</strong></p>
+            <p>យើងមាន $2\bar{z}_1 - (z_2 + y - 1) = 0$</p>
+            <p>
+              ដោយ $z_1 = \frac{\sqrt{3}}{2} - \frac{1}{2}i \Rightarrow \bar{z}_1
+              = \frac{\sqrt{3}}{2} + \frac{1}{2}i$
+            </p>
+            <p>
+              $2\left(\frac{\sqrt{3}}{2} + \frac{1}{2}i\right) - \left[(1-i)x +
+              (1-y)(1+i) + y - 1\right] = 0$
+            </p>
+            <p>$\sqrt{3} + i - (x - xi + 1 + i - y - yi + y - 1) = 0$</p>
+            <p>$\sqrt{3} + i - x + xi - i + yi = 0$</p>
+            <p>$(\sqrt{3} - x) + (x + y)i = 0$</p>
+            <p>
+              នាំឱ្យ $\sqrt{3} - x = 0 \Rightarrow x = \sqrt{3}$ និង $x + y = 0
+              \Rightarrow y = -\sqrt{3}$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ $x = \sqrt{3}$ និង $y = -\sqrt{3}$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section II -->
+      <section class="question-section" style="animation-delay: 0.2s">
+        <h2>លំហាត់ II (១៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <p>គណនាលីមីតខាងក្រោម៖</p>
+          <div class="formula-box">
+            <p>ក. $\lim_{x\to-1} \frac{1+x}{\sqrt{x^2+3}-2}$</p>
+            <p>ខ. $\lim_{x\to+\infty} \frac{x^2-x+2}{(e^x+2)(e^x-1)}$</p>
+            <p>គ. $\lim_{x\to+\infty} \left(\frac{x-1}{x+3}\right)^{x+2}$</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>គណនាលីមីតខាងក្រោម៖</strong></p>
+            <p>
+              <strong>ក. $\lim_{x\to-1} \frac{1+x}{\sqrt{x^2+3}-2}$</strong>
+              (រាង $\frac{0}{0}$)
+            </p>
+            <p>
+              $= \lim_{x\to-1} \frac{(1+x)(\sqrt{x^2+3}+2)}{(x^2+3)-4} =
+              \lim_{x\to-1} \frac{(1+x)(\sqrt{x^2+3}+2)}{x^2-1}$
+            </p>
+            <p>
+              $= \lim_{x\to-1} \frac{(1+x)(\sqrt{x^2+3}+2)}{(x-1)(x+1)} =
+              \lim_{x\to-1} \frac{\sqrt{x^2+3}+2}{x-1}$
+            </p>
+            <p>$= \frac{\sqrt{1+3}+2}{-1-1} = \frac{4}{-2} = -2$</p>
+            <div class="formula-box">
+              ដូចនេះ $\lim_{x\to-1} \frac{1+x}{\sqrt{x^2+3}-2} = -2$
+            </div>
+            <p>
+              <strong
+                >ខ. $\lim_{x\to+\infty} \frac{x^2-x+2}{(e^x+2)(e^x-1)}$</strong
+              >
+            </p>
+            <p>
+              $= \lim_{x\to+\infty} \frac{x^2(1 - \frac{1}{x} +
+              \frac{2}{x^2})}{e^{2x}(1 + \frac{2}{e^x})(1 - \frac{1}{e^x})}$
+            </p>
+            <p>
+              $= \lim_{x\to+\infty} \frac{x^2}{e^{2x}} \cdot \frac{1 -
+              \frac{1}{x} + \frac{2}{x^2}}{(1 + \frac{2}{e^x})(1 -
+              \frac{1}{e^x})} = 0 \cdot \frac{1}{1} = 0$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ $\lim_{x\to+\infty} \frac{x^2-x+2}{(e^x+2)(e^x-1)} = 0$
+            </div>
+            <p>
+              <strong
+                >គ. $\lim_{x\to+\infty}
+                \left(\frac{x-1}{x+3}\right)^{x+2}$</strong
+              >
+            </p>
+            <p>
+              $= \lim_{x\to+\infty} \left(\frac{x+3-4}{x+3}\right)^{x+2} =
+              \lim_{x\to+\infty} \left(1 + \frac{-4}{x+3}\right)^{x+2}$
+            </p>
+            <p>
+              $= \lim_{x\to+\infty} \left[ \left(1 +
+              \frac{-4}{x+3}\right)^{\frac{x+3}{-4}}
+              \right]^{\frac{-4(x+2)}{x+3}} = e^{\lim_{x\to+\infty}
+              \frac{-4x-8}{x+3}} = e^{-4} = \frac{1}{e^4}$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ $\lim_{x\to+\infty} \left(\frac{x-1}{x+3}\right)^{x+2} =
+              \frac{1}{e^4}$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section III -->
+      <section class="question-section" style="animation-delay: 0.3s">
+        <h2>លំហាត់ III (១៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <div class="sub-question">
+            <p>ក. ដោះស្រាយសមីការ $(E): y'' + 5y' + 6y = 0$ ។</p>
+            <p>
+              ខ. កំណត់ចម្លើយមួយនៃ $(E)$ បើគេដឹងថាបន្ទាត់ $(D): y = x - 1$
+              ប៉ះក្រាបនៃចម្លើយត្រង់ $x = 0$ ។
+            </p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>ក. ដោះស្រាយសមីការ $(E): y'' + 5y' + 6y = 0$៖</strong></p>
+            <p>សមីការសម្គាល់៖ $r^2 + 5r + 6 = 0$</p>
+            <p>
+              $\Delta = 25 - 24 = 1 \Rightarrow r_1 = \frac{-5+1}{2} = -2, r_2 =
+              \frac{-5-1}{2} = -3$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ ចម្លើយទូទៅគឺ $y = Ae^{-2x} + Be^{-3x}$ ដែល $A, B \in
+              \mathbb{R}$
+            </div>
+            <p><strong>ខ. កំណត់ចម្លើយមួយនៃ $(E)$៖</strong></p>
+            <p>
+              បន្ទាត់ប៉ះ $(D): y = x - 1$ ត្រង់ $x = 0$ នាំឱ្យ $y(0) = -1$ និង
+              $y'(0) = 1$ (មេគុណប្រាប់ទិស)
+            </p>
+            <p>$y(0) = A + B = -1$ (1)</p>
+            <p>
+              $y'(x) = -2Ae^{-2x} - 3Be^{-3x} \Rightarrow y'(0) = -2A - 3B = 1$
+              (2)
+            </p>
+            <p>
+              តាម (1) $A = -1 - B$, ជួសក្នុង (2): $-2(-1 - B) - 3B = 1
+              \Rightarrow 2 + 2B - 3B = 1 \Rightarrow -B = -1 \Rightarrow B = 1$
+            </p>
+            <p>នាំឱ្យ $A = -1 - 1 = -2$</p>
+            <div class="formula-box">
+              ដូចនេះ ចម្លើយគឺ $y = -2e^{-2x} + e^{-3x}$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section IV -->
+      <section class="question-section" style="animation-delay: 0.4s">
+        <h2>លំហាត់ IV (១៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <p>
+            ប្រធានវិញ្ញាសាគណិតវិទ្យានៃការប្រឡងមួយមានលំហាត់ពីជគណិត 6 និងធរណីមាត្រ
+            4 ។ បេក្ខជនម្នាក់ត្រូវធ្វើពីរលំហាត់ក្នុងចំណោមលំហាត់ទាំងអស់ទៅតាមជម្រើសរបស់ខ្លួន។
+          </p>
+          <div class="sub-question">
+            <p>១. រកចំនួនករណីអាច។</p>
+            <p>២. រកប្រូបាបនៃព្រឹត្តិការណ៍៖</p>
+            <p>ក. A: សិស្សជ្រើសរើសបានលំហាត់ពីជគណិតទាំងពីរ។</p>
+            <p>ខ. B: សិស្សជ្រើសរើសបានលំហាត់ធរណីមាត្រទាំងពីរ។</p>
+            <p>គ. C: សិស្សជ្រើសរើសបានលំហាត់ប្រភេទខុសគ្នា។</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>១. រកចំនួនករណីអាច៖</strong></p>
+            <p>សរុបលំហាត់មាន $6 + 4 = 10$ លំហាត់។ រើស 2 លំហាត់។</p>
+            <p>$n(S) = C(10, 2) = \frac{10!}{2!8!} = 45$</p>
+            <div class="formula-box">ដូចនេះ ចំនួនករណីអាចគឺ $n(S) = 45$</div>
+            <p><strong>២. រកប្រូបាបនៃព្រឹត្តិការណ៍៖</strong></p>
+            <p><strong>ក. A: សិស្សជ្រើសរើសបានលំហាត់ពីជគណិតទាំងពីរ៖</strong></p>
+            <p>$n(A) = C(6, 2) = \frac{6!}{2!4!} = 15$</p>
+            <p>$P(A) = \frac{n(A)}{n(S)} = \frac{15}{45} = \frac{1}{3}$</p>
+            <div class="formula-box">ដូចនេះ $P(A) = \frac{1}{3}$</div>
+            <p>
+              <strong>ខ. B: សិស្សជ្រើសរើសបានលំហាត់ធរណីមាត្រទាំងពីរ៖</strong>
+            </p>
+            <p>$n(B) = C(4, 2) = \frac{4!}{2!2!} = 6$</p>
+            <p>$P(B) = \frac{n(B)}{n(S)} = \frac{6}{45} = \frac{2}{15}$</p>
+            <div class="formula-box">ដូចនេះ $P(B) = \frac{2}{15}$</div>
+            <p><strong>គ. C: សិស្សជ្រើសរើសបានលំហាត់ប្រភេទខុសគ្នា៖</strong></p>
+            <p>រើសបានពីជគណិត 1 និងធរណីមាត្រ 1៖</p>
+            <p>$n(C) = C(6, 1) \times C(4, 1) = 6 \times 4 = 24$</p>
+            <p>$P(C) = \frac{n(C)}{n(S)} = \frac{24}{45} = \frac{8}{15}$</p>
+            <div class="formula-box">ដូចនេះ $P(C) = \frac{8}{15}$</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section V -->
+      <section class="question-section" style="animation-delay: 0.5s">
+        <h2>លំហាត់ V (១៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <p>
+            រកសមីការស្តង់ដាអេលីបដែលមានកំណុំ $F_1(0,1)$ ; $F_2(4,1)$
+            និងប្រវែងអ័ក្សធំស្មើ 10 ឯកតា។ សង់អេលីបនេះ។
+          </p>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>រកសមីការស្តង់ដាអេលីប៖</strong></p>
+            <p>
+              ដោយកំណុំទាំងពីរមានអរដោនេដូចគ្នា $y = 1$
+              នាំឱ្យអ័ក្សធំស្របនឹងអ័ក្សអាប់ស៊ីស។
+            </p>
+            <p>
+              ផ្ចិត $I(h, k)$ ជាចំណុចកណ្តាលនៃ $F_1F_2 \Rightarrow h =
+              \frac{0+4}{2} = 2, k = \frac{1+1}{2} = 1 \Rightarrow I(2, 1)$
+            </p>
+            <p>
+              ចម្ងាយរវាងកំណុំ $2c = \sqrt{(4-0)^2 + 0^2} = 4 \Rightarrow c = 2$
+            </p>
+            <p>ប្រវែងអ័ក្សធំ $2a = 10 \Rightarrow a = 5$</p>
+            <p>
+              យើងមាន $b^2 = a^2 - c^2 = 25 - 4 = 21 \Rightarrow b = \sqrt{21}
+              \approx 4.58$
+            </p>
+            <p>
+              សមីការស្តង់ដា៖ $\frac{(x-h)^2}{a^2} + \frac{(y-k)^2}{b^2} = 1$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ សមីការគឺ $\frac{(x-2)^2}{25} + \frac{(y-1)^2}{21} = 1$
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section VI -->
+      <section class="question-section" style="animation-delay: 0.6s">
+        <h2>លំហាត់ VI (២៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <p>
+            ក្នុងតម្រុយមានទិសដៅវិជ្ជមាន $(O, \vec{i}, \vec{j}, \vec{k})$
+            គេឱ្យចំណុច $A(0, 2, 2)$ និងបន្ទាត់ $(D)$ ដែលមានសមីការ $\begin{cases}
+            x = 1+t \\ y = 1-t \\ z = 2-t \end{cases}$ ដែល $t \in \mathbb{R}$ ។
+          </p>
+          <div class="sub-question">
+            <p>
+              ក. បង្ហាញថាប្លង់ $(P): x-y-z+4=0$ កាត់តាម $A$ ហើយកែងនឹងបន្ទាត់
+              $(D)$ ។
+            </p>
+            <p>
+              ខ. ប្លង់ $(P)$ កាត់អ័ក្ស $(ox), (oy)$ និង $(oz)$ រៀងគ្នាត្រង់ $M,
+              N$ និង $P$ ។ រកកូអរដោនេនៃចំណុច $M, N$ និង $P$ ។
+            </p>
+            <p>គ. បង្ហាញថា $MNP$ ជាត្រីកោណសម័ង្ស។</p>
+            <p>
+              ឃ. គណនា $\vec{MP} \times \vec{MN}$ រួចទាញរកក្រឡាផ្ទៃនៃត្រីកោណ
+              $MNP$ ។
+            </p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p>
+              <strong
+                >ក. បង្ហាញថាប្លង់ $(P)$ កាត់តាម $A$ ហើយកែងនឹងបន្ទាត់
+                $(D)$៖</strong
+              >
+            </p>
+            <p>
+              យកកូអរដោនេ $A(0, 2, 2)$ ជួសក្នុង $(P): 0 - 2 - 2 + 4 = 0$ ពិត
+              នាំឱ្យ $(P)$ កាត់តាម $A$ ។
+            </p>
+            <p>
+              វ៉ិចទ័រណរម៉ាល់នៃ $(P)$ គឺ $\vec{n} = (1, -1, -1)$ ។
+              វ៉ិចទ័រប្រាប់ទិសនៃ $(D)$ គឺ $\vec{u} = (1, -1, -1)$ ។
+            </p>
+            <p>
+              ដោយ $\vec{n} = \vec{u}$ នាំឱ្យប្លង់ $(P)$ កែងនឹងបន្ទាត់ $(D)$ ។
+            </p>
+            <p><strong>ខ. រកកូអរដោនេនៃចំណុច $M, N$ និង $P$៖</strong></p>
+            <p>
+              ចំណុចប្រសព្វនឹង $(ox): y=0, z=0 \Rightarrow x + 4 = 0 \Rightarrow
+              x = -4 \Rightarrow M(-4, 0, 0)$
+            </p>
+            <p>
+              ចំណុចប្រសព្វនឹង $(oy): x=0, z=0 \Rightarrow -y + 4 = 0 \Rightarrow
+              y = 4 \Rightarrow N(0, 4, 0)$
+            </p>
+            <p>
+              ចំណុចប្រសព្វនឹង $(oz): x=0, y=0 \Rightarrow -z + 4 = 0 \Rightarrow
+              z = 4 \Rightarrow P(0, 0, 4)$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ $M(-4, 0, 0), N(0, 4, 0), P(0, 0, 4)$
+            </div>
+            <p><strong>គ. បង្ហាញថា $MNP$ ជាត្រីកោណសម័ង្ស៖</strong></p>
+            <p>
+              $MN = \sqrt{(0+4)^2 + 4^2 + 0^2} = \sqrt{16+16} = \sqrt{32} =
+              4\sqrt{2}$
+            </p>
+            <p>$MP = \sqrt{(0+4)^2 + 0^2 + 4^2} = \sqrt{16+16} = 4\sqrt{2}$</p>
+            <p>$NP = \sqrt{0^2 + (0-4)^2 + 4^2} = \sqrt{16+16} = 4\sqrt{2}$</p>
+            <p>ដោយ $MN = MP = NP = 4\sqrt{2}$ នាំឱ្យ $MNP$ ជាត្រីកោណសម័ង្ស។</p>
+            <p>
+              <strong
+                >ឃ. គណនា $\vec{MP} \times \vec{MN}$ រួចទាញរកក្រឡាផ្ទៃ៖</strong
+              >
+            </p>
+            <p>$\vec{MP} = (4, 0, 4)$ និង $\vec{MN} = (4, 4, 0)$</p>
+            <p>
+              $\vec{MP} \times \vec{MN} = \begin{vmatrix} \vec{i} & \vec{j} &
+              \vec{k} \\ 4 & 0 & 4 \\ 4 & 4 & 0 \end{vmatrix} = (0 - 16)\vec{i}
+              - (0 - 16)\vec{j} + (16 - 0)\vec{k} = -16\vec{i} + 16\vec{j} +
+              16\vec{k}$
+            </p>
+            <p>
+              $S_{MNP} = \frac{1}{2}|\vec{MP} \times \vec{MN}| =
+              \frac{1}{2}\sqrt{(-16)^2 + 16^2 + 16^2} = \frac{1}{2}\sqrt{3
+              \times 16^2} = 8\sqrt{3}$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ ក្រឡាផ្ទៃគឺ $S_{MNP} = 8\sqrt{3}$ ឯកតាផ្ទៃ
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section VII -->
+      <section
+        class="question-section"
+        style="animation-delay: 0.7s; border-bottom: none"
+      >
+        <h2>លំហាត់ VII (២៥ ពិន្ទុ)</h2>
+        <div class="question-content">
+          <p>
+            $f$ ជាអនុគមន៍កំណត់ចំពោះ $x > 0$ ដោយ $f(x) = 2\left(1 - \frac{\ln
+            x}{x}\right)$ ហើយមានក្រាប $(C)$ ។
+          </p>
+          <div class="sub-question">
+            <p>
+              ក. គណនា $\lim_{x\to 0^+} f(x)$ និង $\lim_{x\to +\infty} f(x)$ ។
+              ទាញរកអាស៊ីមតូតនៃ $(C)$ ។
+            </p>
+            <p>
+              ខ. គណនា $f'(x)$ និងសិក្សាសញ្ញារបស់វា។ កំណត់តម្លៃបរមារបៀបនៃ $f$ ។
+              សង់តារាងអថេរភាពនៃ $f$ ។
+            </p>
+            <p>
+              គ. កំណត់កូអរដោនេនៃចំណុចប្រសព្វ $M$ រវាងក្រាប $(C)$
+              និងអាស៊ីមតូតដេករបស់វា។ កំណត់សមីការបន្ទាត់ $(L)$ ប៉ះនឹងក្រាប $(C)$
+              ត្រង់ $M$ ។
+            </p>
+            <p>
+              ឃ. សង់ $(C)$ និង $(L)$ ក្នុងតម្រុយតែមួយ។ (យក $e = 2.7 ;
+              \frac{2}{e} = 0.7$)
+            </p>
+            <p>
+              ង. គណនាក្រឡាផ្ទៃប្លង់ខណ្ឌដោយក្រាប $(C)$ និងអ័ក្ស $(ox)$ លើចន្លោះ
+              $[1, e]$ ។
+            </p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>ក. គណនាលីមីត និងទាញរកអាស៊ីមតូត៖</strong></p>
+            <p>
+              $\lim_{x\to 0^+} f(x) = \lim_{x\to 0^+} 2\left(1 - \frac{\ln
+              x}{x}\right) = 2(1 - (-\infty)) = +\infty$ នាំឱ្យ $x=0$
+              ជាអាស៊ីមតូតឈរ។
+            </p>
+            <p>
+              $\lim_{x\to +\infty} f(x) = \lim_{x\to +\infty} 2\left(1 -
+              \frac{\ln x}{x}\right) = 2(1 - 0) = 2$ នាំឱ្យ $y=2$
+              ជាអាស៊ីមតូតដេក។
+            </p>
+            <p><strong>ខ. គណនា $f'(x)$ និងសិក្សាសញ្ញា៖</strong></p>
+            <p>
+              $f'(x) = -2\left(\frac{1 - \ln x}{x^2}\right) = \frac{2(\ln x -
+              1)}{x^2}$
+            </p>
+            <p>$f'(x) = 0 \Rightarrow \ ln x = 1 \Rightarrow x = e$</p>
+            <p>
+              បើ $x \in (0, e)$ នោះ $f'(x) < 0$ ($f$ ចុះ)។ បើ $x > e$ នោះ $f'(x)
+              > 0$ ($f$ កើន)។
+            </p>
+            <p>
+              $f$ មានអប្បបរមាត្រង់ $x=e$ គឺ $f(e) = 2\left(1 -
+              \frac{1}{e}\right) = 2 - \frac{2}{e} \approx 2 - 0.7 = 1.3$
+            </p>
+            <p><strong>គ. ចំណុចប្រសព្វ $M$ និងបន្ទាត់ប៉ះ $(L)$៖</strong></p>
+            <p>
+              $2\left(1 - \frac{\ln x}{x}\right) = 2 \Rightarrow \frac{\ln x}{x}
+              = 0 \Rightarrow x = 1$។ ដូចនេះ $M(1, 2)$ ។
+            </p>
+            <p>សមីការបន្ទាត់ប៉ះត្រង់ $M(1, 2)$៖ $y = f'(1)(x - 1) + 2$</p>
+            <p>
+              $f'(1) = \frac{2(-1)}{1} = -2 \Rightarrow y = -2(x - 1) + 2 = -2x
+              + 4$
+            </p>
+            <div class="formula-box">ដូចនេះ $(L): y = -2x + 4$</div>
+            <p><strong>ង. គណនាក្រឡាផ្ទៃប្លង់៖</strong></p>
+            <p>
+              $S = \int_1^e f(x) dx = \int_1^e 2\left(1 - \frac{\ln x}{x}\right)
+              dx$
+            </p>
+            <p>
+              $S = \left[ 2x - (\ln x)^2 \right]_1^e = (2e - 1) - (2 - 0) = 2e -
+              3$
+            </p>
+            <div class="formula-box">
+              ដូចនេះ $S = 2e - 3 \approx 2(2.7) - 3 = 2.4$ ឯកតាផ្ទៃ
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="nav-footer">
+        <a href="../../../..//" class="back-btn">
+          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅទំព័រដើម
+        </a>
+      </footer>
+    </div>
+
+    <script>
+      function toggleSolution(btn) {
+        const content = btn.nextElementSibling;
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "block";
+          btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ដំណោះស្រាយ';
+        } else {
+          content.style.display = "none";
+          btn.innerHTML = '<i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ';
+        }
+      }
+    </script>
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>StudyNest.authGuard(); StudyNest.checkAccess(6);</script>
+  </body>
+</html>

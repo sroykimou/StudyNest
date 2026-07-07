@@ -46,20 +46,20 @@ try {
     const treeObj = readObject(treeHash);
     const entries = parseTree(treeObj);
 
-    const idx = entries.find(e => e.name === 'index.html');
+    const idx = entries.find(e => e.name === 'index.php' || e.name === 'index.html');
     if (idx) {
         const idxContent = readObject(idx.hash);
         const nullIdx = idxContent.indexOf(0);
-        fs.writeFileSync('index.html', idxContent.slice(nullIdx + 1));
-        console.log('Restored index.html');
+        fs.writeFileSync('index.php', idxContent.slice(nullIdx + 1));
+        console.log('Restored index.php');
     }
 
-    const errIdx = entries.find(e => e.name === '404.html');
+    const errIdx = entries.find(e => e.name === '404.php' || e.name === '404.html');
     if (errIdx) {
         const errContent = readObject(errIdx.hash);
         const nullIdx = errContent.indexOf(0);
-        fs.writeFileSync('404.html', errContent.slice(nullIdx + 1));
-        console.log('Restored 404.html');
+        fs.writeFileSync('404.php', errContent.slice(nullIdx + 1));
+        console.log('Restored 404.php');
     }
 } catch (err) {
     console.error(err);

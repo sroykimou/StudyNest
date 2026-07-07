@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+    <style>
+      :root {
+        --phys-dark: #312e81;
+        --phys-main: #4f46e5;
+        --phys-light: #e0e7ff;
+        --red-border: #dc2626;
+        --orange: #f97316;
+        --green: #16a34a;
+        --red-sub: #b91c1c;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Kantumruy Pro", sans-serif;
+        line-height: 1.9;
+      }
+      header {
+        background: linear-gradient(135deg, #1e1b4b, var(--phys-dark));
+        color: white;
+        padding: 60px 20px 50px;
+        text-align: center;
+        border-bottom: 5px solid var(--phys-main);
+        position: relative;
+      }
+      header h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      header p {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      .subject-tag {
+        display: inline-block;
+        background: rgba(79, 70, 229, 0.25);
+        border: 1px solid var(--phys-main);
+        padding: 5px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+      }
+      .container {
+        max-width: 780px;
+        margin: 36px auto 60px;
+        padding: 0 20px;
+      }
+      .section-label {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 36px 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-label::before {
+        content: "◆";
+        font-size: 0.75rem;
+        color: var(--orange);
+      }
+      .formula-card {
+        border: 2px solid var(--red-border);
+        border-radius: 12px;
+        padding: 22px 28px 26px;
+        background: white;
+        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.07);
+      }
+      .formula-card + .formula-card {
+        margin-top: 24px;
+      }
+      .badge {
+        display: inline-block;
+        background: var(--green);
+        color: white;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 3px 14px;
+        border-radius: 6px;
+        margin-bottom: 16px;
+      }
+      .fbox {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 5px 14px;
+        background: #f8fafc;
+        flex-wrap: wrap;
+      }
+      .var-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 10px 0 4px;
+      }
+      .var-list li {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 0.96rem;
+        padding: 4px 0;
+      }
+      /* FIX 4: defined .var-sym and .var-colon (were .var and .colon in temperature section) */
+      .var-sym {
+        min-width: 50px;
+        font-style: italic;
+        color: var(--phys-dark);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .var-colon {
+        color: #64748b;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      .bullet-list {
+        list-style: none;
+        padding-left: 8px;
+        margin: 8px 0;
+      }
+      .bullet-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.96rem;
+        padding: 7px 0;
+        flex-wrap: wrap;
+      }
+      .bullet {
+        color: var(--phys-main);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .sub-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 18px 0 10px;
+      }
+      .num-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        background: var(--orange);
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+      .red-sub {
+        font-size: 0.97rem;
+        font-weight: 700;
+        color: var(--red-sub);
+        margin: 18px 0 10px;
+      }
+      .red-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: var(--red-sub);
+        font-size: 0.92rem;
+        margin-top: 14px;
+        font-weight: 600;
+      }
+      .or-label {
+        font-weight: 700;
+        color: var(--phys-dark);
+        font-size: 0.95rem;
+        padding: 0 4px;
+      }
+      .arrow {
+        color: var(--phys-dark);
+        font-weight: 700;
+        padding: 0 2px;
+      }
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.96rem;
+      }
+      .prose {
+        font-size: 0.96rem;
+        margin: 8px 0;
+        line-height: 1.8;
+      }
+      .divider {
+        border: none;
+        border-top: 1px dashed #e0e7ff;
+        margin: 16px 0;
+      }
+      .result-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 6px 0 4px 8px;
+        font-size: 0.96rem;
+      }
+      .graph-wrap {
+        margin: 16px 0 8px;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      /* FIX 3: Added missing table styles */
+      .table-wrapper {
+        margin: 16px 0 8px;
+        overflow-x: auto;
+      }
+      .table-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--phys-dark);
+        margin-bottom: 10px;
+      }
+      .table-wrapper table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.93rem;
+      }
+      .table-wrapper td {
+        padding: 5px 8px;
+        vertical-align: middle;
+      }
+      .dot-cell {
+        width: 20px;
+      }
+      .dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: var(--phys-main);
+        border-radius: 50%;
+      }
+      .name-cell {
+        font-weight: 600;
+        color: var(--phys-dark);
+        white-space: nowrap;
+        padding-right: 8px;
+      }
+      .colon-cell {
+        width: 16px;
+        color: #64748b;
+      }
+      .formula-cell {
+        color: var(--text);
+      }
+      .system-diagram {
+        max-width: 100%;
+        height: auto;
+        margin: 15px 0;
+        border-radius: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .nav-links {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 40px;
+      }
+      .nav-btn {
+        text-decoration: none;
+        color: var(--phys-main);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s;
+      }
+      .nav-btn.prev:hover {
+        background: var(--phys-light);
+        transform: translateX(-5px);
+      }
+      .nav-btn.next:hover {
+        background: var(--phys-light);
+        transform: translateX(5px);
+      }
+      .nav-btn.home:hover {
+        background: var(--phys-light);
+        transform: translateY(-3px);
+      }
+      .fbox {
+        display: inline-flex;
+        align-items: center;
+        border: 1.5px solid #94a3b8;
+        border-radius: 6px;
+        padding: 5px 14px;
+        background: #f8fafc;
+        flex-wrap: wrap;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+      .formula-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 8px 0 4px;
+        font-size: 0.96rem;
+        max-width: 100%;
+        overflow-x: auto;
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.authGuard();
+    </script>
+  </head>
+  <body>
+    <header>
+      <span class="subject-tag">រូបវិទ្យា ថ្នាក់ទី ១២ • ត្រៀមប្រឡងបាក់ឌុប</span>
+      <h1>មេរៀនទី ១៖ គោលការណ៏តម្រួតនៃរលក និងរលកជញ្រ្ចុាំ</h1>
+    </header>
+    <div class="container"> 
+
+      <p class="section-label" id="sec1">១. និយមន័យ និងប្រភេទនៃរលកមេកានិច</p>
+      <div class="formula-card">
+        <p><strong>+  រលក  </strong>គឺជាការបញ្ជូនថាមពលពីចំណុចមួយទៅចំណុចមួយផ្សេងទៀតតាមរយៈមជ្ឈដ្ឋានណាមួយ ។ 
+          រលកមានលក្ខណៈជាចំណាំងផ្លាត ចំណាំងបែរ និងឌីប្រាក់ស្យុង ។
+       </p>
+        <p><strong>+ រលកមេកានិច  </strong>ជារលកដែលដាលឆ្លងកាត់មជ្ឈដ្ឋានរូបធាតុ ( រឹង រាវ និងឧស្ម័ន ) ដែលល្បឿនរបស់វាអាស្រ័យនឹងមជ្ឈដ្ឋានដំណាល ។ </p>
+        <p><strong>+ រលកមានទម្រង់ពីរគឺ រលកទទឹង និងរលកបណ្តោយ ។</strong></p>
+        <p><strong>+ រលកទទឹង  </strong>គឺជារលកដែលមានចលនាលំញ័រនៃចំណុចនីមួយៗក្នុងមជ្ឈដ្ឋានរូបធាតុ ដែលមានគន្លងកែងនឹងទិសដំណាល ( ដូចរូបខាងក្រោម ) ។</p>
+        <img
+          src="images/image-1.png"
+          alt="Transverse Wave Diagram"
+          class="system-diagram"
+        />
+        <p><strong>+ រលកបណ្តោយ </strong>គឺជាលំញ័រដែលផ្លាស់ទីស្របនឹងទិសនៃដំណាល ( ដូចរូបខាងក្រោម ) ។</p>
+        <img
+          src="images/image-2.png"
+          alt="Longitudinal Wave Diagram"
+          class="system-diagram"
+        />
+      </div>
+
+      <p class="section-label" id="sec2">២. ភាពទូទៅនៃរលក</p>
+      <div class="formula-card">
+        <p>
+          រលកទាំងពីរនេះត្រូវបានបង្កើតជាចលនាអាម៉ូនិចងាយ និងផ្លាស់ទីនៅក្នុងមជ្ឈដ្ឋានណាមួយ ។ តាងដោយអនុគមន៍ស៊ីនុយសូអ៊ីតមានរាង ( ដូចរូប ) និងសមីការទូទៅគឺ \( y = a \sin(\omega t + \phi) \) ។ 
+        </p>
+        <img
+          src="images/image-3.png"
+          alt="Wave Function Diagram"
+          class="system-diagram"
+        />
+        <ul class="var-list">
+          <li>
+            <span class="var-sym">\( y \)</span><span class="var-colon">:</span> ជាអេឡុងកាស្យុង ឬបម្លាស់ទីនៃរលក គិតជា \( (m) \) ឬ \( (cm) \)
+          </li>
+          <li>
+            <span class="var-sym">\( a \)</span><span class="var-colon">:</span> ជាអំព្លីទុតនៃរលក គិតជា \( (m) \) ឬ \( (cm) \)
+          </li>
+          <li>
+            <span class="var-sym">\( \omega \)</span><span class="var-colon">:</span> ជាពុលសាស្យុង ឬល្បឿនមុំ គិតជា \( (rad/s) \)
+          </li>
+          <li>
+            <span class="var-sym">\( \phi \)</span><span class="var-colon">:</span> ជាមុំផាសដើម គិតជា \( (^\circ) \) ឬ \( (rad) \)
+          </li>
+          <li>
+            <span class="var-sym">\( \omega t + \phi \)</span><span class="var-colon">:</span> ជាផាសខណៈពេល \( t \) ណាមួយ
+          </li>
+        </ul>
+        
+        <div class="divider"></div>
+        
+        <p>
+          ដើម្បីសិក្សាអំពីរលកឲ្យមានភាពងាយស្រួល យើងត្រូវស្វែងយល់ពីមូលដ្ឋានគ្រឹះនៃការបង្កើតរលក និងមជ្ឈដ្ឋានដែលរលកដាល វាអាស្រ័យទៅនឹង ល្បឿនដំណាល អំព្លីទុត ជំហានរលក ខួប ប្រេកង់ និងផាសនៃរលក ។
+        </p>
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>អំព្លីទុត (\( a \))</strong>: គឺជាបម្លាស់ទីអតិបរមានៃរលកធៀបនឹងទីតាំងលំនឹង (ចម្ងាយពី \( O \) ទៅ \( +a \) ឬ \( -a \)) ។</li>
+          <li><span class="bullet">•</span> <strong>ខួបនៃរលក (\( T \))</strong>: គឺជា រយៈពេលដែលរលកដាលបានមួយលំយោលពេញ ។ </li>
+          <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( T = \frac{2\pi}{\omega} = \frac{1}{f} = \frac{\lambda}{v} \)</span>
+        </div>
+          <li><span class="bullet">•</span> <strong>ប្រេកង់ (\( f \))</strong>: គឺជាចំនួនលំយោលពេញ ក្នុងរយៈពេលមួយវិនាទី ។ </li>
+          <div class="formula-row">
+          <span>រូបមន្ត :</span>
+          <span class="fbox">\( f = \frac{1}{T} = \frac{\omega}{2\pi} \)</span>
+        </div>
+          <li><span class="bullet">•</span> <strong>ពុលសាស្យុង (\( \omega \) : )</strong><span class="fbox">\( \omega = 2\pi f = \frac{2\pi}{T} = kv \)</span></li>
+          <li><span class="bullet">•</span> <strong>ចំនួនរលក ឬវ៉ិចទ័ររលក (\( k \))</strong>: <span class="fbox">\( k = \frac{2\pi}{\lambda} = \frac{\omega}{v} \)</span></li>
+          <li><span class="bullet">•</span> <strong>ជំហានរលក (\( \lambda \))</strong>: គឺជាប្រវែងដែលរលកដាលបានមួយលំយោលពេញ ។<span>រូបមន្ត :</span>
+          <span class="fbox">\( \lambda = vT = \frac{v}{f} = \frac{2\pi}{k} \)</span></li>
+          <li><span class="bullet">•</span> <strong>ល្បឿនដំណាលនៃរលក (\( v \))</strong>: គឺសំដៅទៅលើការផ្លាស់ទីរបស់កំពូលរលក (\( d \)) ក្នុងចន្លោះរយៈពេល (\( t \)) ណាមួយ ។<span>រូបមន្ត :</span>
+          <span class="fbox">\( v = \lambda f = \frac{\lambda}{T} = \frac{d}{t} = \frac{x}{t} \)</span></li>
+          <li><span class="bullet">•</span> <strong>ផាសនៃរលក (\( \phi \))</strong>: គឺជាតម្លៃនៃមុំដែលស្ថិតនៅក្នុងវង់ក្រចកនៃអនុគមន៍ស៊ីនុស ឬកូស៊ីនុសរបស់រលក ។</li>
+        </ul>
+
+        <div class="table-wrapper">
+          <p class="table-title">កំណត់ចំណាំ៖</p>
+          <table>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( \lambda \)</td><td class="colon-cell">:</td><td class="formula-cell">ជំហានរលក គិតជា \( (m) \)</td></tr>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( T \)</td><td class="colon-cell">:</td><td class="formula-cell">ខួបនៃរលក គិតជា \( (s) \)</td></tr>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( v \)</td><td class="colon-cell">:</td><td class="formula-cell">ល្បឿនដំណាលនៃរលក គិតជា \( (m/s) \)</td></tr>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( f \)</td><td class="colon-cell">:</td><td class="formula-cell">ប្រេកង់ គិតជា \( (Hz) \) ឬ \( (s^{-1}) \)</td></tr>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( k \)</td><td class="colon-cell">:</td><td class="formula-cell">ចំនួនរលក គិតជា \( (rad/m) \)</td></tr>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( d \)</td><td class="colon-cell">:</td><td class="formula-cell">ចម្ងាយចរនៃដំណាលរលក គិតជា \( (m) \)</td></tr>
+            <tr><td class="dot-cell"><span class="dot"></span></td><td class="name-cell">\( t \)</td><td class="colon-cell">:</td><td class="formula-cell">រយៈពេលដំណាល គិតជា \( (s) \)</td></tr>
+          </table>
+        </div>
+        <img src="images/image-4.png" alt="Wave Parameters Diagram" class="system-diagram" />
+      </div>
+
+      <p class="section-label" id="sec3">៣. សមីការរលកស៊ីនុយសូអ៊ីត</p>
+      <div class="formula-card">
+        <img src="images/image-5.png" alt="Wave Equation Diagram" class="system-diagram" />
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>សមីការលំញ័រត្រង់ \( O \)</strong> (សមីការរលកដើម)៖ \( y = a \sin(2\pi f \cdot t) \)</li>
+          <li><span class="bullet">•</span> <strong>ពេលរលកដាលដល់ \( M \)</strong> ចម្ងាយ \( x \) ពី \( O \) (ទៅស្តាំ \( +x \)) ៖
+            <div class="result-row">សមីការ៖ \( y_M = a \sin(kx - \omega t) = a \sin(\omega t - kx) \)</div>
+          </li>
+          <li><span class="bullet">•</span> <strong>ពេលរលកដាលមកដល់ \( M \)</strong> ក្នុងទិសដៅបញ្ច្រាស (ទៅឆ្វេង \( -x \))៖
+            <div class="result-row">សមីការ៖ \( y_M = a \sin(kx + \omega t) = a \sin(\omega t + kx) \)</div>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec4">៤. គោលការណ៍តម្រួតនៃរលក</p>
+      <div class="formula-card">
+        <p>
+          <strong>ជាទូទៅ៖</strong> រលកពីរ ឬច្រើនដាលឆ្លងកាត់មជ្ឈដ្ឋានមួយ នោះតម្លៃសរុបនៃអនុគមន៍រលកត្រង់ចំនុចមួយហៅថា <strong>រលកតម្រួត</strong> ។
+          សមីការទូទៅ៖ \( y = y_1 + y_2 + y_3 + \dots + y_n \)
+        </p>
+        <p>
+          <strong>គោលការណ៍រលកតម្រួត៖</strong> កាលណារលកពីរ ឬច្រើនដាលកាត់គ្នាក្នុងមជ្ឈដ្ឋានតែមួយ បម្លាស់ទីសរុបនៃរាល់ចំណុចណាក៏ដោយនៃរលក ស្មើនឹងផលបូកវ៉ិចទ័រនៃបណ្តាចំណុចបម្លាស់ទីរលកទោលទាំងនោះ ។ រលកបែបនេះហៅថា <strong>រលកលីនេអ៊ែ</strong> ឬ <strong>រលកតម្រួត</strong> ។ 
+        </p>
+        <div class="result-row">
+          \( y = y_1 + y_2 + \dots = a \sin(\omega t + \phi) \)
+        </div>
+        <p>ដែល៖</p>
+        <ul class="bullet-list">
+          <li>\( y_1 = a_1 \sin(\omega t + \phi_1) \)</li>
+          <li>\( y_2 = a_2 \sin(\omega t + \phi_2) \)</li>
+          <li>\( \dots \)</li>
+          <li>\( y_n = a_n \sin(\omega t + \phi_n) \)</li>
+        </ul>
+        <p>នោះតម្រួតនៃរលកគឺ៖</p>
+        <div class="fbox">
+          \( y = a_1 \sin(\omega t + \phi_1) + a_2 \sin(\omega t + \phi_2) + \dots + a_n \sin(\omega t + \phi_n) = a \sin(\omega t + \phi) \)
+        </div>
+        
+        <div class="divider"></div>
+        
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>អំព្លីទុតតម្រួត៖</strong> \( a = \sqrt{a_x^2 + a_y^2} \)</li>
+          <li><span class="bullet">•</span> <strong>ដែល៖</strong> 
+            <div class="result-row">\( a_x = a_1 \cos\phi_1 + a_2 \cos\phi_2 + \dots + a_n \cos\phi_n \)</div>
+            <div class="result-row">\( a_y = a_1 \sin\phi_1 + a_2 \sin\phi_2 + \dots + a_n \sin\phi_n \)</div>
+          </li>
+          <li><span class="bullet">•</span> <strong>ផាសតម្រួត៖</strong> \( \tan\phi' = \left| \frac{a_y}{a_x} \right| \Rightarrow \phi' = \arctan \left| \frac{a_y}{a_x} \right| \)</li>
+        </ul>
+      </div>
+
+      <p class="section-label" id="sec5">៥. ករណីពិសេសនៃតម្រួតរលកពីរ</p>
+      <div class="formula-card">
+        <img src="images/image-6.png" alt="Wave Superposition Diagram" class="system-diagram" />
+        <p>
+          ឧបមាថា រលកពីរគឺ \( y_1 = a_1 \sin(\omega t + \phi_1) \) និង \( y_2 = a_2 \sin(\omega t + \phi_2) \) ដាលក្នុងមជ្ឈដ្ឋានមួយ នោះតម្រួតរលកទាំងពីរគឺ៖
+          <div class="fbox">\( y = a_1 \sin(\omega t + \phi_1) + a_2 \sin(\omega t + \phi_2) = a \sin(\omega t + \phi) \)</div>
+        </p>
+        <p>ដែល \( a \) ជាអំព្លីទុតតម្រួត និង \( \phi \) ជាផាសតម្រួត ។</p>
+        
+        <img src="images/image-7.png" alt="Fresnel Diagram" class="system-diagram" />
+        <p>
+          ករណីរលកពីរមានទិស ខួប ប្រេកង់ និងជំហានរលកដូចគ្នា តែផាសខុសគ្នា៖
+        </p>
+        
+        <p><strong>+ ករណី \( a_1 = a_2 = a \)</strong></p>
+        <div class="result-row">
+          \( y = a \sin(\omega t + \phi_1) + a \sin(\omega t + \phi_2) = a [\sin(\omega t + \phi_1) + \sin(\omega t + \phi_2)] \)
+        </div>
+        <p>តាមរូបមន្ត \( \sin A + \sin B = 2 \sin\left(\frac{A+B}{2}\right) \cos\left(\frac{A-B}{2}\right) \)</p>
+        <div class="fbox">
+          \( y = 2a \cos\left(\frac{\phi_1 - \phi_2}{2}\right) \sin\left[\omega t + \frac{\phi_1 + \phi_2}{2}\right] \)
+        </div>
+        
+        <div class="divider"></div>
+        
+        <p><strong>+ បើរលកទាំងពីរស្របផាសគ្នា (\( a_1 \neq a_2 \))</strong></p>
+        <img src="images/image-8.png" alt="In-phase Superposition" class="system-diagram" />
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>អំព្លីទុតតម្រួត:</strong> \( a = a_1 + a_2 \)</li>
+          <li><span class="bullet">•</span> <strong>ផាសតម្រួត:</strong> \( \phi = \phi_1 = \phi_2 \)</li>
+          <li><span class="bullet">•</span> <strong>ផលសងផាស:</strong> \( \Delta\phi = |\phi_2 - \phi_1| = 0 \)</li>
+        </ul>
+        
+        <div class="divider"></div>
+        
+        <p><strong>+ បើរលកទាំងពីរឈមផាសគ្នា៖</strong></p>
+        <img src="images/image-9.png" alt="Out-of-phase Superposition" class="system-diagram" />
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>បើ \( a_1 > a_2 \):</strong> \( a = a_1 - a_2 \), \( \phi = \phi_1 \)</li>
+          <li><span class="bullet">•</span> <strong>បើ \( a_2 > a_1 \):</strong> \( a = a_2 - a_1 \), \( \phi = \phi_2 \)</li>
+          <li><span class="bullet">•</span> <strong>ផលសងផាស:</strong> \( \Delta\phi = |\phi_2 - \phi_1| = \pi \)</li>
+        </ul>
+        <img src="images/image-10.png" alt="Out-of-phase Diagram" class="system-diagram" />
+        
+        <div class="divider"></div>
+        
+        <p><strong>+ បើរលកទាំងពីរខ្នែងផាសគ្នា៖</strong></p>
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>អំព្លីទុតតម្រួត:</strong> \( a = \sqrt{a_1^2 + a_2^2 + 2a_1a_2 \cos(\phi_2 - \phi_1)} \)</li>
+          <li><span class="bullet">•</span> <strong>ផលសងផាស:</strong> \( \Delta\phi = |\phi_2 - \phi_1| = (2n+1)\frac{\pi}{2} \)</li>
+        </ul>
+        <img src="images/image-11.png" alt="Phasor Diagram 1" class="system-diagram" />
+        <img src="images/image-12.png" alt="Phasor Diagram 2" class="system-diagram" />
+      </div>
+
+      <p class="section-label" id="sec6">៦. រលកជញ្រ្ជុំ (Standing Waves)</p>
+      <div class="formula-card">
+        <img src="images/image-13.png" alt="Standing Wave Diagram" class="system-diagram" />
+        <p>
+          <strong>រលកជញ្រ្ជុំ៖</strong> ជារលកដែលយោលត្រង់ទីតាំងថេរមួយ មានទីតាំងថ្នាំង និងពោះមិនផ្លាស់ប្តូរ ។ បង្កើតឡើងដោយតម្រួតនៃរលកពីរដែលមានអំព្លីទុត និងប្រេកង់ដូចគ្នា តែដាលក្នុងទិសដៅផ្ទុយគ្នា ។
+        </p>
+        
+        <div class="divider"></div>
+        
+        <p><strong>+ ករណីទី១៖</strong> បើ \( y_1 = a \sin(\omega t + kx) \) និង \( y_2 = a \sin(\omega t - kx) \)</p>
+        <div class="result-row">\( y = y_1 + y_2 = a [\sin(\omega t + kx) + \sin(\omega t - kx)] \)</div>
+        <span>នាំឲ្យ​ :</span>
+        <div class="fbox">\( y = 2 a \cos(kx) \sin(\omega t) = A \sin(\omega t) \)</div>
+        <p>ដែល \( A = 2 a \cos(kx) \) ជាអំព្លីទុតនៃរលកជញ្រ្ជុំ ។</p>
+        
+        <div class="divider"></div>
+        
+        <p><strong>+ ករណីទី២៖</strong> បើ \( y_1 = a \sin(kx + \omega t) \) និង \( y_2 = a \sin(kx - \omega t) \)</p>
+        <div class="result-row">\( y = y_1 + y_2 = a [\sin(kx + \omega t) + \sin(kx - \omega t)] \)</div>
+        <span>នាំឲ្យ​ :</span>
+        <div class="fbox">\( y = 2 a \sin(kx) \cos(\omega t) = A \cos(\omega t) \)</div>
+        <p>ដែល \( A = 2 a \sin(kx) \) ជាអំព្លីទុតនៃរលកជញ្រ្ជុំ ។</p>
+        <img src="images/image-14.png" alt="Standing Wave Formation" class="system-diagram" />  
+        <ul class="bullet-list">
+          <li><span class="bullet">•</span> <strong>ទីតាំងពោះ៖</strong> ជាទីតាំងមានអំព្លីទុតអតិបរមា \( (A = \pm 2a) \)
+          </li>
+          <li>
+            <div class="formula-row">
+              <span>រូបមន្ត៖</span>
+              <span class="fbox">\( x = (2n+1)\frac{\lambda}{4} \)</span>
+              <span>(ដែល \( n = 0, 1, 2, \dots \))</span>
+            </div>
+            <div class="formula-row">
+              <span>ឬ</span>
+              <span class="fbox">\( x = n\frac{\lambda}{4} \)</span>
+              <span>ដែល \( n \) ជាចំនួនគត់សេស \( (n = 1, 3, 5, \dots) \)</span>
+            </div>
+          </li>
+          <li><span class="bullet">•</span> <strong>ទីតាំងថ្នាំង៖</strong> ជាទីតាំងមានអំព្លីទុតអប្បបរមា \( (A = 0) \)
+          </li>
+          <li>
+            <div class="formula-row">
+              <span>រូបមន្ត៖</span>
+              <span class="fbox">\( x = n\frac{\lambda}{2} \)</span>
+              <span>ដែល \( n = 0, 1, 2, \dots \)</span>
+            </div>
+          </li>
+          <li><span class="bullet">•</span> <strong>ចំនួនត្រយ៉ូង ឬចំនួនពោះ៖</strong>
+          </li>
+          <li>
+            <div class="formula-row">
+              <span>រូបមន្ត៖</span>
+              <span class="fbox">\( n = \frac{2l}{\lambda} \)</span>
+            </div>
+          </li>
+          <li>
+            <ul class="var-list">
+              <li><span class="var-sym">\( l \)</span><span class="var-colon">:</span> ជាប្រវែងខ្សែ គិតជា \( (m) \)</li>
+              <li><span class="var-sym">\( \lambda \)</span><span class="var-colon">:</span> ជាប្រវែងជំហានរលក គិតជា \( (m) \)</li>
+            </ul>
+          </li>
+          <li><span class="bullet">•</span> <strong>ចំនួនថ្នាំង៖</strong> <span class="fbox">ចំនួនថ្នាំង = n + 1 </span></li>
+        </ul>
+        <p>
+          <strong>តារាងត្រីកោណមាត្រ</strong>
+        </p>
+        <img src="images/image-15.png" alt="Standing Wave Nodes and Antinodes" class="system-diagram" />  
+        <P><strong>តារាងតម្លៃត្រីកោណមាត្រ</strong></P>  
+        <img src="images/image-16.png" alt="Standing Wave Phasor Diagram" class="system-diagram" />
+      </div>
+        
+
+      <div class="nav-links" style="justify-content: center;">
+        <a href="../../physics_g12" class="nav-btn">
+          <i class="fas fa-home"></i> មាតិកា
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

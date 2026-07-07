@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ២១–៣០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 2_home"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ច្បាប់ទី១ទែម៉ូឌីណាមិច</div>
+        <h1>លំហាត់<em>អនុវត្ត ២១–៣០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 21 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">21</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេមានឧស្ម័នបរិសុទ្ធ
+            <span class="given">\(0.5 \text{ mol}\)</span> ស្ថិតក្រោមសីតុណ្ហភាព
+            <span class="given">\(0^\circ\text{C}\)</span> ។
+            គេធ្វើឱ្យឧស្ម័ននោះរីកមាឌពី
+            <span class="given">\(20 \text{ L}\)</span> ទៅ
+            <span class="given">\(40 \text{ L}\)</span> តាមលំនាំអ៊ីសូទែម ។
+          </p>
+          <p>
+            គេឱ្យ
+            <span class="given">\(R = 8.31 \text{ J/mol}\cdot\text{K}\)</span>,
+            <span class="given"
+              >\(N_A = 6.02 \times 10^{23} \text{ /mol}\)</span
+            >
+            ។
+          </p>
+          <div class="ex-find">
+            <span>ក. គណនាកម្មន្តបំពេញដោយឧស្ម័នក្នុងពេលបម្រែបម្រួលមាឌ ។</span>
+          </div>
+          <div class="ex-find"><span>ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន ។</span></div>
+          <div class="ex-find">
+            <span>គ. ចូរធ្វើគំនូសតាងដ្យាក្រាម (P-V)
+            ដោយឆ្នូតលើក្រឡាផ្ទៃតាងឱ្យកម្មន្តដែលកើតមានឡើងក្នុងពេលមានបម្រែបម្រួលមាឌ
+            ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាកម្មន្តបំពេញដោយឧស្ម័ន (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = nRT \ln\left(\dfrac{V_2}{V_1}\right) \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( n = 0.5 \text{ mol} \)<br>
+                  \( T = 0^\circ\text{C} = 273 \text{ K} \)<br>
+                  \( V_1 = 20 \text{ L} \)<br>
+                  \( V_2 = 40 \text{ L} \)<br>
+                  \( R = 8.31 \text{ J/(mol}\cdot\text{K)} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( W = 0.5 \times 8.31 \times 273 \times \ln\left(\dfrac{40}{20}\right) \)<br>
+                  \( W = 1134.315 \times \ln(2) \approx 1134.315 \times 0.693 \approx 786.1 \text{ J} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តបំពេញដោយឧស្ម័នគឺ \( W \approx 786.1 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាចំនួនម៉ូលេគុលសរុបនៃឧស្ម័ន (\(N\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( n = \dfrac{N}{N_A} \text{ នាំឲ្យ } N = n \cdot N_A \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( n = 0.5 \text{ mol} \)<br>
+                  \( N_A = 6.02 \times 10^{23} \text{ /mol} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( N = 0.5 \times 6.02 \times 10^{23} = 3.01 \times 10^{23} \text{ ម៉ូលេគុល} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ចំនួនម៉ូលេគុលសរុបគឺ \( N = 3.01 \times 10^{23} \text{ ម៉ូលេគុល} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គ. គំនូសតាងដ្យាក្រាម \( (P-V) \)</div>
+              <div class="sol-step">
+                <span class="sol-label">ពណ៌នា :</span>
+                <span class="sol-math">
+                  ដ្យាក្រាម \( (P-V) \) ជាខ្សែកោងអ៊ីសូទែម (Hyperbola) ដែលឧស្ម័នរីកមាឌពីមាឌ \( V_1 = 20 \text{ L} \) ទៅ \( V_2 = 40 \text{ L} \)។<br>
+                  ក្រឡាផ្ទៃនៅក្រោមខ្សែកោងអ៊ីសូទែមដែលចងដោយអ័ក្សមាឌ \( V \) និងបន្ទាត់ឈរ \( V = V_1 \), \( V = V_2 \) តំណាងឱ្យកម្មន្ត \( W \) ដែលឧស្ម័នបំពេញ។
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ក្រឡាផ្ទៃឆ្នូតក្រោមខ្សែកោងអ៊ីសូទែមតំណាងឱ្យកម្មន្ត \( W > 0 \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">22</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងប្រព័ន្ធទែម៉ូឌីណាមិច ប្រព័ន្ធទទួលកម្តៅ
+            <span class="given">\(500 \text{ J}\)</span> និងទទួលកម្មន្ត
+            <span class="given">\(200 \text{ J}\)</span> ។
+          </p>
+          <div class="ex-find"><span>រកបម្រែបម្រួលថាមពលក្នុង ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">រកបម្រែបម្រួលថាមពលក្នុង (\(\Delta U\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q = +500 \text{ J} \) (ប្រព័ន្ធទទួលកម្តៅ \( \Rightarrow Q > 0 \))<br>
+                  \( W = -200 \text{ J} \) (ប្រព័ន្ធទទួលកម្មន្ត ឬកម្មន្តធ្វើលើប្រព័ន្ធ \( \Rightarrow W < 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta U = 500 - (-200) = 500 + 200 = 700 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ បម្រែបម្រួលថាមពលក្នុងគឺ \( \Delta U = 700 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">23</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងលំនាំនៃឧស្សាហកម្មគីមីមួយ បានផ្តល់កម្តៅ
+            <span class="given">\(600 \text{ J}\)</span> ទៅឱ្យប្រព័ន្ធ
+            ហើយប្រព័ន្ធបានបំពេញកម្មន្ត
+            <span class="given">\(200 \text{ J}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ (\(\Delta U\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q = +600 \text{ J} \) (ប្រព័ន្ធទទួលកម្តៅ \( \Rightarrow Q > 0 \))<br>
+                  \( W = +200 \text{ J} \) (ប្រព័ន្ធបំពេញកម្មន្ត \( \Rightarrow W > 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta U = 600 - 200 = 400 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ បម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធគឺ \( \Delta U = 400 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 24 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">24</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            កម្ដៅ
+            <span class="given">\(3000 \text{ J}\)</span>
+            ត្រូវបានបន្ថែមទៅប្រព័ន្ធមួយ ហើយ
+            <span class="given">\(2500 \text{ J}\)</span>
+            នៃកម្មន្តត្រូវបានធ្វើដោយប្រព័ន្ធ ។
+          </p>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ (\(\Delta U\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q = +3000 \text{ J} \) (កម្ដៅបន្ថែមទៅប្រព័ន្ធ \( \Rightarrow Q > 0 \))<br>
+                  \( W = +2500 \text{ J} \) (កម្មន្តធ្វើដោយប្រព័ន្ធ \( \Rightarrow W > 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta U = 3000 - 2500 = 500 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ បម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធគឺ \( \Delta U = 500 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 25 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">25</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេធ្វើកម្មន្ត
+            <span class="given">\(25 \text{ kJ}\)</span> ទៅលើប្រព័ន្ធឧស្ម័នមួយ ។
+            ក្រោយមកកម្ដៅ
+            <span class="given">\(1.5 \text{ kcal}\)</span> បានភាយចេញពីប្រព័ន្ធ
+            ។
+          </p>
+          <p>
+            គេយក <span class="given">\(1 \text{ cal} = 4.19 \text{ J}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ (\(\Delta U\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( W = -25 \text{ kJ} = -25000 \text{ J} \) (កម្មន្តធ្វើលើប្រព័ន្ធ \( \Rightarrow W < 0 \))<br>
+                  \( Q = -1.5 \text{ kcal} = -1.5 \times 10^3 \times 4.19 \text{ J} = -6285 \text{ J} \) (កម្ដៅភាយចេញពីប្រព័ន្ធ \( \Rightarrow Q < 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( \Delta U = -6285 - (-25000) = -6285 + 25000 = 18715 \text{ J} = 18.715 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ បម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធគឺ \( \Delta U = 18715 \text{ J} \) (ឬ \( 18.715 \text{ kJ} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 26 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">26</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ប្រសិនបើថាមពលក្នុងនៃឧស្ម័នមួយកើនឡើង
+            <span class="given">\(150 \text{ J}\)</span>
+            នៅពេលដែលគេត្រូវការកម្មន្ត
+            <span class="given">\(220 \text{ J}\)</span> ដើម្បីបណ្ណែនវា ។
+          </p>
+          <div class="ex-find"><span>តើកម្ដៅដែលត្រូវចាកចេញស្មើនឹងប៉ុន្មាន ?</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្ដៅដែលត្រូវចាកចេញ (\(Q_{\text{out}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \Rightarrow Q = \Delta U + W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \Delta U = +150 \text{ J} \) (ថាមពលក្នុងកើនឡើង)<br>
+                  \( W = -220 \text{ J} \) (កម្មន្តបណ្ណែន ឬធ្វើលើប្រព័ន្ធ \( \Rightarrow W < 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( Q = 150 + (-220) = -70 \text{ J} \)<br>
+                  សញ្ញាដកបញ្ជាក់ថាកម្ដៅភាយចេញ (ចាកចេញពីប្រព័ន្ធ)។
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្ដៅដែលត្រូវចាកចេញពីប្រព័ន្ធគឺ \( Q_{\text{out}} = 70 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 27 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">27</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៧</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            គេបន្ថែមកម្ដៅ
+            <span class="given">\(3 \text{ J}\)</span>
+            ទៅឧស្ម័នបរិសុទ្ធមួយតាមលំនាំអ៊ីសូទែមដើម្បីឱ្យវារីក ។
+          </p>
+          <div class="ex-find">
+            <span>តើកម្មន្តដែលធ្វើឡើងដោយប្រព័ន្ធក្នុងលំនាំនេះស្មើនឹងប៉ុន្មាន ?</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តដែលធ្វើឡើងដោយប្រព័ន្ធ (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">តាមលំនាំអ៊ីសូទែម សីតុណ្ហភាពថេរ \( \Rightarrow \Delta U = 0 \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W = Q \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">\( Q = +3 \text{ J} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 3 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលធ្វើឡើងដោយប្រព័ន្ធគឺ \( W = 3 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 28 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">28</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក្នុងលំនាំអ៊ីសូទែម កម្មន្ត
+            <span class="given">\(55 \text{ J}\)</span>
+            បានធ្វើលើឧស្ម័នបរិសុទ្ធមួយ ។
+          </p>
+          <div class="ex-find">
+            <span>តើថាមពលកម្ដៅដែលបានដកចេញពីលំនាំនេះស្មើនឹងប៉ុន្មាន ?</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាថាមពលកម្ដៅដែលបានដកចេញ (\(Q_{\text{out}}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">តាមលំនាំអ៊ីសូទែម \( \Rightarrow \Delta U = 0 \) នាំឱ្យ \( Q = W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">\( W = -55 \text{ J} \) (កម្មន្តធ្វើលើឧស្ម័ន \( \Rightarrow W < 0 \))</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( Q = -55 \text{ J} \)<br>
+                  សញ្ញាដកបញ្ជាក់ថាកម្ដៅចាកចេញពីប្រព័ន្ធ (ត្រូវដកចេញ)។
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលកម្ដៅដែលបានដកចេញគឺ \( Q_{\text{out}} = 55 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 29 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">29</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ឧស្ម័នមួយស្រូបកម្តៅ
+            <span class="given">\(6.4 \text{ kJ}\)</span> និងបំពេញកម្មន្ត
+            <span class="given">\(1200 \text{ J}\)</span> ។
+            ក្នុងលំនាំនេះវាបានបញ្ចេញកម្តៅទៅវិញ
+            <span class="given">\(2400 \text{ J}\)</span> ។
+          </p>
+          <div class="ex-find"><span>គណនាបម្រែបម្រួលថាមពលក្នុងរបស់ឧស្ម័ន ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាបម្រែបម្រួលថាមពលក្នុងរបស់ឧស្ម័ន (\(\Delta U\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តែ :</span>
+                <span class="sol-math">\( Q = Q_{\text{in}} - Q_{\text{out}} \) (កម្ដៅសុទ្ធ)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( \Delta U = (Q_{\text{in}} - Q_{\text{out}}) - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_{\text{in}} = 6.4 \text{ kJ} = 6400 \text{ J} \) (ស្រូបកម្ដៅ)<br>
+                  \( Q_{\text{out}} = 2400 \text{ J} \) (បញ្ចេញកម្ដៅ)<br>
+                  \( W = 1200 \text{ J} \) (បំពេញកម្មន្ត)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta U = (6400 - 2400) - 1200 = 4000 - 1200 = 2800 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ បម្រែបម្រួលថាមពលក្នុងរបស់ឧស្ម័នគឺ \( \Delta U = 2800 \text{ J} \) (ឬ \( 2.8 \text{ kJ} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 30 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">30</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៣០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ក. ពិសីរត់ហាត់ប្រាណតាមបណ្ដោលឆ្នេរសមុទ្រដោយបានបំពេញនូវកម្មន្ត
+            <span class="given">\(4.3 \times 10^5 \text{ J}\)</span>
+            និងបញ្ចេញកម្ដៅ
+            <span class="given">\(3.8 \times 10^5 \text{ J}\)</span> ។
+            គណនាបម្រែបម្រួលថាមពលក្នុងរបស់ពិសី ។
+          </p>
+          <p style="margin-top: 10px;">
+            ខ. បើនាងប្ដូរពីរត់មកដើរវិញនោះ នាងបញ្ចេញកម្ដៅបាន
+            <span class="given">\(1.2 \times 10^5 \text{ J}\)</span>
+            និងថាមពលក្នុងថយចុះអស់
+            <span class="given">\(2.6 \times 10^5 \text{ J}\)</span> ។
+            តើក្នុងពេលដើរពិសីធ្វើបានកម្មន្តប៉ុន្មានស៊ូល ?
+          </p>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាបម្រែបម្រួលថាមពលក្នុងរបស់ពិសី (\(\Delta U\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q = -3.8 \times 10^5 \text{ J} \) (បញ្ចេញកម្ដៅ \( \Rightarrow Q < 0 \))<br>
+                  \( W = 4.3 \times 10^5 \text{ J} \) (បំពេញកម្មន្ត \( \Rightarrow W > 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta U = -3.8 \times 10^5 - 4.3 \times 10^5 = -8.1 \times 10^5 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ បម្រែបម្រួលថាមពលក្នុងរបស់ពិសីគឺ \( \Delta U = -8.1 \times 10^5 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាកម្មន្តដែលពិសីធ្វើបានក្នុងពេលដើរ (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta U = Q - W \Rightarrow W = Q - \Delta U \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q = -1.2 \times 10^5 \text{ J} \) (បញ្ចេញកម្ដៅ \( \Rightarrow Q < 0 \))<br>
+                  \( \Delta U = -2.6 \times 10^5 \text{ J} \) (ថាមពលក្នុងថយចុះ \( \Rightarrow \Delta U < 0 \))
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( W = -1.2 \times 10^5 - (-2.6 \times 10^5) \)<br>
+                  \( W = -1.2 \times 10^5 + 2.6 \times 10^5 = 1.4 \times 10^5 \text{ J} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលពិសីធ្វើបានក្នុងពេលដើរគឺ \( W = 1.4 \times 10^5 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

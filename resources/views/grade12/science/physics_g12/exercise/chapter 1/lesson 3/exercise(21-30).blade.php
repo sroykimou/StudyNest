@@ -1,0 +1,1186 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>លំហាត់អនុវត្ត ២១–៣០ | StudyNest Physics G12</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      MathJax = {
+        tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+        options: { skipHtmlTags: ["script", "noscript", "style", "textarea"] },
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+
+    <style>
+      :root {
+        --dark: #0f172a;
+        --navy: #1e3a5f;
+        --blue: #2563eb;
+        --accent: #f59e0b;
+        --accent2: #10b981;
+        --surface: #ffffff;
+        --muted: #64748b;
+        --border: #e2e8f0;
+        --bg: #f8fafc;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: #1e293b;
+        font-family: "Kantumruy Pro", system-ui, sans-serif;
+        line-height: 1.92;
+        min-height: 100vh;
+      }
+
+      nav {
+        background: var(--dark);
+        padding: 0 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        color: white;
+        font-size: 1.45rem;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+
+      .nav-tag {
+        background: rgba(59, 130, 246, 0.25);
+        border: 1px solid #3b82f6;
+        color: #bae6fd;
+        padding: 6px 18px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--navy) 55%,
+          #1e40af 100%
+        );
+        padding: 82px 40px 95px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+      }
+
+      header::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background: var(--bg);
+        clip-path: ellipse(62% 100% at 50% 100%);
+      }
+
+      .header-inner {
+        max-width: 860px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+
+      .header-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(245, 158, 11, 0.5);
+        color: var(--accent);
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.8rem;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 52px 24px 110px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 60px 0 32px;
+      }
+
+      .section-head h2 {
+        font-size: 0.98rem;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-head-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .ex-card {
+        background: white;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        border-left: 6px solid var(--blue);
+        margin-bottom: 28px;
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .ex-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 45px rgba(37, 99, 235, 0.16);
+      }
+
+      /* Fixed color sequence: Blue, Green, Yellow */
+      .ex-card:nth-child(3n - 1) {
+        border-left-color: var(--blue);
+      }
+      .ex-card:nth-child(3n) {
+        border-left-color: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) {
+        border-left-color: var(--accent);
+      }
+
+      .ex-head {
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: #f8fbff;
+      }
+
+      .ex-badge {
+        width: 44px;
+        height: 44px;
+        background: var(--blue);
+        color: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .ex-card:nth-child(3n - 1) .ex-badge {
+        background: var(--blue);
+      }
+      .ex-card:nth-child(3n) .ex-badge {
+        background: var(--accent2);
+      }
+      .ex-card:nth-child(3n + 1) .ex-badge {
+        background: var(--accent);
+      }
+
+      .ex-title {
+        font-size: 1.12rem;
+        font-weight: 700;
+        color: var(--dark);
+      }
+
+      .ex-body {
+        padding: 28px;
+        font-size: 1.03rem;
+      }
+
+      .given {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 6px;
+      }
+
+      .ex-card:nth-child(3n - 1) .given {
+        background: #dbeafe;
+        color: #1e40af;
+      }
+      .ex-card:nth-child(3n) .given {
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .ex-card:nth-child(3n + 1) .given {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .ex-find {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-weight: 600;
+        color: var(--muted);
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        align-items: start;
+        line-height: 1.8;
+      }
+
+      .ex-find::before {
+        content: "➤";
+        color: var(--blue);
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      details.ex-ans {
+        margin-top: 15px;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 18px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      details.ex-ans[open] {
+        background: #f8fafc;
+        border-color: #cbd5e1;
+      }
+      details.ex-ans summary {
+        font-weight: 700;
+        color: var(--blue);
+        outline: none;
+        user-select: none;
+        font-size: 0.95rem;
+      }
+
+      /* Premium Khmer G12 Solution Sheet Styling */
+      .sol-block {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--border);
+        font-size: 0.95rem;
+        line-height: 2;
+        color: #334155;
+      }
+      .sol-title {
+        font-weight: 700;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+      .sol-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        margin-bottom: 8px;
+        align-items: start;
+      }
+      .sol-label {
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .sol-math {
+        font-family: inherit;
+      }
+      .sol-box {
+        display: inline-block;
+        border: 2px solid var(--accent2);
+        padding: 6px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        background: #f0fdf4;
+        color: #166534;
+        margin-top: 12px;
+        box-shadow: 0 4px 10px rgba(16, 185, 129, 0.08);
+      }
+
+      @media (max-width: 700px) {
+        header h1 {
+          font-size: 2.3rem;
+        }
+        .container {
+          padding: 40px 16px;
+        }
+        .ex-head,
+        .ex-body {
+          padding: 20px;
+        }
+        .sol-step {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
+    <!-- Main JS & Auth Guard -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      StudyNest.checkAccess(3);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a
+        href="lesson 3_home"
+        style="
+          color: white;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
+      >
+      <div class="nav-brand">Study<span>Nest</span> Pro</div>
+      <span class="nav-tag">រូបវិទ្យា ថ្នាក់ទី ១២</span>
+    </nav>
+
+    <header>
+      <div class="header-inner">
+        <div class="header-eyebrow">⚛ ម៉ាសុីន</div>
+        <h1>លំហាត់<em>អនុវត្ត ២១–៣០</em></h1>
+        <p>លំហាត់ជ្រើសរើសសំខាន់ៗ ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="section-head">
+        <h2>លំហាត់ទាំងអស់</h2>
+        <div class="section-head-line"></div>
+      </div>
+
+      <!-- 21 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">21</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២១</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនសាំងមួយមានទិន្នផល <span class="given">\(21\%\)</span> និងបាត់ថាមពល <span class="given">\(780 \text{ J}\)</span>
+            ទៅឲ្យប្រភពត្រជាក់ក្នុងវដ្ដ ។
+          </p>
+          <div class="ex-find"><span>គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីន ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីន (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = 1 - \dfrac{Q_C}{Q_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( Q_H = \dfrac{Q_C}{1 - \eta} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_C = 780 \text{ J} \)<br>
+                  \( \eta = 21\% = 0.21 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( Q_H = \dfrac{780}{1 - 0.21} = \dfrac{780}{0.79} \approx 987.34 \text{ J} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = Q_H - Q_C \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 987.34 - 780 = 207.34 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបំពេញដោយម៉ាស៊ីនគឺ \( W \approx 207.34 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 22 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">22</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២២</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            រាល់វិនាទីម៉ូទ័រនៃម៉ាស៊ីនមួយស្រូបកម្ដៅ <span class="given">\(750 \text{ kJ}\)</span> ហើយវាមានទិន្នផលកម្ដៅ
+            <span class="given">\(30 \%\)</span> ។
+          </p>
+          <div class="ex-find">
+            <span>ក. គណនាកម្មន្តមេកានិចដែលផ្ដល់ដោយពីស្តុងក្នុងរយៈពេល <span class="given">\(1 \text{ mn}\)</span> ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាកម្មន្តបានការដែលទទួលដោយភ្លៅម៉ូទ័រក្នុងរយៈពេល <span class="given">\(1 \text{ mn}\)</span> ។
+            គេដឹងថាទិន្នផលនៃគ្រឿងបញ្ជូនគឺ <span class="given">\(90\%\)</span> ។</span>
+          </div>
+          <div class="ex-find"><span>គ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាកម្មន្តមេកានិចដែលផ្ដល់ដោយពីស្តុងក្នុងរយៈពេល \(1 \text{ mn}\) (\(W_M\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = \dfrac{W_M}{Q_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W_M = \eta \times Q_H \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta = 30\% = 0.30 \)<br>
+                  \( Q_H = 750 \text{ kJ/s} \times 1 \text{ mn} = 750 \text{ kJ} \times 60 \text{ s} = 45000 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W_M = 0.30 \times 45000 = 13500 \text{ kJ} = 1.35 \times 10^7 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តមេកានិចផ្ដល់ដោយពីស្តុងគឺ \( W_M = 13500 \text{ kJ} = 1.35 \times 10^7 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាកម្មន្តបានការដែលទទួលដោយភ្លៅម៉ូទ័រ (\(W_u\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_{\text{trans}} = \dfrac{W_u}{W_M} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W_u = \eta_{\text{trans}} \times W_M \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta_{\text{trans}} = 90\% = 0.90 \)<br>
+                  \( W_M = 13500 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W_u = 0.90 \times 13500 = 12150 \text{ kJ} = 1.215 \times 10^7 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តបានការទទួលដោយភ្លៅម៉ូទ័រគឺ \( W_u = 12150 \text{ kJ} = 1.215 \times 10^7 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គ. គណនាទិន្នផលបានការនៃម៉ាស៊ីន (\(\eta_u\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_u = \dfrac{W_u}{Q_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( W_u = 12150 \text{ kJ} \)<br>
+                  \( Q_H = 45000 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \eta_u = \dfrac{12150}{45000} = 0.27 = 27\% \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ទិន្នផលបានការនៃម៉ាស៊ីនគឺ \( \eta_u = 27\% \) (ឬតាមរយៈ \( \eta_u = \eta \times \eta_{\text{trans}} = 30\% \times 90\% = 27\% \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 23 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">23</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៣</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនកាកណូមួយដំណើរការនៅចន្លោះធុងកម្ដៅពីរដែលមានសីតុណ្ហភាព
+            <span class="given">\(500 \text{ K}\)</span> និង
+            <span class="given">\(400 \text{ K}\)</span> វាស្រូបកម្ដៅ
+            <span class="given">\(10 \text{ kJ}\)</span>
+            ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
+          </p>
+          <div class="ex-find"><span>ក. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</span></div>
+          <div class="ex-find">
+            <span>ខ. តើកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅមានតម្លៃប៉ុន្មាន ?</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាទិន្នផលរបស់ម៉ាស៊ីន (\(\eta\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = 1 - \dfrac{T_C}{T_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_H = 500 \text{ K} \)<br>
+                  \( T_C = 400 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \eta = 1 - \dfrac{400}{500} = 0.20 = 20\% \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ទិន្នផលរបស់ម៉ាស៊ីនគឺ \( \eta = 20\% \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាបរិមាណកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ (\(Q_C\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{Q_C}{Q_H} = \dfrac{T_C}{T_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( Q_C = Q_H \times \dfrac{T_C}{T_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_H = 10 \text{ kJ} \)<br>
+                  \( T_C = 400 \text{ K} \)<br>
+                  \( T_H = 500 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( Q_C = 10 \times \dfrac{400}{500} = 8 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅខាងក្រៅគឺ \( Q_C = 8 \text{ kJ} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 24 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">24</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៤</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ូទ័រម៉ាស៊ូតមួយទទួលថាមពលកម្តៅ <span class="given">\(12 \times 10^3 \text{ kJ}\)</span> ហើយមានទិន្នផលកម្តៅ <span class="given">\(30 \%\)</span> ។
+          </p>
+          <div class="ex-find"><span>ក. គណនាកម្មន្តមេកានិចដែលធ្វើ ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាថាមពលកម្ដៅដែលភាយទៅបរិយាកាស ។</span></div>
+          <div class="ex-find">
+            <span>គ. គណនាកម្មន្តដែលភ្លៅម៉ូទ័រទទួល ។ បើទិន្នផលនៃគ្រឿងបញ្ជូនគឺ <span class="given">\(90 \%\)</span> ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាកម្មន្តមេកានិចដែលធ្វើ (\(W_M\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = \dfrac{W_M}{Q_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W_M = \eta \times Q_H \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta = 30\% = 0.30 \)<br>
+                  \( Q_H = 12 \times 10^3 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W_M = 0.30 \times 12 \times 10^3 = 3600 \text{ kJ} = 3.6 \times 10^6 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តមេកានិចដែលធ្វើគឺ \( W_M = 3600 \text{ kJ} = 3.6 \times 10^6 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាថាមពលកម្ដៅដែលភាយទៅបរិយាកាស (\(Q_C\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( Q_C = Q_H - W_M \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_H = 12 \times 10^3 \text{ kJ} \)<br>
+                  \( W_M = 3600 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( Q_C = 12000 - 3600 = 8400 \text{ kJ} = 8.4 \times 10^6 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលកម្ដៅដែលភាយទៅបរិយាកាសគឺ \( Q_C = 8400 \text{ kJ} = 8.4 \times 10^6 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គ. គណនាកម្មន្តដែលភ្លៅម៉ូទ័រទទួល (\(W_u\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_{\text{trans}} = \dfrac{W_u}{W_M} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W_u = \eta_{\text{trans}} \times W_M \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta_{\text{trans}} = 90\% = 0.90 \)<br>
+                  \( W_M = 3600 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W_u = 0.90 \times 3600 = 3240 \text{ kJ} = 3.24 \times 10^6 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលភ្លៅម៉ូទ័រទទួលគឺ \( W_u = 3240 \text{ kJ} = 3.24 \times 10^6 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 25 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">25</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៥</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ូទ័របន្ទុះបួនវគ្គមួយមានទិន្នផលកម្ដៅ <span class="given">\(15 \%\)</span>
+            និងទិន្នផលនៃគ្រឿនបញ្ជូន <span class="given">\(82 \%\)</span> វាទទួលថាមពលពីចំហេះប្រេងឥន្ធនៈ <span class="given">\(1000 \text{ kJ}\)</span> ។
+          </p>
+
+          <div class="ex-find"><span>ក. គណនាថាមពលមេកានិចដែលពីស្តុងទទួល ។</span></div>
+          <div class="ex-find"><span>ខ. គណនាថាមពលកម្តៅដែលបញ្ចេញទៅបរិយាកាស ។</span></div>
+          <div class="ex-find"><span>គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល ។</span></div>
+          <div class="ex-find"><span>ឃ. គណនាទិន្នផលបានការរបស់ម៉ាស៊ីន ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាថាមពលមេកានិចដែលពីស្តុងទទួល (\(W_M\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = \dfrac{W_M}{Q_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W_M = \eta \times Q_H \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta = 15\% = 0.15 \)<br>
+                  \( Q_H = 1000 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W_M = 0.15 \times 1000 = 150 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលមេកានិចដែលពីស្តុងទទួលគឺ \( W_M = 150 \text{ kJ} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាថាមពលកម្តៅដែលបញ្ចេញទៅបរិយាកាស (\(Q_C\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( Q_C = Q_H - W_M \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_H = 1000 \text{ kJ} \)<br>
+                  \( W_M = 150 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( Q_C = 1000 - 150 = 850 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលកម្តៅដែលបញ្ចេញទៅបរិយាកាសគឺ \( Q_C = 850 \text{ kJ} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គ. គណនាថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួល (\(W_u\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_{\text{trans}} = \dfrac{W_u}{W_M} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( W_u = \eta_{\text{trans}} \times W_M \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta_{\text{trans}} = 82\% = 0.82 \)<br>
+                  \( W_M = 150 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W_u = 0.82 \times 150 = 123 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលមេកានិចដែលភ្លៅម៉ូទ័រទទួលគឺ \( W_u = 123 \text{ kJ} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ឃ. គណនាទិន្នផលបានការរបស់ម៉ាស៊ីន (\(\eta_u\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_u = \eta \times \eta_{\text{trans}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( \eta = 15\% = 0.15 \)<br>
+                  \( \eta_{\text{trans}} = 82\% = 0.82 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \eta_u = 0.15 \times 0.82 = 0.123 = 12.3\% \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ទិន្នផលបានការរបស់ម៉ាស៊ីនគឺ \( \eta_u = 12.3\% \) (ឬតាមរយៈ \( \eta_u = \dfrac{W_u}{Q_H} = \dfrac{123}{1000} = 12.3\% \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 26 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">26</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៦</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនកាកណូមួយមានប្រភពត្រជាក់ <span class="given">\(7 \text{ ℃}\)</span> និងមានទិន្នផលកម្តៅ <span class="given">\(50 \%\)</span> ។
+            បើម៉ាស៊ីននេះមានទិន្នផលកម្តៅកើនដល់ <span class="given">\(70 \%\)</span> ។
+          </p>
+          <div class="ex-find"><span>តើសីតុណ្ហភាពប្រភពក្តៅកើនឡើងបានប៉ុន្មាន ?</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាសីតុណ្ហភាពដើមនៃប្រភពក្ដៅ (\(T_{H1}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_1 = 1 - \dfrac{T_C}{T_{H1}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( T_{H1} = \dfrac{T_C}{1 - \eta_1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_C = 7 + 273 = 280 \text{ K} \)<br>
+                  \( \eta_1 = 50\% = 0.50 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( T_{H1} = \dfrac{280}{1 - 0.50} = 560 \text{ K} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គណនាសីតុណ្ហភាពថ្មីនៃប្រភពក្ដៅ (\(T_{H2}\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta_2 = 1 - \dfrac{T_C}{T_{H2}} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( T_{H2} = \dfrac{T_C}{1 - \eta_2} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_C = 280 \text{ K} \)<br>
+                  \( \eta_2 = 70\% = 0.70 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( T_{H2} = \dfrac{280}{1 - 0.70} = \dfrac{280}{0.30} \approx 933.33 \text{ K} \)</span>
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គណនាសីតុណ្ហភាពដែលកើនឡើង (\(\Delta T_H\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \Delta T_H = T_{H2} - T_{H1} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_{H1} = 560 \text{ K} \)<br>
+                  \( T_{H2} \approx 933.33 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \Delta T_H = 933.33 - 560 = 373.33 \text{ K} \) (ឬ \(\text{}^\circ\text{C}\))</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ សីតុណ្ហភាពប្រភពក្តៅកើនឡើងគឺ \( \Delta T_H \approx 373.33 \text{ K} \) (ឬ \( 373.33 \text{ }^\circ\text{C} \))
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 27 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">27</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៧</span>
+        </div>
+        <div class="ex-body">
+          <p>ម៉ាស៊ីនប្រើសាំងមួយស៊ីអានុភាព <span class="given">\(20 \text{ kW}\)</span> ។ គេឲ្យ <span class="given">\(1 \text{ kWh} = 36 \times 10^5 \text{ J}\)</span> ។</p>
+          <div class="ex-find">
+            <span>ក. គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីននោះក្នុងរយៈពេលមួយម៉ោង (គិតជា <span class="given">\(kWh\)</span>) ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. បើគេដឹងថាម៉ាស៊ីននោះមានទិន្នផល <span class="given">\(30 \%\)</span> ។ គណនាកម្តៅគិតជាស៊ូលដែលបានមកពីចំហេះក្នុងម៉ាស៊ីនក្នុងមួយម៉ោង ។</span>
+          </div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាកម្មន្តដែលបំពេញដោយម៉ាស៊ីនក្នុងរយៈពេលមួយម៉ោង (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = P \times t \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( P = 20 \text{ kW} \)<br>
+                  \( t = 1 \text{ h} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( W = 20 \text{ kW} \times 1 \text{ h} = 20 \text{ kWh} \)<br>
+                  គិតជាស៊ូល៖ \( W = 20 \times 36 \times 10^5 \text{ J} = 7.2 \times 10^7 \text{ J} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបំពេញដោយម៉ាស៊ីនគឺ \( W = 20 \text{ kWh} = 7.2 \times 10^7 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាកម្តៅដែលបានមកពីចំហេះ (\(Q_H\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = \dfrac{W}{Q_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( Q_H = \dfrac{W}{\eta} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( W = 7.2 \times 10^7 \text{ J} \)<br>
+                  \( \eta = 30\% = 0.30 \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( Q_H = \dfrac{7.2 \times 10^7}{0.30} = 2.4 \times 10^8 \text{ J} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្តៅដែលបានមកពីចំហេះគឺ \( Q_H = 2.4 \times 10^8 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 28 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">28</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៨</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនអ៊ីដេអាល់មួយដំណើរការនៅចន្លោះធុងកំដៅពីរដែលមានសីតុណ្ហភាព
+            <span class="given">\(400 \text{ K}\)</span> និង <span class="given">\(280 \text{ K}\)</span> វាស្រូបកម្ដៅ <span class="given">\(72 \text{ kJ}\)</span>
+            ពីធុងដែលមានសីតុណ្ហភាពខ្ពស់ក្នុងរយៈពេលស៊ិចនីមួយៗ ។
+          </p>
+          <div class="ex-find">
+            <span>ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ ។</span>
+          </div>
+          <div class="ex-find">
+            <span>ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច ។</span>
+          </div>
+          <div class="ex-find"><span>គ. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនបញ្ចេញទៅមជ្ឈដ្ឋានខាងក្រៅ (\(Q_C\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{Q_C}{Q_H} = \dfrac{T_C}{T_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( Q_C = Q_H \times \dfrac{T_C}{T_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_H = 72 \text{ kJ} \)<br>
+                  \( T_C = 280 \text{ K} \)<br>
+                  \( T_H = 400 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( Q_C = 72 \times \dfrac{280}{400} = 50.4 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលកម្ដៅភាយចេញគឺ \( Q_C = 50.4 \text{ kJ} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាកម្មន្តដែលបានធ្វើក្នុងរយៈពេលមួយស៊ិច (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = Q_H - Q_C \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_H = 72 \text{ kJ} \)<br>
+                  \( Q_C = 50.4 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( W = 72 - 50.4 = 21.6 \text{ kJ} \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបំពេញបានគឺ \( W = 21.6 \text{ kJ} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">គ. គណនាទិន្នផលរបស់ម៉ាស៊ីននោះ (\(\eta\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \eta = 1 - \dfrac{T_C}{T_H} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( T_H = 400 \text{ K} \)<br>
+                  \( T_C = 280 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">\( \eta = 1 - \dfrac{280}{400} = 0.30 = 30\% \)</span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ទិន្នផលរបស់ម៉ាស៊ីនគឺ \( \eta = 30\% \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 29 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">29</div>
+          <span class="ex-title">លំហាត់អនុវត្ត២៩</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីនអ៊ីដេអាល់មួយទទួលកម្តៅពីប្រភពដែលមានសីតុណ្ហភាព <span class="given">\(500 \text{ K}\)</span>
+            និងបានបញ្ចេញថាមពលកម្តៅ <span class="given">\(200 \text{ kcal}\)</span> ទៅឲ្យធុងមួយមានសីតុណ្ហភាព <span class="given">\(400 \text{ K}\)</span> ។
+            គេឲ្យ <span class="given">\(1 \text{ cal} = 4.2 \text{ J}\)</span> ។
+          </p>
+          <div class="ex-find">
+            <span>ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនស្រូបពីធុងមានសីតុណ្ហភាព <span class="given">\(500 \text{ K}\)</span> ។</span>
+          </div>
+          <div class="ex-find"><span>ខ. គណនាកម្មន្តដែលម៉ាស៊ីនបានបំពេញ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">ក. គណនាថាមពលកម្ដៅដែលម៉ាស៊ីនស្រូប (\(Q_H\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( \dfrac{Q_H}{Q_C} = \dfrac{T_H}{T_C} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">\( Q_H = Q_C \times \dfrac{T_H}{T_C} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_C = 200 \text{ kcal} \)<br>
+                  \( T_H = 500 \text{ K} \)<br>
+                  \( T_C = 400 \text{ K} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( Q_H = 200 \times \dfrac{500}{400} = 250 \text{ kcal} \)<br>
+                  គិតជាស៊ូល៖ \( Q_H = 250 \times 10^3 \times 4.2 \text{ J} = 1.05 \times 10^6 \text{ J} = 1050 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ថាមពលកម្ដៅដែលស្រូបគឺ \( Q_H = 250 \text{ kcal} = 1.05 \times 10^6 \text{ J} \)
+              </div>
+
+              <div class="sol-title" style="margin-top: 16px;">ខ. គណនាកម្មន្តដែលម៉ាស៊ីនបានបំពេញ (\(W\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = Q_H - Q_C \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_H = 250 \text{ kcal} \)<br>
+                  \( Q_C = 200 \text{ kcal} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( W = 250 - 200 = 50 \text{ kcal} \)<br>
+                  គិតជាស៊ូល៖ \( W = 50 \times 10^3 \times 4.2 \text{ J} = 2.1 \times 10^5 \text{ J} = 210 \text{ kJ} \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ កម្មន្តដែលបានបំពេញគឺ \( W = 50 \text{ kcal} = 2.1 \times 10^5 \text{ J} \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- 30 -->
+      <div class="ex-card">
+        <div class="ex-head">
+          <div class="ex-badge">30</div>
+          <span class="ex-title">លំហាត់អនុវត្ត៣០</span>
+        </div>
+        <div class="ex-body">
+          <p>
+            ម៉ាស៊ីន X ទទួលកម្ដៅធំជាងម៉ាស៊ីន Y បួនដងបានបំពេញកម្មន្ដពីរដង
+            និងបញ្ចេញកម្ដៅប្រាំដងទៅធុងត្រជាក់ច្រើនជាងម៉ាស៊ីន Y ។
+          </p>
+          <div class="ex-find"><span>គណនាទិន្នផល X និងទិន្នផល Y នៃម៉ាស៊ីនកម្ដៅ ។</span></div>
+
+          <details class="ex-ans">
+            <summary>បង្ហាញដំណោះស្រាយ (Show Solution)</summary>
+            <div class="sol-block">
+              <div class="sol-title">គណនាទិន្នផល X (\(\eta_X\)) និងទិន្នផល Y (\(\eta_Y\))</div>
+              <div class="sol-step">
+                <span class="sol-label">តាមរូបមន្ត :</span>
+                <span class="sol-math">\( W = Q_H - Q_C \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ចំពោះ Y :</span>
+                <span class="sol-math">\( W_Y = Q_{HY} - Q_{CY} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ចំពោះ X :</span>
+                <span class="sol-math">\( W_X = Q_{HX} - Q_{CX} \)</span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">ដោយ :</span>
+                <span class="sol-math">
+                  \( Q_{HX} = 4 Q_{HY} \)<br>
+                  \( W_X = 2 W_Y \)<br>
+                  \( Q_{CX} = 5 Q_{CY} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">គេបាន :</span>
+                <span class="sol-math">
+                  \( 2 W_Y = 4 Q_{HY} - 5 Q_{CY} \)<br>
+                  \( 2(Q_{HY} - Q_{CY}) = 4 Q_{HY} - 5 Q_{CY} \)<br>
+                  \( 2 Q_{HY} - 2 Q_{CY} = 4 Q_{HY} - 5 Q_{CY} \)<br>
+                  \( 3 Q_{CY} = 2 Q_{HY} \Rightarrow \dfrac{Q_{CY}}{Q_{HY}} = \dfrac{2}{3} \)
+                </span>
+              </div>
+              <div class="sol-step">
+                <span class="sol-label">នាំឱ្យ :</span>
+                <span class="sol-math">
+                  \( \eta_Y = 1 - \dfrac{Q_{CY}}{Q_{HY}} = 1 - \dfrac{2}{3} = \dfrac{1}{3} \approx 33.33\% \)<br>
+                  \( \eta_X = \dfrac{W_X}{Q_{HX}} = \dfrac{2 W_Y}{4 Q_{HY}} = \dfrac{1}{2} \eta_Y = \dfrac{1}{2} \times \dfrac{1}{3} = \dfrac{1}{6} \approx 16.67\% \)
+                </span>
+              </div>
+              <div class="sol-box">
+                ដូចនេះ៖ ទិន្នផលម៉ាស៊ីនទាំងពីរគឺ \( \eta_X \approx 16.67\% \) និង \( \eta_Y \approx 33.33\% \)
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

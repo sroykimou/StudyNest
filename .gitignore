@@ -2,8 +2,17 @@ node_modules/
 .DS_Store
 *.log
 .env
+.phpunit.result.cache
+/bootstrap/cache/*.php
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
 dist/
 build/
 .vscode/
 .idea/
 StudyNest/
+vendor/
+composer.phar
+php/

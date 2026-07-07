@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>វិញ្ញាសា គណិតវិទ្យា ១០ | StudyNest</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+          displayMath: [
+            ["$$", "$$"],
+            ["\\[", "\\]"],
+          ],
+          processEscapes: true,
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre"],
+        },
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"
+      async
+    ></script>
+
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --accent: #74ebd5;
+        --bg-dark: #0f172a;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
+        --orange: #f97316;
+        --blue: #2563eb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Kantumruy Pro", sans-serif;
+        background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+        color: var(--text-dark);
+        line-height: 1.8;
+        min-height: 100vh;
+        padding: 40px 20px;
+      }
+
+      .container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+      .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+        color: var(--bg-dark);
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .header p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+      }
+
+      .exam-meta {
+        display: flex;
+        justify-content: space-between;
+        background: #f8fafc;
+        padding: 15px 25px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        color: var(--primary);
+        border: 1px solid #e2e8f0;
+      }
+
+      .question-section {
+        margin-bottom: 40px;
+        animation: fadeIn 0.5s ease-out both;
+        border-bottom: 1px dashed #e2e8f0;
+        padding-bottom: 30px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h2 {
+        display: inline-block;
+        background: var(--bg-dark);
+        color: white;
+        padding: 4px 16px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .question-content {
+        padding-left: 10px;
+      }
+
+      .sub-question {
+        margin-top: 10px;
+        padding-left: 20px;
+      }
+
+      .formula-box {
+        background: #f1f5f9;
+        padding: 15px;
+        border-radius: 12px;
+        margin: 15px 0;
+        border-left: 4px solid var(--primary);
+        font-size: 1.1rem;
+        overflow-x: auto;
+      }
+
+      .toggle-btn {
+        background: rgba(79, 70, 229, 0.1);
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        padding: 8px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 600;
+        margin-top: 15px;
+        margin-left: 10px;
+        transition: all 0.2s;
+        font-size: 0.95rem;
+      }
+      .toggle-btn:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .solution-content {
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 15px;
+        border-left: 4px solid #10b981;
+      }
+
+      .solution-title {
+        color: #059669;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+      }
+
+      .solution-body {
+        font-size: 1.05rem;
+        line-height: 2;
+      }
+
+      .solution-body p {
+        margin-bottom: 8px;
+      }
+
+      .nav-footer {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+      }
+
+      .back-btn {
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+      }
+
+      .back-btn:hover {
+        transform: translateX(-5px);
+      }
+
+      .print-btn {
+        background: var(--bg-dark);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+      }
+
+      .print-btn:hover {
+        background: #1e293b;
+      }
+
+      @media print {
+        body {
+          background: white !important;
+          color: black !important;
+          padding: 0;
+        }
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .container {
+          box-shadow: none;
+          max-width: 100%;
+          padding: 10mm;
+          border: none;
+        }
+        .container::before {
+          display: none;
+        }
+        .nav-footer,
+        .print-btn,
+        .toggle-btn {
+          display: none !important;
+        }
+        .solution-content {
+          display: block !important;
+          border: 1px solid #cbd5e1 !important;
+          background: #f8fafc !important;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        .question-section {
+          border-bottom: 1px solid #ccc !important;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 25px;
+        }
+        .exam-meta {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>វិញ្ញាសា គណិតវិទ្យា (វិទ្យាសាស្ត្រពិត) ១០</h1>
+        <p>សម្រាប់ការត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
+      </header>
+
+      <div class="exam-meta">
+        <span><i class="far fa-clock"></i> រយៈពេល៖ ១៥០ នាទី</span>
+        <span><i class="fas fa-star"></i> ពិន្ទុសរុប៖ ១២៥ ពិន្ទុ</span>
+      </div>
+
+      <!-- Section I -->
+      <section class="question-section" style="animation-delay: 0.1s">
+        <h2>លំហាត់ I</h2>
+        <div class="question-content">
+          <p>គណនាលីមីតខាងក្រោម៖</p>
+          <div class="sub-question">
+            <p>ក. $\lim_{x \to -1} \frac{-x^2 + 2x + 3}{x^5 + 1}$</p>
+            <p>ខ. $\lim_{x \to 0} \frac{\ln(\cos ax)}{\ln(\cos bx)}$</p>
+            <p>គ. $\lim_{x \to \infty} \left(\frac{x-1}{x+3}\right)^{x+1}$</p>
+            <p>ឃ. $\lim_{x \to 0^+} x^x$</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>ក.</strong> $\lim_{x \to -1} \frac{-x^2 + 2x + 3}{x^5 + 1} = \frac{4}{5}$</p>
+            <p><strong>ខ.</strong> $\lim_{x \to 0} \frac{\ln(\cos ax)}{\ln(\cos bx)} = \left(\frac{a}{b}\right)^2$</p>
+            <p><strong>គ.</strong> $\lim_{x \to \infty} \left(\frac{x-1}{x+3}\right)^{x+1} = \frac{1}{e^4}$</p>
+            <p><strong>ឃ.</strong> $\lim_{x \to 0^+} x^x = 1$</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section II -->
+      <section class="question-section" style="animation-delay: 0.2s">
+        <h2>លំហាត់ II</h2>
+        <div class="question-content">
+          <p>គេឱ្យចំនួនកុំផ្លិច $z_1 = 1 + i$ និង $z_2 = (\sqrt{3}+1) + i(\sqrt{3}-1)$។</p>
+          <div class="sub-question">
+            <p>ក. សរសេរ $z = z_1 \times z_2$ ជាទម្រង់ពីជគណិត និងត្រីកោណមាត្រ។</p>
+            <p>ខ. សរសេរ $z_1, z$ ជាទម្រង់ត្រីកោណមាត្រ រួចកំណត់ទម្រង់ត្រីកោណមាត្រនៃ $z_2$។</p>
+            <p>គ. កំណត់ចំនួន $n$ ដើម្បីឱ្យ $z^n$ ជាចំនួននិមិត្តសុទ្ធ។</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>ក.</strong> $z = 2 + 2i\sqrt{3}$ និង $z = 4(\cos \frac{\pi}{3} + i\sin \frac{\pi}{3})$</p>
+            <p><strong>ខ.</strong> $z_1 = \sqrt{2}(\cos \frac{\pi}{4} + i\sin \frac{\pi}{4})$ និង $z_2 = 2\sqrt{2}(\cos \frac{\pi}{12} + i\sin \frac{\pi}{12})$</p>
+            <p><strong>គ.</strong> $n = \frac{3}{2}(2k - 1)$ ដែល $k \in \mathbb{N}$</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section III -->
+      <section class="question-section" style="animation-delay: 0.3s">
+        <h2>លំហាត់ III</h2>
+        <div class="question-content">
+          <p>ក្នុងថង់មួយមានប៊ូលក្រហម $5$ ខ្មៅ $7$ និងខៀវ $8$ គ្រាប់។ គេចាប់យកប៊ូលពីរគ្រាប់ម្តងមួយៗ ដោយមិនដាក់ចូលវិញ។ រកប្រូបាបនៃព្រឹត្តិការណ៍៖</p>
+          <div class="sub-question">
+            <p>A: ចាប់បានប៊ូលក្រហមនៅលើកទី១ និងខៀវនៅលើកទី២។</p>
+            <p>B: ចាប់បានប៊ូលពណ៌ដូចគ្នា។</p>
+            <p>C: ចាប់បានប៊ូលពណ៌ខុសគ្នា។</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>A.</strong> $P(A) = \frac{2}{19}$</p>
+            <p><strong>B.</strong> $P(B) = \frac{59}{190}$</p>
+            <p><strong>C.</strong> $P(C) = \frac{131}{190}$</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section IV -->
+      <section class="question-section" style="animation-delay: 0.4s">
+        <h2>លំហាត់ IV</h2>
+        <div class="question-content">
+          <p><strong>១.</strong> គណនាអាំងតេក្រាល $I = \int_{2}^{4} \frac{x^2 dx}{x^2 - 2x + 2}$ និង $J = \int_{\frac{\pi}{6}}^{\frac{\pi}{3}} (\tan x - \cot x)^2 dx$។</p>
+          <p><strong>២.</strong> គេឱ្យសមីការឌីផេរ៉ង់ស្យែល $(E): y'' - 2y' + y = \frac{4x - 4}{e^x}$ និង $(F): y'' - 2y' + y = 0$។</p>
+          <div class="sub-question">
+            <p>ក. កំណត់ចំនួនពិត $\alpha, \beta$ ដើម្បីឱ្យ $g(x) = \frac{\alpha x + \beta}{e^x}$ ជាចម្លើយមួយនៃ $(E)$។</p>
+            <p>ខ. បង្ហាញថាបើ $f(x) = g(x) + h(x)$ ជាចម្លើយនៃ $(E)$ នោះ $h(x)$ ជាចម្លើយនៃ $(F)$។</p>
+            <p>គ. ដោះស្រាយសមីការ $(F)$ រួចទាញរកចម្លើយទូទៅនៃ $(E)$។</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>១.</strong> $I = 2 + \ln 5$ និង $J = \frac{4\sqrt{3} - 2\pi}{3}$</p>
+            <p><strong>២.</strong></p>
+            <p>ក. $\alpha = 1$ និង $\beta = 0$</p>
+            <p>ខ. តាមសម្រាយបញ្ជាក់</p>
+            <p>គ. ចម្លើយទូទៅ $(E)$ គឺ $y = \frac{x}{e^x} + (Ax + B)e^x$ ដែល $A, B \in \mathbb{R}$</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section V -->
+      <section class="question-section" style="animation-delay: 0.5s">
+        <h2>លំហាត់ V</h2>
+        <div class="question-content">
+          <p>ក្នុងតម្រុយអរតូណរម៉ាល់មានទិសដៅវិជ្ជមាន $(O, \vec{i}, \vec{j}, \vec{k})$ គេឱ្យប្លង់ $(P): x + 2y + 2z - 4 = 0$ និងចំណុច $P(1, 2, 4)$។</p>
+          <div class="sub-question">
+            <p>ក. កំណត់សមីការប៉ារ៉ាម៉ែត្របន្ទាត់ $(L)$ ដែលកាត់តាមចំណុច $P$ ហើយកែងនឹងប្លង់ $(P)$ ត្រង់ $Q$។ រកកូអរដោនេចំណុច $Q$។</p>
+            <p>ខ. កំណត់សមីការស្វ៊ែរ $(S)$ មានផ្ចិត $P$ ហើយប៉ះទៅនឹងប្លង់ $(P)$។</p>
+            <p>គ. ប្លង់ $(P)$ កាត់អ័ក្ស $(ox), (oy)$ និង $(oz)$ រៀងគ្នាត្រង់ $A, B$ និង $C$។ រកកូអរដោនេចំណុច $A, B, C$។</p>
+            <p>ឃ. គណនា $\vec{n} = \vec{AB} \times \vec{AC}$ រួចទាញរក $S_{ABC}$ និង $V_{PABC}$។</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>ក.</strong> $(L): x = t + 1, y = 2t + 2, z = 2t + 4$ និង $Q(0, 0, 2)$</p>
+            <p><strong>ខ.</strong> $(S): (x - 1)^2 + (y - 2)^2 + (z - 4)^2 = 9$</p>
+            <p><strong>គ.</strong> $A(4, 0, 0)$, $B(0, 2, 0)$ និង $C(0, 0, 2)$</p>
+            <p><strong>ឃ.</strong> $S_{ABC} = 6$ ឯកតាផ្ទៃ, $V_{PABC} = 6$ ឯកតាមាឌ</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section VI -->
+      <section class="question-section" style="animation-delay: 0.6s">
+        <h2>លំហាត់ VI</h2>
+        <div class="question-content">
+          <p>អ៊ីពែបូលមួយមានកំពូល $V_1(3, 0)$ និង $V_2(-3, 0)$ ហើយកាត់តាមចំណុច $P(5, 2)$។ សរសេរសមីការស្តង់ដា រួចសង់អ៊ីពែបូល។</p>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p>សមីការស្តង់ដា៖ $\frac{x^2}{3^2} - \frac{y^2}{1.5^2} = 1$</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section VII -->
+      <section class="question-section" style="animation-delay: 0.7s; border-bottom: none">
+        <h2>លំហាត់ VII</h2>
+        <div class="question-content">
+          <p><strong>១.</strong> គណនាដេរីវេទីមួយ និងទាញរកសញ្ញានៃអនុគមន៍ $g(x) = 2\ln x - x^2 - 2$ ដែល $x > 0$ ដោយមិនបាច់រកលីមីតចុងដែនកំណត់។</p>
+          <p><strong>២.</strong> គេឱ្យអនុគមន៍ $f(x) = 1 - x - \frac{2\ln x}{x} ; x > 0$។</p>
+          <div class="sub-question">
+            <p>ក. គណនា $f'(x)$ រួចទាញរកសញ្ញានៃ $f'(x)$។</p>
+            <p>ខ. គណនាលីមីតចុងដែនកំណត់ រួចទាញរកអាស៊ីមតូតឈរនៃក្រាប $(C)$ តាងអនុគមន៍ $f$។</p>
+            <p>គ. បង្ហាញថាបន្ទាត់ $(L): y = 1 - x$ ជាអាស៊ីមតូតទ្រេតនៃ $(C)$។</p>
+            <p>ឃ. រកសមីការបន្ទាត់ $(T)$ ប៉ះក្រាប $(C)$ ហើយស្របនឹងបន្ទាត់ $(L)$។</p>
+            <p>ង. គណនា $f(1)$ រួចសង់តារាងអថេរភាព $f$។</p>
+            <p>ច. សង់ក្រាប $(C); (L)$ និង $(T)$ ក្នុងតម្រុយតែមួយ។ (គេឱ្យ $e \approx 2.7 ; \frac{2}{e} \approx 0.7$)</p>
+            <p>ឆ. គណនាផ្ទៃក្រឡានៃប្លង់ខណ្ឌដោយ $(C)$ និង $(L)$ នៅចន្លោះបន្ទាត់ $x = 1, x = e$។</p>
+          </div>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleSolution(this)">
+          <i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ
+        </button>
+        <div class="solution-content" style="display: none">
+          <h3 class="solution-title">
+            <i class="fas fa-check-circle"></i> ដំណោះស្រាយ
+          </h3>
+          <div class="solution-body">
+            <p><strong>១.</strong> $g'(x) = \frac{2(1 - x^2)}{x}$ និង $g(x) < 0$ ចំពោះគ្រប់ $x > 0$</p>
+            <p><strong>២.</strong></p>
+            <p>ក. $f'(x) = \frac{2\ln x - x^2 - 2}{x^2} = \frac{g(x)}{x^2}$ នាំឱ្យ $f'(x) < 0$ ជានិច្ច</p>
+            <p>ខ. $x = 0$ ជាអាស៊ីមតូតឈរ</p>
+            <p>គ. $(L): y = 1 - x$ ជាអាស៊ីមតូតទ្រេត</p>
+            <p>ឃ. $(T): y = -x + 1 - \frac{2}{e}$</p>
+            <p>ង. $f(1) = 0$</p>
+            <p>ឆ. $S = 1$ ឯកតាផ្ទៃ</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="nav-footer">
+        <a href="../../../..//" class="back-btn">
+          <i class="fas fa-arrow-left"></i> ត្រឡប់ទៅទំព័រដើម
+        </a>
+      </footer>
+    </div>
+
+    <script>
+      function toggleSolution(btn) {
+        const content = btn.nextElementSibling;
+        if (content.style.display === "none" || content.style.display === "") {
+          content.style.display = "block";
+          btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ដំណោះស្រាយ';
+        } else {
+          content.style.display = "none";
+          btn.innerHTML = '<i class="fas fa-eye"></i> បង្ហាញដំណោះស្រាយ';
+        }
+      }
+    </script>
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>StudyNest.authGuard(); StudyNest.checkAccess(6);</script>
+  </body>
+</html>
