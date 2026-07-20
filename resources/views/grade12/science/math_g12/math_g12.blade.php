@@ -236,33 +236,6 @@
             </div>
         </div>
 
-        <!-- Exam Section -->
-        <header class="anim" style="margin-top: 60px;">
-            <h1 class="anim-1">វិញ្ញាសាត្រៀមប្រឡង (Exam Preparation)</h1>
-            <p class="anim-2">បណ្តុំវិញ្ញាសាសម្រាប់ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
-        </header>
-
-        <div id="exam-list" class="anim-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
-            <!-- Will be populated by JS or just add some manually -->
-            <script>
-                const examList = document.getElementById('exam-list');
-                const khmerNumbers = ['០១', '០២', '០៣', '០៤', '០៥', '០៦', '០៧', '០៨', '០៩', '១០', '១១', '១២', '១៣', '១៤', '១៥'];
-                for (let i = 1; i <= 15; i++) {
-                    const khNum = khmerNumbers[i-1];
-                    examList.innerHTML += `
-                        <div class="lesson-card" style="margin-bottom: 0; padding: 20px;">
-                            <div class="lesson-info" style="gap: 15px;">
-                                <div class="icon-box" style="width: 48px; height: 48px; font-size: 18px;"><i class="fas fa-file-invoice"></i></div>
-                                <div class="lesson-text">
-                                    <h3 style="font-size: 15px;">វិញ្ញាសាទី ${khNum}</h3>
-                                </div>
-                            </div>
-                            <a href="/grade12/science/math_g12/exams/kanit-${i}" class="start-btn" style="padding: 8px 16px; font-size: 12px;">មើលវិញ្ញាសា</a>
-                        </div>
-                    `;
-                }
-            </script>
-        </div>
     </div>
 
     <script src="{{ asset('assets/main.js') }}"></script>
