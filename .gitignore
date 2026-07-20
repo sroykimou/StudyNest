@@ -16,3 +16,6 @@ StudyNest/
 vendor/
 composer.phar
 php/
+
+.vercel
+scratch/

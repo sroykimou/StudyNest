@@ -3,211 +3,375 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>មេរៀនទី១ - ចំនួនកុំផ្លិច | StudyNest</title>
+    <title>មេរៀនទី១ - ចំនួនកុំផ្លិច (Complex Numbers) | StudyNest</title>
+    <meta name="description" content="មេរៀនទី១ ចំនួនកុំផ្លិច គណិតវិទ្យា ថ្នាក់ទី១២ - ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ និងស្វ័យគុណទី n" />
 
+    <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Siemreap&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Poppins:wght@400;600;700&family=Rajdhani:wght@600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-    <!-- MathJax for rendering math equations -->
+    <!-- MathJax 3 (Ultra Large Scale 200% Configuration) -->
     <script>
       window.MathJax = {
-        tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
-        svg: { fontCache: 'global' }
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        chtml: {
+          scale: 2.0,
+          displayAlign: 'left'
+        },
+        svg: {
+          scale: 2.0,
+          displayAlign: 'left'
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
       };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"
+      async
+    ></script>
+
+    <!-- Main Global CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/professional.css') }}" />
 
     <style>
       :root {
-        --primary-color: #6d28d9;
-        --accent-color: #8b5cf6;
-        --bg-color: #f1f5f9;
+        --primary-color: #5b21b6;
+        --accent-color: #7c3aed;
+        --accent-glow: rgba(124, 58, 237, 0.3);
+        --bg-dark: #0f172a;
+        --card-bg: #ffffff;
+        --text-dark: #000000;
+        --text-muted: #1e293b;
+        --border-color: #94a3b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
 
       body {
-        margin: 0;
-        font-family: "Siemreap", "Khmer OS Siemreap", Arial, sans-serif;
-        background: var(--bg-color);
-        color: #1e293b;
-        line-height: 1.8;
-      }
-
-      header {
-        background: linear-gradient(135deg, #3b0764, var(--primary-color));
-        color: white;
-        text-align: center;
-        padding: 50px 20px;
-        border-bottom: 5px solid var(--accent-color);
-      }
-
-      header h1 {
-        margin: 0;
-        font-size: 2.2rem;
-      }
-      header h2 {
-        margin: 10px 0 0;
-        font-weight: normal;
-        opacity: 0.9;
+        font-family: "Kantumruy Pro", sans-serif;
+        background-color: #f1f5f9;
+        color: var(--text-dark);
+        font-size: 1.6rem; /* Huge base font size (~25.6px) */
+        line-height: 2.3;
+        padding: 32px;
+        overflow-y: auto !important;
+        display: block;
       }
 
       .container {
-        max-width: 850px;
-        margin: -30px auto 60px;
-        padding: 0 20px;
+        max-width: 1040px;
+        margin: 0 auto;
       }
 
+      /* Navigation action bar */
+      .action-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        padding: 20px 36px;
+        border-radius: 20px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        border: 2px solid var(--border-color);
+        margin-bottom: 36px;
+      }
+
+      .action-bar a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.45rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        transition: 0.2s;
+      }
+
+      .action-bar a:hover {
+        color: var(--text-dark);
+        transform: translateX(-4px);
+      }
+
+      .subject-badge {
+        display: inline-block;
+        padding: 10px 26px;
+        background: #f3e8ff;
+        border: 2px solid #a855f7;
+        border-radius: 40px;
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+
+      /* Lesson Header Banner */
+      .lesson-header {
+        background: linear-gradient(135deg, #2e1065, #5b21b6);
+        color: white;
+        padding: 60px 48px;
+        border-radius: 28px;
+        text-align: center;
+        margin-bottom: 44px;
+        box-shadow: 0 16px 40px rgba(91, 33, 182, 0.32);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lesson-header h1 {
+        font-size: 46px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .lesson-header p {
+        font-size: 26px;
+        opacity: 0.95;
+      }
+
+      /* Card Container */
       .card {
-        background: white;
-        border-radius: 12px;
-        padding: 25px;
-        margin-bottom: 20px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        background: var(--card-bg);
+        border-radius: 24px;
+        padding: 44px;
+        margin-bottom: 36px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border: 2px solid var(--border-color);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .card:hover {
+        box-shadow: 0 14px 36px rgba(124, 58, 237, 0.15);
       }
 
       .question {
-        font-weight: bold;
+        font-weight: 700;
         color: var(--primary-color);
-        margin-bottom: 15px;
-        font-size: 1.1rem;
+        margin-bottom: 24px;
+        font-size: 1.95rem; /* ~31.2px heading */
         display: flex;
         align-items: center;
-        gap: 10px;
-        border-bottom: 1px solid #e2e8f0;
-        padding-bottom: 10px;
+        gap: 16px;
+        border-bottom: 3.5px solid #e9d5ff;
+        padding-bottom: 18px;
       }
 
       .answer-text {
-        padding-left: 10px;
-        color: #334155;
+        color: #000000;
+        font-size: 1.6rem; /* ~25.6px text */
+        font-weight: 400;
+        line-height: 2.3;
       }
 
       ul {
-        padding-left: 25px;
-        margin: 10px 0;
+        padding-left: 36px;
+        margin: 20px 0;
       }
 
       li {
-        margin-bottom: 8px;
+        margin-bottom: 14px;
+        font-size: 1.6rem;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
-        margin: 15px 0;
+        margin: 30px 0;
+        border-radius: 14px;
+        overflow: hidden;
+        font-size: 1.6rem;
       }
 
-      th,
-      td {
-        border: 1px solid #cbd5e1;
-        padding: 12px;
+      th, td {
+        border: 2px solid #94a3b8;
+        padding: 18px 24px;
         text-align: left;
       }
 
       th {
-        background: #f8fafc;
+        background: #f3e8ff;
         color: var(--primary-color);
-      }
-
-      .badge {
-        background: #ede9fe;
-        color: var(--primary-color);
-        padding: 2px 10px;
-        border-radius: 4px;
-        font-size: 0.9rem;
+        font-weight: 700;
+        font-size: 1.7rem;
       }
 
       .formula-box {
-        background: linear-gradient(135deg, #faf5ff, #ede9fe);
-        border-left: 4px solid var(--accent-color);
-        padding: 18px 22px;
-        margin: 15px 0;
-        border-radius: 0 10px 10px 0;
-        font-size: 1rem;
+        background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+        border-left: 8px solid var(--accent-color);
+        padding: 28px 36px;
+        margin: 28px 0;
+        border-radius: 0 18px 18px 0;
+        font-size: 1.75rem;
         overflow-x: auto;
       }
 
       .example-box {
         background: #f0fdf4;
-        border-left: 4px solid #22c55e;
-        padding: 18px 22px;
-        margin: 15px 0;
-        border-radius: 0 10px 10px 0;
+        border-left: 8px solid #16a34a;
+        padding: 30px 36px;
+        margin: 28px 0;
+        border-radius: 0 18px 18px 0;
+        font-size: 1.65rem;
       }
 
-      .example-box .example-title {
-        font-weight: bold;
+      .example-title {
+        font-weight: 700;
         color: #15803d;
-        margin-bottom: 8px;
+        font-size: 1.85rem;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
       }
 
       .note-box {
         background: #fff7ed;
-        border-left: 4px solid #f97316;
-        padding: 15px 20px;
-        margin: 15px 0;
-        border-radius: 0 10px 10px 0;
-        color: #9a3412;
+        border-left: 8px solid #ea580c;
+        padding: 28px 36px;
+        margin: 28px 0;
+        border-radius: 0 18px 18px 0;
+        color: #7c2d12;
+        font-size: 1.65rem;
+      }
+
+      .toggle-btn {
+        background: #f3e8ff;
+        color: var(--primary-color);
+        border: 2.5px solid #a855f7;
+        padding: 14px 30px;
+        border-radius: 14px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin-top: 24px;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .toggle-btn:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .solution-content {
+        background: #f8fafc;
+        border: 2px solid #94a3b8;
+        border-radius: 18px;
+        padding: 32px;
+        margin-top: 26px;
+        border-left: 8px solid #10b981;
+        font-size: 1.6rem;
       }
 
       footer {
         text-align: center;
-        padding: 40px;
-        color: #64748b;
-        font-size: 0.9rem;
+        padding: 48px 0;
+        color: var(--text-muted);
+        font-size: 1.3rem;
       }
 
-      .back-link {
-        display: inline-block;
-        margin-bottom: 20px;
-        color: white;
-        text-decoration: none;
-        font-size: 0.9rem;
+      /* MathJax Heavy Extra Large Scaling Overrides (220% - 250%) */
+      mjx-container {
+        font-size: 210% !important;
+        font-weight: 700 !important;
+        color: #000000 !important;
+        line-height: 2.2 !important;
+        margin: 12px 0 !important;
       }
 
-      @media (max-width: 600px) {
-        header {
-          padding: 30px 15px;
+      mjx-container[jax="CHTML"][display="true"],
+      mjx-container[display="true"] {
+        font-size: 240% !important;
+        margin: 22px 0 !important;
+        text-align: left !important;
+      }
+
+      .formula-box mjx-container,
+      .example-box mjx-container {
+        font-size: 235% !important;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px;
+          font-size: 1.3rem;
         }
-        h1 {
-          font-size: 1.6rem;
+        .lesson-header {
+          padding: 38px 24px;
+        }
+        .lesson-header h1 {
+          font-size: 32px;
+        }
+        .lesson-header p {
+          font-size: 20px;
+        }
+        .card {
+          padding: 28px;
+        }
+        .question {
+          font-size: 1.5rem;
         }
         .formula-box {
-          font-size: 0.85rem;
+          font-size: 1.4rem;
+          padding: 20px 22px;
+        }
+        mjx-container {
+          font-size: 170% !important;
         }
       }
     </style>
-    <link rel="stylesheet" href="{{ asset('assets/professional.css') }}">
-    <!-- Main JS & Auth Guard -->
-    <script src="{{ asset('assets/main.js') }}"></script>
-    <script>
-      StudyNest.authGuard();
-    </script>
   </head>
 
   <body>
-    <header>
-      <a href="../../math_g12" class="back-link"
-        ><i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ</a
-      >
-      <h1>មេរៀនទី ១</h1>
-      <h2>ចំនួនកុំផ្លិច (Complex Numbers)</h2>
-    </header>
+    <!-- Background elements -->
+    <div class="drops" id="drops"></div>
+    <div class="particles" id="particles"></div>
 
     <div class="container">
+      <!-- Navigation Bar -->
+      <div class="action-bar card">
+        <a href="/grade12/science/math_g12/">
+          <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
+        </a>
+        <div class="subject-badge">គណិតវិទ្យា &bull; ជំពូកទី ១</div>
+      </div>
 
-      <!-- Q1 -->
+      <!-- Banner Header -->
+      <div class="lesson-header">
+        <h1>មេរៀនទី ១ ៖ ចំនួនកុំផ្លិច (Complex Numbers)</h1>
+        <p>ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ ម៉ូឌុល អាគុយម៉ង់ និងស្វ័យគុណទី n</p>
+      </div>
+
+      <!-- Section 1: Definition -->
       <div class="card">
         <div class="question">
-          ១. តើចំនួនកុំផ្លិចជាអ្វី?
+          <i class="fas fa-shapes"></i> ១. តើចំនួនកុំផ្លិចជាអ្វី?
         </div>
         <div class="answer-text">
           ចំនួនកុំផ្លិច (Complex Number) គឺជាចំនួនដែលមានទម្រង់ $z = a + bi$ ដែល៖
           <ul>
-            <li>$a$ ជាផ្នែកពិត (real part) សរសេរ $\text{Re}(z) = a$</li>
-            <li>$b$ ជាផ្នែកនិម្មិត (imaginary part) សរសេរ $\text{Im}(z) = b$</li>
-            <li>$i$ ជាអង្គភាពនិម្មិត (imaginary unit) ដែល $i^2 = -1$</li>
+            <li>$a$ ជាផ្នែកពិត (Real Part) សរសេរ $\text{Re}(z) = a$</li>
+            <li>$b$ ជាផ្នែកនិម្មិត (Imaginary Part) សរសេរ $\text{Im}(z) = b$</li>
+            <li>$i$ ជាអង្គភាពនិម្មិត (Imaginary Unit) ដែលមានលក្ខណៈ $i^2 = -1$</li>
           </ul>
           <div class="formula-box">
             $$z = a + bi \quad \text{ដែល} \quad a, b \in \mathbb{R} \quad \text{និង} \quad i^2 = -1$$
@@ -215,28 +379,34 @@
         </div>
       </div>
 
-      <!-- Q2 -->
+      <!-- Section 2: Imaginary Unit i -->
       <div class="card">
         <div class="question">
-          ២. តើអង្គភាពនិម្មិត $i$ មានលក្ខណៈអ្វីខ្លះ?
+          <i class="fas fa-square-root-variable"></i> ២. លក្ខណៈនៃអង្គភាពនិម្មិត $i$ និងស្វ័យគុណ $i^n$
         </div>
         <div class="answer-text">
           អង្គភាពនិម្មិត $i$ គឺជាចំនួនដែល $i^2 = -1$ ឬ $i = \sqrt{-1}$។
-          <br>ស្វ័យគុណរបស់ $i$ មានលក្ខណៈជាវដ្ត (cycle) ៖
+          <br />ស្វ័យគុណរបស់ $i$ មានលក្ខណៈជាវដ្ត (cycle length = 4) ៖
           <div class="formula-box">
-            $$i^0 = 1, \quad i^1 = i, \quad i^2 = -1, \quad i^3 = -i, \quad i^4 = 1, \quad i^5 = i, \quad \ldots$$
+            $$i^0 = 1, \quad i^1 = i, \quad i^2 = -1, \quad i^3 = -i, \quad i^4 = 1, \quad \dots$$
           </div>
           <div class="note-box">
-            <strong>ចំណាំ៖</strong> ដើម្បីគណនា $i^n$ គេយក $n$ ចែកនឹង $4$ រួចមើលសំណល់៖
-            សំណល់ $0 \Rightarrow 1$, សំណល់ $1 \Rightarrow i$, សំណល់ $2 \Rightarrow -1$, សំណល់ $3 \Rightarrow -i$។
+            <strong><i class="fas fa-lightbulb"></i> វិធីគណនា $i^n$ ៖</strong>
+            យក $n$ ចែកនឹង $4$ រួចពិនិត្យសំណល់ $r$ ៖
+            <ul>
+              <li>សំណល់ $r = 0 \Rightarrow i^n = 1$</li>
+              <li>សំណល់ $r = 1 \Rightarrow i^n = i$</li>
+              <li>សំណល់ $r = 2 \Rightarrow i^n = -1$</li>
+              <li>សំណល់ $r = 3 \Rightarrow i^n = -i$</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Q3 -->
+      <!-- Section 3: Equality -->
       <div class="card">
         <div class="question">
-          ៣. តើចំនួនកុំផ្លិចពីរស្មើគ្នានៅពេលណា?
+          <i class="fas fa-equals"></i> ៣. ភាពស្មើគ្នានៃចំនួនកុំផ្លិចពីរ
         </div>
         <div class="answer-text">
           ចំនួនកុំផ្លិចពីរ $z_1 = a_1 + b_1 i$ និង $z_2 = a_2 + b_2 i$ ស្មើគ្នា
@@ -247,10 +417,10 @@
         </div>
       </div>
 
-      <!-- Q4 -->
+      <!-- Section 4: Arithmetic Operations -->
       <div class="card">
         <div class="question">
-          ៤. តើប្រមាណវិធីនៃចំនួនកុំផ្លិចមានអ្វីខ្លះ?
+          <i class="fas fa-calculator"></i> ៤. ប្រមាណវិធីលើចំនួនកុំផ្លិច
         </div>
         <div class="answer-text">
           ចំពោះ $z_1 = a + bi$ និង $z_2 = c + di$ ៖
@@ -263,40 +433,28 @@
             </thead>
             <tbody>
               <tr>
-                <td>ផ្សំ (Addition)</td>
+                <td><strong>បូក (Addition)</strong></td>
                 <td>$z_1 + z_2 = (a+c) + (b+d)i$</td>
               </tr>
               <tr>
-                <td>ដក (Subtraction)</td>
+                <td><strong>ដក (Subtraction)</strong></td>
                 <td>$z_1 - z_2 = (a-c) + (b-d)i$</td>
               </tr>
               <tr>
-                <td>គុណ (Multiplication)</td>
+                <td><strong>គុណ (Multiplication)</strong></td>
                 <td>$z_1 \cdot z_2 = (ac - bd) + (ad + bc)i$</td>
               </tr>
               <tr>
-                <td>ចែក (Division)</td>
+                <td><strong>ចែក (Division)</strong></td>
                 <td>$\displaystyle \frac{z_1}{z_2} = \frac{(ac+bd) + (bc-ad)i}{c^2 + d^2}$</td>
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
 
-      <!-- Q5 -->
-      <div class="card">
-        <div class="question">
-          ៥. ការគុណចំនួនកុំផ្លិចពីរធ្វើដូចម្តេច? ចូរបង្ហាញឧទាហរណ៍។
-        </div>
-        <div class="answer-text">
-          គេគុណចំនួនកុំផ្លិចដូចគុណពហុធា (expand/FOIL) រួចជំនួស $i^2 = -1$ ៖
-          <div class="formula-box">
-            $$(a + bi)(c + di) = ac + adi + bci + bdi^2 = (ac - bd) + (ad + bc)i$$
-          </div>
           <div class="example-box">
-            <div class="example-title">ឧទាហរណ៍៖</div>
-            គណនា $(3 + 2i)(1 - 4i)$៖
-            <br>
+            <div class="example-title">
+              <i class="fas fa-check-circle"></i> ឧទាហរណ៍ ៖ គណនា $(3 + 2i)(1 - 4i)$
+            </div>
             $$= 3(1) + 3(-4i) + 2i(1) + 2i(-4i)$$
             $$= 3 - 12i + 2i - 8i^2$$
             $$= 3 - 10i - 8(-1)$$
@@ -305,17 +463,17 @@
         </div>
       </div>
 
-      <!-- Q6 -->
+      <!-- Section 5: Complex Conjugate -->
       <div class="card">
         <div class="question">
-          ៦. តើចំនួនកុំផ្លិចឆ្លាស់ (conjugate) ជាអ្វី? តើវាមានលក្ខណៈអ្វី?
+          <i class="fas fa-arrows-rotate"></i> ៥. ចំនួនកុំផ្លិចឆ្លាស់ (Complex Conjugate)
         </div>
         <div class="answer-text">
           បើ $z = a + bi$ នោះចំនួនកុំផ្លិចឆ្លាស់របស់វា សរសេរ $\bar{z}$ គឺ ៖
           <div class="formula-box">
             $$\bar{z} = a - bi$$
           </div>
-          លក្ខណៈសម្បត្តិសំខាន់ៗ ៖
+          <strong>លក្ខណៈសម្បត្តិសំខាន់ៗ ៖</strong>
           <ul>
             <li>$z + \bar{z} = 2a = 2\,\text{Re}(z)$</li>
             <li>$z - \bar{z} = 2bi = 2i\,\text{Im}(z)$</li>
@@ -326,21 +484,23 @@
         </div>
       </div>
 
-      <!-- Q7 -->
+      <!-- Section 6: Modulus -->
       <div class="card">
         <div class="question">
-          ៧. តើម៉ូឌុល (modulus) នៃចំនួនកុំផ្លិចគឺជាអ្វី?
+          <i class="fas fa-ruler-combined"></i> ៦. ម៉ូឌុលនៃចំនួនកុំផ្លិច (Modulus)
         </div>
         <div class="answer-text">
-          ម៉ូឌុល (modulus) នៃ $z = a + bi$ សរសេរ $|z|$ គឺជាចម្ងាយពីចំណុចដើម $O$ ដល់ចំណុច $M(a, b)$ ៖
+          ម៉ូឌុល (Modulus) នៃ $z = a + bi$ សរសេរ $|z|$ គឺជាចម្ងាយពីគល់តម្រុយ $O$ ដល់ចំណុចរូបភាព $M(a, b)$ ៖
           <div class="formula-box">
             $$|z| = \sqrt{a^2 + b^2}$$
           </div>
           <div class="example-box">
-            <div class="example-title">ឧទាហរណ៍៖</div>
-            $z = 3 + 4i$ នោះ $|z| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
+            <div class="example-title">
+              <i class="fas fa-check-circle"></i> ឧទាហរណ៍ ៖
+            </div>
+            ចំពោះ $z = 3 + 4i$ នោះ $|z| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
           </div>
-          លក្ខណៈសម្បត្តិ ៖
+          <strong>លក្ខណៈសម្បត្តិ ៖</strong>
           <ul>
             <li>$|z| \geq 0$ និង $|z| = 0 \iff z = 0$</li>
             <li>$|z_1 \cdot z_2| = |z_1| \cdot |z_2|$</li>
@@ -350,206 +510,231 @@
         </div>
       </div>
 
-      <!-- Q8 -->
+      <!-- Section 7: Geometric Representation -->
       <div class="card">
         <div class="question">
-          ៨. តើទម្រង់ត្រីកោណមាត្រ (trigonometric form) នៃចំនួនកុំផ្លិចជាអ្វី?
+          <i class="fas fa-chart-line"></i> ៧. តំណាងភូមិសាស្ត្រក្នុងប្លង់កុំផ្លិច (Argand Diagram)
         </div>
         <div class="answer-text">
-          រាល់ចំនួនកុំផ្លិច $z \neq 0$ អាចសរសេរជាទម្រង់ត្រីកោណមាត្រ ៖
+          ចំនួនកុំផ្លិច $z = a + bi$ ត្រូវតំណាងដោយចំណុច $M(a, b)$ ក្នុងប្លង់កុំផ្លិច ៖
+          <ul>
+            <li>អ័ក្សផ្ដេក ($Ox$) គឺជាអ័ក្សពិត (Real Axis)</li>
+            <li>អ័ក្សឈរ ($Oy$) គឺជាអ័ក្សនិម្មិត (Imaginary Axis)</li>
+            <li>ប្រវែង $\overline{OM} = r = |z|$ ជាម៉ូឌុល</li>
+            <li>មុំ $\theta = (\overrightarrow{Ox}, \overrightarrow{OM})$ ជាអាគុយម៉ង់ $\arg(z)$</li>
+          </ul>
+
+          <div style="text-align: center; margin: 36px 0;">
+            <svg viewBox="-50 -50 360 260" width="100%" style="max-width: 620px; background: #faf5ff; border-radius: 18px; border: 2.5px solid #e9d5ff;">
+              <!-- Grid / Axes -->
+              <line x1="20" y1="180" x2="320" y2="180" stroke="#475569" stroke-width="3" />
+              <polygon points="320,180 306,172 306,188" fill="#475569" />
+              <text x="325" y="188" font-size="16" font-weight="bold" fill="#0f172a">Re (x)</text>
+
+              <line x1="50" y1="230" x2="50" y2="20" stroke="#475569" stroke-width="3" />
+              <polygon points="50,20 42,34 58,34" fill="#475569" />
+              <text x="38" y="14" font-size="16" font-weight="bold" fill="#0f172a">Im (y)</text>
+
+              <!-- Point M(a,b) -->
+              <line x1="50" y1="180" x2="230" y2="60" stroke="#7c3aed" stroke-width="4" />
+              <circle cx="230" cy="60" r="8" fill="#7c3aed" />
+              <text x="242" y="55" font-size="17" font-weight="bold" fill="#6d28d9">M(a, b) = z</text>
+
+              <!-- Dotted projection lines -->
+              <line x1="230" y1="60" x2="230" y2="180" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="6" />
+              <line x1="230" y1="60" x2="50" y2="60" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="6" />
+
+              <!-- Labels for a and b -->
+              <text x="230" y="208" font-size="16" font-weight="bold" fill="#7c3aed">a</text>
+              <text x="22" y="65" font-size="16" font-weight="bold" fill="#7c3aed">b</text>
+              <text x="30" y="204" font-size="16" font-weight="bold" fill="#475569">O</text>
+
+              <!-- Angle Arc theta -->
+              <path d="M 90 180 A 40 40 0 0 0 83 158" fill="none" stroke="#ea580c" stroke-width="3.5" />
+              <text x="100" y="165" font-size="16" font-weight="bold" fill="#ea580c">&theta;</text>
+              <text x="130" y="102" font-size="16" font-weight="bold" fill="#6d28d9">r = |z|</text>
+            </svg>
+            <p style="font-size: 1.25rem; color: #1e293b; margin-top: 14px; font-weight: 700;">
+              តំណាងចំណុច $M(a, b)$ នៃចំនួនកុំផ្លិច $z = a + bi$ ក្នុងប្លង់ Argand
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8: Trigonometric Form -->
+      <div class="card">
+        <div class="question">
+          <i class="fas fa-mountain"></i> ៨. ទម្រង់ត្រីកោណមាត្រ (Trigonometric Form)
+        </div>
+        <div class="answer-text">
+          គ្រប់ចំនួនកុំផ្លិច $z \neq 0$ អាចសរសេរជាទម្រង់ត្រីកោណមាត្រ ៖
           <div class="formula-box">
             $$z = r(\cos\theta + i\sin\theta)$$
           </div>
           ដែល ៖
           <ul>
             <li>$r = |z| = \sqrt{a^2 + b^2}$ ជាម៉ូឌុល</li>
-            <li>$\theta = \arg(z)$ ជាអាគុយម៉ង់ (argument) គឺមុំដែល $OM$ ធ្វើជាមួយអ័ក្ស $Ox$</li>
+            <li>$\theta = \arg(z)$ ជាអាគុយម៉ង់ (Argument)</li>
             <li>$a = r\cos\theta$ និង $b = r\sin\theta$</li>
           </ul>
           <div class="note-box">
-            <strong>ការរកមុំ $\theta$៖</strong>
+            <strong><i class="fas fa-compass"></i> រូបមន្តរកមុំ $\theta$ ៖</strong>
             $$\cos\theta = \frac{a}{r}, \quad \sin\theta = \frac{b}{r}$$
-            ជាមួយ $\theta \in ]-\pi, \pi]$ ឬ $\theta \in [0, 2\pi[$
           </div>
         </div>
       </div>
 
-      <!-- Q9 -->
+      <!-- Section 9: Multiplication & Division in Trig Form -->
       <div class="card">
         <div class="question">
-          ៩. តើការគុណ និងចែកចំនួនកុំផ្លិចក្នុងទម្រង់ត្រីកោណមាត្រ ធ្វើដូចម្តេច?
+          <i class="fas fa-square-plus"></i> ៩. គុណ និងចែកទម្រង់ត្រីកោណមាត្រ
         </div>
         <div class="answer-text">
           បើ $z_1 = r_1(\cos\theta_1 + i\sin\theta_1)$ និង $z_2 = r_2(\cos\theta_2 + i\sin\theta_2)$ នោះ ៖
-
           <div class="formula-box">
             <strong>គុណ ៖</strong>
             $$z_1 \cdot z_2 = r_1 r_2 \big[\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)\big]$$
           </div>
-
           <div class="formula-box">
             <strong>ចែក ៖</strong>
             $$\frac{z_1}{z_2} = \frac{r_1}{r_2} \big[\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)\big]$$
           </div>
-
           <div class="note-box">
-            <strong>ច្បាប់៖</strong> គុណម៉ូឌុល ផ្សំមុំ; ចែកម៉ូឌុល ដកមុំ។
+            <strong><i class="fas fa-bookmark"></i> វិធានចងចាំ ៖</strong> គុណម៉ូឌុល បូកមុំ; ចែកម៉ូឌុល ដកមុំ។
           </div>
         </div>
       </div>
 
-      <!-- Q10 -->
+      <!-- Section 10: De Moivre's Theorem -->
       <div class="card">
         <div class="question">
-          ១០. តើរូបមន្ត De Moivre គឺជាអ្វី?
+          <i class="fas fa-infinity"></i> ១០. រូបមន្ត De Moivre (De Moivre's Theorem)
         </div>
         <div class="answer-text">
-          រូបមន្ត De Moivre អនុញ្ញាតឱ្យគណនាស្វ័យគុណទី $n$ នៃចំនួនកុំផ្លិចក្នុងទម្រង់ត្រីកោណមាត្រ ៖
+          រូបមន្ត De Moivre សម្រាប់គណនាស្វ័យគុណទី $n$ នៃចំនួនកុំផ្លិច ៖
           <div class="formula-box">
             $$\big[\cos\theta + i\sin\theta\big]^n = \cos(n\theta) + i\sin(n\theta)$$
           </div>
-          ដូចនេះបើ $z = r(\cos\theta + i\sin\theta)$ នោះ ៖
+          ដូចនេះចំពោះ $z = r(\cos\theta + i\sin\theta)$ ៖
           <div class="formula-box">
             $$z^n = r^n \big[\cos(n\theta) + i\sin(n\theta)\big]$$
           </div>
+
           <div class="example-box">
-            <div class="example-title">ឧទាហរណ៍៖</div>
-            គណនា $(1 + i)^8$
-            <br>ដំបូងសរសេរ $1 + i$ ជាទម្រង់ត្រីកោណមាត្រ ៖
-            $$r = \sqrt{1^2 + 1^2} = \sqrt{2}, \quad \theta = \frac{\pi}{4}$$
+            <div class="example-title">
+              <i class="fas fa-check-circle"></i> ឧទាហរណ៍ ៖ គណនា $(1 + i)^8$
+            </div>
+            ១. សរសេរ $1 + i$ ជាទម្រង់ត្រីកោណមាត្រ ៖ $r = \sqrt{2}, \quad \theta = \frac{\pi}{4}$
+            <br />
             $$1 + i = \sqrt{2}\left(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4}\right)$$
-            ប្រើរូបមន្ត De Moivre ៖
-            $$(1+i)^8 = (\sqrt{2})^8\left(\cos\frac{8\pi}{4} + i\sin\frac{8\pi}{4}\right)$$
-            $$= 16(\cos 2\pi + i\sin 2\pi) = 16(1 + 0) = 16$$
+            ២. ប្រើរូបមន្ត De Moivre ៖
+            $$(1+i)^8 = (\sqrt{2})^8 \left(\cos\frac{8\pi}{4} + i\sin\frac{8\pi}{4}\right) = 16(\cos 2\pi + i\sin 2\pi) = 16(1 + 0) = 16$$
           </div>
         </div>
       </div>
 
-      <!-- Q11 -->
+      <!-- Section 11: Exponential Form -->
       <div class="card">
         <div class="question">
-          ១១. តើទម្រង់អិចស្ប៉ូណង់ស្យែល (exponential form) ជាអ្វី?
+          <i class="fas fa-bolt"></i> ១១. ទម្រង់អិចស្ប៉ូណង់ស្យែល (Exponential Form)
         </div>
         <div class="answer-text">
-          រូបមន្ត Euler បង្ហាញថា ៖
-          <div class="formula-box">
-            $$e^{i\theta} = \cos\theta + i\sin\theta$$
-          </div>
-          ដូចនេះ ចំនួនកុំផ្លិច $z$ អាចសរសេរជា ៖
+          តាមរូបមន្ត Euler ($e^{i\theta} = \cos\theta + i\sin\theta$) ៖
           <div class="formula-box">
             $$z = r \cdot e^{i\theta}$$
           </div>
-          ការគុណ និងស្វ័យគុណក្នុងទម្រង់នេះងាយស្រួលខ្លាំង ៖
+          <strong>ប្រមាណវិធី ៖</strong>
           <ul>
             <li>$z_1 \cdot z_2 = r_1 r_2 \cdot e^{i(\theta_1 + \theta_2)}$</li>
+            <li>$\displaystyle \frac{z_1}{z_2} = \frac{r_1}{r_2} \cdot e^{i(\theta_1 - \theta_2)}$</li>
             <li>$z^n = r^n \cdot e^{in\theta}$</li>
           </ul>
         </div>
       </div>
 
-      <!-- Q12 -->
+      <!-- Section 12: n-th Roots -->
       <div class="card">
         <div class="question">
-          ១២. តើឫសទី $n$ នៃចំនួនកុំផ្លិច មានប៉ុន្មាន? រូបមន្តរបស់វាជាអ្វី?
+          <i class="fas fa-circle-nodes"></i> ១២. ឫសទី $n$ នៃចំនួនកុំផ្លិច (n-th Roots)
         </div>
         <div class="answer-text">
-          ចំនួនកុំផ្លិច $z \neq 0$ មានឫសទី $n$ ចំនួន $n$ ឫស ៖
+          ចំនួនកុំផ្លិច $z = r(\cos\theta + i\sin\theta) \neq 0$ មានឫសទី $n$ ចំនួន $n$ ឫសផ្សេងៗគ្នា ៖
           <div class="formula-box">
             $$w_k = \sqrt[n]{r} \left(\cos\frac{\theta + 2k\pi}{n} + i\sin\frac{\theta + 2k\pi}{n}\right)$$
             $$\text{ចំពោះ } k = 0, 1, 2, \ldots, n-1$$
           </div>
-          <div class="example-box">
-            <div class="example-title">ឧទាហរណ៍៖ រកឫសការ៉េនៃ $i$</div>
-            $i = \cos\frac{\pi}{2} + i\sin\frac{\pi}{2}$, ដែល $r = 1, \theta = \frac{\pi}{2}$
-            <br>
-            $$w_k = \cos\frac{\frac{\pi}{2} + 2k\pi}{2} + i\sin\frac{\frac{\pi}{2} + 2k\pi}{2}$$
-            <ul>
-              <li>$k=0$: $w_0 = \cos\frac{\pi}{4} + i\sin\frac{\pi}{4} = \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i$</li>
-              <li>$k=1$: $w_1 = \cos\frac{5\pi}{4} + i\sin\frac{5\pi}{4} = -\frac{\sqrt{2}}{2} - \frac{\sqrt{2}}{2}i$</li>
-            </ul>
-          </div>
         </div>
       </div>
 
-      <!-- Q13 -->
+      <!-- Section 13: Quadratic Equations in C -->
       <div class="card">
         <div class="question">
-          ១៣. តើចំនួនកុំផ្លិចត្រូវបានតំណាងនៅក្នុងប្លង់កុំផ្លិចដូចម្តេច?
+          <i class="fas fa-function"></i> ១៣. ការដោះស្រាយសមីការដឺក្រេទី២ $az^2 + bz + c = 0$ ក្នុងសំណុំ $\mathbb{C}$
         </div>
         <div class="answer-text">
-          ចំនួនកុំផ្លិច $z = a + bi$ ត្រូវតំណាងដោយចំណុច $M(a, b)$ ក្នុងប្លង់កុំផ្លិច (Argand diagram) ៖
+          គណនាដេស្គ្រីមីណង់ $\Delta = b^2 - 4ac$ ៖
           <ul>
-            <li>អ័ក្សផ្ដេក ($Ox$) គឺជាអ័ក្សពិត (real axis)</li>
-            <li>អ័ក្សឈរ ($Oy$) គឺជាអ័ក្សនិម្មិត (imaginary axis)</li>
-            <li>ម៉ូឌុល $|z|$ គឺជាចម្ងាយពី $O$ ដល់ $M$</li>
-            <li>អាគុយម៉ង់ $\arg(z)$ គឺជាមុំរបស់ $\overrightarrow{OM}$ ធៀបនឹង $Ox$</li>
+            <li>បើ $\Delta > 0$ ៖ មានឫសពិតពីរ $z_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2a}$</li>
+            <li>បើ $\Delta = 0$ ៖ មានឫសឌុប $z_1 = z_2 = -\frac{b}{2a}$</li>
+            <li>បើ $\Delta < 0$ ៖ មានឫសកុំផ្លិចឆ្លាស់ពីរ $z_{1,2} = \frac{-b \pm i\sqrt{|\Delta|}}{2a}$</li>
           </ul>
-        </div>
-      </div>
 
-      <!-- Q14 -->
-      <div class="card">
-        <div class="question">
-          ១៤. ចូរដោះស្រាយសមីការ $z^2 + 2z + 5 = 0$ ក្នុងសំណុំ $\mathbb{C}$។
-        </div>
-        <div class="answer-text">
-          គណនាដេស្គ្រីមីណង់ ៖
-          <div class="formula-box">
-            $$\Delta = b^2 - 4ac = 4 - 20 = -16 < 0$$
-          </div>
-          ព្រោះ $\Delta < 0$ សមីការមានឫសកុំផ្លិចពីរ ៖
-          $$\sqrt{\Delta} = \sqrt{-16} = 4i$$
-          <div class="formula-box">
-            $$z = \frac{-b \pm \sqrt{\Delta}}{2a} = \frac{-2 \pm 4i}{2}$$
-          </div>
-          $$z_1 = -1 + 2i, \quad z_2 = -1 - 2i$$
-          <div class="note-box">
-            <strong>ចំណាំ៖</strong> ឫសទាំងពីរជាចំនួនកុំផ្លិចឆ្លាស់គ្នា (conjugate pair)។
+          <button class="toggle-btn" onclick="toggleSolution(this)">
+            <i class="fas fa-eye"></i> មើលឧទាហរណ៍លម្អិត
+          </button>
+          <div class="solution-content" style="display: none;">
+            <strong>ដោះស្រាយសមីការ $z^2 + 2z + 5 = 0$ ៖</strong>
+            $$\Delta = b^2 - 4ac = 2^2 - 4(1)(5) = 4 - 20 = -16 < 0$$
+            $$\sqrt{\Delta} = \sqrt{-16} = 4i$$
+            $$z = \frac{-2 \pm 4i}{2(1)} = -1 \pm 2i$$
+            <div class="formula-box">
+              ដូចនេះ ឫសនៃសមីការគឺ $z_1 = -1 + 2i$ និង $z_2 = -1 - 2i$
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Q15 Summary -->
+      <!-- Section 14: Summary Formula Table -->
       <div class="card">
         <div class="question">
-          ១៥. សង្ខេបរូបមន្តសំខាន់ៗ
+          <i class="fas fa-list-check"></i> ១៤. សង្ខេបរូបមន្តសំខាន់ៗនៃមេរៀន
         </div>
         <div class="answer-text">
           <table>
             <thead>
               <tr>
-                <th>ទម្រង់ / រូបមន្ត</th>
-                <th>កន្សោម</th>
+                <th>ឈ្មោះ / ទម្រង់</th>
+                <th>រូបមន្ត</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>ទម្រង់ពីជគណិត</td>
-                <td>$z = a + bi$</td>
+                <td><strong>ទម្រង់ពីជគណិត</strong></td>
+                <td>$z = a + bi \quad (i^2 = -1)$</td>
               </tr>
               <tr>
-                <td>ទម្រង់ត្រីកោណមាត្រ</td>
+                <td><strong>ទម្រង់ត្រីកោណមាត្រ</strong></td>
                 <td>$z = r(\cos\theta + i\sin\theta)$</td>
               </tr>
               <tr>
-                <td>ទម្រង់អិចស្ប៉ូណង់ស្យែល</td>
+                <td><strong>ទម្រង់អិចស្ប៉ូណង់ស្យែល</strong></td>
                 <td>$z = re^{i\theta}$</td>
               </tr>
               <tr>
-                <td>ម៉ូឌុល</td>
+                <td><strong>ម៉ូឌុល</strong></td>
                 <td>$|z| = \sqrt{a^2 + b^2}$</td>
               </tr>
               <tr>
-                <td>ចំនួនឆ្លាស់</td>
+                <td><strong>ចំនួនឆ្លាស់</strong></td>
                 <td>$\bar{z} = a - bi$</td>
               </tr>
               <tr>
-                <td>De Moivre</td>
+                <td><strong>De Moivre</strong></td>
                 <td>$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$</td>
               </tr>
               <tr>
-                <td>ឫសទី $n$</td>
-                <td>$w_k = \sqrt[n]{r}\,\text{cis}\!\left(\frac{\theta+2k\pi}{n}\right)$</td>
+                <td><strong>ឫសទី $n$</strong></td>
+                <td>$w_k = \sqrt[n]{r} \left(\cos\frac{\theta+2k\pi}{n} + i\sin\frac{\theta+2k\pi}{n}\right)$</td>
               </tr>
             </tbody>
           </table>
@@ -559,7 +744,26 @@
     </div>
 
     <footer>
-      ចេះគឺជាប់ — StudyNest
+      ចេះគឺជាប់ &bull; StudyNest Educational Platform
     </footer>
+
+    <!-- Core Scripts -->
+    <script src="{{ asset('assets/main.js') }}"></script>
+    <script>
+      // Auth guard & background init
+      StudyNest.authGuard();
+      StudyNest.initBackground();
+
+      function toggleSolution(btn) {
+        const sol = btn.nextElementSibling;
+        if (sol.style.display === 'none' || !sol.style.display) {
+          sol.style.display = 'block';
+          btn.innerHTML = '<i class="fas fa-eye-slash"></i> លាក់ដំណោះស្រាយ';
+        } else {
+          sol.style.display = 'none';
+          btn.innerHTML = '<i class="fas fa-eye"></i> មើលឧទាហរណ៍លម្អិត';
+        }
+      }
+    </script>
   </body>
 </html>

@@ -150,6 +150,9 @@ Route::get('/grade12/{track}/{subject}/bacii/{exam}.php', function ($track, $sub
 })->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+']);
 
 
+Route::get('/viewer', [TrackController::class, 'documentViewer'])->name('document.viewer');
+
+
 // ==========================================
 // 6. DYNAMIC ROUTING FOR CLEAN PATHS
 // ==========================================
@@ -171,6 +174,21 @@ Route::prefix('grade12')->name('grade12.')->group(function () {
     
     Route::get('/{track}/{subject}/lesson/{path}', [TrackController::class, 'showLesson'])->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+', 'path' => '.*'])->name('subject.lesson');
     Route::get('/{track}/{subject}/exercise/{path}', [TrackController::class, 'showExercise'])->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+', 'path' => '.*'])->name('subject.exercise');
+    Route::get('/{track}/{subject}/prep', function($track, $subject) {
+        $viewName = "grade12.{$track}.{$subject}.prep.prep";
+        if (View::exists($viewName)) {
+            return view($viewName);
+        }
+        $filePath = resource_path("views/grade12/{$track}/{$subject}/prep/prep.blade.php");
+        if (file_exists($filePath)) {
+            return view()->file($filePath);
+        }
+        abort(404, "Prep page not found.");
+    })->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+'])->name('subject.prep');
+    Route::get('/{track}/{subject}/prep/{exam}', [TrackController::class, 'showExam'])->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+'])->name('subject.prepExam');
     Route::get('/{track}/{subject}/exams', [TrackController::class, 'showExams'])->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+'])->name('subject.exams');
+    Route::get('/{track}/{subject}/exams/biology_bacii_exams', function($track, $subject) {
+        return redirect("/grade12/{$track}/{$subject}/exams");
+    });
     Route::get('/{track}/{subject}/exams/{exam}', [TrackController::class, 'showExam'])->where(['track' => 'science|social', 'subject' => '^(?!(assets)$)[^/]+'])->name('subject.exam');
 });

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>វិញ្ញាសាជីវវិទ្យា ២០២១ - Photo View</title>
+    <title>វិញ្ញាសាជីវវិទ្យា ២០២៥ - Photo View</title>
     
     <!-- Fonts -->
     <link
@@ -257,12 +257,15 @@
     </style>
     <!-- Main JS -->
     <script src="{{ asset('assets/main.js') }}"></script>
+    </style>
+    <!-- Main JS -->
+    <script src="{{ asset('assets/main.js') }}"></script>
     <script>
       StudyNest.checkAccess(6);
     </script>
   </head>
   <body>
-    <a href="biology_bacii_exams" class="back-link">
+    <a href="/grade12/science/biology_g12/bacii/biology_bacii_exams" class="back-link">
       <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
     </a>
 
@@ -280,9 +283,11 @@
 
     <div class="split-container" id="splitWrapper">
     <!-- Exam "Photo" -->
-    <div id="exam-photo" class="photo-container split-panel">
-      <iframe class="pdf-view" src="/grade12/science/biology_g12/exams/2021/2021.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
-      <div class="caption">វិញ្ញាសាប្រឡងបាក់ឌុប ២០២១</div>
+    <div id="exam-photo" class="photo-container split-panel" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 50vh;">
+      <i class="fas fa-file-pdf" style="font-size: 48px; color: #cbd5e1; margin-bottom: 16px;"></i>
+      <div style="font-size: 18px; color: #64748b; font-weight: 700;">ឯកសារមិនទាន់មាននៅឡើយទេ</div>
+      <div style="font-size: 14px; color: #94a3b8; margin-top: 8px;">(PDF file missing: 2025.pdf)</div>
+      <div class="caption">វិញ្ញាសាប្រឡងបាក់ឌុប ២០២៥</div>
     </div>
 
     
@@ -291,9 +296,11 @@
       </div>
 
       <!-- Solution "Photo" (Hidden by default) -->
-      <div id="solution-photo" class="photo-container split-panel" style="display: none;">
-      <iframe class="pdf-view" src="/grade12/science/biology_g12/exams/2021/2021answer.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
-      <div class="caption">ដំណោះស្រាយលម្អិត ២០២១</div>
+      <div id="solution-photo" class="photo-container split-panel" style="display: none; flex-direction: column; align-items: center; justify-content: center; height: 50vh;">
+      <i class="fas fa-file-pdf" style="font-size: 48px; color: #cbd5e1; margin-bottom: 16px;"></i>
+      <div style="font-size: 18px; color: #64748b; font-weight: 700;">ឯកសារមិនទាន់មាននៅឡើយទេ</div>
+      <div style="font-size: 14px; color: #94a3b8; margin-top: 8px;">(PDF file missing: 2025answer.pdf)</div>
+      <div class="caption">ដំណោះស្រាយលម្អិត ២០២៥</div>
     </div>
 
     </div>

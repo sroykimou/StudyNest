@@ -535,40 +535,6 @@
         </a>
       </div>
 
-      <!-- Exercises -->
-      <div class="chapter-card">
-        <div class="chapter-title">
-          <i class="fas fa-square-root-alt"></i>
-          រូបមន្ត​ និងលំហាត់
-        </div>
-
-        <a href="exercise/biology_home" class="lesson-link">
-          <div class="lesson-icon"><i class="fas fa-square-root-alt"></i></div>
-          <div>
-            <div class="lesson-name">រូបមន្ត និងលំហាត់</div>
-            <div class="lesson-meta">រូបមន្តសំខាន់ៗ និងលំហាត់អនុវត្ត</div>
-          </div>
-          <i class="fas fa-chevron-right chevron"></i>
-        </a>
-
-        <a href="exercise/dna_exercises" class="lesson-link">
-          <div class="lesson-icon"><i class="fas fa-file-signature"></i></div>
-          <div>
-            <div class="lesson-name">លំហាត់ ADN</div>
-            <div class="lesson-meta">លំហាត់សំខាន់ៗក្នុងជីវវិទ្យា</div>
-          </div>
-          <i class="fas fa-chevron-right chevron"></i>
-        </a>
-
-        <a href="exercise/rna_exercises" class="lesson-link">
-          <div class="lesson-icon"><i class="fas fa-file-signature"></i></div>
-          <div>
-            <div class="lesson-name">លំហាត់ ARNm</div>
-            <div class="lesson-meta">លំហាត់សំខាន់ៗក្នុងជីវវិទ្យា</div>
-          </div>
-          <i class="fas fa-chevron-right chevron"></i>
-        </a>
-      </div>
     </div>
     <script src="{{ asset('assets/main.js') }}"></script>
     <script>

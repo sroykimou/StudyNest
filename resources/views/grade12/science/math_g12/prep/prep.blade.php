@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>វិញ្ញាសាប្រឡងបាក់ឌុប ជីវវិទ្យា | StudyNest</title>
+    <title>វិញ្ញាសារត្រៀមប្រឡង គណិតវិទ្យា | StudyNest</title>
     <meta
       name="description"
-      content="បណ្តុំវិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (បាក់ឌុប) មុខវិជ្ជាជីវវិទ្យា"
+      content="បណ្តុំវិញ្ញាសារត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ មុខវិជ្ជាគណិតវិទ្យា"
     />
 
     <!-- Fonts -->
@@ -30,7 +30,7 @@
         --ink-gray: #475569;
         --royal-blue: #1e3a8a;
         --royal-blue-light: #eff6ff;
-        --accent: #10b981;
+        --accent: #8b5cf6;
         --border-color: #e2e8f0;
       }
 
@@ -124,7 +124,7 @@
         color: var(--ink-gray);
       }
 
-      /* List view of years */
+      /* List view */
       .exam-list-container {
         display: flex;
         flex-direction: column;
@@ -245,197 +245,243 @@
     <div class="container">
       <!-- Navigation Action Bar -->
       <div class="action-bar card">
-        <a href="biology_g12">
+        <a href="/grade12/science/math_g12/">
           <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយ
         </a>
-        <div class="subject-badge">ជីវវិទ្យា &bull; ថ្នាក់ទី១២</div>
+        <div class="subject-badge">គណិតវិទ្យា &bull; ថ្នាក់ទី១២</div>
       </div>
 
       <!-- Main Content Card -->
       <div class="content-card card">
         <!-- Directory Title Block -->
         <div class="exam-title-block">
-          <h1>វិញ្ញាសាប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតយភូមិ (BAC II)</h1>
+          <h1>វិញ្ញាសារត្រៀមប្រឡង (Exam Preparation)</h1>
+          <p>បណ្តុំវិញ្ញាសាសម្រាប់ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</p>
         </div>
 
         <!-- List of Exams -->
         <div class="exam-list-container">
-          <!-- 2025 -->
+          <!-- Kanit 1 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០២៥</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០១</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2025" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-1" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2024 -->
+          <!-- Kanit 2 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០២៤</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០២</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2024" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-2" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2023 -->
+          <!-- Kanit 3 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០២៣</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៣</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2023" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-3" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2022 -->
+          <!-- Kanit 4 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០២២</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៤</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2022" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-4" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2021 -->
+          <!-- Kanit 5 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០២១</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៥</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2021" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-5" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2019 -->
+          <!-- Kanit 6 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៩</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៦</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2019" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-6" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2018 -->
+          <!-- Kanit 7 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៨</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៧</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2018" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-7" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2017 -->
+          <!-- Kanit 8 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៧</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៨</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2017" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-8" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2016 -->
+          <!-- Kanit 9 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៦</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ០៩</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2016" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-9" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2015 -->
+          <!-- Kanit 10 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៥</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ១០</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2015" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-10" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2014.2 -->
+          <!-- Kanit 11 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៤ (លើកទី២)</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ១១</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2014.2" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-11" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
 
-          <!-- 2014.1 -->
+          <!-- Kanit 12 -->
           <div class="exam-row">
             <div class="exam-info">
               <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
               <div class="exam-meta">
-                <h3>វិញ្ញាសាប្រឡងបាក់ឌុបឆ្នាំ ២០១៤ (លើកទី១)</h3>
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ១២</h3>
               </div>
             </div>
             <div class="btn-group">
-              <a href="/grade12/science/biology_g12/exams/2014.1" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i>
+              <a href="/grade12/science/math_g12/exams/kanit-12" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
+              </a>
+            </div>
+          </div>
+
+          <!-- Kanit 13 -->
+          <div class="exam-row">
+            <div class="exam-info">
+              <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
+              <div class="exam-meta">
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ១៣</h3>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a href="/grade12/science/math_g12/exams/kanit-13" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
+              </a>
+            </div>
+          </div>
+
+          <!-- Kanit 14 -->
+          <div class="exam-row">
+            <div class="exam-info">
+              <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
+              <div class="exam-meta">
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ១៤</h3>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a href="/grade12/science/math_g12/exams/kanit-14" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
+              </a>
+            </div>
+          </div>
+
+          <!-- Kanit 15 -->
+          <div class="exam-row">
+            <div class="exam-info">
+              <div class="exam-icon"><i class="fas fa-file-signature"></i></div>
+              <div class="exam-meta">
+                <h3>វិញ្ញាសារត្រៀមប្រឡងទី ១៥</h3>
+              </div>
+            </div>
+            <div class="btn-group">
+              <a href="/grade12/science/math_g12/exams/kanit-15" class="btn btn-primary">
+                <i class="fas fa-eye"></i> មើលវិញ្ញាសា
               </a>
             </div>
           </div>
@@ -447,13 +493,10 @@
     <script src="{{ asset('assets/main.js') }}"></script>
     <script>
       // Protect page
-      StudyNest.checkAccess(6);
+      StudyNest.authGuard();
 
       // Initialize background
       StudyNest.initBackground();
     </script>
   </body>
 </html>
-
-
-

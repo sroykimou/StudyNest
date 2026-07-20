@@ -46,22 +46,6 @@
                 </div>
             </div>
 
-            <div class="input-group anim-5">
-                <label for="email">អ៊ីមែល (Email)</label>
-                <div class="input-wrap">
-                    <i class="fas fa-envelope icon"></i>
-                    <input type="email" id="email" placeholder="example@gmail.com" required autocomplete="email">
-                </div>
-            </div>
-
-            <div class="input-group anim-5">
-                <label for="phone">លេខទូរស័ព្ទ (Phone Number)</label>
-                <div class="input-wrap">
-                    <i class="fas fa-phone icon"></i>
-                    <input type="tel" id="phone" placeholder="012345678" required autocomplete="tel">
-                </div>
-            </div>
-
             <div class="input-group anim-6">
                 <label for="branchSelect">ថ្នាក់ទី ១២ (ជំនាញ)</label>
                 <div class="input-wrap">
@@ -122,8 +106,6 @@
             e.preventDefault();
 
             const user = document.getElementById("username").value.trim();
-            const email = document.getElementById("email").value.trim().toLowerCase();
-            const phone = document.getElementById("phone").value.trim();
             const pass = document.getElementById("password").value;
             const conf = document.getElementById("confirmPassword").value;
             const branch = document.getElementById("branchSelect").value;
@@ -134,30 +116,6 @@
                 showToast("ឈ្មោះនេះមានគេប្រើរួចហើយ!", "error");
                 return;
             }
-
-            // Check for duplicate email or phone number
-            let duplicateFound = false;
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                if (key.startsWith("user_")) {
-                    try {
-                        const existingUserData = JSON.parse(localStorage.getItem(key));
-                        if (existingUserData.email && existingUserData.email.toLowerCase() === email) {
-                            showToast("អ៊ីមែលនេះមានគេប្រើរួចហើយ! (Email already in use)", "error");
-                            duplicateFound = true;
-                            break;
-                        }
-                        if (existingUserData.phone && existingUserData.phone === phone) {
-                            showToast("លេខទូរស័ព្ទនេះមានគេប្រើរួចហើយ! (Phone number already in use)", "error");
-                            duplicateFound = true;
-                            break;
-                        }
-                    } catch (err) {
-                        console.error("Error reading stored user:", err);
-                    }
-                }
-            }
-            if (duplicateFound) return;
 
             if (pass.length < 6) {
                 showToast("លេខសម្ងាត់យ៉ាងហោច ៦ ខ្ទង់", "error");
@@ -180,13 +138,31 @@
 
             setTimeout(async () => {
                 const hashedPassword = await hashPassword(pass);
+
+                // Generate next student_id (zero-padded 5 digits)
+                let maxId = 0;
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.startsWith("user_")) {
+                        try {
+                            const d = JSON.parse(localStorage.getItem(key));
+                            if (d.student_id) {
+                                const num = parseInt(d.student_id, 10);
+                                if (num > maxId) maxId = num;
+                            }
+                        } catch(e) {}
+                    }
+                }
+                const studentId = String(maxId + 1).padStart(5, "0");
+
                 const userData = { 
                     username: user, 
-                    email: email, 
-                    phone: phone, 
+                    email: "", 
+                    phone: "", 
                     password: hashedPassword, 
                     grade: grade, 
-                    branch: branch 
+                    branch: branch,
+                    student_id: studentId
                 };
                 localStorage.setItem("user_" + user, JSON.stringify(userData));
 

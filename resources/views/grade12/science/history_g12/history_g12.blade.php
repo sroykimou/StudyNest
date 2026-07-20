@@ -285,54 +285,7 @@
             </div>
         </div>
 
-        <!-- Chapter 1: ប្រវត្តិសាស្ត្រពិភពលោក -->
-        <div class="chapter-section">
-            <div class="chapter-title anim-3">
-                <i class="fas fa-globe-americas"></i>
-                <h2>ជំពូកទី ១៖ ប្រវត្តិសាស្ត្រពិភពលោក</h2>
-            </div>
-
-            <div class="lesson-card anim-4">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-university"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ១៖ សង្គ្រាមលោកលើកទី២ (1939-1945)</h3>
-                        <p>មូលហេតុ ព្រឹត្តិការណ៍សំខាន់ៗ និងផលវិបាក</p>
-                    </div>
-                </div>
-                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
-            </div>
-
-            <div class="lesson-card anim-5">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-snowflake"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ២៖ សង្គ្រាមត្រជាក់ (The Cold War)</h3>
-                        <p>ការប្រជែងមហាអំណាចរវាងសហរដ្ឋអាមេរិក និងសូវៀត</p>
-                    </div>
-                </div>
-                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
-            </div>
-        </div>
-
-        <!-- Chapter 3: កម្ពុជាក្រោយសម័យអាណានិគម -->
-        <div class="chapter-section">
-            <div class="chapter-title anim-4">
-                <i class="fas fa-landmark"></i>
-                <h2>ជំពូកទី ៣៖ កម្ពុជាក្រោយសម័យអាណានិគម</h2>
-            </div>
-
-            <div class="lesson-card anim-5">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-landmark"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ១៖ កម្ពុជាក្រោយឯករាជ្យ</h3>
-                        <p>សម័យសង្គមរាស្ត្រនិយម រហូតដល់បច្ចុប្បន្ន</p>
-                    </div>
-                </div>
-                <a href="#" class="start-btn disabled" onclick="alert('មេរៀននេះកំពុងរៀបចំ — Coming Soon!'); return false;">រង់ចាំ</a>
-            </div>
-        </div>
+        
 
     </div>
 

@@ -297,114 +297,6 @@
                 top: 16px;
             }
         }
-
-        body {
-            background: #eef4f7;
-            color: #1f2937;
-            overflow: auto;
-        }
-
-        .drops,
-        .particles,
-        .logo-wrap,
-        .login-tabs,
-        .forgot,
-        #otpLoginFields {
-            display: none !important;
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid rgba(15, 23, 42, 0.06);
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            animation: none;
-        }
-
-        .card::before {
-            display: none;
-        }
-
-        .brand {
-            color: #23272f;
-            font-family: "Poppins", sans-serif;
-            font-size: 27px;
-            line-height: 1.25;
-            letter-spacing: 0;
-            text-align: left;
-            margin-bottom: 8px;
-        }
-
-        .tagline {
-            color: #6b7280;
-            font-family: "Kantumruy Pro", "Poppins", sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            text-align: left;
-            margin-bottom: 34px;
-        }
-
-        .input-group {
-            margin-bottom: 14px;
-        }
-
-        .input-group label {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .input-wrap .icon,
-        .eye-toggle {
-            display: none;
-        }
-
-        .input-wrap input {
-            height: 62px;
-            padding: 0 34px !important;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            color: #2b2f36;
-            font-family: "Poppins", sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            box-shadow: none;
-        }
-
-        .input-wrap input::placeholder {
-            color: #6f737a;
-            font-weight: 500;
-        }
-
-        .input-wrap input:focus {
-            border-color: #80b7ff;
-            background: #fff;
-            box-shadow: 0 0 0 1px #80b7ff;
-        }
-
-        .divider {
-            margin: 42px 0 22px;
-            color: #5f6368;
-            font-family: "Poppins", sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .divider::before,
-        .divider::after {
-            background: #e5e7eb;
-        }
-
-        .social-login {
             display: flex;
             justify-content: center;
             margin-bottom: 44px;
@@ -533,16 +425,6 @@
         <h1 class="brand anim-2">Back to your digital life</h1>
         <p class="tagline anim-3">Choose one of the option to go</p>
 
-        <!-- Tab Switcher -->
-        <div class="login-tabs anim-3">
-            <button class="login-tab active" id="tabPassword" type="button">
-                <i class="fas fa-key"></i> លេខសម្ងាត់
-            </button>
-            <button class="login-tab" id="tabOtp" type="button">
-                <i class="fas fa-sms"></i> កូដ OTP
-            </button>
-        </div>
-
         <form id="loginForm">
             <!-- Password Login Fields -->
             <div id="passwordLoginFields">
@@ -577,30 +459,6 @@
                 </button>
             </div>
 
-            <!-- Removed mock social panels -->
-
-
-            <!-- OTP Login Fields -->
-            <div id="otpLoginFields" style="display: none;">
-                <div class="input-group anim-4">
-                    <label for="emailOrPhone">អ៊ីមែល ឬ លេខទូរស័ព្ទ</label>
-                    <div class="input-wrap otp-input-wrap">
-                        <i class="fas fa-envelope-open-text icon" id="otpContactIcon"></i>
-                        <input type="text" id="emailOrPhone" placeholder="example@gmail.com ឬ 012345678" autocomplete="email phone">
-                        <button type="button" class="get-code-btn" id="getCodeBtn">ទទួលបានកូដ</button>
-                    </div>
-                </div>
-
-                <div class="input-group anim-5" id="otpCodeGroup" style="display: none; height: 0; opacity: 0; overflow: hidden; transition: all 0.3s ease;">
-                    <label for="otpCode">លេខកូដ OTP (៦ ខ្ទង់)</label>
-                    <div class="input-wrap">
-                        <i class="fas fa-shield-alt icon"></i>
-                        <input type="text" id="otpCode" placeholder="បញ្ចូលលេខកូដទាំង ៦ ខ្ទង់..." maxlength="6" pattern="\d{6}">
-                    </div>
-                    <div class="countdown-text" id="countdownText" style="display: none;"></div>
-                </div>
-            </div>
-
             <button type="submit" class="sn-btn anim-7" id="loginBtn">
                 <span class="btn-text" id="loginBtnText">Log in</span>
                 <div class="btn-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>
@@ -613,23 +471,6 @@
     </main>
 
     <div id="toast" class="toast"></div>
-
-    <!-- Mock OTP Notification Popup -->
-    <div class="otp-notif" id="otpNotif">
-        <div class="otp-notif-header">
-            <div class="otp-notif-app">
-                <i class="fas fa-bell"></i>
-                <span>StudyNest Notification</span>
-            </div>
-            <span class="otp-notif-time">ឥឡូវនេះ (Now)</span>
-        </div>
-        <div class="otp-notif-body">
-            លេខកូដផ្ទៀងផ្ទាត់ StudyNest របស់អ្នកគឺ: <strong id="otpNotifVal">000000</strong>។ សូមកុំចែករំលែកលេខកូដនេះជាមួយនរណាម្នាក់ឡើយ។
-            <br>
-            <span style="font-size: 11px; opacity: 0.7;">(Your StudyNest verification code is: <strong id="otpNotifValEn">000000</strong>. Do not share this.)</span>
-        </div>
-        <div class="otp-notif-progress"><div class="otp-notif-progress-bar" id="otpProgressBar"></div></div>
-    </div>
 
     <script src="{{ asset('assets/main.js') }}"></script>
     <script>
@@ -647,174 +488,6 @@
                 togglePassword.classList.toggle('fa-eye-slash');
             });
         }
-
-        // Login Tabs Switching Logic
-        const tabPassword = document.getElementById("tabPassword");
-        const tabOtp = document.getElementById("tabOtp");
-        const passwordLoginFields = document.getElementById("passwordLoginFields");
-        const otpLoginFields = document.getElementById("otpLoginFields");
-        
-        const usernameInput = document.getElementById("username");
-        const emailOrPhoneInput = document.getElementById("emailOrPhone");
-        const otpCodeInput = document.getElementById("otpCode");
-        const loginBtnText = document.getElementById("loginBtnText");
-
-        let currentMode = "password"; // 'password' or 'otp'
-        let resolvedUsername = null;
-        let generatedOtp = null;
-        let countdownInterval = null;
-
-        tabPassword.addEventListener("click", () => {
-            currentMode = "password";
-            tabPassword.classList.add("active");
-            tabOtp.classList.remove("active");
-            passwordLoginFields.style.display = "block";
-            otpLoginFields.style.display = "none";
-            
-            // Manage required attributes
-            usernameInput.required = true;
-            passwordInput.required = true;
-            emailOrPhoneInput.required = false;
-            otpCodeInput.required = false;
-            
-            loginBtnText.textContent = "ចូលប្រើប្រាស់";
-        });
-
-        tabOtp.addEventListener("click", () => {
-            currentMode = "otp";
-            tabOtp.classList.add("active");
-            tabPassword.classList.remove("active");
-            passwordLoginFields.style.display = "none";
-            otpLoginFields.style.display = "block";
-            
-            // Manage required attributes
-            usernameInput.required = false;
-            passwordInput.required = false;
-            emailOrPhoneInput.required = true;
-            // OTP code is only required if it's visible
-            otpCodeInput.required = otpCodeInput.offsetParent !== null;
-            
-            loginBtnText.textContent = "ចូលប្រើប្រាស់";
-        });
-
-        // Dynamic Icon on Email/Phone input
-        const otpContactIcon = document.getElementById("otpContactIcon");
-        emailOrPhoneInput.addEventListener("input", (e) => {
-            const val = e.target.value.trim();
-            if (!val) {
-                otpContactIcon.className = "fas fa-envelope-open-text icon";
-            } else if (/^\+?[0-9\s\-]{3,15}$/.test(val)) {
-                // Looks like a phone number
-                otpContactIcon.className = "fas fa-phone icon";
-            } else if (val.includes("@")) {
-                // Looks like an email
-                otpContactIcon.className = "fas fa-envelope icon";
-            } else {
-                otpContactIcon.className = "fas fa-envelope-open-text icon";
-            }
-        });
-
-        // Helper to lookup user by email or phone
-        function findUserByContact(contact) {
-            const cleanContact = contact.trim().toLowerCase();
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                if (key.startsWith("user_")) {
-                    try {
-                        const userData = JSON.parse(localStorage.getItem(key));
-                        const email = (userData.email || "").toLowerCase();
-                        const phone = userData.phone || "";
-                        if (email === cleanContact || phone === cleanContact) {
-                            return userData;
-                        }
-                    } catch (e) {
-                        console.error("Error parsing user data:", e);
-                    }
-                }
-            }
-            return null;
-        }
-
-        // OTP Timer and Generation
-        const getCodeBtn = document.getElementById("getCodeBtn");
-        const otpCodeGroup = document.getElementById("otpCodeGroup");
-        const countdownText = document.getElementById("countdownText");
-        const otpNotif = document.getElementById("otpNotif");
-        const otpNotifVal = document.getElementById("otpNotifVal");
-        const otpNotifValEn = document.getElementById("otpNotifValEn");
-        const otpProgressBar = document.getElementById("otpProgressBar");
-
-        let timerTimeout = null;
-
-        getCodeBtn.addEventListener("click", () => {
-            const contactVal = emailOrPhoneInput.value.trim();
-            if (!contactVal) {
-                showToast("សូមបញ្ចូលអ៊ីមែល ឬលេខទូរស័ព្ទ! (Please enter email or phone)", "error");
-                return;
-            }
-
-            const userData = findUserByContact(contactVal);
-            if (!userData) {
-                showToast("គណនីនេះមិនទាន់ចុះឈ្មោះទេ! (Account not registered)", "error");
-                return;
-            }
-
-            resolvedUsername = userData.username;
-            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-
-            // Trigger premium glassmorphic notification banner
-            otpNotifVal.textContent = generatedOtp;
-            otpNotifValEn.textContent = generatedOtp;
-            
-            // Reset transition for progress bar
-            otpProgressBar.style.transition = 'none';
-            otpProgressBar.style.width = '100%';
-            
-            // Force reflow
-            void otpProgressBar.offsetWidth;
-            
-            // Start shrinking progress bar over 8s
-            otpProgressBar.style.transition = 'width 8s linear';
-            otpProgressBar.style.width = '0%';
-
-            otpNotif.classList.add("show");
-            if (timerTimeout) clearTimeout(timerTimeout);
-            timerTimeout = setTimeout(() => {
-                otpNotif.classList.remove("show");
-            }, 8000);
-
-            // Display OTP input block with sliding style
-            otpCodeGroup.style.display = "block";
-            // Animate block opening
-            setTimeout(() => {
-                otpCodeGroup.style.height = "auto";
-                otpCodeGroup.style.opacity = "1";
-            }, 10);
-            
-            otpCodeInput.required = true;
-            otpCodeInput.focus();
-
-            // Start 60s cooldown
-            let timeLeft = 60;
-            getCodeBtn.disabled = true;
-            countdownText.style.display = "block";
-            countdownText.textContent = `ផ្ញើម្ដងទៀតក្នុងរយៈពេល ${timeLeft}វិនាទី (Resend in ${timeLeft}s)`;
-
-            if (countdownInterval) clearInterval(countdownInterval);
-            countdownInterval = setInterval(() => {
-                timeLeft--;
-                if (timeLeft <= 0) {
-                    clearInterval(countdownInterval);
-                    getCodeBtn.disabled = false;
-                    countdownText.style.display = "none";
-                    getCodeBtn.textContent = "ទទួលបានកូដ";
-                } else {
-                    countdownText.textContent = `ផ្ញើម្ដងទៀតក្នុងរយៈពេល ${timeLeft}វិនាទី (Resend in ${timeLeft}s)`;
-                }
-            }, 1000);
-
-            showToast("លេខកូដ OTP ត្រូវបានផ្ញើ! (OTP Code Sent)", "success");
-        });
 
         // Form Submit Handler
         const loginForm = document.getElementById("loginForm");
@@ -857,23 +530,6 @@
             localStorage.setItem(storageKey, JSON.stringify(userData));
             localStorage.setItem("userLevel_" + username, "6");
             return userData;
-        }
-
-        function showVerificationNotification(code) {
-            otpNotifVal.textContent = code;
-            otpNotifValEn.textContent = code;
-
-            otpProgressBar.style.transition = "none";
-            otpProgressBar.style.width = "100%";
-            void otpProgressBar.offsetWidth;
-            otpProgressBar.style.transition = "width 8s linear";
-            otpProgressBar.style.width = "0%";
-
-            otpNotif.classList.add("show");
-            if (timerTimeout) clearTimeout(timerTimeout);
-            timerTimeout = setTimeout(() => {
-                otpNotif.classList.remove("show");
-            }, 8000);
         }
 
         const socialCodePanel = document.getElementById("socialCodePanel");
@@ -920,7 +576,7 @@
                 showToast(`ស្វាគមន៍ ${googleUser.name}! ចូលប្រើប្រាស់ជោគជ័យ។`, "success");
 
                 setTimeout(() => {
-                    window.location.href = '../grade12/science/science_home';
+                    window.location.href = '/grade12/science';
                 }, 1000);
 
             } catch (error) {
@@ -969,7 +625,7 @@
                 const enteredCode = socialCodeInput.value.trim();
 
                 if (!pendingSocialUser || !socialVerificationCode) {
-                    showToast("សូមជ្រើសរើស Google ឬ Facebook ជាមុនសិន", "error");
+                    showToast("សូមជ្រើសរើស Google ឬ Facebook ជាមុសិន", "error");
                     return;
                 }
 
@@ -985,7 +641,7 @@
                 setTimeout(() => {
                     const branch = pendingSocialUser.branch || "science";
                     const grade = pendingSocialUser.grade || "12";
-                    window.location.href = `../grade${grade}/${branch}/${branch}_home.php`;
+                    window.location.href = `/grade${grade}/${branch}`;
                 }, 800);
             });
 
@@ -1003,96 +659,71 @@
             btn.classList.add("loading");
 
             setTimeout(async () => {
-                if (currentMode === "otp") {
-                    const enteredOtp = otpCodeInput.value.trim();
-                    if (!generatedOtp || enteredOtp !== generatedOtp) {
-                        showToast("លេខកូដ OTP មិនត្រឹមត្រូវ! (Invalid OTP)", "error");
-                        btn.classList.remove("loading");
-                        return;
+                // Password Login flow
+                const user = document.getElementById("username").value.trim();
+                const pass = document.getElementById("password").value;
+
+                // Utility for hashing
+                async function hashPass(p) {
+                    const encoder = new TextEncoder();
+                    const data = encoder.encode(p);
+                    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+                    const hashArray = Array.from(new Uint8Array(hashBuffer));
+                    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+                }
+
+                // Admin login check
+                async function tryAdminLogin(u, p) {
+                    try {
+                        const hashHex = await hashPass(p);
+                        const ADMIN_HASH = "23c1a538db5b9fe80121f748954f875d5ea1b1314af33864a26aefe3e1775d20";
+                        if (u === "sroykimou" && hashHex === ADMIN_HASH) {
+                            showToast("Admin Login Successful!", "success");
+                            localStorage.setItem("currentUserName", u);
+                            localStorage.setItem("isAdmin", "true");
+                            setTimeout(() => { window.location.href = '/grade12/admin'; }, 1000);
+                            return true;
+                        }
+                    } catch (err) {
+                        console.warn("Admin login check skipped (crypto API not available or error):", err);
+                    }
+                    return false;
+                }
+
+                const wasAdmin = await tryAdminLogin(user, pass);
+                if (wasAdmin) return;
+
+                const storedData = localStorage.getItem("user_" + user);
+
+                if (!storedData) {
+                    showToast("រកមិនឃើញគណនីនេះទេ!", "error");
+                    btn.classList.remove("loading");
+                    return;
+                }
+
+                const userData = JSON.parse(storedData);
+                const hashedInput = await hashPass(pass);
+
+                if (userData.password === hashedInput || userData.password === pass) {
+                    if (userData.password === pass) {
+                        userData.password = hashedInput;
+                        localStorage.setItem("user_" + user, JSON.stringify(userData));
                     }
 
-                    // OTP Verified! Log user in
-                    const userData = JSON.parse(localStorage.getItem("user_" + resolvedUsername));
-                    
-                    showToast("ចូលប្រើប្រាស់ជោគជ័យ! (Login Successful)", "success");
-                    localStorage.setItem("currentUserName", resolvedUsername);
-                    if (!localStorage.getItem("userLevel_" + resolvedUsername)) {
-                        localStorage.setItem("userLevel_" + resolvedUsername, "6");
+                    showToast("ចូលប្រើប្រាស់ជោគជ័យ!", "success");
+                    localStorage.setItem("currentUserName", user);
+                    if (!localStorage.getItem("userLevel_" + user)) {
+                        localStorage.setItem("userLevel_" + user, "6");
                     }
 
                     setTimeout(() => {
                         const branch = userData.branch || "science";
                         const grade = userData.grade || "12";
-                        window.location.href = `../grade${grade}/${branch}/${branch}_home.php`;
+                        window.location.href = `/grade${grade}/${branch}`;
                     }, 1000);
-
                 } else {
-                    // Password Login flow
-                    const user = document.getElementById("username").value.trim();
-                    const pass = document.getElementById("password").value;
-
-                    // Utility for hashing
-                    async function hashPass(p) {
-                        const encoder = new TextEncoder();
-                        const data = encoder.encode(p);
-                        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-                        const hashArray = Array.from(new Uint8Array(hashBuffer));
-                        return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-                    }
-
-                    // Admin login check
-                    async function tryAdminLogin(u, p) {
-                        try {
-                            const hashHex = await hashPass(p);
-                            const ADMIN_HASH = "23c1a538db5b9fe80121f748954f875d5ea1b1314af33864a26aefe3e1775d20";
-                            if (u === "sroykimou" && hashHex === ADMIN_HASH) {
-                                showToast("Admin Login Successful!", "success");
-                                localStorage.setItem("currentUserName", u);
-                                localStorage.setItem("isAdmin", "true");
-                                setTimeout(() => { window.location.href = '../grade12/admin_panel'; }, 1000);
-                                return true;
-                            }
-                        } catch (err) {
-                            console.warn("Admin login check skipped (crypto API not available or error):", err);
-                        }
-                        return false;
-                    }
-
-                    const wasAdmin = await tryAdminLogin(user, pass);
-                    if (wasAdmin) return;
-
-                    const storedData = localStorage.getItem("user_" + user);
-
-                    if (!storedData) {
-                        showToast("រកមិនឃើញគណនីនេះទេ!", "error");
-                        btn.classList.remove("loading");
-                        return;
-                    }
-
-                    const userData = JSON.parse(storedData);
-                    const hashedInput = await hashPass(pass);
-
-                    if (userData.password === hashedInput || userData.password === pass) {
-                        if (userData.password === pass) {
-                            userData.password = hashedInput;
-                            localStorage.setItem("user_" + user, JSON.stringify(userData));
-                        }
-
-                        showToast("ចូលប្រើប្រាស់ជោគជ័យ!", "success");
-                        localStorage.setItem("currentUserName", user);
-                        if (!localStorage.getItem("userLevel_" + user)) {
-                            localStorage.setItem("userLevel_" + user, "6");
-                        }
-
-                        setTimeout(() => {
-                            const branch = userData.branch || "science";
-                            const grade = userData.grade || "12";
-                            window.location.href = `../grade${grade}/${branch}/${branch}_home.php`;
-                        }, 1000);
-                    } else {
-                        showToast("លេខសម្ងាត់មិនត្រឹមត្រូវ!", "error");
-                        btn.classList.remove("loading");
-                    }
+                    showToast("លេខសម្ងាត់មិនត្រឹមត្រូវ!", "error");
+                    btn.classList.remove("loading");
                 }
             }, 1200);
         });

@@ -140,8 +140,15 @@
                     <span><i class="fas fa-edit" style="margin-right: 12px; color: var(--accent);"></i> លំហាត់</span>
                     <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
                 </button>
+                <!-- Bacii Button Unlocked -->
                 <button class="option-btn-modal" id="btn-bacii-unlocked" onclick="goToContent('bacii')" style="display: none;">
                     <span><i class="fas fa-graduation-cap" style="margin-right: 12px; color: var(--accent);"></i> វិញ្ញាសាបាក់ឌុប</span>
+                    <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
+                </button>
+
+                <!-- Prep Exam Button Unlocked -->
+                <button class="option-btn-modal" id="btn-prep-unlocked" onclick="goToContent('prep')">
+                    <span><i class="fas fa-file-signature" style="margin-right: 12px; color: var(--accent);"></i> វិញ្ញាសារត្រៀមប្រឡង</span>
                     <i class="fas fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
                 </button>
             </div>
@@ -191,12 +198,16 @@
         // Initialize background
         StudyNest.initBackground();
 
-        const currentUser = StudyNest.getUser();
+        const currentUser = StudyNest.getUser() || "{{ $user ? $user->username : '' }}";
+        if (currentUser && !StudyNest.getUser()) {
+            localStorage.setItem("currentUserName", currentUser);
+        }
+        
         let userLevel = StudyNest.getLevel();
         let currentSubjectPath = "";
 
-        document.getElementById("sidebarName").textContent = currentUser;
-        document.getElementById("welcomeText").textContent = `សួស្ដី, ${currentUser}! 👋`;
+        document.getElementById("sidebarName").textContent = currentUser || "Student";
+        document.getElementById("welcomeText").textContent = `សួស្ដី, ${currentUser || "សិស្ស"}! 👋`;
 
         function updateSidebarAvatar() {
             const savedImg = localStorage.getItem("profile_" + currentUser);
@@ -256,6 +267,8 @@
                 if (StudyNest.checkAccess(6)) {
                     alert("វិញ្ញាសាបាក់ឌុបសម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
                 }
+            } else if (type === "prep") {
+                alert("វិញ្ញាសារត្រៀមប្រឡងសម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
             }
         }
         function goToPay(level) { alert("គម្រោងទាំងអស់ឥឡូវនេះឥតគិតថ្លៃ!"); }

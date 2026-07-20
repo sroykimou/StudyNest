@@ -242,6 +242,14 @@
                 </div>
             </div>
 
+            <div class="info-row anim-2">
+                <div class="info-icon"><i class="fas fa-id-badge"></i></div>
+                <div class="info-content">
+                    <label>លេខសម្គាល់សិស្ស (Student ID)</label>
+                    <div id="uStudentId">00000</div>
+                </div>
+            </div>
+
             <div class="info-row anim-3">
                 <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
                 <div class="info-content">
@@ -291,7 +299,11 @@
         // Initialize background
         StudyNest.initBackground();
 
-        const user = StudyNest.getUser();
+        const user = StudyNest.getUser() || "{{ $user ? $user->username : '' }}";
+        if (user && !StudyNest.getUser()) {
+            localStorage.setItem("currentUserName", user);
+        }
+
         if (!user) {
             window.location.href = "/login";
         }
@@ -329,6 +341,19 @@
             }
             document.getElementById("uEmail").textContent = emailVal;
             document.getElementById("uPhone").textContent = phoneVal;
+
+            // Student ID
+            const studentIdEl = document.getElementById("uStudentId");
+            if (studentIdEl) {
+                let studentIdVal = "N/A";
+                if (userDataStr) {
+                    try {
+                        const ud = JSON.parse(userDataStr);
+                        if (ud.student_id) studentIdVal = ud.student_id;
+                    } catch(e) {}
+                }
+                studentIdEl.textContent = studentIdVal;
+            }
             
             // Plan Badge
             const levelBadge = document.getElementById("pLevel");

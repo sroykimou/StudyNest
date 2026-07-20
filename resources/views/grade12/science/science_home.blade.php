@@ -242,6 +242,23 @@
               style="font-size: 12px; color: var(--text-muted)"
             ></i>
           </button>
+
+          <!-- Prep Exam Button Unlocked -->
+          <button
+            class="option-btn-modal"
+            id="btn-prep-unlocked"
+            onclick="goToContent('prep')"
+          >
+            <span><i
+                class="fas fa-file-signature"
+                style="margin-right: 12px; color: var(--accent)"
+              ></i>
+              វិញ្ញាសារត្រៀមប្រឡង</span>
+            <i
+              class="fas fa-chevron-right"
+              style="font-size: 12px; color: var(--text-muted)"
+            ></i>
+          </button>
         </div>
 
         <div id="lockedSection">
@@ -366,13 +383,17 @@
       // Initialize background
       StudyNest.initBackground();
 
-      const currentUser = StudyNest.getUser();
+      const currentUser = StudyNest.getUser() || "{{ $user ? $user->username : '' }}";
+      if (currentUser && !StudyNest.getUser()) {
+          localStorage.setItem("currentUserName", currentUser);
+      }
+      
       let userLevel = StudyNest.getLevel();
       let currentSubjectPath = "";
 
-      document.getElementById("sidebarName").textContent = currentUser;
+      document.getElementById("sidebarName").textContent = currentUser || "Student";
       document.getElementById("welcomeText").textContent =
-        `សួស្ដី, ${currentUser}! 👋`;
+        `សួស្ដី, ${currentUser || "សិស្ស"}! 👋`;
 
       function updateSidebarAvatar() {
         const savedImg = localStorage.getItem("profile_" + currentUser);
@@ -482,6 +503,12 @@
             } else {
               alert("វិញ្ញាសាបាក់ឌុបសម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
             }
+          }
+        } else if (type === "prep") {
+          if (currentSubjectDir === "math_g12") {
+            window.location.href = `/grade12/science/math_g12/prep`;
+          } else {
+            alert("វិញ្ញាសារត្រៀមប្រឡងសម្រាប់មុខវិជ្ជានេះ នឹងមកដល់ឆាប់ៗនេះ!");
           }
         }
       }
