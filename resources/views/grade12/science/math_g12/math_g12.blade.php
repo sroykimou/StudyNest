@@ -18,7 +18,7 @@
         }
 
         body {
-            display: block;
+            display: block; /* Override center flex for list view */
             overflow-y: auto;
             padding: 40px 20px;
         }
@@ -72,30 +72,34 @@
             transform: translateX(-4px);
         }
 
-        .lessons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        .chapter-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
         }
 
         .lesson-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 30px;
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 20px;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            align-items: center;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .lesson-card:hover {
-            transform: translateY(-12px);
+            transform: translateY(-8px);
             border-color: var(--accent);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px var(--accent-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
             background: rgba(255, 255, 255, 0.12);
         }
 
@@ -103,54 +107,52 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 25px;
         }
 
         .icon-box {
-            width: 70px;
-            height: 70px;
-            min-width: 70px;
+            width: 64px;
+            height: 64px;
             background: var(--input-bg);
             border: 1px solid var(--input-border);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--accent);
             transition: 0.3s;
         }
 
         .lesson-card:hover .icon-box {
             background: var(--accent);
-            color: #0f172a;
+            color: white;
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
         .lesson-text h3 {
             color: white;
-            margin-bottom: 8px;
-            font-size: 18px;
-            line-height: 1.4;
+            margin-bottom: 6px;
+            font-size: 17px;
         }
 
         .lesson-text p {
-            font-size: 13.5px;
+            font-size: 13px;
             color: var(--text-muted);
-            line-height: 1.6;
+            max-width: 500px;
+            line-height: 1.5;
         }
 
         .start-btn {
             background: var(--accent);
             color: #0f172a;
-            padding: 14px 28px;
-            border-radius: 16px;
+            padding: 12px 24px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 15px;
-            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
             transition: 0.3s;
-            box-shadow: 0 8px 15px var(--accent-glow);
+            box-shadow: 0 4px 12px var(--accent-glow);
         }
 
         .start-btn:hover {
@@ -168,6 +170,9 @@
             .start-btn {
                 width: 100%;
                 text-align: center;
+            }
+            header h1 {
+                font-size: 26px;
             }
         }
     </style>
@@ -190,52 +195,57 @@
             <p class="anim-2">គោលដៅនិទ្ទេស A - Advanced Calculus & Algebra</p>
         </header>
 
-        <div class="lessons-grid">
-            <div class="lesson-card anim-3">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-infinity"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)</h3>
-                        <p>ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ និងស្វ័យគុណទី n។</p>
-                    </div>
-                </div>
-                <a href="lesson/chapter_1/complex_numbers" class="start-btn">ចូលរៀន</a>
-            </div>
-
-            <div class="lesson-card anim-4">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-arrows-to-dot"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ២៖ លីមីតនៃអនុគមន៍ (Limits)</h3>
-                        <p>និយមន័យ ប្រមាណវិធីលីមីត រាងមិនកំណត់ និងលីមីតនៅអនន្ត។</p>
-                    </div>
-                </div>
-                <a href="lesson/chapter_2/limits" class="start-btn">ចូលរៀន</a>
-            </div>
-
-            <div class="lesson-card anim-5">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-superscript"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ៣៖ ដេរីវេនៃអនុគមន៍ (Derivatives)</h3>
-                        <p>និយមន័យដេរីវេ រូបមន្តដេរីវេ និងការប្រើប្រាស់។</p>
-                    </div>
-                </div>
-                <a href="#" aria-disabled="true" onclick="return false;" class="start-btn">មិនទាន់មាន</a>
-            </div>
-
-            <div class="lesson-card anim-6">
-                <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
-                    <div class="lesson-text">
-                        <h3>មេរៀនទី ៤៖ ប្លង់សិក្សាអនុគមន៍ (Function Analysis)</h3>
-                        <p>ដែនកំណត់ អាសីមតូត ទិសដៅអថេរភាព និងការសង់ក្រាហ្វ។</p>
-                    </div>
-                </div>
-                <a href="#" aria-disabled="true" onclick="return false;" class="start-btn">មិនទាន់មាន</a>
-            </div>
+        <div class="chapter-title anim-3">
+            <i class="fas fa-square-root-variable"></i> ជំពូកទី ១៖ ពីជគណិត
         </div>
 
+        <div class="lesson-card anim-4">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-infinity"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ១៖ ចំនួនកុំផ្លិច (Complex Numbers)</h3>
+                    <p>ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ និងស្វ័យគុណទី n។</p>
+                </div>
+            </div>
+            <a href="lesson/chapter_1/complex_numbers" class="start-btn">ចូលរៀន</a>
+        </div>
+
+        <div class="chapter-title anim-5" style="margin-top: 40px">
+            <i class="fas fa-chart-area"></i> ជំពូកទី ២៖ អនុគមន៍ និងវិភាគ
+        </div>
+
+        <div class="lesson-card anim-6">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-arrows-to-dot"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ២៖ លីមីតនៃអនុគមន៍ (Limits)</h3>
+                    <p>និយមន័យ ប្រមាណវិធីលីមីត រាងមិនកំណត់ និងលីមីតនៅអនន្ត។</p>
+                </div>
+            </div>
+            <a href="lesson/chapter_2/limits" class="start-btn">ចូលរៀន</a>
+        </div>
+
+        <div class="lesson-card anim-7">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-superscript"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ៣៖ ដេរីវេនៃអនុគមន៍ (Derivatives)</h3>
+                    <p>និយមន័យដេរីវេ រូបមន្តដេរីវេ និងការប្រើប្រាស់។</p>
+                </div>
+            </div>
+            <a href="#" aria-disabled="true" onclick="return false;" class="start-btn" style="opacity: 0.5;">មិនទាន់មាន</a>
+        </div>
+
+        <div class="lesson-card anim-8">
+            <div class="lesson-info">
+                <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                <div class="lesson-text">
+                    <h3>មេរៀនទី ៤៖ ប្លង់សិក្សាអនុគមន៍ (Function Analysis)</h3>
+                    <p>ដែនកំណត់ អាសីមតូត ទិសដៅអថេរភាព និងការសង់ក្រាហ្វ។</p>
+                </div>
+            </div>
+            <a href="#" aria-disabled="true" onclick="return false;" class="start-btn" style="opacity: 0.5;">មិនទាន់មាន</a>
+        </div>
     </div>
 
     <script src="{{ asset('assets/main.js') }}"></script>
