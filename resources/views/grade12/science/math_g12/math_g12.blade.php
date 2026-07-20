@@ -199,30 +199,42 @@
                         <p>ទម្រង់ពីជគណិត ទម្រង់ត្រីកោណមាត្រ និងស្វ័យគុណទី n។</p>
                     </div>
                 </div>
-                <a href="#" aria-disabled="true" onclick="return false;" class="start-btn">មិនទាន់មាន</a>
+                <a href="lesson/chapter_1/complex_numbers" class="start-btn">ចូលរៀន</a>
             </div>
 
             <div class="lesson-card anim-4">
                 <div class="lesson-info">
-                    <div class="icon-box"><i class="fas fa-plus-minus"></i></div>
+                    <div class="icon-box"><i class="fas fa-arrows-to-dot"></i></div>
                     <div class="lesson-text">
-                        <h3>មេរៀនទី ២៖ អាំងតេក្រាល (Integrals)</h3>
-                        <p>ព្រីមីទីវ អាំងតេក្រាលមិនកំណត់ និងអាំងតេក្រាលកំណត់។</p>
+                        <h3>មេរៀនទី ២៖ លីមីតនៃអនុគមន៍ (Limits)</h3>
+                        <p>និយមន័យ ប្រមាណវិធីលីមីត រាងមិនកំណត់ និងលីមីតនៅអនន្ត។</p>
                     </div>
                 </div>
-                <a href="#" class="start-btn">ចូលរៀន</a>
+                <a href="lesson/chapter_2/limits" class="start-btn">ចូលរៀន</a>
             </div>
 
             <div class="lesson-card anim-5">
                 <div class="lesson-info">
                     <div class="icon-box"><i class="fas fa-superscript"></i></div>
                     <div class="lesson-text">
-                        <h3>មេរៀនទី ៣៖ សមីការឌីផេរ៉ង់ស្យែល</h3>
-                        <p>ដោះស្រាយសមីការលីនេអ៊ែរលំដាប់ទី១ និងលំដាប់ទី២</p>
-                        </div>
-                        </div>
-                        <a href="#" class="start-btn">ចូលរៀន</a>
-                        </div>        </div>
+                        <h3>មេរៀនទី ៣៖ ដេរីវេនៃអនុគមន៍ (Derivatives)</h3>
+                        <p>និយមន័យដេរីវេ រូបមន្តដេរីវេ និងការប្រើប្រាស់។</p>
+                    </div>
+                </div>
+                <a href="#" aria-disabled="true" onclick="return false;" class="start-btn">មិនទាន់មាន</a>
+            </div>
+
+            <div class="lesson-card anim-6">
+                <div class="lesson-info">
+                    <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                    <div class="lesson-text">
+                        <h3>មេរៀនទី ៤៖ ប្លង់សិក្សាអនុគមន៍ (Function Analysis)</h3>
+                        <p>ដែនកំណត់ អាសីមតូត ទិសដៅអថេរភាព និងការសង់ក្រាហ្វ។</p>
+                    </div>
+                </div>
+                <a href="#" aria-disabled="true" onclick="return false;" class="start-btn">មិនទាន់មាន</a>
+            </div>
+        </div>
 
         <!-- Exam Section -->
         <header class="anim" style="margin-top: 60px;">
@@ -245,7 +257,7 @@
                                     <h3 style="font-size: 15px;">វិញ្ញាសាទី ${khNum}</h3>
                                 </div>
                             </div>
-                            <a href="exams/kanit-${i}" class="start-btn" style="padding: 8px 16px; font-size: 12px;">មើលវិញ្ញាសា</a>
+                            <a href="/grade12/science/math_g12/exams/kanit-${i}" class="start-btn" style="padding: 8px 16px; font-size: 12px;">មើលវិញ្ញាសា</a>
                         </div>
                     `;
                 }
