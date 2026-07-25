@@ -216,7 +216,7 @@
       }
 
       /* Mobile Floating Toggle Button (Hidden on Desktop) */
-      .mobile-toggle-btn {
+      .mobile-header-toggle {
         display: none;
       }
 
@@ -398,7 +398,7 @@
     <!-- Header -->
     <header>
       <div class="header-left">
-        <a href="javascript:history.back()" class="back-btn" title="ត្រឡប់ក្រោយ (Back)">
+        <a href="javascript:history.back()" class="back-btn" title="ត្រឡប់ក្រោយ (Back)" aria-label="ត្រឡប់ក្រោយ (Go Back)">
           <i class="fas fa-arrow-left"></i>
         </a>
         <div class="doc-title" id="docTitle">{{ $title }}</div>
@@ -407,13 +407,13 @@
       <!-- Layout modes selector inside header (visible only if solution is provided) -->
       @if(!empty($solution))
       <div class="layout-modes-bar" id="layoutModesBar">
-        <button class="layout-btn active" id="btnExam" onclick="setLayoutMode('exam')">
+        <button class="layout-btn active" id="btnExam" onclick="setLayoutMode('exam')" aria-label="វិញ្ញាសា (Exam Mode)">
           <i class="fas fa-file-alt"></i> <span>វិញ្ញាសា (Exam)</span>
         </button>
-        <button class="layout-btn" id="btnSplit" onclick="setLayoutMode('split')">
+        <button class="layout-btn" id="btnSplit" onclick="setLayoutMode('split')" aria-label="ពុះអេក្រង់ (Split Screen Mode)">
           <i class="fas fa-columns"></i> <span>ពុះអេក្រង់</span>
         </button>
-        <button class="layout-btn" id="btnSolution" onclick="setLayoutMode('solution')">
+        <button class="layout-btn" id="btnSolution" onclick="setLayoutMode('solution')" aria-label="ចម្លើយ (Solution Mode)">
           <i class="fas fa-lightbulb"></i> <span>ចម្លើយ (Solution)</span>
         </button>
       </div>
@@ -421,11 +421,11 @@
 
       <div class="header-right">
         @if(!empty($solution))
-        <button class="icon-btn mobile-header-toggle" id="mobileHeaderToggle" onclick="toggleMobileView()" title="ប្តូរទៅចម្លើយ (Toggle Solution)">
+        <button class="icon-btn mobile-header-toggle" id="mobileHeaderToggle" onclick="toggleMobileView()" title="ប្តូរទៅចម្លើយ (Toggle Solution)" aria-label="ប្តូរទៅចម្លើយ (Toggle Solution Mode)">
           <i class="fas fa-lightbulb" style="color: #fbbf24;"></i>
         </button>
         @endif
-        <a href="{{ $file }}" download class="icon-btn" id="headerDownloadBtn" title="ទាញយកវិញ្ញាសា (Download Exam)">
+        <a href="{{ $file }}" download class="icon-btn" id="headerDownloadBtn" title="ទាញយកវិញ្ញាសា (Download Exam)" aria-label="ទាញយកវិញ្ញាសា (Download Exam Document)">
           <i class="fas fa-download"></i>
         </a>
       </div>
@@ -472,13 +472,13 @@
 
       <!-- Page Navigation overlay (centered bottom) -->
       <div class="navigation-bar" id="navigationBar" style="display: none;">
-        <button class="nav-btn" id="prevPageBtn" title="ទំព័រមុន">
+        <button class="nav-btn" id="prevPageBtn" title="ទំព័រមុន" aria-label="ទំព័រមុន (Previous Page)">
           <i class="fas fa-chevron-left"></i>
         </button>
         <span class="page-indicator">
           ទំព័រ <span id="pageNumDisplay">1</span> / <span id="pageCountDisplay">1</span>
         </span>
-        <button class="nav-btn" id="nextPageBtn" title="ទំព័របន្ទាប់">
+        <button class="nav-btn" id="nextPageBtn" title="ទំព័របន្ទាប់" aria-label="ទំព័របន្ទាប់ (Next Page)">
           <i class="fas fa-chevron-right"></i>
         </button>
       </div>
@@ -500,6 +500,8 @@
 
       let pageRenderingExam = false;
       let pageRenderingSol = false;
+      let pendingPageNumExam = null;
+      let pendingPageNumSol = null;
 
       let activeLayoutMode = 'exam'; // 'exam', 'split', 'solution'
       let scaleMode = 'page'; // 'page' or 'width'
@@ -569,7 +571,11 @@
 
       // Render Exam canvas
       function renderExamPage(num) {
-        if (!pdfDocExam || pageRenderingExam) return;
+        if (!pdfDocExam) return;
+        if (pageRenderingExam) {
+          pendingPageNumExam = num;
+          return;
+        }
         pageRenderingExam = true;
 
         pdfDocExam.getPage(num).then(page => {
@@ -606,13 +612,22 @@
 
           page.render(renderContext).promise.then(() => {
             pageRenderingExam = false;
+            if (pendingPageNumExam !== null) {
+              const nextNum = pendingPageNumExam;
+              pendingPageNumExam = null;
+              renderExamPage(nextNum);
+            }
           });
         });
       }
 
       // Render Solution canvas
       function renderSolPage(num) {
-        if (!pdfDocSol || !canvasSol || pageRenderingSol) return;
+        if (!pdfDocSol || !canvasSol) return;
+        if (pageRenderingSol) {
+          pendingPageNumSol = num;
+          return;
+        }
         pageRenderingSol = true;
 
         pdfDocSol.getPage(num).then(page => {
@@ -649,6 +664,11 @@
 
           page.render(renderContext).promise.then(() => {
             pageRenderingSol = false;
+            if (pendingPageNumSol !== null) {
+              const nextNum = pendingPageNumSol;
+              pendingPageNumSol = null;
+              renderSolPage(nextNum);
+            }
           });
         });
       }
@@ -861,8 +881,8 @@
         let scrollLeft, scrollTop;
 
         panel.addEventListener('mousedown', (e) => {
-          if (e.target === canvasExam || e.target === canvasSol) return;
           isDown = true;
+          e.preventDefault();
           startX = e.pageX - panel.offsetLeft;
           startY = e.pageY - panel.offsetTop;
           scrollLeft = panel.scrollLeft;

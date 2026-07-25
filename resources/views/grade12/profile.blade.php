@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile | StudyNest</title>
     <meta name="description" content="ប្រវត្តិរូបសិស្ស StudyNest — មើលវឌ្ឍនភាពសិក្សារបស់អ្នក">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -311,6 +312,11 @@
         const userLevel = StudyNest.getLevel();
 
         function goBack() {
+            const isAdmin = localStorage.getItem("isAdmin") === "true";
+            if (isAdmin) {
+                window.location.href = "/grade12/admin";
+                return;
+            }
             const userDataStr = localStorage.getItem("user_" + user);
             let branch = "science";
             if (userDataStr) {
@@ -319,7 +325,7 @@
                     branch = userData.branch || "science";
                 } catch(e) {}
             }
-            window.location.href = `${branch}/${branch}_home.php`;
+            window.location.href = `/grade12/${branch}`;
         }
 
         window.onload = function () {

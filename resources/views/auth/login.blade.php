@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | StudyNest</title>
     <meta name="description" content="ចូលប្រើប្រាស់គណនី StudyNest — វេទិកាសិក្សាសម្រាប់សិស្សានុសិស្សថ្នាក់ទី១២">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -297,6 +298,8 @@
                 top: 16px;
             }
         }
+
+        .social-login {
             display: flex;
             justify-content: center;
             margin-bottom: 44px;
@@ -432,7 +435,7 @@
                     <label for="username">Email or username</label>
                     <div class="input-wrap">
                         <i class="fas fa-user icon"></i>
-                        <input type="text" id="username" placeholder="Email or username" required autocomplete="username">
+                        <input type="text" id="username" name="username" placeholder="Email or username" required autocomplete="username">
                     </div>
                 </div>
 
@@ -440,7 +443,7 @@
                     <label for="password">Password</label>
                     <div class="input-wrap">
                         <i class="fas fa-lock icon"></i>
-                        <input type="password" id="password" placeholder="Password" required autocomplete="current-password">
+                        <input type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password">
                         <i class="far fa-eye eye-toggle" id="togglePassword"></i>
                     </div>
                 </div>
@@ -658,74 +661,59 @@
             const btn = document.getElementById("loginBtn");
             btn.classList.add("loading");
 
+            const user = document.getElementById("username").value.trim();
+            const pass = document.getElementById("password").value;
+
             setTimeout(async () => {
-                // Password Login flow
-                const user = document.getElementById("username").value.trim();
-                const pass = document.getElementById("password").value;
+                try {
+                    const response = await fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            username: user,
+                            password: pass
+                        })
+                    });
 
-                // Utility for hashing
-                async function hashPass(p) {
-                    const encoder = new TextEncoder();
-                    const data = encoder.encode(p);
-                    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-                    const hashArray = Array.from(new Uint8Array(hashBuffer));
-                    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-                }
-
-                // Admin login check
-                async function tryAdminLogin(u, p) {
-                    try {
-                        const hashHex = await hashPass(p);
-                        const ADMIN_HASH = "23c1a538db5b9fe80121f748954f875d5ea1b1314af33864a26aefe3e1775d20";
-                        if (u === "sroykimou" && hashHex === ADMIN_HASH) {
-                            showToast("Admin Login Successful!", "success");
-                            localStorage.setItem("currentUserName", u);
-                            localStorage.setItem("isAdmin", "true");
-                            setTimeout(() => { window.location.href = '/grade12/admin'; }, 1000);
-                            return true;
+                    if (response.ok) {
+                        const result = await response.json();
+                        
+                        showToast("ចូលប្រើប្រាស់ជោគជ័យ!", "success");
+                        
+                        // Set localStorage variables
+                        localStorage.setItem("currentUserName", user);
+                        if (!localStorage.getItem("userLevel_" + user)) {
+                            localStorage.setItem("userLevel_" + user, "6");
                         }
-                    } catch (err) {
-                        console.warn("Admin login check skipped (crypto API not available or error):", err);
+                        
+                        if (result.user && result.user.is_admin) {
+                            localStorage.setItem("isAdmin", "true");
+                            setTimeout(() => {
+                                window.location.href = '/grade12/admin';
+                            }, 1000);
+                        } else {
+                            const branch = (result.user && result.user.branch) ? result.user.branch : "science";
+                            const grade = (result.user && result.user.grade) ? result.user.grade : "12";
+                            setTimeout(() => {
+                                window.location.href = `/grade${grade}/${branch}`;
+                            }, 1000);
+                        }
+                    } else {
+                        const errData = await response.json();
+                        const errMsg = errData.message || "ឈ្មោះអ្នកប្រើប្រាស់ ឬលេខសម្ងាត់មិនត្រឹមត្រូវ។";
+                        showToast(errMsg, "error");
+                        btn.classList.remove("loading");
                     }
-                    return false;
-                }
-
-                const wasAdmin = await tryAdminLogin(user, pass);
-                if (wasAdmin) return;
-
-                const storedData = localStorage.getItem("user_" + user);
-
-                if (!storedData) {
-                    showToast("រកមិនឃើញគណនីនេះទេ!", "error");
-                    btn.classList.remove("loading");
-                    return;
-                }
-
-                const userData = JSON.parse(storedData);
-                const hashedInput = await hashPass(pass);
-
-                if (userData.password === hashedInput || userData.password === pass) {
-                    if (userData.password === pass) {
-                        userData.password = hashedInput;
-                        localStorage.setItem("user_" + user, JSON.stringify(userData));
-                    }
-
-                    showToast("ចូលប្រើប្រាស់ជោគជ័យ!", "success");
-                    localStorage.setItem("currentUserName", user);
-                    if (!localStorage.getItem("userLevel_" + user)) {
-                        localStorage.setItem("userLevel_" + user, "6");
-                    }
-
-                    setTimeout(() => {
-                        const branch = userData.branch || "science";
-                        const grade = userData.grade || "12";
-                        window.location.href = `/grade${grade}/${branch}`;
-                    }, 1000);
-                } else {
-                    showToast("លេខសម្ងាត់មិនត្រឹមត្រូវ!", "error");
+                } catch (err) {
+                    console.error("Login Fetch Error:", err);
+                    showToast("មានបញ្ហាក្នុងការភ្ជាប់ទៅកាន់ម៉ាស៊ីនបម្រើ!", "error");
                     btn.classList.remove("loading");
                 }
-            }, 1200);
+            }, 800);
         });
     </script>
 </body>

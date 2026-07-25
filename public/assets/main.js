@@ -55,16 +55,35 @@ const StudyNest = {
     // លុប Session ទិន្នន័យបច្ចុប្បន្ន
     localStorage.removeItem("currentUserName");
     localStorage.removeItem("userGrade");
+    localStorage.removeItem("isAdmin");
 
-    // បញ្ជូនត្រឡប់ទៅទំព័រដើម
-    window.location.href = this.getRoot() + "index.php";
+    // Clear completed lessons state
+    const user = this.getUser();
+    if (user) {
+      localStorage.removeItem("completed_lessons_" + user);
+    }
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute("content") || "";
+
+    // Sync with backend session logout
+    fetch("/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-CSRF-TOKEN": csrfToken
+      }
+    }).finally(() => {
+      // Send back to home page
+      window.location.href = "/";
+    });
   },
 
   // 4. មុខងារការពារទំព័រ (Auth Guard)
   // ប្រសិនបើមិនទាន់ Login ទេ វានឹងដេញទៅទំព័រ Login វិញ
   authGuard: function () {
     if (!this.getUser()) {
-      window.location.href = this.getRoot() + "auth/login.php";
+      window.location.href = "/login";
     }
   },
 

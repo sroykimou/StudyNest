@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Center | StudyNest</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -273,7 +274,7 @@
                     branch = userData.branch || "science";
                 } catch(e) {}
             }
-            window.location.href = `${branch}/${branch}_home.php`;
+            window.location.href = `/grade12/${branch}`;
         }
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -286,11 +287,11 @@
         if (reqLevel === "3") {
             planNameElem.textContent = "គម្រោងលំហាត់ (Exercise Plan)";
             planPriceElem.textContent = "$3.00";
-            qrImageElem.src = "../assets/images/qr_3usd.jpg";
+            qrImageElem.src = "/assets/images/qr_3usd.jpg";
         } else if (reqLevel === "6") {
             planNameElem.textContent = "គម្រោង Bacii (Bacii Plan)";
             planPriceElem.textContent = "$6.00";
-            qrImageElem.src = "../assets/images/qr_6usd.jpg";
+            qrImageElem.src = "/assets/images/qr_6usd.jpg";
         } else {
             goBack();
         }

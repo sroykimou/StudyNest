@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Science Dashboard | StudyNest</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta
       name="description"
       content="កម្រងមេរៀនវិទ្យាសាស្ត្រពិត ថ្នាក់ទី១២ — StudyNest"

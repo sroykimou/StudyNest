@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | StudyNest</title>
     <meta name="description" content="បង្កើតគណនីសិស្ស StudyNest — កៀច្ចូលសិក្សាថ្នាក់ទី១២">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -38,11 +39,29 @@
         <p class="promo-badge anim-3" style="color: var(--accent); font-size: 13px; font-weight: 700; background: rgba(245, 158, 11, 0.1); padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px;">🎁 កាដូពិសេស៖ ចុះឈ្មោះឥឡូវនេះ ទទួលបានគម្រោងទាំងអស់ដោយឥតគិតថ្លៃ!</p>
 
         <form id="registerForm">
+            <input type="hidden" id="grade" name="grade" value="12">
+
             <div class="input-group anim-4">
-                <label for="username">ឈ្មោះអ្នកប្រើប្រាស់</label>
+                <label for="username">ឈ្មោះអ្នកប្រើប្រាស់ (Username)</label>
                 <div class="input-wrap">
                     <i class="fas fa-user icon"></i>
-                    <input type="text" id="username" placeholder="ឈ្មោះរបស់អ្នក..." required autocomplete="username">
+                    <input type="text" id="username" name="username" placeholder="ឈ្មោះសម្រាប់ Login..." required autocomplete="username">
+                </div>
+            </div>
+
+            <div class="input-group anim-5">
+                <label for="name">ឈ្មោះពេញ (Full Name)</label>
+                <div class="input-wrap">
+                    <i class="fas fa-id-card icon"></i>
+                    <input type="text" id="name" name="name" placeholder="ឈ្មោះពេញរបស់អ្នក..." required autocomplete="name">
+                </div>
+            </div>
+
+            <div class="input-group anim-5_5">
+                <label for="email">អ៊ីមែល (Email)</label>
+                <div class="input-wrap">
+                    <i class="fas fa-envelope icon"></i>
+                    <input type="email" id="email" name="email" placeholder="អ៊ីមែលរបស់អ្នក..." required autocomplete="email">
                 </div>
             </div>
 
@@ -50,7 +69,7 @@
                 <label for="branchSelect">ថ្នាក់ទី ១២ (ជំនាញ)</label>
                 <div class="input-wrap">
                     <i class="fas fa-microscope icon"></i>
-                    <select id="branchSelect" required>
+                    <select id="branchSelect" name="branch" required>
                         <option value="" disabled selected>សូមជ្រើសរើស...</option>
                         <option value="science">វិទ្យាសាស្ត្រ (Science)</option>
                         <option value="social">វិទ្យាសាស្ត្រសង្គម (Social)</option>
@@ -60,10 +79,10 @@
             </div>
 
             <div class="input-group anim-7">
-                <label for="password">លេខសម្ងាត់</label>
+                <label for="password">លេខសម្ងាត់ (Password)</label>
                 <div class="input-wrap">
                     <i class="fas fa-lock icon"></i>
-                    <input type="password" id="password" placeholder="••••••••" required autocomplete="new-password">
+                    <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="new-password">
                 </div>
             </div>
 
@@ -106,16 +125,13 @@
             e.preventDefault();
 
             const user = document.getElementById("username").value.trim();
+            const fullName = document.getElementById("name").value.trim();
+            const emailAddress = document.getElementById("email").value.trim();
+            const branch = document.getElementById("branchSelect").value;
             const pass = document.getElementById("password").value;
             const conf = document.getElementById("confirmPassword").value;
-            const branch = document.getElementById("branchSelect").value;
-            const grade = "12"; // Default for now
+            const grade = "12";
             const btn = document.getElementById("regBtn");
-
-            if (localStorage.getItem("user_" + user)) {
-                showToast("ឈ្មោះនេះមានគេប្រើរួចហើយ!", "error");
-                return;
-            }
 
             if (pass.length < 6) {
                 showToast("លេខសម្ងាត់យ៉ាងហោច ៦ ខ្ទង់", "error");
@@ -128,58 +144,65 @@
 
             btn.classList.add("loading");
 
-            async function hashPassword(password) {
-                const encoder = new TextEncoder();
-                const data = encoder.encode(password);
-                const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-            }
-
             setTimeout(async () => {
-                const hashedPassword = await hashPassword(pass);
+                try {
+                    const response = await fetch('/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({
+                            username: user,
+                            name: fullName,
+                            email: emailAddress,
+                            password: pass,
+                            grade: grade,
+                            branch: branch
+                        })
+                    });
 
-                // Generate next student_id (zero-padded 5 digits)
-                let maxId = 0;
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (key.startsWith("user_")) {
-                        try {
-                            const d = JSON.parse(localStorage.getItem(key));
-                            if (d.student_id) {
-                                const num = parseInt(d.student_id, 10);
-                                if (num > maxId) maxId = num;
-                            }
-                        } catch(e) {}
+                    if (response.ok) {
+                        const result = await response.json();
+                        
+                        // Local storage session creation for simulation backward compatibility
+                        const tenYears = 10 * 365 * 24 * 60 * 60 * 1000;
+                        localStorage.setItem("currentUserName", user);
+                        localStorage.setItem("userGrade", grade);
+                        localStorage.setItem("userLevel_" + user, "6");
+                        localStorage.setItem("userLevelExpiry_" + user, (Date.now() + tenYears).toString());
+
+                        // Store simulated user data object
+                        const studentIdVal = result.user?.student_id || "00001";
+                        const userData = { 
+                            username: user, 
+                            email: emailAddress, 
+                            phone: "", 
+                            password: "", // do not store plain/hashed passwords in plain text locally
+                            grade: grade, 
+                            branch: branch,
+                            student_id: studentIdVal
+                        };
+                        localStorage.setItem("user_" + user, JSON.stringify(userData));
+
+                        showToast("ចុះឈ្មោះជោគជ័យ! 🎉", "success");
+
+                        setTimeout(() => {
+                            window.location.href = `/grade12/${branch}`;
+                        }, 1200);
+                    } else {
+                        const errData = await response.json();
+                        const errMsg = errData.message || "ឈ្មោះអ្នកប្រើប្រាស់ ឬ អ៊ីមែលនេះមានរួចហើយ!";
+                        showToast(errMsg, "error");
+                        btn.classList.remove("loading");
                     }
+                } catch (err) {
+                    console.error("Register Error:", err);
+                    showToast("មានបញ្ហាក្នុងការភ្ជាប់ទៅកាន់ម៉ាស៊ីនបម្រើ!", "error");
+                    btn.classList.remove("loading");
                 }
-                const studentId = String(maxId + 1).padStart(5, "0");
-
-                const userData = { 
-                    username: user, 
-                    email: "", 
-                    phone: "", 
-                    password: hashedPassword, 
-                    grade: grade, 
-                    branch: branch,
-                    student_id: studentId
-                };
-                localStorage.setItem("user_" + user, JSON.stringify(userData));
-
-                localStorage.setItem("currentUserName", user);
-                localStorage.setItem("userGrade", grade);
-                
-                // Promo: Give full access (Level 6) for free with 10 years expiry
-                const tenYears = 10 * 365 * 24 * 60 * 60 * 1000;
-                localStorage.setItem("userLevel_" + user, "6");
-                localStorage.setItem("userLevelExpiry_" + user, (Date.now() + tenYears).toString());
-
-                showToast("ចុះឈ្មោះជោគជ័យ! 🎉", "success");
-
-                setTimeout(() => {
-                    window.location.href = `../grade${grade}/${branch}/${branch}_home.php`;
-                }, 1200);
-            }, 1500);
+            }, 800);
         });
     </script>
 </body>
