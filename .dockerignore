@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.dockerignore
+.env
+.env.example
+.editorconfig
+/vendor
+.phpunit.result.cache
+storage/logs/*
+bootstrap/cache/*
+.DS_Store
+Thumbs.db
