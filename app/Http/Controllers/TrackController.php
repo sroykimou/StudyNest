@@ -52,12 +52,18 @@ class TrackController extends Controller
         }
 
         if (!$view) {
-            // Direct file resolution fallback
-            $filePath = resource_path("views/grade12/{$track}/{$subject}/lesson/{$decodedPath}.blade.php");
+            // Direct file resolution fallback (.html or .blade.php)
+            $filePath = resource_path("views/grade12/{$track}/{$subject}/lesson/{$decodedPath}.html");
+            if (!file_exists($filePath)) {
+                $filePath = resource_path("views/grade12/{$track}/{$subject}/lesson/{$decodedPath}.blade.php");
+            }
             if (file_exists($filePath)) {
                 $view = view()->file($filePath);
             } else {
-                $normalizedFilePath = resource_path("views/grade12/{$track}/{$subject}/lesson/" . str_replace(' ', '_', $decodedPath) . ".blade.php");
+                $normalizedFilePath = resource_path("views/grade12/{$track}/{$subject}/lesson/" . str_replace(' ', '_', $decodedPath) . ".html");
+                if (!file_exists($normalizedFilePath)) {
+                    $normalizedFilePath = resource_path("views/grade12/{$track}/{$subject}/lesson/" . str_replace(' ', '_', $decodedPath) . ".blade.php");
+                }
                 if (file_exists($normalizedFilePath)) {
                     $view = view()->file($normalizedFilePath);
                 }
@@ -97,12 +103,18 @@ class TrackController extends Controller
         }
 
         if (!$view) {
-            // Direct file resolution fallback
-            $filePath = resource_path("views/grade12/{$track}/{$subject}/exercise/{$decodedPath}.blade.php");
+            // Direct file resolution fallback (.html or .blade.php)
+            $filePath = resource_path("views/grade12/{$track}/{$subject}/exercise/{$decodedPath}.html");
+            if (!file_exists($filePath)) {
+                $filePath = resource_path("views/grade12/{$track}/{$subject}/exercise/{$decodedPath}.blade.php");
+            }
             if (file_exists($filePath)) {
                 $view = view()->file($filePath);
             } else {
-                $normalizedFilePath = resource_path("views/grade12/{$track}/{$subject}/exercise/" . str_replace(' ', '_', $decodedPath) . ".blade.php");
+                $normalizedFilePath = resource_path("views/grade12/{$track}/{$subject}/exercise/" . str_replace(' ', '_', $decodedPath) . ".html");
+                if (!file_exists($normalizedFilePath)) {
+                    $normalizedFilePath = resource_path("views/grade12/{$track}/{$subject}/exercise/" . str_replace(' ', '_', $decodedPath) . ".blade.php");
+                }
                 if (file_exists($normalizedFilePath)) {
                     $view = view()->file($normalizedFilePath);
                 }
